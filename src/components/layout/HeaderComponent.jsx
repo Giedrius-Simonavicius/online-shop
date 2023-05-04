@@ -1,19 +1,25 @@
-import '../../styles/App.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../icons/ant-design_facebook-filled.svg';
 import '../../icons/ant-design_instagram-filled.svg';
-
-function Header() {
+import '../../styles/style.css';
+import '../../styles/App.css';
+function HeaderComponent() {
   return (
-    <header className="bg[#020202]">
-      <p className="">
-        <span className="color-5">Mon-Thu:</span> 9:00 AM - 5:30 PM
+    <header className="bg-[#666666]">
+      <p>
+        <span
+          className="
+         text-blue-600"
+        >
+          Mon-Thu:
+        </span>{' '}
+        9:00 AM - 5:30 PM
       </p>
       <p>
         Visit our showroom in 1234 Street Adress City Address, 1234 Contact Us
       </p>
-      <div>
+      <div className="bg-black">
         <p>Call Us: (00) 1234 5678</p>
 
         <Link to="https://www.facebook.com/">
@@ -49,4 +55,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HeaderComponent;
