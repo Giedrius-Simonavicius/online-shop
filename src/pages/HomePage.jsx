@@ -10,7 +10,7 @@ function HomePage() {
       </h1>
       <h2 className="underline">h2 text</h2>
       <p className="italic">
-        kazin ar veiks tailwind dabar ar ne? lyg ir vfdfvdeikikvgtasdafvsadds
+        kazin ar veiks tailwind dabar ar nge? lyg ir vfdfvdeikikvgtasdafvsadds
       </p>
     </div>
   );
