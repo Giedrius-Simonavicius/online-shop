@@ -15,6 +15,11 @@ export default {
         color9: '#78A962',
         color10: '#666666',
       },
+      backgroundImage: {
+        feat1: "url('./src/img/featuring/featuring1.jpg')",
+        feat2: "url('./src/img/featuring/featuring2.jpeg')",
+        feat3: "url('./src/img/featuring/featuring3.jpeg')",
+      },
     },
 
     plugins: [],
