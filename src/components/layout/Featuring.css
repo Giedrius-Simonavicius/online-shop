@@ -1,4 +1,5 @@
 .carousel {
+  padding-top: 2rem;
   border-radius: 4px;
   min-width: 100vw;
   object-position: center;
@@ -9,6 +10,7 @@
   width: 100%;
   min-width: 100vw;
   object-position: center;
+  /* margin-bottom: 2rem; */
 }
 .carousel__main img {
   width: 100%;
