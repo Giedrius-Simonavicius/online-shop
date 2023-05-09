@@ -9,10 +9,10 @@ import visa from '../../img/cards/visa.png';
 function FooterComponent() {
   return (
     <footer className="bg-[#020202] text-white font-normal ">
-      <div className="pt-8 pb-8 container mx-auto grid  gap-8">
+      <div className="pt-8 pb-4 container mx-auto grid  gap-8">
         <div className="flex justify-between">
           <div>
-            <h2 className="text-3xl font-bold mb-2">
+            <h2 className="text-3xl font-normal mb-2">
               Sign Up To Our Newsletter.
             </h2>
             <p className="text-sm">
@@ -21,7 +21,7 @@ function FooterComponent() {
           </div>
           <div className="flex gap-4 h-12">
             <input
-              className="bg-[#020202] outline pl-3 w-96 border-2 placeholder:text-white placeholder:text-sm placeholder:font-light"
+              className="rounded bg-[#020202] outline pl-3 w-96 border-2 placeholder:text-white placeholder:text-sm placeholder:font-light"
               type="email"
               placeholder="Your Email"
             />
@@ -32,7 +32,9 @@ function FooterComponent() {
         </div>
         <div className="flex text-xs  justify-between">
           <div>
-            <h3 className="mb-3 text-[#ffffff82]">Information</h3>
+            <h3 className="font-bold tracking-wide mb-3 text-[#ffffff82]">
+              Information
+            </h3>
             <ul>
               <li>About Us</li>
               <li>About Zip</li>
@@ -46,7 +48,9 @@ function FooterComponent() {
             </ul>
           </div>
           <div>
-            <h3 className="mb-3 text-[#ffffff82]">PC Parts</h3>
+            <h3 className="font-bold tracking-wide mb-3 text-[#ffffff82]">
+              PC Parts
+            </h3>
             <ul>
               <li>CPUS</li>
               <li>Add On Cards</li>
@@ -61,7 +65,9 @@ function FooterComponent() {
             </ul>
           </div>
           <div>
-            <h3 className="mb-3 text-[#ffffff82]">Desktop PCs</h3>
+            <h3 className="font-bold tracking-wide mb-3 text-[#ffffff82]">
+              Desktop PCs
+            </h3>
             <ul>
               <li>Custom PCs</li>
               <li>Servers</li>
@@ -72,7 +78,9 @@ function FooterComponent() {
             </ul>
           </div>
           <div>
-            <h3 className="mb-3 text-[#ffffff82]">Laptops</h3>
+            <h3 className=" font-bold tracking-wide mb-3 text-[#ffffff82]">
+              Laptops
+            </h3>
             <ul>
               <li>Evryday Use Notebooks</li>
               <li>MSI Workstation Series</li>
@@ -83,7 +91,9 @@ function FooterComponent() {
             </ul>
           </div>
           <div>
-            <h3 className="mb-3 text-[#ffffff82]">Address</h3>
+            <h3 className="font-bold tracking-wide mb-3 text-[#ffffff82]">
+              Address
+            </h3>
             <ul>
               <li>Address: 1234 Street Adress City Address, 1234</li>
               <li>Phones: (00) 1234 5678</li>
@@ -94,7 +104,7 @@ function FooterComponent() {
             </ul>
           </div>
         </div>
-        <div className="flex justify-between">
+        <div className="flex justify-between border-t pt-4 border-slate-400">
           <div className="flex gap-3 ">
             <Link to="https://www.facebook.com/">
               <svg

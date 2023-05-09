@@ -8,6 +8,7 @@ export default {
         color3: '#0156FF',
       },
     },
+
     plugins: [],
   },
 };
