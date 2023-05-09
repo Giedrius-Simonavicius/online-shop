@@ -65,7 +65,7 @@ function HeaderComponent() {
           </div>
         </div>
       </div>
-      <div className="container mx-auto flex gap-5">
+      <div className="container mx-auto flex justify-between">
         <NavLink to={'/'}>
           <svg
             width="85"
