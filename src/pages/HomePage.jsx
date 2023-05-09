@@ -1,10 +1,12 @@
 import React from 'react';
 import '../styles/style.css';
 import '../styles/App.css';
+import Featuring from '../components/layout/Featuring';
 
 function HomePage() {
   return (
     <div className="">
+      <Featuring />
       <h1 className="text-xl font-bold text-center text-blue-400">
         New project
       </h1>
