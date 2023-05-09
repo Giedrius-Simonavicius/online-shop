@@ -19,9 +19,15 @@ function FooterComponent() {
               Be the first to hear about the latest offers.
             </p>
           </div>
-          <div className="flex gap-4">
-            <input type="email" placeholder="Your Email" />
-            <button>Subscribe</button>
+          <div className="flex gap-4 h-12">
+            <input
+              className="bg-[#020202] outline pl-3 w-96 border-2 placeholder:text-white placeholder:text-sm placeholder:font-light"
+              type="email"
+              placeholder="Your Email"
+            />
+            <button className="bg-color3 pr-7 pl-7  rounded-full">
+              Subscribe
+            </button>
           </div>
         </div>
         <div className="flex text-xs  justify-between">
@@ -119,14 +125,16 @@ function FooterComponent() {
               </svg>
             </Link>
           </div>
-          <div className="flex gap-3">
+          <div className="flex gap-3 text-sm">
             <img src={paypal} alt="paypal" />
             <img src={visa} alt="visa" />
             <img src={maestro} alt="maestro" />
             <img src={discover} alt="discover" />
             <img src={americanExpress} alt="americanExpress" />
           </div>
-          <p className="text-[#ffffff83]">Copyright © 2020 Shop Pty. Ltd.</p>
+          <p className="text-[#ffffff83] text-sm">
+            Copyright © 2020 Shop Pty. Ltd.
+          </p>
         </div>
       </div>
     </footer>
