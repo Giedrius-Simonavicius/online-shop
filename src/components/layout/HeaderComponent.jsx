@@ -3,7 +3,6 @@ import { Link, NavLink } from 'react-router-dom';
 import '../../icons/ant-design_facebook-filled.svg';
 import '../../icons/ant-design_instagram-filled.svg';
 import '../../styles/style.css';
-import '../../styles/App.css';
 import user from '../../img/Ellipse8.png';
 import WorkingHours from '../openClose/WorkingHours';
 

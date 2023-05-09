@@ -4,7 +4,9 @@ import location from '../../icons/location.svg';
 
 function WorkingHours({ openClose }) {
   return (
-    <div className={`${openClose} bg-white p-2 mt-2 pt-3 pb-4 max-w-sm`}>
+    <div
+      className={`${openClose} ml-[6rem] bg-white p-2 mt-2 pt-3 pb-4 max-w-sm`}
+    >
       <div className="flex">
         <div className="mr-2 ">
           <img src={time} alt="time" />
