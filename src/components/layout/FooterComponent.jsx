@@ -96,11 +96,15 @@ function FooterComponent() {
             </h3>
             <ul>
               <li>Address: 1234 Street Adress City Address, 1234</li>
-              <li>Phones: (00) 1234 5678</li>
+              <li>
+                Phones: <span className="text-color4">(00) 1234 5678</span>
+              </li>
               <li>We are open: Monday-Thursday: 9:00 AM - 5:30 PM</li>
               <li>Friday: 9:00 AM - 6:00 PM</li>
               <li>Saturday: 11:00 AM - 5:00 PM</li>
-              <li>E-mail: shop@email.com</li>
+              <li>
+                E-mail: <span className="text-color4">shop@email.com</span>
+              </li>
             </ul>
           </div>
         </div>
