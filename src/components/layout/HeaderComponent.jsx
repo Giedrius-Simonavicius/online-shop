@@ -7,17 +7,26 @@ import user from '../../img/Ellipse8.png';
 import WorkingHours from '../openClose/WorkingHours';
 
 function HeaderComponent() {
-  const [openClose, setOpenClose] = useState('hidden');
+  const [openClose, setOpenClose] = useState(false);
+  const show = openClose === true ? '' : 'hidden';
 
   function displayOpenHours() {
-    openClose === 'hidden' ? setOpenClose('') : setOpenClose('hidden');
+    openClose === false
+      ? setOpenClose(true)
+      : setTimeout(() => {
+          setOpenClose(false);
+        }, 1500);
   }
   return (
     <header className="text-xs">
       <div className="bg-[#020202] ">
         <div className="flex justify-between pt-3 pb-3 container mx-auto">
           <div>
-            <div onClick={displayOpenHours} className="text-white flex ">
+            <div
+              onMouseEnter={displayOpenHours}
+              onMouseLeave={displayOpenHours}
+              className="text-white flex "
+            >
               <p>
                 <span
                   className="
@@ -153,7 +162,7 @@ function HeaderComponent() {
           <img className="object-contain relative" src={user} alt="user" />
         </div>
       </div>
-      <WorkingHours openClose={openClose} />
+      <WorkingHours openClose={show} />
     </header>
   );
 }
