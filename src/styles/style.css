@@ -7,6 +7,13 @@
 @layer base {
   html {
     font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+  li {
+    margin-bottom: 0.3rem;
+  }
+  img {
+    object-fit: contain;
   }
 }
 
