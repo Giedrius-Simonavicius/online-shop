@@ -88,7 +88,9 @@ function HeaderComponent() {
           <li>PC Parts</li>
           <li>All Other Products</li>
           <li>Repairs</li>
-          <li>Our deals</li>
+          <li className=" p-1 border-color3 border-2 pl-5 pr-5 rounded-full text-color3">
+            Our deals
+          </li>
         </ul>
         <div className="flex gap-3">
           <button>
