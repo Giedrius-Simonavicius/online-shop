@@ -1,8 +1,6 @@
 import React from 'react';
-import { customPcs } from '../../data/data';
 
-function Products() {
-  console.log('customPcs ===', customPcs);
+function Products({ customPcs }) {
   return (
     <div>
       {customPcs.map((pc, index) => (
