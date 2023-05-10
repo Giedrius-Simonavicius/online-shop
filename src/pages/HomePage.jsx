@@ -2,19 +2,13 @@ import React from 'react';
 import '../styles/style.css';
 import '../styles/App.css';
 import Featuring from '../components/layout/Featuring';
+import Products from '../components/homePageProducts/Products';
 
 function HomePage() {
   return (
     <div className="">
       <Featuring />
-      <h1 className="text-xl font-bold text-center text-blue-400">
-        New project
-      </h1>
-      <h2 className="underline">h2 text</h2>
-      <p className="italic">
-        kazin ar veiks tailwind dabar ar nge? lyg i651r
-        vfdfvdeikikvgtasdafvsadds
-      </p>
+      <Products />
     </div>
   );
 }

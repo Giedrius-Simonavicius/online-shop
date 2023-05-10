@@ -11,7 +11,7 @@
     "build-css": "tailwindcss build style.css -o styles/style.css"
   },
   "dependencies": {
-    "firebase": "^9.20.0",
+    "firebase": "^9.21.0",
     "flat-carousel": "^0.0.1",
     "formik": "^2.2.9",
     "prop-types": "^15.8.1",
