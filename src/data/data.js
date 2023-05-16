@@ -243,3 +243,66 @@ export const monitors = [
     thumbnail: '../../public/images/monitors/monitor5.jpg',
   },
 ];
+
+export const posts = [
+  {
+    thumbnail: '../../public/images/posts/post1.jpg',
+    text: "If you've recently made a desktop PC or laptop purchase, you might want to consider adding peripherals to enhance your home office setup, your gaming rig, or your business workspace...",
+    date: '01.09.2020',
+    id: Math.random().toString().slice(10),
+  },
+  {
+    thumbnail: '../../public/images/posts/post2.jpg',
+    text: 'As a gamer, superior sound counts for a lot. You need to hear enemies tiptoeing up behind you for a sneak attack or a slight change in the atmospheric music signaling a new challenge or task...',
+    date: '01.09.2020',
+    id: Math.random().toString().slice(10),
+  },
+  {
+    thumbnail: '../../public/images/posts/post3.jpg',
+    text: "If you've recently made a desktop PC or laptop purchase, you might want to consider adding peripherals to enhance your home office setup, your gaming rig, or your business workspace...",
+    date: '01.09.2020',
+    id: Math.random().toString().slice(10),
+  },
+  {
+    thumbnail: '../../public/images/posts/post4.jpg',
+    text: "If you've recently made a desktop PC or laptop purchase, you might want to consider adding peripherals to enhance your home office setup, your gaming rig, or your business workspace...",
+    date: '01.09.2020',
+    id: Math.random().toString().slice(10),
+  },
+  {
+    thumbnail: '../../public/images/posts/post5.jpg',
+    text: "If you've recently made a desktop PC or laptop purchase, you might want to consider adding peripherals to enhance your home office setup, your gaming rig, or your business workspace...",
+    date: '01.09.2020',
+    id: Math.random().toString().slice(10),
+  },
+  {
+    thumbnail: '../../public/images/posts/post6.jpg',
+    text: "If you've recently made a desktop PC or laptop purchase, you might want to consider adding peripherals to enhance your home office setup, your gaming rig, or your business workspace...",
+    date: '01.09.2020',
+    id: Math.random().toString().slice(10),
+  },
+  {
+    thumbnail: '../../public/images/posts/post7.jpg',
+    text: "If you've recently made a desktop PC or laptop purchase, you might want to consider adding peripherals to enhance your home office setup, your gaming rig, or your business workspace...",
+    date: '01.09.2020',
+    id: Math.random().toString().slice(10),
+  },
+  {
+    thumbnail: '../../public/images/posts/post8.jpg',
+    text: "If you've recently made a desktop PC or laptop purchase, you might want to consider adding peripherals to enhance your home office setup, your gaming rig, or your business workspace...",
+    date: '01.09.2020',
+    id: Math.random().toString().slice(10),
+  },
+  {
+    thumbnail: '../../public/images/posts/post9.jpg',
+    text: "If you've recently made a desktop PC or laptop purchase, you might want to consider adding peripherals to enhance your home office setup, your gaming rig, or your business workspace...",
+    date: '01.09.2020',
+    id: Math.random().toString().slice(10),
+  },
+  {
+    thumbnail: '../../public/images/posts/post10.jpg',
+    text: "If you've recently made a desktop PC or laptop purchase, you might want to consider adding peripherals to enhance your home office setup, your gaming rig, or your business workspace...",
+    date: '01.09.2020',
+    id: Math.random().toString().slice(10),
+  },
+];

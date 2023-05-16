@@ -2,7 +2,7 @@ import React from 'react';
 
 function Brands() {
   return (
-    <div className="flex mx-auto">
+    <div className="flex container mx-auto justify-between my-10">
       <img src="../../../public/images/brands/roccat.jpg" alt="roccat" />
       <img src="../../../public/images/brands/msi.jpg" alt="msi" />
       <img src="../../../public/images/brands/razer.jpg" alt="razer" />
