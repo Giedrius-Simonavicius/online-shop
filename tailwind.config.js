@@ -24,6 +24,9 @@ export default {
       maxWidth: {
         readable: '30cw',
       },
+      fontSize: {
+        xxs: '0.65rem',
+      },
     },
 
     plugins: [],

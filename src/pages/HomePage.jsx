@@ -6,8 +6,9 @@ import Products from '../components/homePageProducts/Products';
 import { db } from '../firebase/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import ToStorageA from '../components/ToStorageA';
-import { customPcs, desktops, laptops, monitors } from '../data/data';
+import { customPcs, desktops, laptops, monitors, posts } from '../data/data';
 import Brands from '../components/homePageProducts/Brands';
+import Posts from '../components/homePageProducts/Posts';
 
 function HomePage() {
   const [pcsArr, setPcsArr] = useState([]);
@@ -40,6 +41,7 @@ function HomePage() {
       <Products products={desktops} />
       <Products products={monitors} />
       <Brands />
+      <Posts posts={posts} />
       {/* <ToStorageA /> */}
     </div>
   );

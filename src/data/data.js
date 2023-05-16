@@ -252,7 +252,7 @@ export const posts = [
     id: Math.random().toString().slice(10),
   },
   {
-    thumbnail: '../../public/images/posts/post2.jpg',
+    thumbnail: '../../public/images/posts/post6.jpg',
     text: 'As a gamer, superior sound counts for a lot. You need to hear enemies tiptoeing up behind you for a sneak attack or a slight change in the atmospheric music signaling a new challenge or task...',
     date: '01.09.2020',
     id: Math.random().toString().slice(10),
