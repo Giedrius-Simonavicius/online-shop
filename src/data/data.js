@@ -22,6 +22,17 @@ export const customPcs = [
     price: '$499.00',
     discount: 0,
     inStock: true,
+    stars: 3,
+    id: Math.random().toString().slice(10),
+    thumbnail: '../../public/images/pcs/pc5.jpg',
+  },
+  {
+    description:
+      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    productId: 'SKU D5515AI',
+    price: '$499.00',
+    discount: 0,
+    inStock: true,
     stars: 2,
     id: Math.random().toString().slice(10),
     thumbnail: '../../public/images/pcs/pc2.jpg',
@@ -76,6 +87,17 @@ export const laptops = [
     stars: 5,
     id: Math.random().toString().slice(10),
     thumbnail: '../../public/images/laptops/laptop1.jpg',
+  },
+  {
+    description:
+      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    productId: 'SKU D5515AI',
+    price: '$499.00',
+    discount: 0,
+    inStock: true,
+    stars: 5,
+    id: Math.random().toString().slice(10),
+    thumbnail: '../../public/images/laptops/laptop5.jpg',
   },
   {
     description:
@@ -145,6 +167,17 @@ export const desktops = [
     inStock: true,
     stars: 5,
     id: Math.random().toString().slice(10),
+    thumbnail: '../../public/images/desktops/desktop5.jpg',
+  },
+  {
+    description:
+      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    productId: 'SKU D5515AI',
+    price: '$499.00',
+    discount: 0,
+    inStock: true,
+    stars: 5,
+    id: Math.random().toString().slice(10),
     thumbnail: '../../public/images/desktops/desktop2.jpg',
   },
   {
@@ -197,6 +230,17 @@ export const monitors = [
     stars: 5,
     id: Math.random().toString().slice(10),
     thumbnail: '../../public/images/monitors/monitor1.jpg',
+  },
+  {
+    description:
+      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    productId: 'SKU D5515AI',
+    price: '$499.00',
+    discount: 0,
+    inStock: false,
+    stars: 5,
+    id: Math.random().toString().slice(10),
+    thumbnail: '../../public/images/monitors/monitor5.jpg',
   },
   {
     description:

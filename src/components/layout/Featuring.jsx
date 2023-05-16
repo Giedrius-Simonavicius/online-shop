@@ -11,7 +11,7 @@ function Featuring() {
   return (
     <Carousel>
       {images.map((image, index) => (
-        <img key={index} src={image} alt={image} />
+        <img className="object-cover" key={index} src={image} alt={image} />
       ))}
     </Carousel>
   );

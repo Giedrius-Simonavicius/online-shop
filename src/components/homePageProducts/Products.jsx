@@ -27,9 +27,9 @@ function Products({ products }) {
   };
 
   return (
-    <div className="flex container mx-auto mb-12">
+    <div className="flex  mt-12 container mx-auto mb-12">
       <div
-        className="flex-col pr-3 max-h-80 pl-3 mr-2 bg-cover bg-no-repeat bg-center "
+        className="flex-col pr-3 pl-3 mr-2 bg-cover bg-no-repeat bg-center "
         style={{ backgroundImage: `url(${products[0].mainImg})` }}
       >
         <h3 className="text-white flex items-center justify-center text-center h-full w-40">
@@ -40,7 +40,7 @@ function Products({ products }) {
         </p>
       </div>
 
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap justify-between mx-auto">
         {products.map((product, index) =>
           index !== 0 ? (
             <Card key={index} width="max-w-48">
