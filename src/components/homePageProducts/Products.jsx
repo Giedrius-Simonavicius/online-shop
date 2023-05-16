@@ -3,36 +3,41 @@ import Card from '../card/Card';
 import inStockImg from '../../icons/instock.svg';
 import { customPcs } from '../../data/data';
 import star from '../../icons/Star.svg';
+import starGray from '../../icons/StarGray.svg';
+
 function Products() {
   const [inStock, setInStock] = useState([]);
   const [stars, setStars] = useState([]);
-  const oneStars = [star, star, star, star, star];
-  const twoStars = [star, star, star, star, star];
-  const threeStars = [star, star, star, star, star];
-  const fourStars = [star, star, star, star, star];
-  const fiveStars = [star, star, star, star, star];
-  console.log('fiveStars ===', fiveStars);
 
   useEffect(() => {
     setInStock(customPcs.map((pc) => pc.inStock));
     setStars(customPcs.map((pc) => pc.stars));
   }, []);
 
+  const renderStars = (starCount) => {
+    const starsArray = Array(5).fill(starGray);
+    const renderedStars = starsArray.map((starSrc, index) =>
+      index < starCount ? (
+        <img key={index} src={star} alt={`star-${index}`} />
+      ) : (
+        <img key={index} src={starSrc} alt={`star-${index}`} />
+      ),
+    );
+    return renderedStars;
+  };
+
   return (
     <div className="flex">
-      {fiveStars.map((oneStar) => (
-        <img src={oneStar} alt="oneStar" />
-      ))}
       {customPcs.map((pc, index) => (
         <Card key={index}>
-          {inStock[index] && (
-            <div>
+          {(inStock[index] && (
+            <div className="flex gap-2">
               <img src={inStockImg} alt="instock" />
-              <p className="text-color9">in stock</p>
+              <p className="text-color9">In stock</p>
             </div>
-          )}
+          )) || <p className="text-color5">Out of stock</p>}
           <img key={index} src={pc.thumbnail} alt={pc.description} />
-          <p>{pc.stars}</p>
+          <div className="flex">{renderStars(stars[index])}</div>
           <h3>{pc.description}</h3>
           <p className="line-through">$ {pc.price}</p>
           <p>$ {pc.price}</p>
