@@ -6,6 +6,7 @@ import Products from '../components/homePageProducts/Products';
 import { db } from '../firebase/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import ToStorageA from '../components/ToStorageA';
+import { customPcs, laptops } from '../data/data';
 
 function HomePage() {
   const [pcsArr, setPcsArr] = useState([]);
@@ -33,7 +34,7 @@ function HomePage() {
   return (
     <div className="">
       {/* <Featuring /> */}
-      <Products />
+      <Products customPcs={customPcs} />
       {/* <ToStorageA /> */}
     </div>
   );
