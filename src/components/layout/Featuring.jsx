@@ -9,11 +9,13 @@ function Featuring() {
   const images = [feat1, feat2, feat3];
 
   return (
-    <Carousel>
-      {images.map((image, index) => (
-        <img className="object-cover" key={index} src={image} alt={image} />
-      ))}
-    </Carousel>
+    <div className="container mx-auto max-w-90vw overflow-hidden">
+      <Carousel>
+        {images.map((image, index) => (
+          <img className="" key={index} src={image} alt={image} />
+        ))}
+      </Carousel>
+    </div>
   );
 }
 export default Featuring;
