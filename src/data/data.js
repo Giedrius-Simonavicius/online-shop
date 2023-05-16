@@ -7,7 +7,7 @@ import pc5 from '../img/pcs/pc5.jpg';
 export const customPcs = [
   {
     description:
-      'MSI CREATOR 17 A10SFS-240AU 17 UHD 4K HDR Thin Bezel Intel 10th Gen i7 10875H - RTX 2070 SUPER MAX Q - 16GB RAM - 1TB SSD NVME - Windows 10 PRO Laptop',
+      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     productId: 'SKU D5515AI',
     price: '$499.00',
     discount: 0,
@@ -18,7 +18,7 @@ export const customPcs = [
   },
   {
     description:
-      'MSI CREATOR 17 A10SFS-240AU 17 UHD 4K HDR Thin Bezel Intel 10th Gen i7 10875H - RTX 2070 SUPER MAX Q - 16GB RAM - 1TB SSD NVME - Windows 10 PRO Laptop',
+      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     productId: 'SKU D5515AI',
     price: '$499.00',
     discount: 0,
@@ -29,7 +29,7 @@ export const customPcs = [
   },
   {
     description:
-      'MSI CREATOR 17 A10SFS-240AU 17 UHD 4K HDR Thin Bezel Intel 10th Gen i7 10875H - RTX 2070 SUPER MAX Q - 16GB RAM - 1TB SSD NVME - Windows 10 PRO Laptop',
+      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     productId: 'SKU D5515AI',
     price: '$499.00',
     discount: 0,
@@ -40,7 +40,7 @@ export const customPcs = [
   },
   {
     description:
-      'MSI CREATOR 17 A10SFS-240AU 17 UHD 4K HDR Thin Bezel Intel 10th Gen i7 10875H - RTX 2070 SUPER MAX Q - 16GB RAM - 1TB SSD NVME - Windows 10 PRO Laptop',
+      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     productId: 'SKU D5515AI',
     price: '$499.00',
     discount: 0,
@@ -51,7 +51,7 @@ export const customPcs = [
   },
   {
     description:
-      'MSI CREATOR 17 A10SFS-240AU 17 UHD 4K HDR Thin Bezel Intel 10th Gen i7 10875H - RTX 2070 SUPER MAX Q - 16GB RAM - 1TB SSD NVME - Windows 10 PRO Laptop',
+      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     productId: 'SKU D5515AI',
     price: '$499.00',
     discount: 0,
