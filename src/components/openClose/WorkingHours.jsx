@@ -1,6 +1,4 @@
 import React from 'react';
-import time from '../../icons/time.svg';
-import location from '../../icons/location.svg';
 
 function WorkingHours({ openClose }) {
   return (
@@ -9,7 +7,7 @@ function WorkingHours({ openClose }) {
     >
       <div className="flex">
         <div className="mr-2 ">
-          <img src={time} alt="time" />
+          <img src="../../../public/icons/time.svg" alt="time" />
         </div>
         <div>
           <p>We are open:</p>
@@ -27,7 +25,7 @@ function WorkingHours({ openClose }) {
 
       <div className="flex mt-2 border-t border-b pt-2 pb-2 border-gray-400">
         <div className="mr-2">
-          <img src={location} alt="location" />
+          <img src="../../../public/icons/location.svg" alt="location" />
         </div>
         <p className="mt-1">Address: 1234 Street Adress, City Address, 1234</p>
       </div>

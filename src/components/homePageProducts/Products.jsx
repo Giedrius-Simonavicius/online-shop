@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../card/Card';
-import inStockImg from '../../icons/instock.svg';
-import star from '../../icons/Star.svg';
-import starGray from '../../icons/StarGray.svg';
 
-function Products({ products, title }) {
+function Products({ products }) {
   const [inStock, setInStock] = useState([]);
   const [stars, setStars] = useState([]);
 
@@ -14,10 +11,14 @@ function Products({ products, title }) {
   }, [products]);
 
   const renderStars = (starCount) => {
-    const starsArray = Array(5).fill(starGray);
+    const starsArray = Array(5).fill('../../../public/icons/StarGray.svg');
     const renderedStars = starsArray.map((starSrc, index) =>
       index < starCount ? (
-        <img key={index} src={star} alt={`star-${index}`} />
+        <img
+          key={index}
+          src="../../../public/icons/Star.svg"
+          alt={`star-${index}`}
+        />
       ) : (
         <img key={index} src={starSrc} alt={`star-${index}`} />
       ),
@@ -44,7 +45,7 @@ function Products({ products, title }) {
           <Card key={index}>
             {inStock[index] ? (
               <div className="flex gap-2">
-                <img src={inStockImg} alt="instock" />
+                <img src="../../../public/icons/instock.svg" alt="instock" />
                 <p className="text-color9 text-sm">In stock</p>
               </div>
             ) : (

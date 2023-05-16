@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import '../../icons/ant-design_facebook-filled.svg';
-import '../../icons/ant-design_instagram-filled.svg';
 import '../../styles/style.css';
-import user from '../../img/Ellipse8.png';
 import WorkingHours from '../openClose/WorkingHours';
 
 function HeaderComponent() {
@@ -159,7 +156,11 @@ function HeaderComponent() {
               />
             </svg>
           </button>
-          <img className="object-contain relative" src={user} alt="user" />
+          <img
+            className="object-contain relative"
+            src="../../../public/images/header/Ellipse8.png"
+            alt="user"
+          />
         </div>
       </div>
       <WorkingHours openClose={show} />
