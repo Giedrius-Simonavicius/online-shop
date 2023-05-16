@@ -34,7 +34,8 @@ function HomePage() {
   return (
     <div className="">
       {/* <Featuring /> */}
-      <Products customPcs={customPcs} />
+      <Products products={customPcs} />
+      <Products products={laptops} />
       {/* <ToStorageA /> */}
     </div>
   );

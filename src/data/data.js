@@ -12,8 +12,16 @@ import laptop4 from '../img/laptops/laptop4.jpg';
 import laptop5 from '../img/laptops/laptop5.jpg';
 import laptopMain from '../img/laptops/laptopMain.jpg';
 
+import desktop1 from '../img/desktops/desktop1.jpg';
+import desktop2 from '../img/desktops/desktop2.jpg';
+import desktop3 from '../img/desktops/desktop3.jpg';
+import desktop4 from '../img/desktops/desktop4.jpg';
+import desktop5 from '../img/desktops/desktop5.jpg';
+import desktopMain from '../img/desktops/desktops.jpg';
+
 export const customPcs = [
-  { customBuildsMain: pcMain },
+  { mainImg: pcMain, title: 'Custome Builds' },
+
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
@@ -71,7 +79,8 @@ export const customPcs = [
   },
 ];
 export const laptops = [
-  { laptopMain: laptopMain },
+  { mainImg: laptopMain, title: 'MSI Laptops' },
+
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
@@ -79,7 +88,7 @@ export const laptops = [
     price: '$499.00',
     discount: 0,
     inStock: true,
-    stars: 3,
+    stars: 5,
     id: Math.random().toString().slice(10),
     thumbnail: laptop1,
   },
@@ -90,7 +99,7 @@ export const laptops = [
     price: '$499.00',
     discount: 0,
     inStock: true,
-    stars: 2,
+    stars: 4,
     id: Math.random().toString().slice(10),
     thumbnail: laptop2,
   },
@@ -101,7 +110,7 @@ export const laptops = [
     price: '$499.00',
     discount: 0,
     inStock: false,
-    stars: 4,
+    stars: 3,
     id: Math.random().toString().slice(10),
     thumbnail: laptop3,
   },
@@ -123,8 +132,67 @@ export const laptops = [
     price: '$499.00',
     discount: 0,
     inStock: true,
-    stars: 4,
+    stars: 1,
     id: Math.random().toString().slice(10),
     thumbnail: laptop5,
+  },
+];
+export const desktops = [
+  { mainImg: desktopMain, title: 'Desktops' },
+
+  {
+    description:
+      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    productId: 'SKU D5515AI',
+    price: '$499.00',
+    discount: 0,
+    inStock: true,
+    stars: 5,
+    id: Math.random().toString().slice(10),
+    thumbnail: desktop1,
+  },
+  {
+    description:
+      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    productId: 'SKU D5515AI',
+    price: '$499.00',
+    discount: 0,
+    inStock: true,
+    stars: 4,
+    id: Math.random().toString().slice(10),
+    thumbnail: desktop2,
+  },
+  {
+    description:
+      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    productId: 'SKU D5515AI',
+    price: '$499.00',
+    discount: 0,
+    inStock: false,
+    stars: 3,
+    id: Math.random().toString().slice(10),
+    thumbnail: desktop3,
+  },
+  {
+    description:
+      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    productId: 'SKU D5515AI',
+    price: '$499.00',
+    discount: 0,
+    inStock: false,
+    stars: 4,
+    id: Math.random().toString().slice(10),
+    thumbnail: desktop4,
+  },
+  {
+    description:
+      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    productId: 'SKU D5515AI',
+    price: '$499.00',
+    discount: 0,
+    inStock: true,
+    stars: 1,
+    id: Math.random().toString().slice(10),
+    thumbnail: desktop5,
   },
 ];
