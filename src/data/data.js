@@ -1,3 +1,9 @@
+import pc1 from '../img/pcs/pc1.jpg';
+import pc2 from '../img/pcs/pc2.jpg';
+import pc3 from '../img/pcs/pc3.jpg';
+import pc4 from '../img/pcs/pc4.jpg';
+import pc5 from '../img/pcs/pc5.jpg';
+
 export const customPcs = [
   {
     description:
@@ -5,10 +11,10 @@ export const customPcs = [
     productId: 'SKU D5515AI',
     price: '$499.00',
     discount: 0,
-    inStock: true,
+    inStock: false,
     stars: 4,
     id: Math.random().toString().slice(10),
-    thumbnail: '../img/pcs/pc1.jpg',
+    thumbnail: pc1,
   },
   {
     description:
@@ -19,7 +25,7 @@ export const customPcs = [
     inStock: true,
     stars: 4,
     id: Math.random().toString().slice(10),
-    thumbnail: '../img/pcs/pc2.jpg',
+    thumbnail: pc2,
   },
   {
     description:
@@ -30,7 +36,7 @@ export const customPcs = [
     inStock: true,
     stars: 4,
     id: Math.random().toString().slice(10),
-    thumbnail: '../img/pcs/pc3.jpg',
+    thumbnail: pc3,
   },
   {
     description:
@@ -41,7 +47,7 @@ export const customPcs = [
     inStock: true,
     stars: 4,
     id: Math.random().toString().slice(10),
-    thumbnail: '../img/pcs/pc4.jpg',
+    thumbnail: pc4,
   },
   {
     description:
@@ -52,6 +58,6 @@ export const customPcs = [
     inStock: true,
     stars: 4,
     id: Math.random().toString().slice(10),
-    thumbnail: '../img/pcs/pc5.jpg',
+    thumbnail: pc5,
   },
 ];

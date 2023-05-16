@@ -32,9 +32,9 @@ function HomePage() {
 
   return (
     <div className="">
-      <Featuring />
-      <Products customPcs={pcsArr} />
-      <ToStorageA />
+      {/* <Featuring /> */}
+      <Products />
+      {/* <ToStorageA /> */}
     </div>
   );
 }
