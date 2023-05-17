@@ -9,7 +9,11 @@ function Featuring() {
 
   return (
     <div className="container mx-auto max-w-90vw overflow-hidden">
-      <Carousel autoplay={true} wrapAround={true}>
+      <Carousel
+        renderBottomCenterControls={false}
+        autoplay={true}
+        wrapAround={true}
+      >
         {images.map((image, index) => (
           <img className="" key={index} src={image} alt={image} />
         ))}
