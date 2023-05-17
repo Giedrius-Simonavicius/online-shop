@@ -14,6 +14,7 @@ import {
 import Brands from '../components/homePageProducts/Brands';
 import Posts from '../components/homePageProducts/Posts';
 import Comments from '../components/homePageProducts/Comments';
+import Services from '../components/homePageProducts/Services';
 
 function HomePage() {
   return (
@@ -26,6 +27,7 @@ function HomePage() {
       <Brands />
       <Posts posts={posts} />
       <Comments comments={comments} />
+      <Services />
     </div>
   );
 }

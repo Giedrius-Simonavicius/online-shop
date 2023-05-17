@@ -29,12 +29,15 @@ function Comments({ comments }) {
         renderBottomCenterControls={false}
         wrapAround={true}
         renderCenterLeftControls={({ previousSlide }) => (
-          <button className="carousel-control-button" onClick={previousSlide}>
+          <button
+            className="carousel-control-button mt-8"
+            onClick={previousSlide}
+          >
             {'<'}
           </button>
         )}
         renderCenterRightControls={({ nextSlide }) => (
-          <button className="carousel-control-button" onClick={nextSlide}>
+          <button className="carousel-control-button mt-8" onClick={nextSlide}>
             {'>'}
           </button>
         )}
