@@ -52,7 +52,7 @@ function Comments({ comments }) {
           </div>
         ))}
       </Carousel>
-      <button className="text-xs p-1 border-color3 border-2 pl-5 pr-5 rounded-full text-color3">
+      <button className=" hover:text-white hover:bg-color3 hover:border-color3 duration-300 text-xs p-1 border-color3 border-2 pl-5 pr-5 rounded-full text-color3">
         Leave Us A Review
       </button>
     </div>

@@ -120,7 +120,7 @@ function HeaderComponent() {
           <li>PC Parts</li>
           <li>All Other Products</li>
           <li>Repairs</li>
-          <li className=" p-1 border-color3 border-2 pl-5 pr-5 rounded-full text-color3">
+          <li className="hover:text-white hover:bg-color3 duration-300 p-1 border-color3 border-2 pl-5 pr-5 rounded-full text-color3">
             Our deals
           </li>
         </ul>
