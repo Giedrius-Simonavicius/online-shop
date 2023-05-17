@@ -3,13 +3,19 @@ import '../styles/style.css';
 import '../styles/App.css';
 import Featuring from '../components/layout/Featuring';
 import Products from '../components/homePageProducts/Products';
-import { customPcs, desktops, laptops, monitors, posts } from '../data/data';
+import {
+  customPcs,
+  desktops,
+  laptops,
+  monitors,
+  posts,
+  comments,
+} from '../data/data';
 import Brands from '../components/homePageProducts/Brands';
 import Posts from '../components/homePageProducts/Posts';
+import Comments from '../components/homePageProducts/Comments';
 
 function HomePage() {
-  const [pcsArr, setPcsArr] = useState([]);
-
   return (
     <div className="">
       <Featuring />
@@ -19,6 +25,7 @@ function HomePage() {
       <Products products={monitors} />
       <Brands />
       <Posts posts={posts} />
+      <Comments comments={comments} />
     </div>
   );
 }

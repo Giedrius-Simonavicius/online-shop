@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "firebase": "^9.21.0",
-    "flat-carousel": "^0.0.1",
     "formik": "^2.2.9",
     "nuka-carousel": "^6.0.3",
     "prop-types": "^15.8.1",

@@ -3,7 +3,7 @@ import React from 'react';
 function WorkingHours({ openClose }) {
   return (
     <div
-      className={`${openClose} ml-[6rem] bg-white p-2 mt-2 pt-3 pb-4 max-w-sm`}
+      className={`${openClose}  ml-[6rem] bg-white p-2 mt-2 pt-3 pb-4 max-w-sm`}
     >
       <div className="flex">
         <div className="mr-2 ">

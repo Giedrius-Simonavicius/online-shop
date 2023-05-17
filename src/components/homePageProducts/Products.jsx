@@ -40,7 +40,7 @@ function Products({ products }) {
         </p>
       </div>
 
-      <div className="flex flex-wrap justify-between mx-auto">
+      <div className="flex flex-wrap mx-auto">
         {products.map((product, index) =>
           index !== 0 ? (
             <Card key={index} width="max-w-48">

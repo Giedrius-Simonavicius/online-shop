@@ -350,3 +350,30 @@ export const posts = [
     id: Math.random().toString().slice(10),
   },
 ];
+
+export const comments = [
+  {
+    author: 'Tama Brown',
+    comment:
+      'My first order arrived today in perfect condition.  From the time I sent a question about the item to making the purchase, to the shipping and now the delivery, your company, Tecs, has stayed in touch.  Such great service.  I look forward to shopping on your site in the future and would highly recommend it.',
+    id: 1,
+  },
+  {
+    author: 'Hello Brown',
+    comment:
+      'My first order arrived today in perfect condition.  From the time I sent a question about the item to making the purchase, to the shipping and now the delivery, your company, Tecs, has stayed in touch.  Such great service.  I look forward to shopping on your site in the future and would highly recommend it.',
+    id: 2,
+  },
+  {
+    author: 'Tama Yellow',
+    comment:
+      'My first order arrived today in perfect condition.  From the time I sent a question about the item to making the purchase, to the shipping and now the delivery, your company, Tecs, has stayed in touch.  Such great service.  I look forward to shopping on your site in the future and would highly recommend it.',
+    id: 3,
+  },
+  {
+    author: 'Hello Green',
+    comment:
+      'My first order arrived today in perfect condition.  From the time I sent a question about the item to making the purchase, to the shipping and now the delivery, your company, Tecs, has stayed in touch.  Such great service.  I look forward to shopping on your site in the future and would highly recommend it.',
+    id: 4,
+  },
+];
