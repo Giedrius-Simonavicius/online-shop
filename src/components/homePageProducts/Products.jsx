@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../card/Card';
+import { NavLink } from 'react-router-dom';
 
 function Products({ products }) {
   const [inStock, setInStock] = useState([]);
@@ -36,9 +37,12 @@ function Products({ products }) {
         <h3 className="flex h-full w-40 items-center justify-center text-center text-white">
           {products[0].title}
         </h3>
-        <p className="-mt-12 flex items-end justify-center text-center text-sm text-white underline">
+        <NavLink
+          to={products[0].link}
+          className="-mt-12 flex items-end justify-center text-center text-sm text-white underline"
+        >
           See All Products
-        </p>
+        </NavLink>
       </div>
 
       <div className="mx-auto flex flex-wrap">

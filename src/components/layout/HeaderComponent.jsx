@@ -137,8 +137,11 @@ function HeaderComponent() {
           >
             Monitors
           </NavLink>
-          <NavLink className="rounded-full border-2 border-color3 p-1 pl-5 pr-5 text-color3 duration-300 hover:bg-color3 hover:text-white">
-            Our deals
+          <NavLink
+            to={'/'}
+            className="rounded-full border-2 border-color3 p-1 pl-5 pr-5 text-color3 duration-300 hover:bg-color3 hover:text-white"
+          >
+            Show all
           </NavLink>
         </div>
         <div className="flex gap-3">

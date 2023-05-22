@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../components/card/Card';
+import Filter from '../components/AllProdComponents/Filter';
 
 function AllProducts({ products }) {
   const [inStock, setInStock] = useState([]);
@@ -28,6 +29,9 @@ function AllProducts({ products }) {
 
   return (
     <div className="container  mx-auto mb-12 mt-12 flex">
+      <div>
+        <Filter />
+      </div>
       <div className="mx-auto flex flex-wrap">
         {products.map((product, index) =>
           index !== 0 ? (
