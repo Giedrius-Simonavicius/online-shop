@@ -27,6 +27,9 @@ export default {
       fontSize: {
         xxs: '0.65rem',
       },
+      scale: {
+        115: '1.15',
+      },
     },
 
     plugins: [],

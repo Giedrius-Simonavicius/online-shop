@@ -97,7 +97,7 @@ function HeaderComponent() {
         </div>
       </div>
 
-      <div className="container mx-auto flex justify-between">
+      <nav className="container mx-auto flex justify-between">
         <NavLink to={'/'}>
           <svg
             width="85"
@@ -112,15 +112,35 @@ function HeaderComponent() {
             />
           </svg>
         </NavLink>
-        <ul className="flex items-center gap-3">
-          <li>Laptops</li>
-          <li>Desktop PCs</li>
-          <li>Custom builds</li>
-          <li>Monitors</li>
-          <li className="rounded-full border-2 border-color3 p-1 pl-5 pr-5 text-color3 duration-300 hover:bg-color3 hover:text-white">
+        <div className="flex items-center gap-3">
+          <NavLink
+            className={'duration-300 hover:scale-110 hover:text-color3'}
+            to={'all-products/laptops'}
+          >
+            Laptops
+          </NavLink>
+          <NavLink
+            className={'duration-300 hover:scale-110 hover:text-color3'}
+            to={'all-products/desktops'}
+          >
+            Desktop PC's
+          </NavLink>
+          <NavLink
+            className={'duration-300 hover:scale-110 hover:text-color3'}
+            to={'all-products/custom-pcs'}
+          >
+            Custom builds
+          </NavLink>
+          <NavLink
+            className={'duration-300 hover:scale-110 hover:text-color3'}
+            to={'all-products/monitors'}
+          >
+            Monitors
+          </NavLink>
+          <NavLink className="rounded-full border-2 border-color3 p-1 pl-5 pr-5 text-color3 duration-300 hover:bg-color3 hover:text-white">
             Our deals
-          </li>
-        </ul>
+          </NavLink>
+        </div>
         <div className="flex gap-3">
           <button>
             <svg
@@ -159,7 +179,7 @@ function HeaderComponent() {
             alt="user"
           />
         </div>
-      </div>
+      </nav>
       <WorkingHours openClose={show} />
     </header>
   );
