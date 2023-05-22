@@ -25,47 +25,48 @@ function Products({ products }) {
     );
     return renderedStars;
   };
+  const slicedProducts = products.slice(1, 7);
 
   return (
-    <div className="flex  mt-12 container mx-auto mb-12">
+    <div className="container  mx-auto mb-12 mt-12 flex">
       <div
-        className="flex-col pr-3 pl-3 mr-2 bg-cover bg-no-repeat bg-center "
+        className="mr-2 flex-col bg-cover bg-center bg-no-repeat pl-3 pr-3 "
         style={{ backgroundImage: `url(${products[0].mainImg})` }}
       >
-        <h3 className="text-white flex items-center justify-center text-center h-full w-40">
+        <h3 className="flex h-full w-40 items-center justify-center text-center text-white">
           {products[0].title}
         </h3>
-        <p className="underline text-sm text-white flex items-end justify-center text-center -mt-12">
+        <p className="-mt-12 flex items-end justify-center text-center text-sm text-white underline">
           See All Products
         </p>
       </div>
 
-      <div className="flex flex-wrap mx-auto">
-        {products.map((product, index) =>
+      <div className="mx-auto flex flex-wrap">
+        {slicedProducts.map((product, index) =>
           index !== 0 ? (
             <Card key={index} width="max-w-48">
               {inStock[index] ? (
                 <div className="flex gap-2">
                   <img src="../../../public/icons/instock.svg" alt="instock" />
-                  <p className="text-color9 text-sm">In stock</p>
+                  <p className="text-sm text-color9">In stock</p>
                 </div>
               ) : (
-                <p className="text-color5 text-sm">Out of stock</p>
+                <p className="text-sm text-color5">Out of stock</p>
               )}
               <img
-                className="flex mx-auto mb-3 mt-3"
+                className="mx-auto mb-3 mt-3 flex"
                 key={index}
                 src={product.thumbnail}
                 alt={product.description}
               />
-              <div className="flex mb-3">{renderStars(stars[index])}</div>
-              <h3 className="text-sm max-w-prose w-36 font-normal mb-3 overflow-hidden">
+              <div className="mb-3 flex">{renderStars(stars[index])}</div>
+              <h3 className="mb-3 w-36 max-w-prose overflow-hidden text-sm font-normal">
                 {product.description}
               </h3>
-              <p className="font-normal line-through text-sm text-color10">
+              <p className="text-sm font-normal text-color10 line-through">
                 {product.price}
               </p>
-              <p className="font-medium text-sm">{product.price}</p>
+              <p className="text-sm font-medium">{product.price}</p>
             </Card>
           ) : null,
         )}

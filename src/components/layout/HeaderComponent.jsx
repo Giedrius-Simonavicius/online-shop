@@ -17,12 +17,12 @@ function HeaderComponent() {
   return (
     <header className="text-xs">
       <div className="bg-[#020202] ">
-        <div className="flex justify-between pt-3 pb-3 container mx-auto">
+        <div className="container mx-auto flex justify-between pb-3 pt-3">
           <div>
             <div
               onMouseEnter={displayOpenHours}
               onMouseLeave={displayOpenHours}
-              className="text-white flex "
+              className="flex text-white "
             >
               <p>
                 <span
@@ -33,7 +33,7 @@ function HeaderComponent() {
                 </span>{' '}
                 9:00 AM - 5:30 PM{' '}
               </p>
-              <div className="align-bottom ml-2 pt-1">
+              <div className="ml-2 pt-1 align-bottom">
                 <svg
                   width="10"
                   height="9"
@@ -58,12 +58,12 @@ function HeaderComponent() {
             >
               Visit our showroom in 1234 Street Adress City Address, 1234{' '}
             </p>
-            <NavLink to={'/'} className="text-white underline ml-1">
+            <NavLink to={'/'} className="ml-1 text-white underline">
               {' '}
               &nbsp;Contact Us&nbsp;
             </NavLink>
           </div>
-          <div className="bg-black text-white flex items-center gap-2">
+          <div className="flex items-center gap-2 bg-black text-white">
             <p>Call Us: (00) 1234 5678</p>
             <Link to="https://www.facebook.com/">
               <svg
@@ -115,12 +115,9 @@ function HeaderComponent() {
         <ul className="flex items-center gap-3">
           <li>Laptops</li>
           <li>Desktop PCs</li>
-          <li>Networking Devices</li>
-          <li>Printers & Scanners</li>
-          <li>PC Parts</li>
-          <li>All Other Products</li>
-          <li>Repairs</li>
-          <li className="hover:text-white hover:bg-color3 duration-300 p-1 border-color3 border-2 pl-5 pr-5 rounded-full text-color3">
+          <li>Custom builds</li>
+          <li>Monitors</li>
+          <li className="rounded-full border-2 border-color3 p-1 pl-5 pr-5 text-color3 duration-300 hover:bg-color3 hover:text-white">
             Our deals
           </li>
         </ul>
@@ -157,7 +154,7 @@ function HeaderComponent() {
             </svg>
           </button>
           <img
-            className="object-contain relative"
+            className="relative object-contain"
             src="../../../public/images/header/Ellipse8.png"
             alt="user"
           />
