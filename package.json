@@ -11,6 +11,7 @@
     "build-css": "tailwindcss build style.css -o styles/style.css"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.14",
     "firebase": "^9.21.0",
     "formik": "^2.2.9",
     "nuka-carousel": "^6.0.3",
