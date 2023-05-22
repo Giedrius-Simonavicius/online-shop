@@ -138,7 +138,7 @@ function HeaderComponent() {
             Monitors
           </NavLink>
           <NavLink
-            to={'/'}
+            to={'/all-products'}
             className="rounded-full border-2 border-color3 p-1 pl-5 pr-5 text-color3 duration-300 hover:bg-color3 hover:text-white"
           >
             Show all

@@ -8,11 +8,17 @@ import FooterComponent from './components/layout/FooterComponent';
 import AllProducts from './pages/AllProducts';
 import { laptops, customPcs, monitors, desktops } from './data/data';
 
+const allPrd = [
+  ...laptops.slice(1),
+  ...customPcs.slice(1),
+  ...monitors.slice(1),
+  ...desktops.slice(1),
+];
+
 function App() {
   return (
     <div>
       <HeaderComponent />
-
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="home" element={<HomePage />} />
@@ -31,6 +37,10 @@ function App() {
         <Route
           path="all-products/desktops"
           element={<AllProducts products={desktops} />}
+        />
+        <Route
+          path="all-products"
+          element={<AllProducts products={allPrd} />}
         />
       </Routes>
       <FooterComponent />
