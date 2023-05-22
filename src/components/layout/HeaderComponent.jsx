@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../../styles/style.css';
 import WorkingHours from '../openClose/WorkingHours';
+import { useAuthCtx } from '../../store/AuthProvider';
 
 function HeaderComponent() {
   const [openClose, setOpenClose] = useState(false);
   const show = openClose === true ? '' : 'hidden';
+  const { setFilterArr } = useAuthCtx();
 
   function displayOpenHours() {
     openClose === false
@@ -13,6 +15,9 @@ function HeaderComponent() {
       : setTimeout(() => {
           setOpenClose(false);
         }, 1500);
+  }
+  function resetFiltArr() {
+    setFilterArr([]);
   }
   return (
     <header className="text-xs">
@@ -138,6 +143,7 @@ function HeaderComponent() {
             Monitors
           </NavLink>
           <NavLink
+            onClick={resetFiltArr}
             to={'/all-products'}
             className="rounded-full border-2 border-color3 p-1 pl-5 pr-5 text-color3 duration-300 hover:bg-color3 hover:text-white"
           >
