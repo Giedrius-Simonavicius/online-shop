@@ -1,10 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import americanExpress from '../../img/cards/american-express.png';
-import discover from '../../img/cards/discover.png';
-import maestro from '../../img/cards/maestro.png';
-import paypal from '../../img/cards/paypal.png';
-import visa from '../../img/cards/visa.png';
 
 function FooterComponent() {
   return (
@@ -140,11 +135,17 @@ function FooterComponent() {
             </Link>
           </div>
           <div className="flex gap-3 text-sm">
-            <img src={paypal} alt="paypal" />
-            <img src={visa} alt="visa" />
-            <img src={maestro} alt="maestro" />
-            <img src={discover} alt="discover" />
-            <img src={americanExpress} alt="americanExpress" />
+            <img src="../../../public/images/cards/paypal.png" alt="paypal" />
+            <img src="../../../public/images/cards/visa.png" alt="visa" />
+            <img src="../../../public/images/cards/maestro.png" alt="maestro" />
+            <img
+              src="../../../public/images/cards/discover.png"
+              alt="discover"
+            />
+            <img
+              src="../../../public/images/cards/american-express.png"
+              alt="americanExpress"
+            />
           </div>
           <p className="text-[#ffffff83] text-sm">
             Copyright © 2020 Shop Pty. Ltd.

@@ -11,9 +11,10 @@
     "build-css": "tailwindcss build style.css -o styles/style.css"
   },
   "dependencies": {
-    "firebase": "^9.20.0",
-    "flat-carousel": "^0.0.1",
+    "@headlessui/react": "^1.7.14",
+    "firebase": "^9.21.0",
     "formik": "^2.2.9",
+    "nuka-carousel": "^6.0.3",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -29,6 +30,8 @@
     "eslint-config-react-app": "^7.0.1",
     "node-sass": "^8.0.0",
     "postcss": "^8.4.23",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0",
     "tailwindcss": "^3.3.2",
     "vite": "^4.2.0",
     "vite-plugin-eslint": "^1.8.1"

@@ -5,15 +5,43 @@ import { Route, Routes } from 'react-router-dom';
 import HeaderComponent from './components/layout/HeaderComponent';
 import HomePage from './pages/HomePage';
 import FooterComponent from './components/layout/FooterComponent';
-import Featuring from './components/layout/Featuring';
+import AllProducts from './pages/AllProducts';
+import { laptops, customPcs, monitors, desktops } from './data/data';
+
+const allPrd = [
+  ...laptops.slice(1),
+  ...customPcs.slice(1),
+  ...monitors.slice(1),
+  ...desktops.slice(1),
+];
 
 function App() {
   return (
     <div>
       <HeaderComponent />
-      <Featuring />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="home" element={<HomePage />} />
+        <Route
+          path="all-products/laptops"
+          element={<AllProducts products={laptops} />}
+        />
+        <Route
+          path="all-products/custom-pcs"
+          element={<AllProducts products={customPcs} />}
+        />
+        <Route
+          path="all-products/monitors"
+          element={<AllProducts products={monitors} />}
+        />
+        <Route
+          path="all-products/desktops"
+          element={<AllProducts products={desktops} />}
+        />
+        <Route
+          path="all-products"
+          element={<AllProducts products={allPrd} />}
+        />
       </Routes>
       <FooterComponent />
     </div>

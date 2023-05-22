@@ -1,6 +1,7 @@
-import './card.css';
+function Card({ children, flex, width }) {
+  const flexClass = flex === 'flex' ? 'flex' : 'flex-col';
 
-function Card({ children }) {
-  return <div className='card'>{children}</div>;
+  return <div className={`ml-3 mr-3 ${flexClass} `}>{children}</div>;
 }
+
 export default Card;
