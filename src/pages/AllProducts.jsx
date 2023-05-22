@@ -68,7 +68,7 @@ function AllProducts({ products }) {
       <div>
         <Filter />
       </div>
-      <div>delete</div>
+
       <div className="flex-col">
         <div className="mb-3 flex gap-2 text-sm">
           {filterArr.map((fObj, index) => (
