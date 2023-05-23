@@ -1,17 +1,16 @@
-import React from 'react';
-import { customPcs, desktops, laptops, monitors } from '../../data/data';
+import React, { useState } from 'react';
+import { allPrd } from '../../data/data';
 import { Disclosure, Transition } from '@headlessui/react';
 import { useAuthCtx } from '../../store/AuthProvider';
 
 function CategoryFilter() {
-  const { filterArr, setFilterArr } = useAuthCtx();
+  const { filterArr, setFilterArr, capitalizeFirstLetter } = useAuthCtx();
 
   function newFilter(event) {
     const category = event.currentTarget.dataset.category;
     if (!filterArr.includes(category)) {
       setFilterArr((prevFilterArr) => [...prevFilterArr, category]);
     }
-    console.log('filterItem ===', category);
   }
 
   function ArrowUpDown({ open }) {
@@ -26,12 +25,28 @@ function CategoryFilter() {
     );
   }
 
+  const [uniqueCategories, setUniqueCategories] = useState([]);
+
+  useState(() => {
+    const categories = [];
+    allPrd.forEach((product) => {
+      if (!categories.includes(product.category)) {
+        categories.push(product.category);
+      }
+    });
+
+    setUniqueCategories(categories);
+  }, []);
+  function getCategoryItemCount(category) {
+    return allPrd.filter((product) => product.category === category).length;
+  }
+
   return (
     <div>
       <Disclosure>
         {({ open }) => (
           <>
-            <Disclosure.Button className=" mb-3 flex items-end gap-[4.25rem] font-bold">
+            <Disclosure.Button className="mb-3 flex items-end gap-[4.25rem] font-bold">
               <h2 className="text-sm font-bold">Category</h2>
               <ArrowUpDown open={open} />
             </Disclosure.Button>
@@ -47,49 +62,18 @@ function CategoryFilter() {
             >
               <Disclosure.Panel className="text-xs">
                 <div>
-                  <div className="flex justify-between">
-                    <button
-                      className="hover:text-color3"
-                      onClick={newFilter}
-                      data-category={customPcs[1].category}
-                    >
-                      Custom PC's
-                    </button>
-                    <span>{customPcs.length - 1}</span>
-                  </div>
-
-                  <div className="flex justify-between">
-                    <button
-                      className="hover:text-color3"
-                      onClick={newFilter}
-                      data-category={laptops[1].category}
-                    >
-                      Laptops
-                    </button>
-                    <span>{laptops.length - 1}</span>
-                  </div>
-
-                  <div className="flex justify-between">
-                    <button
-                      className="hover:text-color3"
-                      onClick={newFilter}
-                      data-category={monitors[1].category}
-                    >
-                      Monitors
-                    </button>
-                    <span>{monitors.length - 1}</span>
-                  </div>
-
-                  <div className="flex justify-between">
-                    <button
-                      className="hover:text-color3"
-                      onClick={newFilter}
-                      data-category={desktops[1].category}
-                    >
-                      Desktops
-                    </button>
-                    <span>{desktops.length - 1}</span>
-                  </div>
+                  {uniqueCategories.map((category, index) => (
+                    <div className="flex justify-between" key={index}>
+                      <button
+                        className="hover:text-color3"
+                        onClick={newFilter}
+                        data-category={category}
+                      >
+                        {category && capitalizeFirstLetter(category)}
+                      </button>
+                      <span>{getCategoryItemCount(category)}</span>
+                    </div>
+                  ))}
                 </div>
               </Disclosure.Panel>
             </Transition>
