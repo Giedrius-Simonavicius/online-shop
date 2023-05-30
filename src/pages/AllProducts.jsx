@@ -63,7 +63,11 @@ function AllProducts({ products }) {
 
             return (
               <Link to={`/all-products/${product.id}`} key={index}>
-                <Card key={index} width="max-w-48">
+                <Card
+                  hover={'my-4 hover:scale-110  duration-200 hover:px-3'}
+                  key={index}
+                  width="max-w-48"
+                >
                   {inStock[index] ? (
                     <div className="flex gap-2">
                       <img

@@ -61,7 +61,7 @@ function CategoryFilter() {
               leaveTo="opacity-0 scale-y-0"
             >
               <Disclosure.Panel className="text-xs">
-                <div>
+                <div className="mb-3">
                   {uniqueCategories.map((category, index) => (
                     <div className="flex justify-between" key={index}>
                       <button
