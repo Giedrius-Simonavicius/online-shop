@@ -1,7 +1,6 @@
 import React from 'react';
 import { Disclosure, Transition } from '@headlessui/react';
 import { useAuthCtx } from '../../store/AuthProvider';
-import { allPrd } from '../../data/data';
 
 function CategoryFilter() {
   const { filterArr, setFilterArr } = useAuthCtx();

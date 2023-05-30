@@ -3,6 +3,7 @@ import Card from '../components/card/Card';
 import Filter from '../components/AllProdComponents/Filter';
 import { useAuthCtx } from '../store/AuthProvider';
 import { Link } from 'react-router-dom';
+import { filterProducts } from '../components/AllProdComponents/filterUtils';
 
 function AllProducts({ products }) {
   const [inStock, setInStock] = useState([]);
@@ -32,57 +33,10 @@ function AllProducts({ products }) {
     return renderedStars;
   };
 
-  const filterProducts = () => {
-    if (!products) {
-      return [];
-    }
-
-    if (filterArr.length === 0) {
-      return products;
-    }
-
-    const categoryFilters = filterArr.filter(isCategoryFilter);
-    const priceRangeFilters = filterArr.filter(isPriceRangeFilter);
-
-    return products.filter((product) => {
-      const price = product.price;
-
-      const categoryMatch =
-        categoryFilters.length === 0 ||
-        categoryFilters.includes(product.category);
-      const priceRangeMatch =
-        priceRangeFilters.length === 0 ||
-        priceRangeFilters.some((filter) => {
-          const [min, max] = getPriceRange(filter);
-          return price >= min && price <= max;
-        });
-
-      return categoryMatch && priceRangeMatch;
-    });
-  };
-
-  const isCategoryFilter = (category) =>
-    ['desktops', 'monitors', 'laptops', "custom PC's"].includes(category);
-
-  const isPriceRangeFilter = (priceRange) =>
-    ['0-299', '300-499', '500-999', '1000-above'].includes(priceRange);
-
-  const getPriceRange = (priceRange) => {
-    switch (priceRange) {
-      case '0-299':
-        return [0, 299];
-      case '300-499':
-        return [300, 499];
-      case '500-999':
-        return [500, 999];
-      case '1000-above':
-        return [1000, Number.POSITIVE_INFINITY];
-      default:
-        return [];
-    }
-  };
-
-  const filteredProducts = filterProducts();
+  const categoryCounts = products.reduce((counts, product) => {
+    counts[product.category] = (counts[product.category] || 0) + 1;
+    return counts;
+  }, {});
 
   const handleDeleteFilter = (index) => {
     const updatedFilters = [...filterArr];
@@ -90,19 +44,7 @@ function AllProducts({ products }) {
     setFilterArr(updatedFilters);
   };
 
-  const countCategory = (category) => {
-    return products.reduce((count, product) => {
-      if (product.category === category) {
-        return count + 1;
-      }
-      return count;
-    }, 0);
-  };
-
-  const desktopCount = countCategory('desktops');
-  const monitorCount = countCategory('monitors');
-  const laptopCount = countCategory('laptops');
-  const customCount = countCategory("custom PC's");
+  const filteredProducts = filterProducts(products, filterArr);
 
   return (
     <div className="container  mx-auto mb-12 mt-12 flex">
@@ -115,17 +57,8 @@ function AllProducts({ products }) {
           {filterArr.map((fObj, index) => (
             <div className=" flex gap-1 border py-1 pl-5 pr-2" key={index}>
               <p>{capitalizeFirstLetter(fObj)}</p>
-              {fObj === 'desktops' && (
-                <span className="font-light text-color5">{`(${desktopCount})`}</span>
-              )}
-              {fObj === 'monitors' && (
-                <span className="font-light text-color5">{`(${monitorCount})`}</span>
-              )}
-              {fObj === 'laptops' && (
-                <span className="font-light text-color5">{`(${laptopCount})`}</span>
-              )}
-              {fObj === "custom PC's" && (
-                <span className="font-light text-color5">{`(${customCount})`}</span>
+              {categoryCounts[fObj] && (
+                <span className="font-light text-color5">{`(${categoryCounts[fObj]})`}</span>
               )}
               <button
                 className="ml-3"
