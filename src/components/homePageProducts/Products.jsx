@@ -1,31 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../card/Card';
 import { NavLink } from 'react-router-dom';
+import { useAuthCtx } from '../../store/AuthProvider';
 
 function Products({ products }) {
   const [inStock, setInStock] = useState([]);
   const [stars, setStars] = useState([]);
-
+  const { renderStars } = useAuthCtx();
   useEffect(() => {
     setInStock(products.map((product) => product.inStock));
     setStars(products.map((product) => product.stars));
   }, [products]);
 
-  const renderStars = (starCount) => {
-    const starsArray = Array(5).fill('../../../public/icons/StarGray.svg');
-    const renderedStars = starsArray.map((starSrc, index) =>
-      index < starCount ? (
-        <img
-          key={index}
-          src="../../../public/icons/Star.svg"
-          alt={`star-${index}`}
-        />
-      ) : (
-        <img key={index} src={starSrc} alt={`star-${index}`} />
-      ),
-    );
-    return renderedStars;
-  };
   const slicedProducts = products.slice(1, 7);
 
   return (

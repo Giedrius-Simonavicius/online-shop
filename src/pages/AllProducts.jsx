@@ -8,7 +8,8 @@ import { filterProducts } from '../components/AllProdComponents/filterUtils';
 function AllProducts({ products }) {
   const [inStock, setInStock] = useState([]);
   const [stars, setStars] = useState([]);
-  const { filterArr, setFilterArr, capitalizeFirstLetter } = useAuthCtx();
+  const { filterArr, setFilterArr, capitalizeFirstLetter, renderStars } =
+    useAuthCtx();
 
   useEffect(() => {
     if (products) {
@@ -16,22 +17,6 @@ function AllProducts({ products }) {
       setStars(products.map((product) => product.stars));
     }
   }, [products]);
-
-  const renderStars = (starCount) => {
-    const starsArray = Array(5).fill('../../../public/icons/StarGray.svg');
-    const renderedStars = starsArray.map((starSrc, index) =>
-      index < starCount ? (
-        <img
-          key={index}
-          src="../../../public/icons/Star.svg"
-          alt={`star-${index}`}
-        />
-      ) : (
-        <img key={index} src={starSrc} alt={`star-${index}`} />
-      ),
-    );
-    return renderedStars;
-  };
 
   const categoryCounts = products.reduce((counts, product) => {
     counts[product.category] = (counts[product.category] || 0) + 1;
