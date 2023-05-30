@@ -3,11 +3,11 @@ import React from 'react';
 function WorkingHours({ openClose }) {
   return (
     <div
-      className={`${openClose}  ml-[6rem] bg-white p-2 mt-2 pt-3 pb-4 max-w-sm`}
+      className={`${openClose}  ml-[6rem] mt-2 max-w-sm bg-white p-2 pb-4 pt-3`}
     >
       <div className="flex">
         <div className="mr-2 ">
-          <img src="../../../public/icons/time.svg" alt="time" />
+          <img src="./public/icons/time.svg" alt="time" />
         </div>
         <div>
           <p>We are open:</p>
@@ -23,9 +23,9 @@ function WorkingHours({ openClose }) {
         </div>
       </div>
 
-      <div className="flex mt-2 border-t border-b pt-2 pb-2 border-gray-400">
+      <div className="mt-2 flex border-b border-t border-gray-400 pb-2 pt-2">
         <div className="mr-2">
-          <img src="../../../public/icons/location.svg" alt="location" />
+          <img src="./public/icons/location.svg" alt="location" />
         </div>
         <p className="mt-1">Address: 1234 Street Adress, City Address, 1234</p>
       </div>

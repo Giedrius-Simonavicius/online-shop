@@ -184,7 +184,7 @@ function HeaderComponent() {
           </button>
           <img
             className="relative object-contain"
-            src="../../../public/images/header/Ellipse8.png"
+            src="./public/images/header/Ellipse8.png"
             alt="user"
           />
         </div>

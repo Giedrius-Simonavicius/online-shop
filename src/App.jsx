@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import FooterComponent from './components/layout/FooterComponent';
 import AllProducts from './pages/AllProducts';
 import { laptops, customPcs, monitors, desktops } from './data/data';
+import SingleProductPage from './pages/SingleProductPage';
 
 const allPrd = [
   ...laptops.slice(1),
@@ -42,6 +43,7 @@ function App() {
           path="all-products"
           element={<AllProducts products={allPrd} />}
         />
+        <Route path="all-products/:itemId" element={<SingleProductPage />} />
       </Routes>
       <FooterComponent />
     </div>

@@ -16,6 +16,8 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc1.jpg',
     category: "custom PC's",
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -28,6 +30,8 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc1.jpg',
     category: "custom PC's",
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -40,6 +44,8 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc5.jpg',
     category: "custom PC's",
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -52,6 +58,8 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc2.jpg',
     category: "custom PC's",
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -64,6 +72,8 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc3.jpg',
     category: "custom PC's",
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -76,6 +86,8 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc4.jpg',
     category: "custom PC's",
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -88,6 +100,8 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc5.jpg',
     category: "custom PC's",
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -100,6 +114,8 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc3.jpg',
     category: "custom PC's",
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -112,6 +128,8 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc2.jpg',
     category: "custom PC's",
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -124,6 +142,8 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc1.jpg',
     category: "custom PC's",
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -136,6 +156,8 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc4.jpg',
     category: "custom PC's",
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -148,6 +170,8 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc2.jpg',
     category: "custom PC's",
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -160,6 +184,8 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc3.jpg',
     category: "custom PC's",
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -172,6 +198,8 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc4.jpg',
     category: "custom PC's",
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -184,6 +212,8 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc5.jpg',
     category: "custom PC's",
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
 ];
 export const laptops = [
@@ -204,6 +234,8 @@ export const laptops = [
     id: uuidv4(),
     thumbnail: '../../public/images/laptops/laptop1.jpg',
     category: 'laptops',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -216,6 +248,8 @@ export const laptops = [
     id: uuidv4(),
     thumbnail: '../../public/images/laptops/laptop1.jpg',
     category: 'laptops',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -228,6 +262,8 @@ export const laptops = [
     id: uuidv4(),
     thumbnail: '../../public/images/laptops/laptop5.jpg',
     category: 'laptops',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -240,6 +276,8 @@ export const laptops = [
     id: uuidv4(),
     thumbnail: '../../public/images/laptops/laptop2.jpg',
     category: 'laptops',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -252,6 +290,8 @@ export const laptops = [
     id: uuidv4(),
     thumbnail: '../../public/images/laptops/laptop3.jpg',
     category: 'laptops',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -264,6 +304,8 @@ export const laptops = [
     id: uuidv4(),
     thumbnail: '../../public/images/laptops/laptop4.jpg',
     category: 'laptops',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -276,6 +318,8 @@ export const laptops = [
     id: uuidv4(),
     thumbnail: '../../public/images/laptops/laptop5.jpg',
     category: 'laptops',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
 ];
 export const desktops = [
@@ -296,6 +340,8 @@ export const desktops = [
     id: uuidv4(),
     thumbnail: '../../public/images/desktops/desktop1.jpg',
     category: 'desktops',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -308,6 +354,8 @@ export const desktops = [
     id: uuidv4(),
     thumbnail: '../../public/images/desktops/desktop5.jpg',
     category: 'desktops',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -320,6 +368,8 @@ export const desktops = [
     id: uuidv4(),
     thumbnail: '../../public/images/desktops/desktop2.jpg',
     category: 'desktops',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -332,6 +382,8 @@ export const desktops = [
     id: uuidv4(),
     thumbnail: '../../public/images/desktops/desktop3.jpg',
     category: 'desktops',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -344,6 +396,8 @@ export const desktops = [
     id: uuidv4(),
     thumbnail: '../../public/images/desktops/desktop4.jpg',
     category: 'desktops',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -356,6 +410,8 @@ export const desktops = [
     id: uuidv4(),
     thumbnail: '../../public/images/desktops/desktop5.jpg',
     category: 'desktops',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
 ];
 export const monitors = [
@@ -376,6 +432,8 @@ export const monitors = [
     id: uuidv4(),
     thumbnail: '../../public/images/monitors/monitor1.jpg',
     category: 'monitors',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -388,6 +446,8 @@ export const monitors = [
     id: uuidv4(),
     thumbnail: '../../public/images/monitors/monitor5.jpg',
     category: 'monitors',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -400,6 +460,8 @@ export const monitors = [
     id: uuidv4(),
     thumbnail: '../../public/images/monitors/monitor2.jpg',
     category: 'monitors',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -412,6 +474,8 @@ export const monitors = [
     id: uuidv4(),
     thumbnail: '../../public/images/monitors/monitor3.jpg',
     category: 'monitors',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -424,6 +488,8 @@ export const monitors = [
     id: uuidv4(),
     thumbnail: '../../public/images/monitors/monitor4.jpg',
     category: 'monitors',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -436,6 +502,8 @@ export const monitors = [
     id: uuidv4(),
     thumbnail: '../../public/images/monitors/monitor5.jpg',
     category: 'monitors',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
@@ -448,6 +516,8 @@ export const monitors = [
     id: uuidv4(),
     thumbnail: '../../public/images/monitors/monitor2.jpg',
     category: 'monitors',
+    singleInfo:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
 ];
 

@@ -3,31 +3,31 @@ import { Link } from 'react-router-dom';
 
 function FooterComponent() {
   return (
-    <footer className="bg-[#020202] text-white font-normal ">
-      <div className="pt-8 pb-4 container mx-auto grid  gap-8">
+    <footer className="bg-[#020202] font-normal text-white ">
+      <div className="container mx-auto grid gap-8 pb-4  pt-8">
         <div className="flex justify-between">
           <div>
-            <h2 className="text-3xl font-normal mb-2">
+            <h2 className="mb-2 text-3xl font-normal">
               Sign Up To Our Newsletter.
             </h2>
             <p className="text-sm">
               Be the first to hear about the latest offers.
             </p>
           </div>
-          <div className="flex gap-4 h-12">
+          <div className="flex h-12 gap-4">
             <input
-              className="rounded bg-[#020202] outline pl-3 w-96 border-2 placeholder:text-white placeholder:text-sm placeholder:font-light"
+              className="w-96 rounded border-2 bg-[#020202] pl-3 outline placeholder:text-sm placeholder:font-light placeholder:text-white"
               type="email"
               placeholder="Your Email"
             />
-            <button className="bg-color3 pr-7 pl-7  rounded-full">
+            <button className="rounded-full bg-color3 pl-7  pr-7">
               Subscribe
             </button>
           </div>
         </div>
-        <div className="flex text-xs  justify-between">
+        <div className="flex justify-between  text-xs">
           <div>
-            <h3 className="font-bold tracking-wide mb-3 text-[#ffffff82]">
+            <h3 className="mb-3 font-bold tracking-wide text-[#ffffff82]">
               Information
             </h3>
             <ul>
@@ -43,7 +43,7 @@ function FooterComponent() {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold tracking-wide mb-3 text-[#ffffff82]">
+            <h3 className="mb-3 font-bold tracking-wide text-[#ffffff82]">
               PC Parts
             </h3>
             <ul>
@@ -60,7 +60,7 @@ function FooterComponent() {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold tracking-wide mb-3 text-[#ffffff82]">
+            <h3 className="mb-3 font-bold tracking-wide text-[#ffffff82]">
               Desktop PCs
             </h3>
             <ul>
@@ -73,7 +73,7 @@ function FooterComponent() {
             </ul>
           </div>
           <div>
-            <h3 className=" font-bold tracking-wide mb-3 text-[#ffffff82]">
+            <h3 className=" mb-3 font-bold tracking-wide text-[#ffffff82]">
               Laptops
             </h3>
             <ul>
@@ -86,7 +86,7 @@ function FooterComponent() {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold tracking-wide mb-3 text-[#ffffff82]">
+            <h3 className="mb-3 font-bold tracking-wide text-[#ffffff82]">
               Address
             </h3>
             <ul>
@@ -103,7 +103,7 @@ function FooterComponent() {
             </ul>
           </div>
         </div>
-        <div className="flex justify-between border-t pt-4 border-slate-400">
+        <div className="flex justify-between border-t border-slate-400 pt-4">
           <div className="flex gap-3 ">
             <Link to="https://www.facebook.com/">
               <svg
@@ -135,19 +135,16 @@ function FooterComponent() {
             </Link>
           </div>
           <div className="flex gap-3 text-sm">
-            <img src="../../../public/images/cards/paypal.png" alt="paypal" />
-            <img src="../../../public/images/cards/visa.png" alt="visa" />
-            <img src="../../../public/images/cards/maestro.png" alt="maestro" />
+            <img src="./public/images/cards/paypal.png" alt="paypal" />
+            <img src="./public/images/cards/visa.png" alt="visa" />
+            <img src="./public/images/cards/maestro.png" alt="maestro" />
+            <img src="./public/images/cards/discover.png" alt="discover" />
             <img
-              src="../../../public/images/cards/discover.png"
-              alt="discover"
-            />
-            <img
-              src="../../../public/images/cards/american-express.png"
+              src="./public/images/cards/american-express.png"
               alt="americanExpress"
             />
           </div>
-          <p className="text-[#ffffff83] text-sm">
+          <p className="text-sm text-[#ffffff83]">
             Copyright © 2020 Shop Pty. Ltd.
           </p>
         </div>

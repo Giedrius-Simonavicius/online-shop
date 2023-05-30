@@ -8,7 +8,7 @@ function Featuring() {
   const images = [feat1, feat2, feat3];
 
   return (
-    <div className="container mx-auto max-w-90vw overflow-hidden">
+    <div className="max-w-90vw container mx-auto overflow-hidden">
       <Carousel
         renderBottomCenterControls={false}
         autoplay={true}
