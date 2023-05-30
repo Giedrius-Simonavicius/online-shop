@@ -5,18 +5,16 @@ import SingleProduct from '../components/SingleProduct';
 
 function SingleProductPage() {
   const { itemId } = useParams();
-  console.log('allPrd ===', allPrd);
 
-  const foundItemObj = allPrd.find((pObj) => pObj.id === +itemId);
-  if (foundItemObj) {
-    console.log('radom foundItemObj ===', foundItemObj);
-  } else {
-    console.log('neradom');
-  }
+  const foundProductObj = allPrd.find((product) => product.id === itemId);
+
   return (
     <div>
-      SingleProductPage
-      <SingleProduct product={foundItemObj} />
+      {foundProductObj ? (
+        <SingleProduct product={foundProductObj} />
+      ) : (
+        <p>No information available for this product.</p>
+      )}
     </div>
   );
 }

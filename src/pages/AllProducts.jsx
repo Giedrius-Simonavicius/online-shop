@@ -3,7 +3,6 @@ import Card from '../components/card/Card';
 import Filter from '../components/AllProdComponents/Filter';
 import { useAuthCtx } from '../store/AuthProvider';
 import { Link } from 'react-router-dom';
-import { allPrd } from '../data/data';
 
 function AllProducts({ products }) {
   const [inStock, setInStock] = useState([]);
@@ -16,7 +15,7 @@ function AllProducts({ products }) {
       setStars(products.map((product) => product.stars));
     }
   }, [products]);
-  console.log('allPrd ===', allPrd);
+
   const renderStars = (starCount) => {
     const starsArray = Array(5).fill('../../../public/icons/StarGray.svg');
     const renderedStars = starsArray.map((starSrc, index) =>
@@ -145,35 +144,35 @@ function AllProducts({ products }) {
             }
 
             return (
-              <Card key={index} width="max-w-48">
-                {/* <Link to={`/all-products/${allPrd.id}`}> */}
-
-                {inStock[index] ? (
-                  <div className="flex gap-2">
-                    <img
-                      src="../../../public/icons/instock.svg"
-                      alt="instock"
-                    />
-                    <p className="text-sm text-color9">In stock</p>
-                  </div>
-                ) : (
-                  <p className="text-sm text-color5">Out of stock</p>
-                )}
-                <img
-                  className="mx-auto mb-3 mt-3 flex"
-                  key={index}
-                  src={product.thumbnail}
-                  alt={product.description}
-                />
-                <div className="mb-3 flex">{renderStars(stars[index])}</div>
-                <h3 className="mb-3 w-36 max-w-prose overflow-hidden text-sm font-normal">
-                  {product.description}
-                </h3>
-                <p className="text-sm font-normal text-color10 line-through">
-                  {product.price}
-                </p>
-                <p className="text-sm font-medium">{product.price}</p>
-              </Card>
+              <Link to={`/all-products/${product.id}`} key={index}>
+                <Card key={index} width="max-w-48">
+                  {inStock[index] ? (
+                    <div className="flex gap-2">
+                      <img
+                        src="../../../public/icons/instock.svg"
+                        alt="instock"
+                      />
+                      <p className="text-sm text-color9">In stock</p>
+                    </div>
+                  ) : (
+                    <p className="text-sm text-color5">Out of stock</p>
+                  )}
+                  <img
+                    className="mx-auto mb-3 mt-3 flex"
+                    key={index}
+                    src={product.thumbnail}
+                    alt={product.description}
+                  />
+                  <div className="mb-3 flex">{renderStars(stars[index])}</div>
+                  <h3 className="mb-3 w-36 max-w-prose overflow-hidden text-sm font-normal">
+                    {product.description}
+                  </h3>
+                  <p className="text-sm font-normal text-color10 line-through">
+                    {product.price}
+                  </p>
+                  <p className="text-sm font-medium">{product.price}</p>
+                </Card>
+              </Link>
             );
           })}
         </div>

@@ -135,12 +135,15 @@ function FooterComponent() {
             </Link>
           </div>
           <div className="flex gap-3 text-sm">
-            <img src="./public/images/cards/paypal.png" alt="paypal" />
-            <img src="./public/images/cards/visa.png" alt="visa" />
-            <img src="./public/images/cards/maestro.png" alt="maestro" />
-            <img src="./public/images/cards/discover.png" alt="discover" />
+            <img src="../../../public/images/cards/paypal.png" alt="paypal" />
+            <img src="../../../public/images/cards/visa.png" alt="visa" />
+            <img src="../../../public/images/cards/maestro.png" alt="maestro" />
             <img
-              src="./public/images/cards/american-express.png"
+              src="../../../public/images/cards/discover.png"
+              alt="discover"
+            />
+            <img
+              src="../../../public/images/cards/american-express.png"
               alt="americanExpress"
             />
           </div>

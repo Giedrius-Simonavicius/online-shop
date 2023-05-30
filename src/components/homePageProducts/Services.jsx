@@ -8,7 +8,7 @@ function Services() {
         <Card>
           <img
             className="mx-auto my-4"
-            src="./public/icons/ourServices/Account.svg"
+            src="../../../public/icons/ourServices/Account.svg"
             alt="Support"
           />
           <h3 className="text-center font-bold ">Product Support</h3>
@@ -19,7 +19,7 @@ function Services() {
         <Card>
           <img
             className="mx-auto my-4"
-            src="./public/icons/ourServices/Saving.svg"
+            src="../../../public/icons/ourServices/Saving.svg"
             alt="Support"
           />
           <h3 className="text-center font-bold ">Product Support</h3>
@@ -30,7 +30,7 @@ function Services() {
         <Card>
           <img
             className="mx-auto my-4"
-            src="./public/icons/ourServices/Support.svg"
+            src="../../../public/icons/ourServices/Support.svg"
             alt="Support"
           />
           <h3 className="text-center font-bold ">Product Support</h3>
