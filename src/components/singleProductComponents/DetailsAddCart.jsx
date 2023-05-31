@@ -2,22 +2,30 @@ import React from 'react';
 
 function DetailsAddCart({ activeTab, onTabClick }) {
   return (
-    <div className="flex justify-between py-7 text-xs">
+    <div className="mb-3 flex justify-between border-y-2 py-7 text-xs">
       <div className="flex gap-9">
         <button
-          className={`mr-2 ${activeTab === 'about' ? 'font-bold' : ''}`}
+          className={`mr-2 ${
+            activeTab === 'about' ? 'border-b-2 border-color3 font-bold  ' : ''
+          }`}
           onClick={() => onTabClick('about')}
         >
           About Product
         </button>
         <button
-          className={`mr-2 ${activeTab === 'details' ? 'font-bold' : ''}`}
+          className={`mr-2 ${
+            activeTab === 'details'
+              ? 'border-b-2 border-color3 font-bold  '
+              : ''
+          }`}
           onClick={() => onTabClick('details')}
         >
           Details
         </button>
         <button
-          className={`mr-2 ${activeTab === 'specs' ? 'font-bold' : ''}`}
+          className={`mr-2 ${
+            activeTab === 'specs' ? 'border-b-2 border-color3 font-bold  ' : ''
+          }`}
           onClick={() => onTabClick('specs')}
         >
           Specs
