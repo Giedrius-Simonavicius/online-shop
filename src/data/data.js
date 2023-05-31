@@ -8,6 +8,8 @@ export const customPcs = [
   {
     description:
       'EX DISPLAY: MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 899.0,
     discount: 0,
@@ -16,12 +18,13 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc1.jpg',
     category: "custom PC's",
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 899.0,
     discount: 0,
@@ -30,12 +33,13 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc1.jpg',
     category: "custom PC's",
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 1499.0,
     discount: 0,
@@ -44,12 +48,13 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc5.jpg',
     category: "custom PC's",
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 1499.0,
     discount: 0,
@@ -58,12 +63,13 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc2.jpg',
     category: "custom PC's",
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 899.0,
     discount: 0,
@@ -72,12 +78,13 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc3.jpg',
     category: "custom PC's",
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 699.0,
     discount: 0,
@@ -86,12 +93,13 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc4.jpg',
     category: "custom PC's",
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 799.0,
     discount: 0,
@@ -100,12 +108,13 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc5.jpg',
     category: "custom PC's",
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 299.0,
     discount: 0,
@@ -114,12 +123,13 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc3.jpg',
     category: "custom PC's",
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -128,12 +138,13 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc2.jpg',
     category: "custom PC's",
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -142,12 +153,13 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc1.jpg',
     category: "custom PC's",
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 1499.0,
     discount: 0,
@@ -156,12 +168,13 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc4.jpg',
     category: "custom PC's",
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -170,12 +183,13 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc2.jpg',
     category: "custom PC's",
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -184,12 +198,13 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc3.jpg',
     category: "custom PC's",
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -198,12 +213,13 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc4.jpg',
     category: "custom PC's",
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 899.0,
     discount: 0,
@@ -212,7 +228,7 @@ export const customPcs = [
     id: uuidv4(),
     thumbnail: '../../public/images/pcs/pc5.jpg',
     category: "custom PC's",
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
 ];
@@ -226,6 +242,7 @@ export const laptops = [
   {
     description:
       '222EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -234,12 +251,13 @@ export const laptops = [
     id: uuidv4(),
     thumbnail: '../../public/images/laptops/laptop1.jpg',
     category: 'laptops',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -248,12 +266,13 @@ export const laptops = [
     id: uuidv4(),
     thumbnail: '../../public/images/laptops/laptop1.jpg',
     category: 'laptops',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -262,12 +281,13 @@ export const laptops = [
     id: uuidv4(),
     thumbnail: '../../public/images/laptops/laptop5.jpg',
     category: 'laptops',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -276,12 +296,13 @@ export const laptops = [
     id: uuidv4(),
     thumbnail: '../../public/images/laptops/laptop2.jpg',
     category: 'laptops',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -290,12 +311,13 @@ export const laptops = [
     id: uuidv4(),
     thumbnail: '../../public/images/laptops/laptop3.jpg',
     category: 'laptops',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -304,12 +326,13 @@ export const laptops = [
     id: uuidv4(),
     thumbnail: '../../public/images/laptops/laptop4.jpg',
     category: 'laptops',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -318,7 +341,7 @@ export const laptops = [
     id: uuidv4(),
     thumbnail: '../../public/images/laptops/laptop5.jpg',
     category: 'laptops',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
 ];
@@ -332,6 +355,7 @@ export const desktops = [
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -340,12 +364,13 @@ export const desktops = [
     id: uuidv4(),
     thumbnail: '../../public/images/desktops/desktop1.jpg',
     category: 'desktops',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -354,12 +379,13 @@ export const desktops = [
     id: uuidv4(),
     thumbnail: '../../public/images/desktops/desktop5.jpg',
     category: 'desktops',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -368,12 +394,13 @@ export const desktops = [
     id: uuidv4(),
     thumbnail: '../../public/images/desktops/desktop2.jpg',
     category: 'desktops',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -382,12 +409,13 @@ export const desktops = [
     id: uuidv4(),
     thumbnail: '../../public/images/desktops/desktop3.jpg',
     category: 'desktops',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -396,12 +424,13 @@ export const desktops = [
     id: uuidv4(),
     thumbnail: '../../public/images/desktops/desktop4.jpg',
     category: 'desktops',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -410,7 +439,7 @@ export const desktops = [
     id: uuidv4(),
     thumbnail: '../../public/images/desktops/desktop5.jpg',
     category: 'desktops',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
 ];
@@ -424,6 +453,7 @@ export const monitors = [
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -432,12 +462,13 @@ export const monitors = [
     id: uuidv4(),
     thumbnail: '../../public/images/monitors/monitor1.jpg',
     category: 'monitors',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -446,12 +477,13 @@ export const monitors = [
     id: uuidv4(),
     thumbnail: '../../public/images/monitors/monitor5.jpg',
     category: 'monitors',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -460,12 +492,13 @@ export const monitors = [
     id: uuidv4(),
     thumbnail: '../../public/images/monitors/monitor2.jpg',
     category: 'monitors',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -474,12 +507,13 @@ export const monitors = [
     id: uuidv4(),
     thumbnail: '../../public/images/monitors/monitor3.jpg',
     category: 'monitors',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 499.0,
     discount: 0,
@@ -488,12 +522,13 @@ export const monitors = [
     id: uuidv4(),
     thumbnail: '../../public/images/monitors/monitor4.jpg',
     category: 'monitors',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 1499.0,
     discount: 0,
@@ -502,12 +537,13 @@ export const monitors = [
     id: uuidv4(),
     thumbnail: '../../public/images/monitors/monitor5.jpg',
     category: 'monitors',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'SKU D5515AI',
     price: 1699.0,
     discount: 0,
@@ -516,7 +552,7 @@ export const monitors = [
     id: uuidv4(),
     thumbnail: '../../public/images/monitors/monitor2.jpg',
     category: 'monitors',
-    singleInfo:
+    aboutProduct:
       'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop',
   },
 ];
