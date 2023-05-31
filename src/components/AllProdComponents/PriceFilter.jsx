@@ -53,7 +53,7 @@ function CategoryFilter() {
                     >
                       $0 - $299
                     </button>
-                    <span>{/* Add count logic here */}</span>
+                    <span>{}</span>
                   </div>
 
                   <div className="flex justify-between">
@@ -64,7 +64,7 @@ function CategoryFilter() {
                     >
                       $300 - $499
                     </button>
-                    <span>{/* Add count logic here */}</span>
+                    <span>{}</span>
                   </div>
 
                   <div className="flex justify-between">
@@ -75,7 +75,7 @@ function CategoryFilter() {
                     >
                       $500 - $999
                     </button>
-                    <span>{/* Add count logic here */}</span>
+                    <span>{}</span>
                   </div>
 
                   <div className="flex justify-between">
@@ -86,7 +86,7 @@ function CategoryFilter() {
                     >
                       $1000 and above
                     </button>
-                    <span>{/* Add count logic here */}</span>
+                    <span>{}</span>
                   </div>
                 </div>
               </Disclosure.Panel>
