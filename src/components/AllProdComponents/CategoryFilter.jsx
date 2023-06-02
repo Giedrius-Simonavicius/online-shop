@@ -8,11 +8,14 @@ function CategoryFilter() {
 
   function newFilter(event) {
     const category = event.currentTarget.dataset.category;
-    if (!filterArr.includes(category)) {
+    if (filterArr.includes(category)) {
+      setFilterArr((prevFilterArr) =>
+        prevFilterArr.filter((filter) => filter !== category),
+      );
+    } else {
       setFilterArr((prevFilterArr) => [...prevFilterArr, category]);
     }
   }
-
   function ArrowUpDown({ open }) {
     return (
       <div className="pb-2">

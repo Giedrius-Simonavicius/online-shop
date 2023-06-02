@@ -7,7 +7,11 @@ function CategoryFilter() {
 
   function newFilter(event) {
     const priceRange = event.currentTarget.dataset.priceRange;
-    if (!filterArr.includes(priceRange)) {
+    if (filterArr.includes(priceRange)) {
+      setFilterArr((prevFilterArr) =>
+        prevFilterArr.filter((filter) => filter !== priceRange),
+      );
+    } else {
       setFilterArr((prevFilterArr) => [...prevFilterArr, priceRange]);
     }
   }
