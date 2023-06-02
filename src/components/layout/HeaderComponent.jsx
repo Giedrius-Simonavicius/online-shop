@@ -170,16 +170,15 @@ function HeaderComponent() {
           </NavLink>
         </div>
         <div className="flex gap-3">
-          <button
-            className="duration-200 hover:scale-110"
-            onMouseEnter={() =>
-              changeOnHoverColor(setOnHoverColorSearch, '#0156FF')
-            }
-            onMouseLeave={() =>
-              changeOnHoverColor(setOnHoverColorSearch, 'black')
-            }
-          >
+          <button>
             <svg
+              className="duration-200 hover:scale-110"
+              onMouseEnter={() =>
+                changeOnHoverColor(setOnHoverColorSearch, '#0156FF')
+              }
+              onMouseLeave={() =>
+                changeOnHoverColor(setOnHoverColorSearch, 'black')
+              }
               width="19"
               height="19"
               viewBox="0 0 19 19"
@@ -194,17 +193,15 @@ function HeaderComponent() {
               />
             </svg>
           </button>
-          <button
-            className="duration-200 hover:scale-110"
-            onMouseEnter={() =>
-              changeOnHoverColor(setOnHoverColorCart, '#0156FF')
-            }
-            onMouseLeave={() =>
-              changeOnHoverColor(setOnHoverColorCart, 'black')
-            }
-          >
+          <button>
             <svg
-              className=""
+              className="duration-200 hover:scale-110"
+              onMouseEnter={() =>
+                changeOnHoverColor(setOnHoverColorCart, '#0156FF')
+              }
+              onMouseLeave={() =>
+                changeOnHoverColor(setOnHoverColorCart, 'black')
+              }
               width="25"
               height="25"
               viewBox="0 0 25 25"

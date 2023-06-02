@@ -26,7 +26,7 @@ function CategoryFilter() {
 
   return (
     <div className="mb-3">
-      <Disclosure>
+      <Disclosure defaultOpen>
         {({ open }) => (
           <>
             <Disclosure.Button className=" mb-3 flex items-end gap-[6.25rem] font-bold">

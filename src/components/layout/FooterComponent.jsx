@@ -39,8 +39,8 @@ function FooterComponent() {
               <li>Orders and Returns</li>
               <li>
                 <NavLink
+                  to="/contact-us"
                   className="mt-1 text-xs font-normal duration-200 hover:text-color4"
-                  href="mailto:example@example.com"
                 >
                   Contact us
                 </NavLink>
