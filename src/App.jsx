@@ -9,6 +9,7 @@ import AllProducts from './pages/AllProducts';
 import { laptops, customPcs, monitors, desktops } from './data/data';
 import SingleProductPage from './pages/SingleProductPage';
 import ContactUs from './pages/ContactUs';
+import ScrollToTop from './components/ScrollToTop';
 
 const allPrd = [
   ...laptops.slice(1),
@@ -20,6 +21,7 @@ const allPrd = [
 function App() {
   return (
     <div>
+      <ScrollToTop />
       <HeaderComponent />
       <Routes>
         <Route path="/" element={<HomePage />} />

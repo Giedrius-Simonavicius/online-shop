@@ -15,7 +15,9 @@ function ContactUs() {
       </p>
       <main className="flex ">
         <ContactForm />
-        <section className={` ml-[6rem] mt-2  bg-color1 px-10 pb-4 pt-3`}>
+        <section
+          className={` ml-[6rem] mt-2 h-fit rounded bg-color1 px-10 pb-4 pt-3`}
+        >
           <div className="mt-2 pb-2 pt-2">
             <div className="flex">
               <div className="mr-2">

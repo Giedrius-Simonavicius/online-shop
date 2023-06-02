@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function FooterComponent() {
   return (
@@ -38,12 +38,12 @@ function FooterComponent() {
               <li>Terms</li>
               <li>Orders and Returns</li>
               <li>
-                <a
-                  className="mt-1 text-xs font-normal"
+                <NavLink
+                  className="mt-1 text-xs font-normal duration-200 hover:text-color4"
                   href="mailto:example@example.com"
                 >
                   Contact us
-                </a>
+                </NavLink>
               </li>
               <li>Advanced Search</li>
               <li>Newsletter Subscription</li>

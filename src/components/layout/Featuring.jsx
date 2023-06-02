@@ -8,11 +8,13 @@ function Featuring() {
   const images = [feat1, feat2, feat3];
 
   return (
-    <div className="max-w-90vw container mx-auto overflow-hidden">
+    <div className="max-w-90vw container relative -z-10 mx-auto overflow-hidden">
       <Carousel
         renderBottomCenterControls={false}
         autoplay={true}
         wrapAround={true}
+        renderCenterRightControls={({ nextSlide }) => false}
+        renderCenterLeftControls={({ previousSlide }) => false}
       >
         {images.map((image, index) => (
           <img className="" key={index} src={image} alt={image} />

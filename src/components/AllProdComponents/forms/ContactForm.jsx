@@ -12,6 +12,7 @@ function ContactForm() {
     },
     onSubmit: (values, { resetForm, setSubmitting }) => {
       sendEmail(values, setSubmitting);
+      resetForm();
     },
     validate: (values) => {
       const errors = {};
@@ -127,7 +128,7 @@ function ContactForm() {
           <textarea
             cols="30"
             rows="10"
-            className="mt-2 w-full rounded border-2 pl-4 pt-4 font-normal  placeholder:font-light"
+            className="mt-2 w-full resize-none rounded border-2 pl-4 pt-4 font-normal  placeholder:font-light"
             id="message"
             name="message"
             placeholder="Just us a note and we'll get back to you as quickly as possible"

@@ -1,9 +1,9 @@
 import React from 'react';
 
-function WorkingHours({ openClose }) {
+function WorkingHours() {
   return (
     <div
-      className={`${openClose}  ml-[6rem] mt-2 max-w-sm bg-white p-2 pb-4 pt-3`}
+      className={` z-2 ml-[2rem] mt-2 max-w-sm rounded-md border-2 border-color7 bg-color1 p-2 pb-4 pt-3`}
     >
       <div className="flex">
         <div className="mr-2 ">
