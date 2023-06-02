@@ -13,11 +13,9 @@ function ContactUs() {
         Please contact us and we will make sure to get back to you as soon as we
         possibly can.
       </p>
-      <main className="flex">
+      <main className="flex ">
         <ContactForm />
-        <section
-          className={` ml-[6rem] mt-2 max-w-sm bg-color1 px-10 pb-4 pt-3`}
-        >
+        <section className={` ml-[6rem] mt-2  bg-color1 px-10 pb-4 pt-3`}>
           <div className="mt-2 pb-2 pt-2">
             <div className="flex">
               <div className="mr-2">

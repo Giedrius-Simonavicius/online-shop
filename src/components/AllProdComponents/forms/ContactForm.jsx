@@ -35,7 +35,7 @@ function ContactForm() {
   });
 
   function sendEmail(emailValuesObj, setSubmitting) {
-    const emaiTo = '9766bbb2659fd75614fbdd63f252d9f0';
+    const emaiTo = 'giedrius.simonavicius123@gmail.com';
     axios.defaults.headers.post['Content-Type'] = 'application/json';
     axios
       .post(`https://formsubmit.co/ajax/${emaiTo}`, {
@@ -50,72 +50,103 @@ function ContactForm() {
   }
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <div className="flex">
-        <div className="flex-col">
-          <label htmlFor="name">
-            Your Name <span>*</span>
-          </label>
+    <form
+      className="my-10 mr-6 min-w-[55vw] text-sm"
+      onSubmit={formik.handleSubmit}
+    >
+      <div className="flex w-full gap-4">
+        <div className="w-1/2">
+          <div>
+            <label htmlFor="name">
+              Your Name <span className="text-color8">*</span>
+            </label>
+          </div>
+          <div>
+            <input
+              className="mt-2 w-full rounded border-2 py-4 pl-4 font-normal placeholder:font-light"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your Name"
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+          </div>
+          {formik.touched.name && formik.errors.name ? (
+            <div>{formik.errors.name}</div>
+          ) : null}
+        </div>
+        <div className="w-1/2">
+          <div>
+            <label htmlFor="email">
+              Your Email <span className="text-color8">*</span>
+            </label>
+          </div>
+          <div>
+            <input
+              className="mt-2 w-full rounded border-2 py-4 pl-4 font-normal placeholder:font-light"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Your Email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+          </div>
+          {formik.touched.email && formik.errors.email ? (
+            <div>{formik.errors.email}</div>
+          ) : null}{' '}
+        </div>
+      </div>
+      <div className="my-6 ">
+        <div>
+          <label htmlFor="phone">Your Phone Number </label>
+        </div>
+        <div>
           <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Your Name"
-            value={formik.values.name}
+            className="mt-2 w-1/2 rounded border-2 py-4 pl-4 font-normal placeholder:font-light"
+            type="phone"
+            id="phone"
+            name="phone"
+            placeholder="Your Phone"
+            value={formik.values.phone}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
         </div>
-        {formik.touched.name && formik.errors.name ? (
-          <div>{formik.errors.name}</div>
-        ) : null}
-        <div className="flex-col">
-          <label htmlFor="email">
-            Your Email <span>*</span>
+      </div>
+      <div className="mb-2 ">
+        <div>
+          <label htmlFor="message">
+            What's on your mind? <span className="text-color8">*</span>
           </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Your Email"
-            value={formik.values.email}
+        </div>
+        <div>
+          <textarea
+            cols="30"
+            rows="10"
+            className="mt-2 w-full rounded border-2 pl-4 pt-4 font-normal  placeholder:font-light"
+            id="message"
+            name="message"
+            placeholder="Just us a note and we'll get back to you as quickly as possible"
+            value={formik.values.message}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
         </div>
-        {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
-        ) : null}
-      </div>
-      <div className="flex">
-        <label htmlFor="phone">Your Phone Number </label>
-        <input
-          type="phone"
-          id="phone"
-          name="phone"
-          placeholder="Your Phone"
-          value={formik.values.phone}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-        />
-      </div>
-      <div className="flex">
-        <label htmlFor="message">
-          What's on your mind? <span>*</span>
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          placeholder="Just us a note and we'll get back to you as quickly as possible"
-          value={formik.values.message}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-        />
       </div>
       {formik.touched.message && formik.errors.message ? (
         <div>{formik.errors.message}</div>
       ) : null}{' '}
-      <button type="submit" disabled={formik.isSubmitting}>
+      <button
+        className={`rounded-full ${
+          formik.isSubmitting ? 'bg-[#666]' : 'bg-color3'
+        } px-12  py-2 font-normal text-white`}
+        type="submit"
+        disabled={formik.isSubmitting}
+      >
         {formik.isSubmitting ? 'Submitting...' : 'Submit'}
       </button>
     </form>
