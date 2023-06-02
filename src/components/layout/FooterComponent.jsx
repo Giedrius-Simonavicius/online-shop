@@ -37,7 +37,14 @@ function FooterComponent() {
               <li>Search</li>
               <li>Terms</li>
               <li>Orders and Returns</li>
-              <li>Contact Us</li>
+              <li>
+                <a
+                  className="mt-1 text-xs font-normal"
+                  href="mailto:example@example.com"
+                >
+                  Contact us
+                </a>
+              </li>
               <li>Advanced Search</li>
               <li>Newsletter Subscription</li>
             </ul>
@@ -98,7 +105,13 @@ function FooterComponent() {
               <li>Friday: 9:00 AM - 6:00 PM</li>
               <li>Saturday: 11:00 AM - 5:00 PM</li>
               <li>
-                E-mail: <span className="text-color4">shop@email.com</span>
+                E-mail:{' '}
+                <a
+                  className="mt-1 text-xs font-normal text-color4"
+                  href="mailto:example@example.com"
+                >
+                  shop@email.com
+                </a>
               </li>
             </ul>
           </div>

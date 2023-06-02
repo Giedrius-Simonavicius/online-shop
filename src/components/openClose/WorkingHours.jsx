@@ -34,7 +34,13 @@ function WorkingHours({ openClose }) {
           Phones: <span className="text-color3">(00) 1234 5678</span>
         </p>
         <p>
-          E-mail: <span className="text-color3">shop@email.com</span>
+          E-mail:{' '}
+          <a
+            className="mt-1 text-xs  text-color3"
+            href="mailto:example@example.com"
+          >
+            shop@email.com
+          </a>
         </p>
       </div>
     </div>

@@ -60,7 +60,10 @@ function HeaderComponent() {
                   >
                     Visit our showroom in 1234 Street Adress City Address, 1234{' '}
                   </p>
-                  <NavLink to={'/'} className="ml-1 text-white underline">
+                  <NavLink
+                    to={'contact-us'}
+                    className="ml-1 text-white underline"
+                  >
                     {' '}
                     &nbsp;Contact Us&nbsp;
                   </NavLink>
