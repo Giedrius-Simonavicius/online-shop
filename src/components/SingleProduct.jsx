@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import DetailsAddCart from './singleProductComponents/DetailsAddCart';
+import { NavLink } from 'react-router-dom';
 
 function SingleProduct({ product }) {
   const [activeTab, setActiveTab] = useState('about');
@@ -38,10 +39,15 @@ function SingleProduct({ product }) {
             </ul>
           )}
           <div className="mt-4 flex justify-between text-xs">
-            <p>
-              Have a Question?{' '}
-              <button className="ml-2 text-color3">Contact Us</button>
-            </p>
+            <div className="flex">
+              <p>Have a Question? </p>
+              <NavLink
+                className="ml-2 text-color3 duration-200 hover:scale-110"
+                to="/contact-us"
+              >
+                Contact Us
+              </NavLink>
+            </div>
             <p>{product.productId}</p>
           </div>
         </div>

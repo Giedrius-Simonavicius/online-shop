@@ -17,7 +17,7 @@ function Products({ products }) {
   return (
     <div className="container  mx-auto mb-12 mt-12 flex">
       <div
-        className="mr-2 flex-col bg-cover bg-center bg-no-repeat pl-3 pr-3 "
+        className="mr-2 flex-col rounded bg-cover bg-center bg-no-repeat pl-3 pr-3 "
         style={{ backgroundImage: `url(${products[0].mainImg})` }}
       >
         <h3 className="flex h-full w-40 items-center justify-center text-center text-white">
@@ -25,7 +25,7 @@ function Products({ products }) {
         </h3>
         <NavLink
           to={products[0].link}
-          className="-mt-12 flex items-end justify-center text-center text-sm text-white underline"
+          className="-mt-12 flex items-end justify-center text-center text-sm text-white underline duration-200 hover:scale-110 hover:text-color8"
         >
           See All Products
         </NavLink>

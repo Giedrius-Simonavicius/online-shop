@@ -64,8 +64,8 @@ function AllProducts({ products }) {
         <div>
           <Filter />
         </div>
-        <div>
-          <div className="flex-col">
+        <div className="ml-4 ">
+          <div className="flex-col ">
             <div className="mb-3 flex gap-2 text-sm">
               {filterArr.map((fObj, index) => (
                 <div className=" flex gap-1 border py-1 pl-5 pr-2" key={index}>
@@ -85,6 +85,9 @@ function AllProducts({ products }) {
             </div>
           </div>
           <div className="mx-auto flex flex-wrap">
+            {filteredProducts.length === 0 && (
+              <p>No availbale items with current filters</p>
+            )}
             {filteredProducts.map((product, index) => {
               if (!product.thumbnail) {
                 return null;
