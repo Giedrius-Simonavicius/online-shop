@@ -19,15 +19,17 @@ function Comments({ comments }) {
             className="mt-2 flex justify-end gap-1"
             style={{ marginBottom: '-15px' }}
           >
-            {Array.from({ length: slideCount }).map((_, index) => (
-              <span
-                key={index}
-                className={`h-2 w-2 rounded-full bg-gray-300 ${
-                  index === currentSlide ? 'bg-gray-800' : ''
-                }`}
-                style={{ marginTop: '10px' }}
-              />
-            ))}
+            {Array.from({ length: slideCount })
+              .reverse()
+              .map((_, index) => (
+                <span
+                  key={index}
+                  className={`h-2 w-2 rounded-full bg-gray-300 ${
+                    index === currentSlide ? 'bg-gray-800' : ''
+                  }`}
+                  style={{ marginTop: '10px' }}
+                />
+              ))}
           </div>
         )}
         renderBottomCenterControls={false}
