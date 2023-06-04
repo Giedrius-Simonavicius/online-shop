@@ -2,8 +2,8 @@ import React from 'react';
 
 function DetailsAddCart({ activeTab, onTabClick }) {
   return (
-    <div className="mb-3 flex justify-between border-y-2 py-7 text-xs">
-      <div className="flex gap-9">
+    <div className="  mb-3 flex justify-between border-y-2 py-7 text-xs">
+      <div className="flex gap-9 px-10">
         <button
           className={`mr-2 ${
             activeTab === 'about' ? 'border-b-2 border-color3 font-bold  ' : ''
