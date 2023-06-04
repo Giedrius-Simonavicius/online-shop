@@ -5,41 +5,7 @@ export const customPcs = [
     title: 'Custom Builds',
     link: 'all-products/custom-pcs',
   },
-  {
-    description:
-      'Custom-Built Performance Beast - Unleash the Power of MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-One PC...',
-    name: 'MSI Pro 20 Custom',
-    specs: {
-      cpu: 'N/A',
-      featured: 'N/A',
-      ports: 'N/A',
-    },
-    productId: 'CBPC D5511AI',
-    price: 899.0,
-    discount: 0,
-    inStock: true,
-    stars: 3,
-    id: uuidv4(),
-    thumbnail: '../../public/images/pcs/pc1.jpg',
-    category: "custom PC's",
-    aboutProduct:
-      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 3070 RTX, 16GB RAM, 1tb SSD, 2TB HDD, Windows 10 Pro, Gaming Keyboard and Mouse, Gaming Desktop',
-    details: [
-      'Intel Core i7-10700F',
-      'Intel H410',
-      'Black',
-      'NVIDIA GeForce RTX 3070 8GB GDDR6',
-      '16GB DDR4 RAM (2666MHz)',
-      '2 total slots (64GB Max)',
-      '1TB NVMe M.2 SSD, 2TB HDD (5400RPM)',
-      'Gaming Keyboard and Mouse Included',
-      'Drive bays: 3.5" HDD (0/0), 2.5" HDD/SSD (1/0), M.2 (1/0)',
-      'Intel Ethernet (10/100/1000M)',
-      'WiFi 6 (AX200) + Bluetooth 5.1',
-      '850W Power Supply Unit',
-      'Effective Fan Cooling System',
-    ],
-  },
+
   {
     description:
       'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
@@ -249,6 +215,41 @@ export const customPcs = [
       featured: 'N/A',
       ports: 'N/A',
     },
+  },
+  {
+    description:
+      'Custom-Built Performance Beast - Unleash the Power of MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-One PC...',
+    name: 'MSI Pro 20 Custom',
+    specs: {
+      cpu: 'N/A',
+      featured: 'N/A',
+      ports: 'N/A',
+    },
+    productId: 'CBPC D5511AI',
+    price: 899.0,
+    discount: 0,
+    inStock: true,
+    stars: 3,
+    id: uuidv4(),
+    thumbnail: '../../public/images/pcs/pc1.jpg',
+    category: "custom PC's",
+    aboutProduct:
+      'MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 3070 RTX, 16GB RAM, 1tb SSD, 2TB HDD, Windows 10 Pro, Gaming Keyboard and Mouse, Gaming Desktop',
+    details: [
+      'Intel Core i7-10700F',
+      'Intel H410',
+      'Black',
+      'NVIDIA GeForce RTX 3070 8GB GDDR6',
+      '16GB DDR4 RAM (2666MHz)',
+      '2 total slots (64GB Max)',
+      '1TB NVMe M.2 SSD, 2TB HDD (5400RPM)',
+      'Gaming Keyboard and Mouse Included',
+      'Drive bays: 3.5" HDD (0/0), 2.5" HDD/SSD (1/0), M.2 (1/0)',
+      'Intel Ethernet (10/100/1000M)',
+      'WiFi 6 (AX200) + Bluetooth 5.1',
+      '850W Power Supply Unit',
+      'Effective Fan Cooling System',
+    ],
   },
   {
     description:

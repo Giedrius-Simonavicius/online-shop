@@ -12,26 +12,25 @@ function Products({ products }) {
     setStars(products.map((product) => product.stars));
   }, [products]);
 
-  const slicedProducts = products.slice(1, 7);
+  const slicedProducts = products.slice(0, 7);
 
   return (
     <div className="container  mx-auto mb-12 mt-12 flex">
-      <div
-        className="mr-2 flex-col rounded bg-cover bg-center bg-no-repeat pl-3 pr-3 "
-        style={{ backgroundImage: `url(${products[0].mainImg})` }}
-      >
-        <h3 className="flex h-full w-40 items-center justify-center text-center text-white">
-          {products[0].title}
-        </h3>
-        <NavLink
-          to={products[0].link}
-          className="-mt-12 flex items-end justify-center text-center text-sm text-white underline duration-200 hover:scale-110 hover:text-color8"
+      <div className=" flex flex-wrap ">
+        <div
+          className="mr-10 flex-col rounded bg-cover bg-center bg-no-repeat pl-2  "
+          style={{ backgroundImage: `url(${products[0].mainImg})` }}
         >
-          See All Products
-        </NavLink>
-      </div>
-
-      <div className="mx-auto flex flex-wrap ">
+          <h3 className="flex h-full w-40 items-center justify-center text-center text-white">
+            {products[0].title}
+          </h3>
+          <NavLink
+            to={products[0].link}
+            className="-mt-12 flex items-end justify-center text-center text-sm text-white underline duration-200 hover:scale-110 hover:text-color8"
+          >
+            See All Products
+          </NavLink>
+        </div>
         {slicedProducts.map((product, index) =>
           index !== 0 ? (
             <Link to={`/all-products/${product.id}`} key={index}>
@@ -41,7 +40,7 @@ function Products({ products }) {
                 width="max-w-48"
               >
                 {inStock[index] ? (
-                  <div className="flex gap-2 ">
+                  <div className=" mt-4 flex gap-2 ">
                     <img
                       src="../../../public/icons/instock.svg"
                       alt="instock"
@@ -49,7 +48,7 @@ function Products({ products }) {
                     <p className="text-sm text-color9">In stock</p>
                   </div>
                 ) : (
-                  <p className="text-sm text-color5">Out of stock</p>
+                  <p className="mt-4 text-sm text-color5">Out of stock</p>
                 )}
                 <img
                   className="mx-auto mb-3 mt-3 flex"
