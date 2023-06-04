@@ -1,31 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Carousel from 'nuka-carousel';
+import LeaveReviewForm from '../forms/LeaveReviewForm';
 
 function Comments({ comments }) {
-  const renderBottomRightControls = ({ currentSlide, slideCount }) => (
-    <div
-      className="flex justify-end mt-2 gap-1"
-      style={{ marginBottom: '-15px' }}
-    >
-      {Array.from({ length: slideCount }).map((_, index) => (
-        <span
-          key={index}
-          className={`h-2 w-2 bg-gray-300 rounded-full ${
-            index === currentSlide ? 'bg-gray-800' : ''
-          }`}
-          style={{ marginTop: '10px' }}
-        />
-      ))}
-    </div>
-  );
+  const [showReviewForm, setShowReviewForm] = useState(false);
 
+  const toggleReviewForm = () => {
+    setShowReviewForm(!showReviewForm);
+  };
   return (
     <div
-      className="container mx-auto bg-color1 p-10 px-12 w-[60%]"
+      className="container mx-auto w-[60%] bg-color1 p-10 px-12"
       style={{ marginTop: '50px' }}
     >
       <Carousel
-        renderBottomRightControls={renderBottomRightControls}
+        renderBottomRightControls={({ currentSlide, slideCount }) => (
+          <div
+            className="mt-2 flex justify-end gap-1"
+            style={{ marginBottom: '-15px' }}
+          >
+            {Array.from({ length: slideCount }).map((_, index) => (
+              <span
+                key={index}
+                className={`h-2 w-2 rounded-full bg-gray-300 ${
+                  index === currentSlide ? 'bg-gray-800' : ''
+                }`}
+                style={{ marginTop: '10px' }}
+              />
+            ))}
+          </div>
+        )}
         renderBottomCenterControls={false}
         wrapAround={true}
         renderCenterLeftControls={({ previousSlide }) => (
@@ -44,17 +48,29 @@ function Comments({ comments }) {
       >
         {comments.map((comment) => (
           <div key={comment.id}>
-            <div className="flex ">
-              <p className="text-7xl italic font-normal align-top mr-3">"</p>
-              <p className="text-xs align-bottom">{comment.comment}</p>
+            <div className="flex">
+              <p className="mr-3 align-top text-7xl font-normal italic">"</p>
+              <p className="align-bottom text-xs">{comment.comment}</p>
             </div>
-            <p className="text-xs text-right">- {comment.author}</p>
+            <p className="text-right text-xs">- {comment.author}</p>
           </div>
         ))}
       </Carousel>
-      <button className=" hover:text-white hover:bg-color3 hover:border-color3 duration-300 text-xs p-1 border-color3 border-2 pl-5 pr-5 rounded-full text-color3">
+      <button
+        className="rounded-full border-2 border-color3 p-1 pl-5 pr-5 text-xs text-color3 duration-300 hover:border-color3 hover:bg-color3 hover:text-white"
+        onClick={toggleReviewForm}
+      >
         Leave Us A Review
       </button>
+
+      {showReviewForm && (
+        <div>
+          <div className="fixed inset-0 z-40 bg-black bg-opacity-75" />
+          <div className="fixed inset-0 z-50 flex items-center justify-center">
+            <LeaveReviewForm onClose={toggleReviewForm} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
