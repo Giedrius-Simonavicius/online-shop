@@ -67,11 +67,16 @@ function FooterComponent() {
             </ul>
           </div>
           <div>
-            <h3 className="mb-3 font-bold tracking-wide text-[#ffffff82]">
+            <NavLink
+              className="font-bold tracking-wide text-[#ffffff82] duration-200 hover:text-color4"
+              to="/all-products/desktops"
+            >
               Desktop PCs
-            </h3>
-            <ul>
-              <li>Custom PCs</li>
+            </NavLink>
+            <ul className="mt-3">
+              <li className="duration-200 hover:text-color4">
+                <NavLink to="/all-products/custom-pcs">Custom PCs</NavLink>
+              </li>
               <li>Servers</li>
               <li>MSI All-In-One PCs</li>
               <li>HP/Compaq PCs</li>
@@ -80,10 +85,13 @@ function FooterComponent() {
             </ul>
           </div>
           <div>
-            <h3 className=" mb-3 font-bold tracking-wide text-[#ffffff82]">
+            <NavLink
+              className="font-bold tracking-wide text-[#ffffff82] duration-200 hover:text-color4"
+              to="/all-products/laptops"
+            >
               Laptops
-            </h3>
-            <ul>
+            </NavLink>
+            <ul className="mt-3">
               <li>Evryday Use Notebooks</li>
               <li>MSI Workstation Series</li>
               <li>MSI Prestige Series</li>
@@ -99,7 +107,13 @@ function FooterComponent() {
             <ul>
               <li>Address: 1234 Street Adress City Address, 1234</li>
               <li>
-                Phones: <span className="text-color4">(00) 1234 5678</span>
+                Phones:{' '}
+                <Link
+                  to="tel:001234568"
+                  className="text-color4 duration-200 hover:text-color2"
+                >
+                  (00) 1234 5678
+                </Link>
               </li>
               <li>We are open: Monday-Thursday: 9:00 AM - 5:30 PM</li>
               <li>Friday: 9:00 AM - 6:00 PM</li>
@@ -107,7 +121,7 @@ function FooterComponent() {
               <li>
                 E-mail:{' '}
                 <a
-                  className="mt-1 text-xs font-normal text-color4"
+                  className="mt-1 text-xs font-normal text-color4 duration-200 hover:text-color2"
                   href="mailto:example@example.com"
                 >
                   shop@email.com
@@ -118,7 +132,10 @@ function FooterComponent() {
         </div>
         <div className="flex justify-between border-t border-slate-400 pt-4">
           <div className="flex gap-3 ">
-            <Link to="https://www.facebook.com/">
+            <Link
+              className="duration-200 hover:scale-110"
+              to="https://www.facebook.com/"
+            >
               <svg
                 width="20"
                 height="20"
@@ -132,7 +149,10 @@ function FooterComponent() {
                 />
               </svg>
             </Link>
-            <Link to="https://www.instagram.com/">
+            <Link
+              className="duration-200 hover:scale-110"
+              to="https://www.instagram.com/"
+            >
               <svg
                 width="20"
                 height="20"

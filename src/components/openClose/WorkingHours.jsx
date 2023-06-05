@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function WorkingHours() {
   return (
@@ -31,12 +32,18 @@ function WorkingHours() {
       </div>
       <div className="ml-2 mt-2">
         <p>
-          Phones: <span className="text-color3">(00) 1234 5678</span>
+          Phones:{' '}
+          <Link
+            to="tel:0012345678"
+            className="text-color3 duration-200 hover:text-color4"
+          >
+            (00) 1234 5678
+          </Link>
         </p>
         <p>
           E-mail:{' '}
           <a
-            className="mt-1 text-xs  text-color3"
+            className="mt-1 text-xs text-color3 duration-200 hover:text-color4"
             href="mailto:example@example.com"
           >
             shop@email.com

@@ -70,8 +70,19 @@ function HeaderComponent() {
                   </NavLink>
                 </div>
                 <div className="flex items-center gap-2 bg-black text-white">
-                  <p>Call Us: (00) 1234 5678</p>
-                  <Link to="https://www.facebook.com/">
+                  <p>
+                    Call Us:{' '}
+                    <Link
+                      className="duration-200 hover:text-color4"
+                      to="tel:0012345678"
+                    >
+                      (00) 1234 5678
+                    </Link>
+                  </p>
+                  <Link
+                    className="duration-200 hover:scale-110"
+                    to="https://www.facebook.com/"
+                  >
                     <svg
                       width="20"
                       height="20"
@@ -85,7 +96,10 @@ function HeaderComponent() {
                       />
                     </svg>
                   </Link>
-                  <Link to="https://www.instagram.com/">
+                  <Link
+                    className="duration-200 hover:scale-110"
+                    to="https://www.instagram.com/"
+                  >
                     <svg
                       width="20"
                       height="20"

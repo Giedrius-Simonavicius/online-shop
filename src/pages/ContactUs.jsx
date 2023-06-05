@@ -1,6 +1,7 @@
 import React from 'react';
 import ContactForm from '../components/forms/COntactForm';
 import Services from '../components/homePageProducts/Services';
+import { Link } from 'react-router-dom';
 
 function ContactUs() {
   return (
@@ -41,7 +42,12 @@ function ContactUs() {
               </div>
               <div>
                 <p className="mt-1">Phone:</p>
-                <p className="mt-1 text-xs font-normal">(00) 1234 5678</p>
+                <Link
+                  to="tel:0012345678"
+                  className="hover:color2 mt-1 text-xs font-normal duration-200"
+                >
+                  (00) 1234 5678
+                </Link>
               </div>
             </div>
           </div>
@@ -70,7 +76,7 @@ function ContactUs() {
               <div>
                 <p className="mt-1">E-mail:</p>
                 <a
-                  className="mt-1 text-xs font-normal text-color3"
+                  className="hover:color2 mt-1 text-xs font-normal text-color3 duration-200"
                   href="mailto:example@example.com"
                 >
                   shop@email.com
