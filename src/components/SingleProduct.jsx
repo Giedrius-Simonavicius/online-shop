@@ -17,7 +17,7 @@ function SingleProduct({ product }) {
   };
 
   return (
-    <div className=" mt-6">
+    <div>
       <DetailsAddCart activeTab={activeTab} onTabClick={handleTabClick} />
       <div className="container mx-auto">
         <div className="flex ">
@@ -112,10 +112,6 @@ function SingleProduct({ product }) {
             </div>
           </div>
         </div>
-      </div>
-      <FeaturesSingleProd />
-      <div className="container mx-auto">
-        <Services />
       </div>
     </div>
   );

@@ -2,6 +2,10 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { allPrd } from '../data/data';
 import SingleProduct from '../components/SingleProduct';
+import InfoAtSingleProduct from '../components/singleProductComponents/InfoAtSingleProduct';
+import IntelCore from '../components/singleProductComponents/IntelCore';
+import FeaturesSingleProd from '../components/singleProductComponents/FeaturesSingleProd';
+import Services from '../components/homePageProducts/Services';
 
 function SingleProductPage() {
   const { itemId } = useParams();
@@ -15,6 +19,10 @@ function SingleProductPage() {
       ) : (
         <p>No information available for this product.</p>
       )}
+      <IntelCore />
+      <InfoAtSingleProduct />
+      <FeaturesSingleProd />
+      <Services />
     </div>
   );
 }
