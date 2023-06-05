@@ -20,16 +20,15 @@ function Comments({ comments }) {
             style={{ marginBottom: '-15px' }}
           >
             {Array.from({ length: slideCount })
-              .reverse()
-              .map((_, index) => (
-                <span
-                  key={index}
-                  className={`h-2 w-2 rounded-full bg-gray-300 ${
-                    index === currentSlide ? 'bg-gray-800' : ''
-                  }`}
-                  style={{ marginTop: '10px' }}
-                />
-              ))}
+            .map((_, index) => (
+              <span
+                key={index}
+                className={`h-2 w-2 rounded-full bg-gray-300 ${
+                  index === currentSlide ? 'bg-gray-800' : ''
+                }`}
+                style={{ marginTop: '10px' }}
+              />
+            ))}
           </div>
         )}
         renderBottomCenterControls={false}

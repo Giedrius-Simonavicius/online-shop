@@ -35,7 +35,8 @@ function LeaveReviewForm({ onClose }) {
       comment: commentValuesObj.comment,
       id: commentValuesObj.id,
     };
-    comments.push(newComment);
+    comments.unshift(newComment);
+    console.log('comments ===', comments);
   }
   const handleClose = () => {
     onClose();
