@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Carousel from 'nuka-carousel';
 import LeaveReviewForm from '../forms/LeaveReviewForm';
+import { comments } from '../../data/data';
 
-function Comments({ comments }) {
+function Comments() {
   const [showReviewForm, setShowReviewForm] = useState(false);
 
   const toggleReviewForm = () => {
@@ -19,8 +20,7 @@ function Comments({ comments }) {
             className="mt-2 flex justify-end gap-1"
             style={{ marginBottom: '-15px' }}
           >
-            {Array.from({ length: slideCount })
-            .map((_, index) => (
+            {Array.from({ length: slideCount }).map((_, index) => (
               <span
                 key={index}
                 className={`h-2 w-2 rounded-full bg-gray-300 ${

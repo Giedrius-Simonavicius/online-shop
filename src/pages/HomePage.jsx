@@ -26,7 +26,7 @@ function HomePage() {
       <Products products={monitors} />
       <Brands />
       <Posts posts={posts} />
-      <Comments comments={comments} />
+      <Comments />
       <Services />
     </div>
   );
