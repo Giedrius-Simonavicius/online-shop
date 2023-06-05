@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import DetailsAddCart from './singleProductComponents/DetailsAddCart';
 import { NavLink } from 'react-router-dom';
-import FeaturesSingleProd from './singleProductComponents/FeaturesSingleProd';
-import Services from './homePageProducts/Services';
 
 function SingleProduct({ product }) {
   const [activeTab, setActiveTab] = useState('about');

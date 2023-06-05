@@ -31,11 +31,25 @@ function FooterComponent() {
               Information
             </h3>
             <ul>
-              <li>About Us</li>
+              <li>
+                <NavLink
+                  className="duration-200 hover:text-color4"
+                  to="/about-us"
+                >
+                  About Us
+                </NavLink>
+              </li>
               <li>About Zip</li>
               <li>Privacy Policy</li>
               <li>Search</li>
-              <li>Terms</li>
+              <li>
+                <NavLink
+                  className="duration-200 hover:text-color4"
+                  to="/terms-conditions"
+                >
+                  Terms
+                </NavLink>
+              </li>
               <li>Orders and Returns</li>
               <li>
                 <NavLink

@@ -1,6 +1,5 @@
 import React from 'react';
 import ContactForm from '../components/forms/COntactForm';
-import Services from '../components/homePageProducts/Services';
 import { Link } from 'react-router-dom';
 
 function ContactUs() {
@@ -86,8 +85,6 @@ function ContactUs() {
           </div>
         </section>
       </main>
-
-      <Services />
     </div>
   );
 }
