@@ -11,6 +11,8 @@ import SingleProductPage from './pages/SingleProductPage';
 import ContactUs from './pages/ContactUs';
 import ScrollToTop from './components/ScrollToTop';
 import AboutUs from './pages/AboutUs';
+import Terms from './pages/Terms';
+import Services from './components/homePageProducts/Services';
 
 const allPrd = [
   ...laptops.slice(1),
@@ -29,6 +31,7 @@ function App() {
         <Route path="home" element={<HomePage />} />
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="about-us" element={<AboutUs />} />
+        <Route path="terms-conditions" element={<Terms />} />
         <Route
           path="all-products/laptops"
           element={<AllProducts products={laptops} />}
@@ -51,6 +54,7 @@ function App() {
         />
         <Route path="all-products/:itemId" element={<SingleProductPage />} />
       </Routes>
+      <Services />
       <FooterComponent />
     </div>
   );

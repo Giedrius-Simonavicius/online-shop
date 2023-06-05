@@ -5,7 +5,6 @@ import SingleProduct from '../components/SingleProduct';
 import InfoAtSingleProduct from '../components/singleProductComponents/InfoAtSingleProduct';
 import IntelCore from '../components/singleProductComponents/IntelCore';
 import FeaturesSingleProd from '../components/singleProductComponents/FeaturesSingleProd';
-import Services from '../components/homePageProducts/Services';
 
 function SingleProductPage() {
   const { itemId } = useParams();
@@ -22,7 +21,6 @@ function SingleProductPage() {
       <IntelCore />
       <InfoAtSingleProduct />
       <FeaturesSingleProd />
-      <Services />
     </div>
   );
 }
