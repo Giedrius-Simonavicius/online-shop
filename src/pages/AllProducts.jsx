@@ -45,7 +45,7 @@ function AllProducts({ products }) {
   };
 
   const filteredProducts = filterProducts(products, filterArr);
-  console.log('filteredProducts ===', filteredProducts);
+
   return (
     <div>
       <h1 className="mx-auto mb-3 text-center text-2xl font-bold uppercase tracking-widest">

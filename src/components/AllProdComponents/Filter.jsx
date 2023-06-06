@@ -3,6 +3,7 @@ import CategoryFilter from './CategoryFilter';
 import PriceFilter from './PriceFilter';
 import { useLocation } from 'react-router-dom';
 import InStockFilter from './InStockFilter';
+import RatingFilter from './RatingFilter';
 
 function Filter() {
   const location = useLocation();
@@ -13,6 +14,7 @@ function Filter() {
       {!hideCategoryFilter && <CategoryFilter />}
       <PriceFilter />
       <InStockFilter />
+      <RatingFilter />
     </div>
   );
 }

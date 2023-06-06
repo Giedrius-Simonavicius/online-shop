@@ -31,7 +31,7 @@ function InStockFilter() {
       <Disclosure defaultOpen>
         {({ open }) => (
           <>
-            <Disclosure.Button className="mb-3 flex items-end gap-[4.25rem] font-bold">
+            <Disclosure.Button className="mb-3 flex items-end gap-[4.95rem] font-bold">
               <h2 className="text-sm font-bold">In Stock</h2>
               <ArrowUpDown open={open} />
             </Disclosure.Button>

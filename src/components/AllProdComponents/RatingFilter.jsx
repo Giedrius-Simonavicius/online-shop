@@ -3,19 +3,24 @@ import { allPrd } from '../../data/data';
 import { Disclosure, Transition } from '@headlessui/react';
 import { useAuthCtx } from '../../store/AuthProvider';
 
-function CategoryFilter() {
-  const { filterArr, setFilterArr, capitalizeFirstLetter } = useAuthCtx();
+function RatingFilter() {
+  const { filterArr, setFilterArr } = useAuthCtx();
+
+  console.log('filterArr ===', filterArr);
 
   function newFilter(event) {
-    const category = event.currentTarget.dataset.category;
-    if (filterArr.includes(category)) {
+    const stars = event.currentTarget.dataset.stars;
+    const starsWithWord = `${stars} ${stars === '1' ? 'star' : 'stars'}`;
+
+    if (filterArr.includes(starsWithWord)) {
       setFilterArr((prevFilterArr) =>
-        prevFilterArr.filter((filter) => filter !== category),
+        prevFilterArr.filter((filter) => filter !== starsWithWord),
       );
     } else {
-      setFilterArr((prevFilterArr) => [...prevFilterArr, category]);
+      setFilterArr((prevFilterArr) => [...prevFilterArr, starsWithWord]);
     }
   }
+
   function ArrowUpDown({ open }) {
     return (
       <div className="pb-2">
@@ -28,29 +33,27 @@ function CategoryFilter() {
     );
   }
 
-  const [uniqueCategories, setUniqueCategories] = useState([]);
+  const [starCount, setStarCount] = useState([]);
 
   useState(() => {
-    const categories = [];
+    const stars = [];
     allPrd.forEach((product) => {
-      if (!categories.includes(product.category)) {
-        categories.push(product.category);
+      if (!stars.includes(product.stars)) {
+        stars.push(product.stars);
       }
     });
-    setUniqueCategories(categories);
-  }, []);
 
-  function getCategoryItemCount(category) {
-    return allPrd.filter((product) => product.category === category).length;
-  }
+    stars.sort((a, b) => a - b);
+    setStarCount(stars);
+  }, []);
 
   return (
     <div>
       <Disclosure defaultOpen>
         {({ open }) => (
           <>
-            <Disclosure.Button className="mb-3 flex items-end justify-between gap-[4.25rem] font-bold">
-              <h2 className="text-sm font-bold">Category</h2>
+            <Disclosure.Button className="mb-3 flex items-end justify-between gap-[3.5rem] font-bold">
+              <h2 className="text-sm font-bold">Star Rating</h2>
               <ArrowUpDown open={open} />
             </Disclosure.Button>
 
@@ -64,17 +67,16 @@ function CategoryFilter() {
               leaveTo="opacity-0 scale-y-0"
             >
               <Disclosure.Panel className="text-xs">
-                <div className="mb-3">
-                  {uniqueCategories.map((category, index) => (
-                    <div className="flex justify-between" key={index}>
+                <div className="mb-3 flex">
+                  {starCount.map((star, index) => (
+                    <div key={index}>
                       <button
-                        className="hover:text-color3"
+                        className="mr-2 hover:text-color3"
                         onClick={newFilter}
-                        data-category={category}
+                        data-stars={index}
                       >
-                        {category && capitalizeFirstLetter(category)}
+                        {star}
                       </button>
-                      <span>{getCategoryItemCount(category)}</span>
                     </div>
                   ))}
                 </div>
@@ -87,4 +89,4 @@ function CategoryFilter() {
   );
 }
 
-export default CategoryFilter;
+export default RatingFilter;
