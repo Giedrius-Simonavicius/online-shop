@@ -13,6 +13,7 @@ import ScrollToTop from './components/ScrollToTop';
 import AboutUs from './pages/AboutUs';
 import Terms from './pages/Terms';
 import Services from './components/homePageProducts/Services';
+import NotFound from './pages/NotFound';
 
 const allPrd = [
   ...laptops.slice(1),
@@ -32,6 +33,7 @@ function App() {
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="about-us" element={<AboutUs />} />
         <Route path="terms-conditions" element={<Terms />} />
+        <Route path="*" element={<NotFound />} />
         <Route
           path="all-products/laptops"
           element={<AllProducts products={laptops} />}
