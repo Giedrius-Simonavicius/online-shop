@@ -11,7 +11,7 @@ export const filterProducts = (products, filterArr) => {
   const priceRangeFilters = filterArr.filter(isPriceRangeFilter);
 
   return products.filter((product) => {
-    const price = product.price;
+    const price = product.discountedPrice;
 
     const categoryMatch =
       categoryFilters.length === 0 ||

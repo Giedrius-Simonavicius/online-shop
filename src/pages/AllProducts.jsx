@@ -6,8 +6,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { filterProducts } from '../components/AllProdComponents/filterUtils';
 
 function AllProducts({ products }) {
-  const [inStock, setInStock] = useState([]);
-  const [stars, setStars] = useState([]);
   const [categoryNameDisplay, setCategoryNameDisplay] =
     useState('all-products');
   const { filterArr, setFilterArr, capitalizeFirstLetter, renderStars } =
@@ -23,6 +21,7 @@ function AllProducts({ products }) {
       setCategoryNameDisplay(dynamicPart);
     }
   }, [location.pathname]);
+
   useEffect(() => {
     if (location.pathname.startsWith('/all-products/')) {
       const valuesToRemove = ["custom PC's", 'laptops', 'monitors', 'desktops'];
@@ -33,13 +32,6 @@ function AllProducts({ products }) {
       filterArr.push(...filteredArr);
     }
   }, [location]);
-
-  useEffect(() => {
-    if (products) {
-      setInStock(products.map((product) => product.inStock));
-      setStars(products.map((product) => product.stars));
-    }
-  }, [products]);
 
   const categoryCounts = products.reduce((counts, product) => {
     counts[product.category] = (counts[product.category] || 0) + 1;
@@ -53,7 +45,7 @@ function AllProducts({ products }) {
   };
 
   const filteredProducts = filterProducts(products, filterArr);
-
+  console.log('filteredProducts ===', filteredProducts);
   return (
     <div>
       <h1 className="mx-auto mb-3 text-center text-2xl font-bold uppercase tracking-widest">
@@ -99,7 +91,7 @@ function AllProducts({ products }) {
                     key={index}
                     width="max-w-48"
                   >
-                    {inStock[index] ? (
+                    {product.inStock ? (
                       <div className="flex gap-2">
                         <img
                           src="../../../public/icons/instock.svg"
@@ -116,14 +108,25 @@ function AllProducts({ products }) {
                       src={product.thumbnail}
                       alt={product.description}
                     />
-                    <div className="mb-3 flex">{renderStars(stars[index])}</div>
+                    <div className="mb-3 flex">
+                      {renderStars(product.stars)}
+                    </div>
                     <h3 className="mb-3 w-36 max-w-prose overflow-hidden text-sm font-normal">
                       {product.description}
                     </h3>
-                    <p className="text-sm font-normal text-color10 line-through">
-                      {product.price}
+                    {product.discount !== 0 && (
+                      <div className="flex gap-3">
+                        <p className=" text-sm font-normal text-color10 line-through">
+                          {`$ ${product.price.toFixed(2)} `}
+                        </p>
+                        <span className="text-color8">{`-${product.discount}%`}</span>
+                      </div>
+                    )}
+
+                    <p className="text-sm font-medium">
+                      {`$ ${product.discountedPrice}`}
                     </p>
-                    <p className="text-sm font-medium">{product.price}</p>
+                    <p>{product.inStock.toString()}</p>
                   </Card>
                 </Link>
               );

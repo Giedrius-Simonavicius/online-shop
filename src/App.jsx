@@ -6,7 +6,7 @@ import HeaderComponent from './components/layout/HeaderComponent';
 import HomePage from './pages/HomePage';
 import FooterComponent from './components/layout/FooterComponent';
 import AllProducts from './pages/AllProducts';
-import { laptops, customPcs, monitors, desktops } from './data/data';
+import { laptops, customPcs, monitors, desktops, allPrd } from './data/data';
 import SingleProductPage from './pages/SingleProductPage';
 import ContactUs from './pages/ContactUs';
 import ScrollToTop from './components/ScrollToTop';
@@ -14,13 +14,6 @@ import AboutUs from './pages/AboutUs';
 import Terms from './pages/Terms';
 import Services from './components/homePageProducts/Services';
 import NotFound from './pages/NotFound';
-
-const allPrd = [
-  ...laptops.slice(1),
-  ...customPcs.slice(1),
-  ...monitors.slice(1),
-  ...desktops.slice(1),
-];
 
 function App() {
   return (

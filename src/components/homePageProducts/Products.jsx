@@ -1,16 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Card from '../card/Card';
 import { Link, NavLink } from 'react-router-dom';
 import { useAuthCtx } from '../../store/AuthProvider';
 
 function Products({ products }) {
-  const [inStock, setInStock] = useState([]);
-  const [stars, setStars] = useState([]);
   const { renderStars } = useAuthCtx();
-  useEffect(() => {
-    setInStock(products.map((product) => product.inStock));
-    setStars(products.map((product) => product.stars));
-  }, [products]);
 
   const slicedProducts = products.slice(0, 7);
 
@@ -39,7 +33,7 @@ function Products({ products }) {
                 hover={'hover:scale-110  duration-200 hover:px-3'}
                 width="max-w-48"
               >
-                {inStock[index] ? (
+                {product.inStock ? (
                   <div className=" mt-4 flex gap-2 ">
                     <img
                       src="../../../public/icons/instock.svg"
@@ -56,14 +50,19 @@ function Products({ products }) {
                   src={product.thumbnail}
                   alt={product.description}
                 />
-                <div className="mb-3 flex">{renderStars(stars[index])}</div>
+                <div className="mb-3 flex">{renderStars(product.stars)}</div>
                 <h3 className="mb-3 w-36 max-w-prose overflow-hidden text-sm font-normal">
                   {product.description}
                 </h3>
-                <p className="text-sm font-normal text-color10 line-through">
-                  {product.price}
-                </p>
-                <p className="text-sm font-medium">{product.price}</p>
+                {product.discount !== 0 && (
+                  <div className="flex gap-3">
+                    <p className="text-sm font-normal text-color10 line-through">
+                      {`$ ${product.price.toFixed(2)} `}
+                    </p>
+                    <span className="text-color8">{`-${product.discount}%`}</span>
+                  </div>
+                )}
+                <p className="text-sm font-medium">{`$ ${product.discountedPrice}`}</p>
               </Card>
             </Link>
           ) : null,

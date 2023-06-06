@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+
 export const customPcs = [
   {
     mainImg: '../../public/images/pcs/customBuildsimg.png',
@@ -12,7 +13,8 @@ export const customPcs = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5512AI',
     price: 359.0,
-    discount: 0,
+    discount: 10,
+
     inStock: true,
     stars: 3,
     id: uuidv4(),
@@ -39,6 +41,9 @@ export const customPcs = [
       cpu: 'N/A',
       featured: 'N/A',
       ports: 'N/A',
+    },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
     },
   },
   {
@@ -75,6 +80,9 @@ export const customPcs = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -82,7 +90,7 @@ export const customPcs = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5514AI',
     price: 1499.0,
-    discount: 0,
+    discount: 20,
     inStock: true,
     stars: 2,
     id: uuidv4(),
@@ -110,6 +118,9 @@ export const customPcs = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -117,7 +128,7 @@ export const customPcs = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5516AI',
     price: 899.0,
-    discount: 0,
+    discount: 50,
     inStock: false,
     stars: 4,
     id: uuidv4(),
@@ -145,6 +156,9 @@ export const customPcs = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -152,7 +166,7 @@ export const customPcs = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5517AI',
     price: 699.0,
-    discount: 0,
+    discount: 5,
     inStock: true,
     stars: 4,
     id: uuidv4(),
@@ -180,6 +194,9 @@ export const customPcs = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -187,7 +204,7 @@ export const customPcs = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5518AI',
     price: 799.0,
-    discount: 0,
+    discount: 3,
     inStock: true,
     stars: 4,
     id: uuidv4(),
@@ -215,6 +232,9 @@ export const customPcs = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -224,6 +244,9 @@ export const customPcs = [
       cpu: 'N/A',
       featured: 'N/A',
       ports: 'N/A',
+    },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
     },
     productId: 'CBPC D5511AI',
     price: 899.0,
@@ -285,6 +308,9 @@ export const customPcs = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -319,6 +345,9 @@ export const customPcs = [
       cpu: 'N/A',
       featured: 'N/A',
       ports: 'N/A',
+    },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
     },
   },
   {
@@ -355,6 +384,9 @@ export const customPcs = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -362,7 +394,7 @@ export const customPcs = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5535AI',
     price: 1499.0,
-    discount: 0,
+    discount: 10,
     inStock: true,
     stars: 4,
     id: uuidv4(),
@@ -389,6 +421,9 @@ export const customPcs = [
       cpu: 'N/A',
       featured: 'N/A',
       ports: 'N/A',
+    },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
     },
   },
   {
@@ -425,6 +460,9 @@ export const customPcs = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -460,6 +498,9 @@ export const customPcs = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -467,7 +508,7 @@ export const customPcs = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5565AI',
     price: 499.0,
-    discount: 0,
+    discount: 20,
     inStock: true,
     stars: 4,
     id: uuidv4(),
@@ -494,6 +535,9 @@ export const customPcs = [
       cpu: 'N/A',
       featured: 'N/A',
       ports: 'N/A',
+    },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
     },
   },
   {
@@ -530,6 +574,9 @@ export const customPcs = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
 ];
 export const laptops = [
@@ -545,9 +592,9 @@ export const laptops = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'LPT D5585AI',
     price: 499.0,
-    discount: 0,
+    discount: 13,
     inStock: true,
-    stars: 5,
+    stars: 3,
     id: uuidv4(),
     thumbnail: '../../public/images/laptops/laptop1.jpg',
     category: 'laptops',
@@ -572,6 +619,9 @@ export const laptops = [
       cpu: 'N/A',
       featured: 'N/A',
       ports: 'N/A',
+    },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
     },
   },
   {
@@ -580,7 +630,7 @@ export const laptops = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'LPT D5595AI',
     price: 499.0,
-    discount: 0,
+    discount: 12,
     inStock: true,
     stars: 5,
     id: uuidv4(),
@@ -608,6 +658,9 @@ export const laptops = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -615,7 +668,7 @@ export const laptops = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'LPT D5115AI',
     price: 499.0,
-    discount: 0,
+    discount: 15,
     inStock: true,
     stars: 5,
     id: uuidv4(),
@@ -643,6 +696,9 @@ export const laptops = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -650,7 +706,7 @@ export const laptops = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'LPT D5215AI',
     price: 499.0,
-    discount: 0,
+    discount: 10,
     inStock: true,
     stars: 4,
     id: uuidv4(),
@@ -678,6 +734,9 @@ export const laptops = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -685,7 +744,7 @@ export const laptops = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'LPT D5315AI',
     price: 499.0,
-    discount: 0,
+    discount: 1,
     inStock: false,
     stars: 3,
     id: uuidv4(),
@@ -713,6 +772,9 @@ export const laptops = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -720,7 +782,7 @@ export const laptops = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'LPT D5415AI',
     price: 499.0,
-    discount: 0,
+    discount: 25,
     inStock: false,
     stars: 4,
     id: uuidv4(),
@@ -748,6 +810,9 @@ export const laptops = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -755,7 +820,7 @@ export const laptops = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'LPT D5615AI',
     price: 499.0,
-    discount: 0,
+    discount: 50,
     inStock: true,
     stars: 1,
     id: uuidv4(),
@@ -783,6 +848,9 @@ export const laptops = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
 ];
 export const desktops = [
@@ -798,7 +866,7 @@ export const desktops = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'DSK D5715AI',
     price: 499.0,
-    discount: 0,
+    discount: 90,
     inStock: false,
     stars: 5,
     id: uuidv4(),
@@ -826,6 +894,9 @@ export const desktops = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -833,7 +904,7 @@ export const desktops = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'DSK D5815AI',
     price: 499.0,
-    discount: 0,
+    discount: 10,
     inStock: true,
     stars: 5,
     id: uuidv4(),
@@ -860,6 +931,9 @@ export const desktops = [
       cpu: 'N/A',
       featured: 'N/A',
       ports: 'N/A',
+    },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
     },
   },
   {
@@ -896,6 +970,9 @@ export const desktops = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -931,6 +1008,9 @@ export const desktops = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -938,7 +1018,7 @@ export const desktops = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'DSK D5515AB',
     price: 499.0,
-    discount: 0,
+    discount: 18,
     inStock: false,
     stars: 4,
     id: uuidv4(),
@@ -965,6 +1045,9 @@ export const desktops = [
       cpu: 'N/A',
       featured: 'N/A',
       ports: 'N/A',
+    },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
     },
   },
   {
@@ -1001,6 +1084,9 @@ export const desktops = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
 ];
 export const monitors = [
@@ -1016,9 +1102,9 @@ export const monitors = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'MON D5515HI',
     price: 499.0,
-    discount: 0,
+    discount: 10,
     inStock: false,
-    stars: 5,
+    stars: 0,
     id: uuidv4(),
     thumbnail: '../../public/images/monitors/monitor1.jpg',
     category: 'monitors',
@@ -1044,6 +1130,9 @@ export const monitors = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -1051,7 +1140,7 @@ export const monitors = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'MON D5545JI',
     price: 499.0,
-    discount: 0,
+    discount: 20,
     inStock: false,
     stars: 5,
     id: uuidv4(),
@@ -1079,6 +1168,9 @@ export const monitors = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -1086,7 +1178,7 @@ export const monitors = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'MON D5535AP',
     price: 499.0,
-    discount: 0,
+    discount: 30,
     inStock: true,
     stars: 5,
     id: uuidv4(),
@@ -1114,6 +1206,9 @@ export const monitors = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description:
@@ -1121,7 +1216,7 @@ export const monitors = [
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'MON D5510AV',
     price: 499.0,
-    discount: 0,
+    discount: 5,
     inStock: true,
     stars: 5,
     id: uuidv4(),
@@ -1148,6 +1243,9 @@ export const monitors = [
       cpu: 'N/A',
       featured: 'N/A',
       ports: 'N/A',
+    },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
     },
   },
   {
@@ -1184,13 +1282,16 @@ export const monitors = [
       featured: 'N/A',
       ports: 'N/A',
     },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
+    },
   },
   {
     description: 'EX DISPLAY : MSI Pro 16 Business Panel VA 1920x1080 16:9...',
     name: 'LCD Monitor LG 22MP410-B',
     productId: 'MON D5575UI',
     price: 1499.0,
-    discount: 0,
+    discount: 40,
     inStock: true,
     stars: 4,
     id: uuidv4(),
@@ -1217,6 +1318,9 @@ export const monitors = [
       cpu: 'N/A',
       featured: 'N/A',
       ports: 'N/A',
+    },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
     },
   },
   {
@@ -1251,6 +1355,9 @@ export const monitors = [
       cpu: 'N/A',
       featured: 'N/A',
       ports: 'N/A',
+    },
+    get discountedPrice() {
+      return (this.price - (this.price * this.discount) / 100).toFixed(2);
     },
   },
 ];
