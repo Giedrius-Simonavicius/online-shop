@@ -9,6 +9,7 @@ export const filterProducts = (products, filterArr) => {
 
   const categoryFilters = filterArr.filter(isCategoryFilter);
   const priceRangeFilters = filterArr.filter(isPriceRangeFilter);
+  const starRatingFilters = filterArr.filter(isStarRatingFilter);
   const inStockFilter = filterArr.includes('in stock');
 
   return products.filter((product) => {
@@ -25,8 +26,13 @@ export const filterProducts = (products, filterArr) => {
         return price >= min && price <= max;
       });
     const inStockMatch = !inStockFilter || (inStockFilter && isInStock);
+    const starRatingMatch =
+      starRatingFilters.length === 0 ||
+      starRatingFilters.includes(
+        product.stars === 1 ? '1 star' : `${product.stars} stars`,
+      );
 
-    return categoryMatch && priceRangeMatch && inStockMatch;
+    return categoryMatch && priceRangeMatch && inStockMatch && starRatingMatch;
   });
 };
 
@@ -35,6 +41,11 @@ export const isCategoryFilter = (category) =>
 
 export const isPriceRangeFilter = (priceRange) =>
   ['0-299', '300-499', '500-999', '1000-above'].includes(priceRange);
+
+export const isStarRatingFilter = (starRating) =>
+  ['0 stars', '1 star', '2 stars', '3 stars', '4 stars', '5 stars'].includes(
+    starRating,
+  );
 
 export const getPriceRange = (priceRange) => {
   switch (priceRange) {

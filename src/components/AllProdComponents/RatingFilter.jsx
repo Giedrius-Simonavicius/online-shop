@@ -6,8 +6,6 @@ import { useAuthCtx } from '../../store/AuthProvider';
 function RatingFilter() {
   const { filterArr, setFilterArr } = useAuthCtx();
 
-  console.log('filterArr ===', filterArr);
-
   function newFilter(event) {
     const stars = event.currentTarget.dataset.stars;
     const starsWithWord = `${stars} ${stars === '1' ? 'star' : 'stars'}`;

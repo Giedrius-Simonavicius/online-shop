@@ -1180,7 +1180,7 @@ export const monitors = [
     price: 499.0,
     discount: 30,
     inStock: true,
-    stars: 5,
+    stars: 1,
     id: uuidv4(),
     thumbnail: '../../public/images/monitors/monitor2.jpg',
     category: 'monitors',
