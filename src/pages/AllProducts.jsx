@@ -4,6 +4,7 @@ import Filter from '../components/AllProdComponents/Filter';
 import { useAuthCtx } from '../store/AuthProvider';
 import { Link, useLocation } from 'react-router-dom';
 import { filterProducts } from '../components/AllProdComponents/filterUtils';
+import Brands from '../components/homePageProducts/Brands';
 
 function AllProducts({ products }) {
   const [categoryNameDisplay, setCategoryNameDisplay] =
@@ -45,16 +46,30 @@ function AllProducts({ products }) {
   };
 
   const filteredProducts = filterProducts(products, filterArr);
-  console.log('filteredProducts ===', filteredProducts);
+
   return (
     <div>
       <h1 className="mx-auto mb-3 text-center text-2xl font-bold uppercase tracking-widest">
         {categoryNameDisplay}
       </h1>
 
-      <div className="container  mx-auto mb-12 mt-12 flex">
+      <div className="container mx-auto mb-12 mt-12 flex">
         <div>
-          <Filter />
+          <div className="bg-color1 p-4">
+            <Filter />
+          </div>
+          <Brands small />
+          <div className="mt-3 w-fit bg-color1 p-4 text-center">
+            <h3 className="text-xs font-bold">Compare Products</h3>
+            <p className="my-2 text-xxs">You have no items to compare.</p>
+          </div>
+          <div className="my-2 w-fit bg-color1 p-4 text-center">
+            <h3 className="text-xs font-bold">My Wish List</h3>
+            <p className="my-2 text-xxs">
+              You have no items in your wish list.
+            </p>
+          </div>
+          <img src="../../public/images/ads/chairAd.jpg" alt="chair" />
         </div>
         <div className="ml-4 ">
           <div className="flex-col ">
@@ -134,7 +149,6 @@ function AllProducts({ products }) {
                     <p className="text-sm font-medium">
                       {`$ ${product.discountedPrice}`}
                     </p>
-                    <p>{product.inStock.toString()}</p>
                   </Card>
                 </Link>
               );

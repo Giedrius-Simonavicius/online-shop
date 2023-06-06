@@ -40,10 +40,6 @@ function CategoryFilter() {
     setUniqueCategories(categories);
   }, []);
 
-  function getCategoryItemCount(category) {
-    return allPrd.filter((product) => product.category === category).length;
-  }
-
   return (
     <div>
       <Disclosure defaultOpen>
@@ -74,7 +70,6 @@ function CategoryFilter() {
                       >
                         {category && capitalizeFirstLetter(category)}
                       </button>
-                      <span>{getCategoryItemCount(category)}</span>
                     </div>
                   ))}
                 </div>
