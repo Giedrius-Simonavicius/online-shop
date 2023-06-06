@@ -37,9 +37,9 @@ function CategoryFilter() {
         categories.push(product.category);
       }
     });
-
     setUniqueCategories(categories);
   }, []);
+
   function getCategoryItemCount(category) {
     return allPrd.filter((product) => product.category === category).length;
   }

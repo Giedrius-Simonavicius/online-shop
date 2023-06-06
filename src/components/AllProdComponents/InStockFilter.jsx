@@ -8,9 +8,11 @@ function InStockFilter() {
     const isChecked = event.currentTarget.checked;
 
     if (isChecked) {
-      setFilterArr([...filterArr, 'in stock']);
+      setFilterArr((prevFilterArr) => [...prevFilterArr, 'in stock']);
     } else {
-      setFilterArr(filterArr.filter((item) => item !== 'in stock'));
+      setFilterArr((prevFilterArr) =>
+        prevFilterArr.filter((filter) => filter !== 'in stock'),
+      );
     }
   }
   function ArrowUpDown({ open }) {

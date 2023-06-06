@@ -59,6 +59,14 @@ function AllProducts({ products }) {
         <div className="ml-4 ">
           <div className="flex-col ">
             <div className="mb-3 flex gap-2 text-sm">
+              {filterArr.length !== 0 && (
+                <button
+                  onClick={() => setFilterArr([])}
+                  className="mr-3 text-color8 duration-200 hover:text-color4"
+                >
+                  Clear All
+                </button>
+              )}
               {filterArr.map((fObj, index) => (
                 <div className=" flex gap-1 border py-1 pl-5 pr-2" key={index}>
                   <p>{capitalizeFirstLetter(fObj)}</p>

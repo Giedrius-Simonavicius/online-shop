@@ -9,9 +9,11 @@ export const filterProducts = (products, filterArr) => {
 
   const categoryFilters = filterArr.filter(isCategoryFilter);
   const priceRangeFilters = filterArr.filter(isPriceRangeFilter);
+  const inStockFilter = filterArr.includes('in stock');
 
   return products.filter((product) => {
     const price = product.discountedPrice;
+    const isInStock = product.inStock;
 
     const categoryMatch =
       categoryFilters.length === 0 ||
@@ -22,8 +24,9 @@ export const filterProducts = (products, filterArr) => {
         const [min, max] = getPriceRange(filter);
         return price >= min && price <= max;
       });
+    const inStockMatch = !inStockFilter || (inStockFilter && isInStock);
 
-    return categoryMatch && priceRangeMatch;
+    return categoryMatch && priceRangeMatch && inStockMatch;
   });
 };
 
