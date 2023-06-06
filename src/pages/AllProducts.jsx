@@ -34,11 +34,6 @@ function AllProducts({ products }) {
     }
   }, [location]);
 
-  const categoryCounts = products.reduce((counts, product) => {
-    counts[product.category] = (counts[product.category] || 0) + 1;
-    return counts;
-  }, {});
-
   const handleDeleteFilter = (index) => {
     const updatedFilters = [...filterArr];
     updatedFilters.splice(index, 1);
@@ -85,9 +80,7 @@ function AllProducts({ products }) {
               {filterArr.map((fObj, index) => (
                 <div className=" flex gap-1 border py-1 pl-5 pr-2" key={index}>
                   <p>{capitalizeFirstLetter(fObj)}</p>
-                  {categoryCounts[fObj] && (
-                    <span className="font-light text-color5">{`(${categoryCounts[fObj]})`}</span>
-                  )}
+
                   <button
                     className="ml-3"
                     onClick={() => handleDeleteFilter(index)}
