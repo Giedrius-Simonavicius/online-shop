@@ -22,6 +22,7 @@ function ContactUs() {
             <div className="flex">
               <div className="mr-2">
                 <img
+                  loading="lazy"
                   src="../../../public/icons/locationBlack.svg"
                   alt="location"
                 />
@@ -37,7 +38,11 @@ function ContactUs() {
           <div className="mt-2 pb-2 pt-2">
             <div className="mr-2 flex">
               <div className="mr-2">
-                <img src="../../../public/icons/phone.svg" alt="phone" />
+                <img
+                  loading="lazy"
+                  src="../../../public/icons/phone.svg"
+                  alt="phone"
+                />
               </div>
               <div>
                 <p className="mt-1">Phone:</p>
@@ -53,7 +58,11 @@ function ContactUs() {
 
           <div className="mt-2 flex ">
             <div className="mr-2">
-              <img src="../../../public/icons/timeBlack.svg" alt="time" />
+              <img
+                loading="lazy"
+                src="../../../public/icons/timeBlack.svg"
+                alt="time"
+              />
             </div>
             <div>
               <p>We are open:</p>
@@ -70,7 +79,11 @@ function ContactUs() {
           <div className="mt-2 pb-2 pt-2">
             <div className="mr-2 flex">
               <div className="mr-2">
-                <img src="../../../public/icons/mail.svg" alt="email" />
+                <img
+                  loading="lazy"
+                  src="../../../public/icons/mail.svg"
+                  alt="email"
+                />
               </div>
               <div>
                 <p className="mt-1">E-mail:</p>

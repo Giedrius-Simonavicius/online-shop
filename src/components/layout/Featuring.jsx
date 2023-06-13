@@ -17,7 +17,13 @@ function Featuring() {
         renderCenterLeftControls={({ previousSlide }) => false}
       >
         {images.map((image, index) => (
-          <img className="" key={index} src={image} alt={image} />
+          <img
+            loading="lazy"
+            className=""
+            key={index}
+            src={image}
+            alt={image}
+          />
         ))}
       </Carousel>
     </div>

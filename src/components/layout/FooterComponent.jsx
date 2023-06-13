@@ -150,6 +150,7 @@ function FooterComponent() {
               className="duration-200 hover:scale-110"
               to="https://www.facebook.com/"
             >
+              <span className="sr-only">Facebook</span>
               <svg
                 width="20"
                 height="20"
@@ -167,6 +168,8 @@ function FooterComponent() {
               className="duration-200 hover:scale-110"
               to="https://www.instagram.com/"
             >
+              <span className="sr-only">Instagram</span>
+
               <svg
                 width="20"
                 height="20"

@@ -22,9 +22,17 @@ function HeaderComponent() {
     return (
       <div className="pb-2 ">
         {open ? (
-          <img src="../../../public/icons/ui/arrowDownWh.svg" alt="arrowDown" />
+          <img
+            loading="lazy"
+            src="../../../public/icons/ui/arrowDownWh.svg"
+            alt="arrowDown"
+          />
         ) : (
-          <img src="../../../public/icons/ui/arrowUpWh.svg" alt="arrowUp" />
+          <img
+            loading="lazy"
+            src="../../../public/icons/ui/arrowUpWh.svg"
+            alt="arrowUp"
+          />
         )}
       </div>
     );
@@ -83,6 +91,7 @@ function HeaderComponent() {
                     className="duration-200 hover:scale-110"
                     to="https://www.facebook.com/"
                   >
+                    <span className="sr-only">Facebook</span>
                     <svg
                       width="20"
                       height="20"
@@ -100,6 +109,8 @@ function HeaderComponent() {
                     className="duration-200 hover:scale-110"
                     to="https://www.instagram.com/"
                   >
+                    <span className="sr-only">Instagram</span>
+
                     <svg
                       width="20"
                       height="20"
@@ -138,6 +149,7 @@ function HeaderComponent() {
           to={'/'}
           className=" duration-[1000ms] hover:rotate-[360deg] hover:scale-150"
         >
+          <span className="sr-only">Home page</span>
           <svg
             width="85"
             height="69"
@@ -195,6 +207,7 @@ function HeaderComponent() {
             {cartArr.length}
           </span>
           <NavLink to={'/cart'}>
+            <span className="sr-only">Shopping cart</span>
             <svg
               onMouseEnter={() =>
                 changeOnHoverColor(setOnHoverColorCart, '#0156FF')

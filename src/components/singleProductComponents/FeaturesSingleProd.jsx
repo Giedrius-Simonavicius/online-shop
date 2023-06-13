@@ -11,6 +11,7 @@ function FeaturesSingleProd() {
       <div className="mx-10 mt-10 flex justify-between gap-8 text-center text-xs">
         <div>
           <img
+            loading="lazy"
             className="mx-auto mb-6 scale-[75%]"
             src="../../../public/images/singleProductImages/intel.svg"
             alt="intel"
@@ -23,6 +24,7 @@ function FeaturesSingleProd() {
         </div>
         <div>
           <img
+            loading="lazy"
             className="mx-auto mb-6 scale-[75%] "
             src="../../../public/images/singleProductImages/rtx.svg"
             alt="rtx"
@@ -35,6 +37,7 @@ function FeaturesSingleProd() {
         </div>
         <div>
           <img
+            loading="lazy"
             className="mx-auto mb-6 scale-[75%] "
             src="../../../public/images/singleProductImages/ssd.svg"
             alt="ssd"
@@ -47,6 +50,7 @@ function FeaturesSingleProd() {
         </div>
         <div>
           <img
+            loading="lazy"
             className="mx-auto mb-6 scale-[75%] "
             src="../../../public/images/singleProductImages/ddr4.svg"
             alt="ddr4"

@@ -36,6 +36,7 @@ function Products({ products }) {
                 {product.inStock ? (
                   <div className=" mt-4 flex gap-2 ">
                     <img
+                      loading="lazy"
                       src="../../../public/icons/instock.svg"
                       alt="instock"
                     />
@@ -45,6 +46,7 @@ function Products({ products }) {
                   <p className="mt-4 text-sm text-color5">Out of stock</p>
                 )}
                 <img
+                  loading="lazy"
                   className="mx-auto mb-3 mt-3 flex"
                   key={index}
                   src={product.thumbnail}

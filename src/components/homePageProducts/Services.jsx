@@ -7,6 +7,7 @@ function Services() {
       <div className="flex justify-between">
         <Card>
           <img
+            loading="lazy"
             className="mx-auto my-4"
             src="../../../public/icons/ourServices/Account.svg"
             alt="Support"
@@ -18,6 +19,7 @@ function Services() {
         </Card>
         <Card>
           <img
+            loading="lazy"
             className="mx-auto my-4"
             src="../../../public/icons/ourServices/Saving.svg"
             alt="Support"
@@ -29,6 +31,7 @@ function Services() {
         </Card>
         <Card>
           <img
+            loading="lazy"
             className="mx-auto my-4"
             src="../../../public/icons/ourServices/Support.svg"
             alt="Support"

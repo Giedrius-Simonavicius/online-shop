@@ -64,7 +64,11 @@ function AllProducts({ products }) {
               You have no items in your wish list.
             </p>
           </div>
-          <img src="../../public/images/ads/chairAd.jpg" alt="chair" />
+          <img
+            loading="lazy"
+            src="../../public/images/ads/chairAd.jpg"
+            alt="chair"
+          />
         </div>
         <div className="ml-4 ">
           <div className="flex-col ">
@@ -86,7 +90,11 @@ function AllProducts({ products }) {
                     onClick={() => handleDeleteFilter(index)}
                   >
                     {' '}
-                    <img src="/public/icons/ui/deleteBtn.svg" alt="deleteBtn" />
+                    <img
+                      loading="lazy"
+                      src="/public/icons/ui/deleteBtn.svg"
+                      alt="deleteBtn"
+                    />
                   </button>
                 </div>
               ))}
@@ -110,6 +118,7 @@ function AllProducts({ products }) {
                     {product.inStock ? (
                       <div className="flex gap-2">
                         <img
+                          loading="lazy"
                           src="../../../public/icons/instock.svg"
                           alt="instock"
                         />
@@ -119,6 +128,7 @@ function AllProducts({ products }) {
                       <p className="text-sm text-color5">Out of stock</p>
                     )}
                     <img
+                      loading="lazy"
                       className="mx-auto mb-3 mt-3 flex"
                       key={index}
                       src={product.thumbnail}

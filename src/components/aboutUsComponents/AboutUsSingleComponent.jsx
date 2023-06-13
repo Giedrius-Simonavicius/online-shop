@@ -5,14 +5,14 @@ function AboutUsSingleComponent({ theme, icon, title, text1, text2, imgSrc }) {
     <div className={`flex items-center ${theme}`}>
       <div className="mx-auto flex w-1/3 flex-col gap-10 ">
         <div className="flex items-start gap-6">
-          {icon && <img src={icon} alt={title} />}
+          {icon && <img loading="lazy" src={icon} alt={title} />}
           <h2 className="text-5xl font-[500]">{title}</h2>
         </div>
         <p className="font-light">{text1}</p>
         {text2 && <p className="font-light">{text2}</p>}
       </div>
       <div className="mx-auto object-contain py-20">
-        <img className="border-none" src={imgSrc} alt={title} />
+        <img loading="lazy" className="border-none" src={imgSrc} alt={title} />
       </div>
     </div>
   );

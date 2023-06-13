@@ -8,7 +8,7 @@ function WorkingHours() {
     >
       <div className="flex">
         <div className="mr-2 ">
-          <img src="../../../public/icons/time.svg" alt="time" />
+          <img loading="lazy" src="../../../public/icons/time.svg" alt="time" />
         </div>
         <div>
           <p>We are open:</p>
@@ -26,7 +26,11 @@ function WorkingHours() {
 
       <div className="mt-2 flex border-b border-t border-gray-400 pb-2 pt-2">
         <div className="mr-2">
-          <img src="../../../public/icons/location.svg" alt="location" />
+          <img
+            loading="lazy"
+            src="../../../public/icons/location.svg"
+            alt="location"
+          />
         </div>
         <p className="mt-1">Address: 1234 Street Adress, City Address, 1234</p>
       </div>

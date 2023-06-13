@@ -23,7 +23,11 @@ function Brands({ small, container }) {
         } `}
         to="https://ca.roccat.com/"
       >
-        <img src="../../../public/images/brands/roccat.jpg" alt="roccat" />
+        <img
+          loading="lazy"
+          src="../../../public/images/brands/roccat.jpg"
+          alt="roccat"
+        />
       </Link>
       <Link
         className={`${
@@ -33,7 +37,11 @@ function Brands({ small, container }) {
         } `}
         to="https://www.msi.com/index.php"
       >
-        <img src="../../../public/images/brands/msi.jpg" alt="msi" />
+        <img
+          loading="lazy"
+          src="../../../public/images/brands/msi.jpg"
+          alt="msi"
+        />
       </Link>
       <Link
         className={`${
@@ -43,7 +51,11 @@ function Brands({ small, container }) {
         } `}
         to="https://www.razer.com/"
       >
-        <img src="../../../public/images/brands/razer.jpg" alt="razer" />
+        <img
+          loading="lazy"
+          src="../../../public/images/brands/razer.jpg"
+          alt="razer"
+        />
       </Link>
       <Link
         className={`${
@@ -54,6 +66,7 @@ function Brands({ small, container }) {
         to="https://www.thermaltake.com/"
       >
         <img
+          loading="lazy"
           src="../../../public/images/brands/thermaltake.jpg"
           alt="thermaltake"
         />
@@ -66,7 +79,11 @@ function Brands({ small, container }) {
         } `}
         to="https://www.adata.com/en/"
       >
-        <img src="../../../public/images/brands/adata.jpg" alt="adata" />
+        <img
+          loading="lazy"
+          src="../../../public/images/brands/adata.jpg"
+          alt="adata"
+        />
       </Link>
       <Link
         className={`${
@@ -76,7 +93,11 @@ function Brands({ small, container }) {
         } `}
         to="https://www.hp.com/us-en/home.html"
       >
-        <img src="../../../public/images/brands/hp.jpg" alt="hp" />
+        <img
+          loading="lazy"
+          src="../../../public/images/brands/hp.jpg"
+          alt="hp"
+        />
       </Link>
       <Link
         className={`${
@@ -86,7 +107,11 @@ function Brands({ small, container }) {
         } `}
         to="https://www.gigabyte.com/"
       >
-        <img src="../../../public/images/brands/gigabyte.jpg" alt="gigabyte" />
+        <img
+          loading="lazy"
+          src="../../../public/images/brands/gigabyte.jpg"
+          alt="gigabyte"
+        />
       </Link>
     </div>
   );

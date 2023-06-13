@@ -18,12 +18,13 @@ function AuthProvider({ children }) {
     const renderedStars = starsArray.map((starSrc, index) =>
       index < starCount ? (
         <img
+          loading="lazy"
           key={index}
           src="../../../public/icons/Star.svg"
           alt={`star-${index}`}
         />
       ) : (
-        <img key={index} src={starSrc} alt={`star-${index}`} />
+        <img loading="lazy" key={index} src={starSrc} alt={`star-${index}`} />
       ),
     );
     return renderedStars;

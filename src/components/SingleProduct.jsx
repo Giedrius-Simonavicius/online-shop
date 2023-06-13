@@ -56,18 +56,21 @@ function SingleProduct({ product }) {
           </div>
           <div className="mb-5 ml-10">
             <img
+              loading="lazy"
               className="h-64 w-64 "
               src={selectedImage}
               alt={product.name}
             />
             <div className="mt-2 flex w-1/5 gap-2">
               <img
+                loading="lazy"
                 className="hover:cursor-pointer"
                 src={product.thumbnail}
                 alt="thumbnail"
                 onClick={() => handleImageClick(product.thumbnail)}
               />
               <img
+                loading="lazy"
                 className="hover:cursor-pointer"
                 src="../../public/images/productImagesSample/1.jpg"
                 alt="1"
@@ -78,6 +81,7 @@ function SingleProduct({ product }) {
                 }
               />
               <img
+                loading="lazy"
                 className="hover:cursor-pointer"
                 src="../../public/images/productImagesSample/2.jpg"
                 alt="2"
@@ -88,6 +92,7 @@ function SingleProduct({ product }) {
                 }
               />
               <img
+                loading="lazy"
                 className="hover:cursor-pointer"
                 src="../../public/images/productImagesSample/3.jpg"
                 alt="3"
@@ -98,6 +103,7 @@ function SingleProduct({ product }) {
                 }
               />
               <img
+                loading="lazy"
                 className="hover:cursor-pointer"
                 src="../../public/images/productImagesSample/4.jpg"
                 alt="4"
