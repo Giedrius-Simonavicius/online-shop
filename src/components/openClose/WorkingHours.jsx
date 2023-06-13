@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function WorkingHours() {
   return (
     <div
-      className={` z-2 ml-[2rem] mt-2 max-w-sm rounded-md border-2 border-color7 bg-color1 p-2 pb-4 pt-3`}
+      className={` ml-[2rem] mt-2 max-w-sm rounded-md border-2 border-color7 bg-color1 p-2 pb-4 pt-3`}
     >
       <div className="flex">
         <div className="mr-2 ">

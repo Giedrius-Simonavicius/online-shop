@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Brands({ small }) {
+function Brands({ small, container }) {
   return (
     <div
       className={`${
         small
           ? 'nd mx-auto my-3 flex w-[140px] flex-wrap gap-4 bg-white'
-          : 'mx-auto my-10 flex flex-wrap justify-between align-middle'
+          : `${
+              container ? 'container' : ''
+            }  mx-auto my-10 flex flex-wrap justify-between align-middle`
       } `}
     >
       <h3 className={`${!small ? 'hidden' : 'mx-auto text-sm font-bold'}`}>
