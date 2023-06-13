@@ -16,6 +16,7 @@ import Services from './components/homePageProducts/Services';
 import NotFound from './pages/NotFound';
 
 import { Toaster } from 'react-hot-toast';
+import Cart from './pages/Cart';
 function App() {
   return (
     <div>
@@ -26,6 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="home" element={<HomePage />} />
+        <Route path="cart" element={<Cart />} />
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="about-us" element={<AboutUs />} />
         <Route path="terms-conditions" element={<Terms />} />
