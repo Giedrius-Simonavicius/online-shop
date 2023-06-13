@@ -6,7 +6,7 @@ import { useAuthCtx } from '../../store/AuthProvider';
 import { Popover, Transition } from '@headlessui/react';
 
 function HeaderComponent() {
-  const { setFilterArr } = useAuthCtx();
+  const { setFilterArr, cartArr } = useAuthCtx();
 
   function resetFiltArr() {
     setFilterArr([]);
@@ -29,6 +29,7 @@ function HeaderComponent() {
       </div>
     );
   }
+
   return (
     <header className="text-xs">
       <Popover>
@@ -185,10 +186,16 @@ function HeaderComponent() {
           </NavLink>
         </div>
 
-        <div className="flex gap-6">
-          <button>
+        <div className="relative flex items-center duration-200 hover:scale-110">
+          <span
+            className={`${
+              cartArr.length === 0 ? 'hidden' : ''
+            } absolute left-5 top-4 flex h-4 w-4 items-center justify-center rounded-full bg-color3 text-xxs text-white `}
+          >
+            {cartArr.length}
+          </span>
+          <NavLink to={'/cart'}>
             <svg
-              className="duration-200 hover:scale-110"
               onMouseEnter={() =>
                 changeOnHoverColor(setOnHoverColorCart, '#0156FF')
               }
@@ -206,7 +213,7 @@ function HeaderComponent() {
                 fill={onHoverColorCart}
               />
             </svg>
-          </button>
+          </NavLink>
         </div>
       </nav>
     </header>

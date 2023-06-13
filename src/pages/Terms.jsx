@@ -49,7 +49,7 @@ function Terms() {
 
   return (
     <div className="container mx-auto">
-      <h1 className="my-6 text-3xl">Shop Terms & Conditions</h1>
+      <h1 className="my-6 text-3xl font-bold">Shop Terms & Conditions</h1>
       <div className="flex">
         <div>
           <h2 className="text-2xl ">

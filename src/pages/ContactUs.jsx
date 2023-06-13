@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function ContactUs() {
   return (
     <div className="container mx-auto">
-      <h2 className="my-4 text-2xl">Contact Us</h2>
+      <h2 className="my-4 text-2xl font-bold">Contact Us</h2>
       <p className="text-sm font-normal">
         We love hearing from you, our Shop customers.
       </p>

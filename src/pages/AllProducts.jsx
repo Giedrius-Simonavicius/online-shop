@@ -72,7 +72,7 @@ function AllProducts({ products }) {
               {filterArr.length !== 0 && (
                 <button
                   onClick={() => setFilterArr([])}
-                  className="mr-3 text-color8 duration-200 hover:text-color4"
+                  className="mr-3  duration-200 hover:text-color8"
                 >
                   Clear All
                 </button>

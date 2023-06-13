@@ -5,7 +5,7 @@ import AboutUsSingleComponent from '../components/aboutUsComponents/AboutUsSingl
 function AboutUs() {
   return (
     <div>
-      <h1 className="container mx-auto my-5 text-4xl">About Us</h1>
+      <h1 className="container mx-auto my-5 text-4xl font-bold">About Us</h1>
       <AboutUsSingleComponent
         theme="bg-black text-white"
         title="A Family That Keeps On Growing"

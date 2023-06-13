@@ -2,13 +2,16 @@ import { createContext, useContext, useState } from 'react';
 
 const AuthContext = createContext({
   filterArr: [],
+  cartArr: [],
   capitalizeFirstLetter() {},
   setFilterArr() {},
+  setCartArr() {},
 });
 AuthContext.displayName = 'Authtentification';
 
 function AuthProvider({ children }) {
   const [filterArr, setFilterArr] = useState([]);
+  const [cartArr, setCartArr] = useState([]);
 
   const renderStars = (starCount) => {
     const starsArray = Array(5).fill('../../../public/icons/StarGray.svg');
@@ -33,6 +36,8 @@ function AuthProvider({ children }) {
   const authCtx = {
     filterArr,
     setFilterArr,
+    cartArr,
+    setCartArr,
     capitalizeFirstLetter,
     renderStars,
   };
