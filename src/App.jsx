@@ -14,7 +14,6 @@ import AboutUs from './pages/AboutUs';
 import Terms from './pages/Terms';
 import Services from './components/homePageProducts/Services';
 import NotFound from './pages/NotFound';
-import Cart from './pages/Cart';
 
 function App() {
   return (
@@ -27,7 +26,6 @@ function App() {
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="about-us" element={<AboutUs />} />
         <Route path="terms-conditions" element={<Terms />} />
-        <Route path="cart" element={<Cart />} />
         <Route path="*" element={<NotFound />} />
         <Route
           path="all-products/laptops"

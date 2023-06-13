@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DetailsAddCart from './singleProductComponents/DetailsAddCart';
 import { NavLink } from 'react-router-dom';
+import { useAuthCtx } from '../store/AuthProvider';
 
 function SingleProduct({ product }) {
   const [activeTab, setActiveTab] = useState('about');
   const [selectedImage, setSelectedImage] = useState(product.thumbnail);
+  const { setCartArr, cartArr } = useAuthCtx();
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -14,9 +16,27 @@ function SingleProduct({ product }) {
     setSelectedImage(image);
   };
 
+  function addToCart() {
+    if (!product.inStock) {
+      console.warn('Cannot add item. Product is out of stock.');
+      return;
+    }
+
+    setCartArr((prevCartArr) => [...prevCartArr, product]);
+  }
+
+  useEffect(() => {
+    console.log(cartArr);
+  }, [cartArr]);
+
   return (
     <div>
-      <DetailsAddCart activeTab={activeTab} onTabClick={handleTabClick} />
+      <DetailsAddCart
+        activeTab={activeTab}
+        onTabClick={handleTabClick}
+        onAddToCart={addToCart}
+      />
+
       <div className="container mx-auto">
         <div className="flex ">
           <div className="w-3/4 bg-color1 px-48 pb-10 pt-4">
@@ -53,6 +73,11 @@ function SingleProduct({ product }) {
               </div>
               <p>{product.productId}</p>
             </div>
+            {product.inStock ? (
+              <p className="mt-6 text-color9">Item available</p>
+            ) : (
+              <p className="mt-6 text-color8">Out of stock</p>
+            )}
           </div>
           <div className="mb-5 ml-10">
             <img
