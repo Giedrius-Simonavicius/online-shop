@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import DetailsAddCart from './singleProductComponents/DetailsAddCart';
 import { NavLink } from 'react-router-dom';
 import { useAuthCtx } from '../store/AuthProvider';
+import toast from 'react-hot-toast';
 
 function SingleProduct({ product }) {
   const [activeTab, setActiveTab] = useState('about');
@@ -18,11 +19,12 @@ function SingleProduct({ product }) {
 
   function addToCart() {
     if (!product.inStock) {
-      console.warn('Cannot add item. Product is out of stock.');
+      toast.error('Cannot add item. Product is out of stock!');
       return;
     }
 
     setCartArr((prevCartArr) => [...prevCartArr, product]);
+    toast.success('Added to cart');
   }
 
   useEffect(() => {

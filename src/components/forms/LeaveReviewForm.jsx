@@ -2,6 +2,8 @@ import React from 'react';
 import { useFormik } from 'formik';
 import { v4 as uuidv4 } from 'uuid';
 import { comments } from '../../data/data';
+import toast from 'react-hot-toast';
+
 function LeaveReviewForm({ onClose }) {
   const formik = useFormik({
     initialValues: {
@@ -13,6 +15,7 @@ function LeaveReviewForm({ onClose }) {
       postComment(values, setSubmitting);
       resetForm();
       handleClose();
+      toast.success('Comment added. Thank you!');
     },
     validate: (values) => {
       const errors = {};

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 function ContactForm() {
   const formik = useFormik({
@@ -47,7 +48,10 @@ function ContactForm() {
         console.log('response.data ===', response.data);
       })
       .catch((error) => console.log(error))
-      .finally(() => setSubmitting(false));
+      .finally(() => {
+        setSubmitting(false);
+        toast.success('Message sent');
+      });
   }
 
   return (

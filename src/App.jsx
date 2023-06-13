@@ -15,10 +15,13 @@ import Terms from './pages/Terms';
 import Services from './components/homePageProducts/Services';
 import NotFound from './pages/NotFound';
 
+import { Toaster } from 'react-hot-toast';
 function App() {
   return (
     <div>
       <ScrollToTop />
+
+      <Toaster />
       <HeaderComponent />
       <Routes>
         <Route path="/" element={<HomePage />} />
