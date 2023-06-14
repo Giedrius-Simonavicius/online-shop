@@ -27,10 +27,6 @@ function SingleProduct({ product }) {
     toast.success('Added to cart');
   }
 
-  useEffect(() => {
-    console.log(cartArr);
-  }, [cartArr]);
-
   return (
     <div>
       <DetailsAddCart

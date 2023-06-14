@@ -36,7 +36,7 @@ function DetailsAddCart({ activeTab, onTabClick, onAddToCart }) {
         onClick={onAddToCart}
         className="color1 mr-6 rounded-full bg-color3 px-7 py-3 text-white"
       >
-        Add to Cart
+        + Add to Cart
       </button>
     </div>
   );
