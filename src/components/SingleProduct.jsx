@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import DetailsAddCart from './singleProductComponents/DetailsAddCart';
 import { NavLink } from 'react-router-dom';
-import { useShoppingCartCtx } from '../context/ShoppingCartContext';
-import toast from 'react-hot-toast';
 
 function SingleProduct({ product }) {
   const [activeTab, setActiveTab] = useState('about');
   const [selectedImage, setSelectedImage] = useState(product.thumbnail);
-  const { setCartArr, cartArr } = useShoppingCartCtx();
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -17,22 +14,12 @@ function SingleProduct({ product }) {
     setSelectedImage(image);
   };
 
-  function addToCart() {
-    if (!product.inStock) {
-      toast.error('Cannot add item. Product is out of stock!');
-      return;
-    }
-
-    setCartArr((prevCartArr) => [...prevCartArr, product]);
-    toast.success('Added to cart');
-  }
-
   return (
     <div>
       <DetailsAddCart
         activeTab={activeTab}
         onTabClick={handleTabClick}
-        onAddToCart={addToCart}
+        product={product}
       />
 
       <div className="container mx-auto">

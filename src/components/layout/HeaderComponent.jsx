@@ -8,7 +8,7 @@ import { Popover, Transition } from '@headlessui/react';
 
 function HeaderComponent() {
   const { setFilterArr } = useGeneralCtx();
-  const { cartArr } = useShoppingCartCtx();
+  const { cartArr, getCartQuantity } = useShoppingCartCtx();
   console.log('cartArr ===', cartArr);
   function resetFiltArr() {
     setFilterArr([]);
@@ -198,7 +198,7 @@ function HeaderComponent() {
               cartArr.length === 0 ? 'hidden' : ''
             } absolute left-5 top-4 flex h-4 w-4 items-center justify-center rounded-full bg-color3 text-xxs text-white `}
           >
-            {cartArr.length}
+            {getCartQuantity()}
           </span>
           <NavLink to={'/cart'}>
             <span className="sr-only">Shopping cart</span>
