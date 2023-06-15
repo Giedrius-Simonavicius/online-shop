@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuthCtx } from '../store/AuthProvider';
+import { formatCurrency } from '../helperFns';
 
 function Cart() {
   const { cartArr, setCartArr } = useAuthCtx();
@@ -53,7 +54,7 @@ function Cart() {
                 <p className="text-sm font-normal">{item.aboutProduct}</p>
               </td>
               <td>
-                <p>${item.discountedPrice}</p>
+                <p>{formatCurrency(item.discountedPrice)}</p>
               </td>
               <td className="text-center">
                 <input
@@ -70,13 +71,19 @@ function Cart() {
                 />
               </td>
               <td>
-                <p>${(item.discountedPrice * item.quantity).toFixed(2)}</p>
+                <p>
+                  {formatCurrency(
+                    (item.discountedPrice * item.quantity).toFixed(2),
+                  )}
+                </p>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <p className="mt-5 text-right text-lg">Total: ${totalPrice()}</p>
+      <p className="mt-5 text-right text-lg">
+        Total: {formatCurrency(totalPrice())}
+      </p>
     </div>
   );
 }

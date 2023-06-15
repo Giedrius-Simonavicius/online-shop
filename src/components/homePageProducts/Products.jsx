@@ -2,6 +2,7 @@ import React from 'react';
 import Card from '../card/Card';
 import { Link, NavLink } from 'react-router-dom';
 import { useAuthCtx } from '../../store/AuthProvider';
+import { formatCurrency } from '../../helperFns';
 
 function Products({ products }) {
   const { renderStars } = useAuthCtx();
@@ -59,12 +60,14 @@ function Products({ products }) {
                 {product.discount !== 0 && (
                   <div className="flex gap-3">
                     <p className="text-sm font-normal text-color10 line-through">
-                      {`$ ${product.price.toFixed(2)} `}
+                      {formatCurrency(product.price.toFixed(2))}
                     </p>
                     <span className="text-color8">{`-${product.discount}%`}</span>
                   </div>
                 )}
-                <p className="text-sm font-medium">{`$ ${product.discountedPrice}`}</p>
+                <p className="text-sm font-medium">
+                  {formatCurrency(product.discountedPrice)}
+                </p>
               </Card>
             </Link>
           ) : null,

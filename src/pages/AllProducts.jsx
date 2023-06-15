@@ -5,6 +5,7 @@ import { useAuthCtx } from '../store/AuthProvider';
 import { Link, useLocation } from 'react-router-dom';
 import { filterProducts } from '../components/AllProdComponents/filterUtils';
 import Brands from '../components/homePageProducts/Brands';
+import { formatCurrency } from '../helperFns';
 
 function AllProducts({ products }) {
   const [categoryNameDisplay, setCategoryNameDisplay] =
@@ -139,14 +140,14 @@ function AllProducts({ products }) {
                     {product.discount !== 0 && (
                       <div className="flex gap-3">
                         <p className=" text-sm font-normal text-color10 line-through">
-                          {`$ ${product.price.toFixed(2)} `}
+                          {formatCurrency(product.price.toFixed(2))}
                         </p>
                         <span className="text-color8">{`-${product.discount}%`}</span>
                       </div>
                     )}
 
                     <p className="text-sm font-medium">
-                      {`$ ${product.discountedPrice}`}
+                      {formatCurrency(product.discountedPrice)}
                     </p>
                   </Card>
                 </Link>
