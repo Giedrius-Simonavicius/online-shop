@@ -1,5 +1,5 @@
 import { Disclosure, Transition } from '@headlessui/react';
-import { useGeneralCtx } from '../../store/GeneralProvider';
+import { useGeneralCtx } from '../../context/GeneralProvider';
 
 function InStockFilter() {
   const { filterArr, setFilterArr } = useGeneralCtx();

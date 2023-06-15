@@ -3,16 +3,13 @@ import PropTypes from 'prop-types';
 
 const GeneralContext = createContext({
   filterArr: [],
-  cartArr: [],
   capitalizeFirstLetter() {},
   setFilterArr() {},
-  setCartArr() {},
 });
 GeneralContext.displayName = 'General context';
 
 function GeneralContextProvider({ children }) {
   const [filterArr, setFilterArr] = useState([]);
-  const [cartArr, setCartArr] = useState([]);
 
   const renderStars = (starCount) => {
     const starsArray = Array(5).fill('/icons/StarGray.svg');
@@ -38,8 +35,6 @@ function GeneralContextProvider({ children }) {
   const generalCtx = {
     filterArr,
     setFilterArr,
-    cartArr,
-    setCartArr,
     capitalizeFirstLetter,
     renderStars,
   };

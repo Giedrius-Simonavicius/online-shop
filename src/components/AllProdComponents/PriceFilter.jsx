@@ -1,6 +1,6 @@
 import React from 'react';
 import { Disclosure, Transition } from '@headlessui/react';
-import { useGeneralCtx } from '../../store/GeneralProvider';
+import { useGeneralCtx } from '../../context/GeneralProvider';
 
 function CategoryFilter() {
   const { filterArr, setFilterArr } = useGeneralCtx();

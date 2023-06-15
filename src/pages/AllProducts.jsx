@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../components/card/Card';
 import Filter from '../components/AllProdComponents/Filter';
-import { useGeneralCtx } from '../store/GeneralProvider';
+import { useGeneralCtx } from '../context/GeneralProvider';
 import { Link, useLocation } from 'react-router-dom';
 import { filterProducts } from '../components/AllProdComponents/filterUtils';
 import Brands from '../components/homePageProducts/Brands';

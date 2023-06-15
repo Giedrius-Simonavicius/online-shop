@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { allPrd } from '../../data/data';
 import { Disclosure, Transition } from '@headlessui/react';
-import { useGeneralCtx } from '../../store/GeneralProvider';
+import { useGeneralCtx } from '../../context/GeneralProvider';
 
 function CategoryFilter() {
   const { filterArr, setFilterArr, capitalizeFirstLetter } = useGeneralCtx();

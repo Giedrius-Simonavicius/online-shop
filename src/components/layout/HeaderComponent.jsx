@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../../styles/style.css';
 import WorkingHours from '../openClose/WorkingHours';
-import { useGeneralCtx } from '../../store/GeneralProvider';
+import { useGeneralCtx } from '../../context/GeneralProvider';
+import { useShoppingCartCtx } from '../../context/ShoppingCartContext';
 import { Popover, Transition } from '@headlessui/react';
 
 function HeaderComponent() {
-  const { setFilterArr, cartArr } = useGeneralCtx();
-
+  const { setFilterArr } = useGeneralCtx();
+  const { cartArr } = useShoppingCartCtx();
+  console.log('cartArr ===', cartArr);
   function resetFiltArr() {
     setFilterArr([]);
   }

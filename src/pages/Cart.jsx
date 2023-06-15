@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useGeneralCtx } from '../store/GeneralProvider';
+import { useShoppingCartCtx } from '../context/ShoppingCartContext';
 import { formatCurrency } from '../helperFns';
 
 function Cart() {
-  const { cartArr, setCartArr } = useGeneralCtx();
+  const { cartArr, setCartArr } = useShoppingCartCtx();
   const [updatedCart, setUpdatedCart] = useState(cartArr);
 
   const uniqueItems = Array.from(

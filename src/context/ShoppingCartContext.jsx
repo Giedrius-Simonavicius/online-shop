@@ -1,20 +1,20 @@
 import { createContext, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
-const ShoppingCartContext = createContext({});
-export function useShoppingCart() {
-  return useContext(ShoppingCartContext);
-}
+const ShoppingCartContext = createContext({
+  cartArr: [],
+  setCartArr() {},
+});
 
-export function ShoppingCartProvider({ children }) {
-  const [cartArr, setcartArr] = useState([]);
+function ShoppingCartProvider({ children }) {
+  const [cartArr, setCartArr] = useState([]);
 
   function getItemQantity(id) {
     return cartArr.find((item) => item.id === id)?.quantity || 0;
   }
 
   function increaseCartQantity(id) {
-    setcartArr((currentItems) => {
+    setCartArr((currentItems) => {
       if (currentItems.find((item) => item.id === id) == null) {
         return [...currentItems, { id, quantity: 1 }];
       } else {
@@ -30,7 +30,7 @@ export function ShoppingCartProvider({ children }) {
   }
 
   function decreaseCartQantity(id) {
-    setcartArr((currentItems) => {
+    setCartArr((currentItems) => {
       if (currentItems.find((item) => item.id === id)?.quantity === 1) {
         return currentItems.filter((item) => item.id !== id);
       } else {
@@ -45,24 +45,24 @@ export function ShoppingCartProvider({ children }) {
     });
   }
   function removeFromCart(id) {
-    setcartArr((currentItems) => {
+    setCartArr((currentItems) => {
       return currentItems.filter((item) => item.id !== id);
     });
   }
+  const ShoppingCartCtx = {
+    cartArr,
+    setCartArr,
+  };
   return (
-    <ShoppingCartContext.Provider
-      value={{
-        getItemQantity,
-        increaseCartQantity,
-        decreaseCartQantity,
-        removeFromCart,
-      }}
-    >
+    <ShoppingCartContext.Provider value={ShoppingCartCtx}>
       {children}
     </ShoppingCartContext.Provider>
   );
 }
-
+export default ShoppingCartProvider;
+export function useShoppingCartCtx() {
+  return useContext(ShoppingCartContext);
+}
 ShoppingCartProvider.propTypes = {
   children: PropTypes.node,
 };

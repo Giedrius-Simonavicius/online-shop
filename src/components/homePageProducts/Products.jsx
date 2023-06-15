@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../card/Card';
 import { Link, NavLink } from 'react-router-dom';
-import { useGeneralCtx } from '../../store/GeneralProvider';
+import { useGeneralCtx } from '../../context/GeneralProvider';
 import { formatCurrency } from '../../helperFns';
 
 function Products({ products }) {
