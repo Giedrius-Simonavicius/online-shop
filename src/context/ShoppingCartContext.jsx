@@ -14,7 +14,6 @@ const ShoppingCartContext = createContext({
 const localShoppingCartKey = 'LOCAL_CART';
 
 function ShoppingCartProvider({ children }) {
-  // const [cartArr, setCartArr] = useState([]);
   const cartFromLocalStorage = localStorage.getItem(localShoppingCartKey);
   console.log('cartFromLocalStorage:', cartFromLocalStorage);
 

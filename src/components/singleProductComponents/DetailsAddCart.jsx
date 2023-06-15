@@ -51,9 +51,10 @@ function DetailsAddCart({ activeTab, onTabClick, product }) {
           + Add to Cart
         </button>
       ) : (
-        <div className="flex flex-col items-center gap-2">
+        <div className="flex items-center gap-2">
           <div className="flex items-center justify-center gap-2">
             <button
+              className="rounded-md px-1 text-color4"
               onClick={() => {
                 decreaseCartQuantity(product.id);
               }}
@@ -64,6 +65,7 @@ function DetailsAddCart({ activeTab, onTabClick, product }) {
               <span>{quantity}</span> in cart
             </div>
             <button
+              className="rounded-md px-1 text-color9"
               onClick={() => {
                 increaseCartQuantity(product.id);
               }}
@@ -75,7 +77,7 @@ function DetailsAddCart({ activeTab, onTabClick, product }) {
             onClick={() => {
               removeFromCart(product.id);
             }}
-            className="rounded-md bg-color8 px-4 py-2 text-white"
+            className="rounded-md border border-color8 px-2 py-1 text-color8"
           >
             Remove
           </button>

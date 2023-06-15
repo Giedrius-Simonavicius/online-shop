@@ -9,7 +9,7 @@ import { Popover, Transition } from '@headlessui/react';
 function HeaderComponent() {
   const { setFilterArr } = useGeneralCtx();
   const { cartArr, getCartQuantity } = useShoppingCartCtx();
-  console.log('cartArr ===', cartArr);
+
   function resetFiltArr() {
     setFilterArr([]);
   }
