@@ -1,15 +1,16 @@
 import { createContext, useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
-const AuthContext = createContext({
+const GeneralContext = createContext({
   filterArr: [],
   cartArr: [],
   capitalizeFirstLetter() {},
   setFilterArr() {},
   setCartArr() {},
 });
-AuthContext.displayName = 'Authtentification';
+GeneralContext.displayName = 'General context';
 
-function AuthProvider({ children }) {
+function GeneralContextProvider({ children }) {
   const [filterArr, setFilterArr] = useState([]);
   const [cartArr, setCartArr] = useState([]);
 
@@ -34,7 +35,7 @@ function AuthProvider({ children }) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
-  const authCtx = {
+  const generalCtx = {
     filterArr,
     setFilterArr,
     cartArr,
@@ -44,12 +45,17 @@ function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={authCtx}>{children}</AuthContext.Provider>
+    <GeneralContext.Provider value={generalCtx}>
+      {children}
+    </GeneralContext.Provider>
   );
 }
 
-export default AuthProvider;
+export default GeneralContextProvider;
 
-export function useAuthCtx() {
-  return useContext(AuthContext);
+export function useGeneralCtx() {
+  return useContext(GeneralContext);
 }
+GeneralContextProvider.propTypes = {
+  children: PropTypes.node,
+};

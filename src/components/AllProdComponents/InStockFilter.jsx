@@ -1,8 +1,8 @@
 import { Disclosure, Transition } from '@headlessui/react';
-import { useAuthCtx } from '../../store/AuthProvider';
+import { useGeneralCtx } from '../../store/GeneralProvider';
 
 function InStockFilter() {
-  const { filterArr, setFilterArr } = useAuthCtx();
+  const { filterArr, setFilterArr } = useGeneralCtx();
 
   function newFilter(event) {
     const isChecked = event.currentTarget.checked;

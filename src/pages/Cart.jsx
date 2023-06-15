@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useAuthCtx } from '../store/AuthProvider';
+import { useGeneralCtx } from '../store/GeneralProvider';
 import { formatCurrency } from '../helperFns';
 
 function Cart() {
-  const { cartArr, setCartArr } = useAuthCtx();
+  const { cartArr, setCartArr } = useGeneralCtx();
   const [updatedCart, setUpdatedCart] = useState(cartArr);
 
   const uniqueItems = Array.from(

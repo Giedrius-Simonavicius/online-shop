@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { allPrd } from '../../data/data';
 import { Disclosure, Transition } from '@headlessui/react';
-import { useAuthCtx } from '../../store/AuthProvider';
+import { useGeneralCtx } from '../../store/GeneralProvider';
 
 function RatingFilter() {
-  const { filterArr, setFilterArr } = useAuthCtx();
+  const { filterArr, setFilterArr } = useGeneralCtx();
 
   function newFilter(event) {
     const stars = event.currentTarget.dataset.stars;

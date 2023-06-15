@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../components/card/Card';
 import Filter from '../components/AllProdComponents/Filter';
-import { useAuthCtx } from '../store/AuthProvider';
+import { useGeneralCtx } from '../store/GeneralProvider';
 import { Link, useLocation } from 'react-router-dom';
 import { filterProducts } from '../components/AllProdComponents/filterUtils';
 import Brands from '../components/homePageProducts/Brands';
@@ -11,7 +11,7 @@ function AllProducts({ products }) {
   const [categoryNameDisplay, setCategoryNameDisplay] =
     useState('all-products');
   const { filterArr, setFilterArr, capitalizeFirstLetter, renderStars } =
-    useAuthCtx();
+    useGeneralCtx();
   const location = useLocation();
 
   useEffect(() => {

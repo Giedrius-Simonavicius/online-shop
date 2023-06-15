@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import DetailsAddCart from './singleProductComponents/DetailsAddCart';
 import { NavLink } from 'react-router-dom';
-import { useAuthCtx } from '../store/AuthProvider';
+import { useGeneralCtx } from '../store/GeneralProvider';
 import toast from 'react-hot-toast';
 
 function SingleProduct({ product }) {
   const [activeTab, setActiveTab] = useState('about');
   const [selectedImage, setSelectedImage] = useState(product.thumbnail);
-  const { setCartArr, cartArr } = useAuthCtx();
+  const { setCartArr, cartArr } = useGeneralCtx();
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);

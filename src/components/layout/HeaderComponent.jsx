@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../../styles/style.css';
 import WorkingHours from '../openClose/WorkingHours';
-import { useAuthCtx } from '../../store/AuthProvider';
+import { useGeneralCtx } from '../../store/GeneralProvider';
 import { Popover, Transition } from '@headlessui/react';
 
 function HeaderComponent() {
-  const { setFilterArr, cartArr } = useAuthCtx();
+  const { setFilterArr, cartArr } = useGeneralCtx();
 
   function resetFiltArr() {
     setFilterArr([]);

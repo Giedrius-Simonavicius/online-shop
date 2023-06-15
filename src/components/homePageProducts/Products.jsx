@@ -1,11 +1,11 @@
 import React from 'react';
 import Card from '../card/Card';
 import { Link, NavLink } from 'react-router-dom';
-import { useAuthCtx } from '../../store/AuthProvider';
+import { useGeneralCtx } from '../../store/GeneralProvider';
 import { formatCurrency } from '../../helperFns';
 
 function Products({ products }) {
-  const { renderStars } = useAuthCtx();
+  const { renderStars } = useGeneralCtx();
 
   const slicedProducts = products.slice(0, 7);
 

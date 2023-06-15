@@ -1,9 +1,9 @@
 import React from 'react';
 import { Disclosure, Transition } from '@headlessui/react';
-import { useAuthCtx } from '../../store/AuthProvider';
+import { useGeneralCtx } from '../../store/GeneralProvider';
 
 function CategoryFilter() {
-  const { filterArr, setFilterArr } = useAuthCtx();
+  const { filterArr, setFilterArr } = useGeneralCtx();
 
   function newFilter(event) {
     const priceRange = event.currentTarget.dataset.priceRange;
