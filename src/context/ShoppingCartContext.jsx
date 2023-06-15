@@ -1,19 +1,39 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { toast } from 'react-hot-toast';
 
 const ShoppingCartContext = createContext({
   cartArr: [],
   setCartArr() {},
-  getItemQantity() {},
+  getItemQuantity() {},
   increaseCartQuantity() {},
   decreaseCartQuantity() {},
   removeFromCart() {},
   getCartQuantity() {},
 });
+const localShoppingCartKey = 'LOCAL_CART';
 
 function ShoppingCartProvider({ children }) {
-  const [cartArr, setCartArr] = useState([]);
+  // const [cartArr, setCartArr] = useState([]);
+  const cartFromLocalStorage = localStorage.getItem(localShoppingCartKey);
+  console.log('cartFromLocalStorage:', cartFromLocalStorage);
+
+  const [cartArr, setCartArr] = useState(() => {
+    try {
+      return cartFromLocalStorage ? JSON.parse(cartFromLocalStorage) : [];
+    } catch (error) {
+      console.error('Error parsing cart from localStorage:', error);
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(localShoppingCartKey, JSON.stringify(cartArr));
+    } catch (error) {
+      console.error('Error storing cart in localStorage:', error);
+    }
+  }, [cartArr]);
 
   function getItemQuantity(id) {
     return cartArr.find((item) => item.id === id)?.quantity || 0;
@@ -55,6 +75,7 @@ function ShoppingCartProvider({ children }) {
       if (currentItems.find((item) => item.id === id)?.quantity === 1) {
         return currentItems.filter((item) => item.id !== id);
       } else {
+        toast.error('Removed');
         return currentItems.map((item) => {
           if (item.id === id) {
             return { ...item, quantity: item.quantity - 1 };
