@@ -1,8 +1,8 @@
 import React from 'react';
 import Carousel from 'nuka-carousel';
-import feat1 from '.././../../public/images/featuring/featuring1.jpeg';
-import feat2 from '.././../../public/images/featuring/featuring2.jpeg';
-import feat3 from '.././../../public/images/featuring/featuring3.jpeg';
+import feat1 from '/images/featuring/featuring1.jpeg';
+import feat2 from '/images/featuring/featuring2.jpeg';
+import feat3 from '/images/featuring/featuring3.jpeg';
 
 function Featuring() {
   const images = [feat1, feat2, feat3];

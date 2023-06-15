@@ -14,10 +14,7 @@ function IntelCore() {
           *Performance compared to i7-9700. Specs varies by model.
         </p>
       </div>
-      <img
-        src="../../../public/images/singleProductImages/intelCore.jpg"
-        alt="intel"
-      />
+      <img src="/images/singleProductImages/intelCore.jpg" alt="intel" />
     </div>
   );
 }

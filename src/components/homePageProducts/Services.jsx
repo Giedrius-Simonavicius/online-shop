@@ -9,7 +9,7 @@ function Services() {
           <img
             loading="lazy"
             className="mx-auto my-4"
-            src="../../../public/icons/ourServices/Account.svg"
+            src="/icons/ourServices/Account.svg"
             alt="Support"
           />
           <h3 className="text-center font-bold ">Product Support</h3>
@@ -21,7 +21,7 @@ function Services() {
           <img
             loading="lazy"
             className="mx-auto my-4"
-            src="../../../public/icons/ourServices/Saving.svg"
+            src="/icons/ourServices/Saving.svg"
             alt="Support"
           />
           <h3 className="text-center font-bold ">Product Support</h3>
@@ -33,7 +33,7 @@ function Services() {
           <img
             loading="lazy"
             className="mx-auto my-4"
-            src="../../../public/icons/ourServices/Support.svg"
+            src="/icons/ourServices/Support.svg"
             alt="Support"
           />
           <h3 className="text-center font-bold ">Product Support</h3>

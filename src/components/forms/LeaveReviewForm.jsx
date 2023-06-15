@@ -107,11 +107,7 @@ function LeaveReviewForm({ onClose }) {
           onClick={handleClose}
         >
           Close{' '}
-          <img
-            className="inline"
-            src="../../../public/icons/ui/deleteBtn.svg"
-            alt="delete"
-          />
+          <img className="inline" src="/icons/ui/deleteBtn.svg" alt="delete" />
         </button>
       </div>
     </form>

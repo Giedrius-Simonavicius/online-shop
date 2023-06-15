@@ -2,7 +2,7 @@ import React from 'react';
 
 function FeaturesSingleProd() {
   return (
-    <div className=" bg-[url('../../../public/images/singleProductImages/featBGImg.jpg')] py-12 text-center text-white">
+    <div className=" bg-[url('/images/singleProductImages/featBGImg.jpg')] py-12 text-center text-white">
       <h2 className="text-2xl">Features</h2>
       <p className="mx-auto max-w-sm py-4 text-center text-sm font-light">
         The MPG series brings out the best in gamers by allowing full expression
@@ -13,7 +13,7 @@ function FeaturesSingleProd() {
           <img
             loading="lazy"
             className="mx-auto mb-6 scale-[75%]"
-            src="../../../public/images/singleProductImages/intel.svg"
+            src="/images/singleProductImages/intel.svg"
             alt="intel"
           />
           <p className="max-w-[25rem] font-light ">
@@ -26,7 +26,7 @@ function FeaturesSingleProd() {
           <img
             loading="lazy"
             className="mx-auto mb-6 scale-[75%] "
-            src="../../../public/images/singleProductImages/rtx.svg"
+            src="/images/singleProductImages/rtx.svg"
             alt="rtx"
           />
           <p className="max-w-[25rem] font-light ">
@@ -39,7 +39,7 @@ function FeaturesSingleProd() {
           <img
             loading="lazy"
             className="mx-auto mb-6 scale-[75%] "
-            src="../../../public/images/singleProductImages/ssd.svg"
+            src="/images/singleProductImages/ssd.svg"
             alt="ssd"
           />
           <p className="max-w-[25rem] font-light ">
@@ -52,7 +52,7 @@ function FeaturesSingleProd() {
           <img
             loading="lazy"
             className="mx-auto mb-6 scale-[75%] "
-            src="../../../public/images/singleProductImages/ddr4.svg"
+            src="/images/singleProductImages/ddr4.svg"
             alt="ddr4"
           />
           <p className="max-w-[25rem] font-light ">

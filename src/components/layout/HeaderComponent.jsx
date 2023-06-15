@@ -22,17 +22,9 @@ function HeaderComponent() {
     return (
       <div className="pb-2 ">
         {open ? (
-          <img
-            loading="lazy"
-            src="../../../public/icons/ui/arrowDownWh.svg"
-            alt="arrowDown"
-          />
+          <img loading="lazy" src="/icons/ui/arrowDownWh.svg" alt="arrowDown" />
         ) : (
-          <img
-            loading="lazy"
-            src="../../../public/icons/ui/arrowUpWh.svg"
-            alt="arrowUp"
-          />
+          <img loading="lazy" src="/icons/ui/arrowUpWh.svg" alt="arrowUp" />
         )}
       </div>
     );

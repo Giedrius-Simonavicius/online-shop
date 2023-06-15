@@ -95,45 +95,37 @@ function SingleProduct({ product }) {
               <img
                 loading="lazy"
                 className="hover:cursor-pointer"
-                src="../../public/images/productImagesSample/1.jpg"
+                src="/images/productImagesSample/1.jpg"
                 alt="1"
                 onClick={() =>
-                  handleImageClick(
-                    '../../public/images/productImagesSample/1.jpg',
-                  )
+                  handleImageClick('/images/productImagesSample/1.jpg')
                 }
               />
               <img
                 loading="lazy"
                 className="hover:cursor-pointer"
-                src="../../public/images/productImagesSample/2.jpg"
+                src="/images/productImagesSample/2.jpg"
                 alt="2"
                 onClick={() =>
-                  handleImageClick(
-                    '../../public/images/productImagesSample/2.jpg',
-                  )
+                  handleImageClick('/images/productImagesSample/2.jpg')
                 }
               />
               <img
                 loading="lazy"
                 className="hover:cursor-pointer"
-                src="../../public/images/productImagesSample/3.jpg"
+                src="/images/productImagesSample/3.jpg"
                 alt="3"
                 onClick={() =>
-                  handleImageClick(
-                    '../../public/images/productImagesSample/3.jpg',
-                  )
+                  handleImageClick('/images/productImagesSample/3.jpg')
                 }
               />
               <img
                 loading="lazy"
                 className="hover:cursor-pointer"
-                src="../../public/images/productImagesSample/4.jpg"
+                src="/images/productImagesSample/4.jpg"
                 alt="4"
                 onClick={() =>
-                  handleImageClick(
-                    '../../public/images/productImagesSample/4.jpg',
-                  )
+                  handleImageClick('/images/productImagesSample/4.jpg')
                 }
               />
             </div>

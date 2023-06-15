@@ -64,11 +64,7 @@ function AllProducts({ products }) {
               You have no items in your wish list.
             </p>
           </div>
-          <img
-            loading="lazy"
-            src="../../public/images/ads/chairAd.jpg"
-            alt="chair"
-          />
+          <img loading="lazy" src="/images/ads/chairAd.jpg" alt="chair" />
         </div>
         <div className="ml-4 ">
           <div className="flex-col ">
@@ -92,7 +88,7 @@ function AllProducts({ products }) {
                     {' '}
                     <img
                       loading="lazy"
-                      src="/public/icons/ui/deleteBtn.svg"
+                      src="/icons/ui/deleteBtn.svg"
                       alt="deleteBtn"
                     />
                   </button>
@@ -119,7 +115,7 @@ function AllProducts({ products }) {
                       <div className="flex gap-2">
                         <img
                           loading="lazy"
-                          src="../../../public/icons/instock.svg"
+                          src="..//icons/instock.svg"
                           alt="instock"
                         />
                         <p className="text-sm text-color9">In stock</p>

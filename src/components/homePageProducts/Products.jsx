@@ -37,7 +37,7 @@ function Products({ products }) {
                   <div className=" mt-4 flex gap-2 ">
                     <img
                       loading="lazy"
-                      src="../../../public/icons/instock.svg"
+                      src="/icons/instock.svg"
                       alt="instock"
                     />
                     <p className="text-sm text-color9">In stock</p>

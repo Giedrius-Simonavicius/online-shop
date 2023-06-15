@@ -14,13 +14,13 @@ function AuthProvider({ children }) {
   const [cartArr, setCartArr] = useState([]);
 
   const renderStars = (starCount) => {
-    const starsArray = Array(5).fill('../../../public/icons/StarGray.svg');
+    const starsArray = Array(5).fill('/icons/StarGray.svg');
     const renderedStars = starsArray.map((starSrc, index) =>
       index < starCount ? (
         <img
           loading="lazy"
           key={index}
-          src="../../../public/icons/Star.svg"
+          src="/icons/Star.svg"
           alt={`star-${index}`}
         />
       ) : (

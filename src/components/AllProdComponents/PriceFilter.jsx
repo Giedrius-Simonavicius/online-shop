@@ -20,17 +20,9 @@ function CategoryFilter() {
     return (
       <div className="pb-2">
         {open ? (
-          <img
-            loading="lazy"
-            src="../../../public/icons/ui/arrowUp.svg"
-            alt="arrowUp"
-          />
+          <img loading="lazy" src="/icons/ui/arrowUp.svg" alt="arrowUp" />
         ) : (
-          <img
-            loading="lazy"
-            src="../../../public/icons/ui/arrowDownBc.svg"
-            alt="arrowDown"
-          />
+          <img loading="lazy" src="/icons/ui/arrowDownBc.svg" alt="arrowDown" />
         )}
       </div>
     );
