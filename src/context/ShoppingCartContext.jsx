@@ -45,21 +45,21 @@ function ShoppingCartProvider({ children }) {
     return totalQuantity;
   }
 
-  function increaseCartQuantity(id, inStock) {
+  function increaseCartQuantity(id, inStock, message) {
     setCartArr((currentItems) => {
       if (currentItems.find((item) => item.id === id) == null && inStock) {
-        toast.success('Added to cart');
+        message && toast.success(message);
         return [...currentItems, { id, quantity: 1 }];
       } else if (
         currentItems.find((item) => item.id === id) == null &&
         !inStock
       ) {
-        toast.error('Cannot add item. Product is out of stock!');
+        message && toast.error(message);
         return currentItems;
       } else {
         return currentItems.map((item) => {
           if (item.id === id) {
-            toast.success('Added to cart');
+            message && toast.success(message);
             return { ...item, quantity: item.quantity + 1 };
           } else {
             return item;
@@ -69,12 +69,12 @@ function ShoppingCartProvider({ children }) {
     });
   }
 
-  function decreaseCartQuantity(id) {
+  function decreaseCartQuantity(id, message) {
     setCartArr((currentItems) => {
       if (currentItems.find((item) => item.id === id)?.quantity === 1) {
         return currentItems.filter((item) => item.id !== id);
       } else {
-        toast.error('Removed');
+        message && toast.error(message);
         return currentItems.map((item) => {
           if (item.id === id) {
             return { ...item, quantity: item.quantity - 1 };
@@ -85,6 +85,7 @@ function ShoppingCartProvider({ children }) {
       }
     });
   }
+
   function removeFromCart(id) {
     setCartArr((currentItems) => {
       return currentItems.filter((item) => item.id !== id);

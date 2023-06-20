@@ -3,16 +3,14 @@ import { useShoppingCartCtx } from '../context/ShoppingCartContext';
 import { formatCurrency } from '../helperFns';
 import SingleCartComponent from '../components/shoppingCartComponents/singleCartComponent';
 import { allPrd } from '../data/data';
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
-  const { cartArr } = useShoppingCartCtx();
+  const navigate = useNavigate();
+  const { cartArr, setCartArr } = useShoppingCartCtx();
 
-  function totalPrice() {
-    let total = 0;
-    cartArr.forEach((cObj) => {
-      total += +cObj.discountedPrice * cObj.quantity;
-    });
-    return total.toFixed(2);
+  function navigateToAllProducts() {
+    navigate('/all-products');
   }
 
   return (
@@ -32,17 +30,33 @@ function Cart() {
           <SingleCartComponent key={item.id} {...item} />
         ))}
       </div>
-      <p className="mt-5 text-right text-lg">
-        Total:{' '}
-        {formatCurrency(
-          cartArr.reduce((total, currentCartItem) => {
-            const item = allPrd.find((i) => currentCartItem.id === i.id);
-            return (
-              total + currentCartItem.quantity * (item?.discountedPrice || 0)
-            );
-          }, 0),
-        )}
-      </p>
+      <div className="mt-5 flex justify-between text-right text-lg">
+        <div className="flex gap-4">
+          <button
+            onClick={navigateToAllProducts}
+            className="rounded-full border border-color10 px-4 py-1 text-sm text-color10"
+          >
+            Continue shopping
+          </button>
+          <button
+            className="rounded-full border bg-black px-4 py-1 text-sm text-white"
+            onClick={() => setCartArr([])}
+          >
+            Clear shopping cart
+          </button>
+        </div>
+        <p>
+          Total:{' '}
+          {formatCurrency(
+            cartArr.reduce((total, currentCartItem) => {
+              const item = allPrd.find((i) => currentCartItem.id === i.id);
+              return (
+                total + currentCartItem.quantity * (item?.discountedPrice || 0)
+              );
+            }, 0),
+          )}
+        </p>
+      </div>
     </div>
   );
 }

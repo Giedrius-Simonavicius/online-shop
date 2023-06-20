@@ -26,11 +26,11 @@ function SingleCartComponent({ id, quantity }) {
         <div className=" mr-auto flex items-center gap-5 ">
           <p>{formatCurrency(item.discountedPrice)}</p>
 
-          <div className="flex  gap-2 px-5 ">
+          <div className="flex gap-2 px-5 ">
             <button
-              className=" rounded-md px-1 text-color4"
+              className=" mr-1 rounded-md bg-color3 px-1.5 text-white"
               onClick={() => {
-                decreaseCartQuantity(item.id);
+                decreaseCartQuantity(item.id, 'removed from cart');
               }}
             >
               -
@@ -39,9 +39,9 @@ function SingleCartComponent({ id, quantity }) {
             <p>{getItemQuantity(item.id)}</p>
 
             <button
-              className="rounded-md px-1 text-color9"
+              className=" ml-1 rounded-md bg-color3 px-1.5 text-white"
               onClick={() => {
-                increaseCartQuantity(item.id);
+                increaseCartQuantity(item.id, '', 'added to cart');
               }}
             >
               +

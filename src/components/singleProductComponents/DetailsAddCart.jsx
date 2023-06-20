@@ -44,7 +44,7 @@ function DetailsAddCart({ activeTab, onTabClick, product }) {
       {quantity === 0 ? (
         <button
           onClick={() => {
-            increaseCartQuantity(product.id, product.inStock);
+            increaseCartQuantity(product.id, product.inStock, 'added to cart');
           }}
           className="color1 mr-6 rounded-full bg-color3 px-7 py-3 text-white"
         >
@@ -54,9 +54,9 @@ function DetailsAddCart({ activeTab, onTabClick, product }) {
         <div className="flex items-center gap-2">
           <div className="flex items-center justify-center gap-2">
             <button
-              className="rounded-md px-1 text-color4"
+              className="rounded-md bg-color3 px-1.5 py-0.5 text-white"
               onClick={() => {
-                decreaseCartQuantity(product.id);
+                decreaseCartQuantity(product.id, 'removed from cart');
               }}
             >
               -
@@ -65,9 +65,9 @@ function DetailsAddCart({ activeTab, onTabClick, product }) {
               <span>{quantity}</span> in cart
             </div>
             <button
-              className="rounded-md px-1 text-color9"
+              className="rounded-md bg-color3 px-1.5 py-0.5 text-white"
               onClick={() => {
-                increaseCartQuantity(product.id);
+                increaseCartQuantity(product.id, '', 'added to cart');
               }}
             >
               +
