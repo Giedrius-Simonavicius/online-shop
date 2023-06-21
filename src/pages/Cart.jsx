@@ -13,7 +13,7 @@ function Cart() {
     navigate('/all-products');
   }
   function handleProceedToCheckout() {
-    navigate('/cart-delivery');
+    navigate('/cart/delivery');
   }
 
   return (

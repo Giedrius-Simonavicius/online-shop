@@ -17,6 +17,7 @@ import NotFound from './pages/NotFound';
 
 import { Toaster } from 'react-hot-toast';
 import Cart from './pages/Cart';
+import CartDelivery from './pages/CartDelivery';
 function App() {
   return (
     <div>
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="home" element={<HomePage />} />
         <Route path="cart" element={<Cart />} />
+        <Route path="cart/delivery" element={<CartDelivery />} />
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="about-us" element={<AboutUs />} />
         <Route path="terms-conditions" element={<Terms />} />
