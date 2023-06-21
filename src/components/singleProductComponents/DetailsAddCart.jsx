@@ -10,7 +10,6 @@ function DetailsAddCart({ activeTab, onTabClick, product }) {
   } = useShoppingCartCtx();
 
   const quantity = getItemQuantity(product.id);
-
   return (
     <div className="mb-3 flex justify-between border-y-2 py-3 text-xs">
       <div className="flex gap-9 px-10">
@@ -46,7 +45,7 @@ function DetailsAddCart({ activeTab, onTabClick, product }) {
           onClick={() => {
             increaseCartQuantity(product.id, product.inStock, 'added to cart');
           }}
-          className="color1 mr-6 rounded-full bg-color3 px-7 py-3 text-white"
+          className="color1 mr-6 rounded-full border border-color3 bg-color3 px-7 py-3 text-white duration-200 hover:bg-white hover:text-color3"
         >
           + Add to Cart
         </button>
@@ -54,7 +53,7 @@ function DetailsAddCart({ activeTab, onTabClick, product }) {
         <div className="flex items-center gap-2">
           <div className="flex items-center justify-center gap-2">
             <button
-              className="rounded-md bg-color3 px-1.5 py-0.5 text-white"
+              className="mx-1 rounded-md border bg-color3 px-1.5 text-white duration-200 hover:border-color3 hover:bg-white hover:text-color3"
               onClick={() => {
                 decreaseCartQuantity(product.id, 'removed from cart');
               }}
@@ -65,9 +64,14 @@ function DetailsAddCart({ activeTab, onTabClick, product }) {
               <span>{quantity}</span> in cart
             </div>
             <button
-              className="rounded-md bg-color3 px-1.5 py-0.5 text-white"
+              className="mx-1 rounded-md border bg-color3 px-1.5 text-white duration-200 hover:border-color3 hover:bg-white hover:text-color3"
               onClick={() => {
-                increaseCartQuantity(product.id, '', 'added to cart');
+                increaseCartQuantity(
+                  product.id,
+                  '',
+                  'added to cart',
+                  product.availableQty,
+                );
               }}
             >
               +
@@ -77,7 +81,7 @@ function DetailsAddCart({ activeTab, onTabClick, product }) {
             onClick={() => {
               removeFromCart(product.id);
             }}
-            className="rounded-md border border-color8 px-2 py-1 text-color8"
+            className="rounded-md border border-color8 px-2 py-1 text-color8 duration-200 hover:bg-color8 hover:text-white"
           >
             Remove
           </button>

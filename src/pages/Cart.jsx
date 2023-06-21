@@ -12,20 +12,14 @@ function Cart() {
   function navigateToAllProducts() {
     navigate('/all-products');
   }
+  function handleProceedToCheckout() {
+    navigate('/cart-delivery');
+  }
 
   return (
     <div className="container mx-auto">
       <h2 className="my-4 text-2xl font-bold">Shopping Cart</h2>
       <div>
-        <div className="flex justify-between">
-          <h4 className="w-2/3 py-4">Item</h4>
-          <div className="mr-auto flex gap-20">
-            <h4>Price</h4>
-            <h4 className="text-center">Qty</h4>
-            <h4>Subtotal</h4>
-          </div>
-        </div>
-
         {cartArr.map((item) => (
           <SingleCartComponent key={item.id} {...item} />
         ))}
@@ -34,18 +28,27 @@ function Cart() {
         <div className="flex gap-4">
           <button
             onClick={navigateToAllProducts}
-            className="rounded-full border border-color10 px-4 py-1 text-sm text-color10"
+            className="rounded-full border border-color10 px-4 py-1 text-sm text-color10 duration-200 hover:bg-color10 hover:text-white"
           >
             Continue shopping
           </button>
           <button
-            className="rounded-full border bg-black px-4 py-1 text-sm text-white"
+            className="rounded-full border bg-black px-4 py-1 text-sm text-white duration-200 hover:bg-white hover:text-black "
             onClick={() => setCartArr([])}
           >
             Clear shopping cart
           </button>
         </div>
-        <p>
+
+        <button
+          onClick={handleProceedToCheckout}
+          className="rounded-full border border-color3 bg-color3 px-4 py-1 text-sm text-white duration-200 hover:bg-white hover:text-color3"
+        >
+          Proceed to Checkout{' '}
+        </button>
+      </div>
+      <div className="mt-4 flex justify-end">
+        <p className="text-2xl">
           Total:{' '}
           {formatCurrency(
             cartArr.reduce((total, currentCartItem) => {

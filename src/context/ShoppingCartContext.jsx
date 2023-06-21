@@ -15,13 +15,13 @@ const localShoppingCartKey = 'LOCAL_CART';
 
 function ShoppingCartProvider({ children }) {
   const cartFromLocalStorage = localStorage.getItem(localShoppingCartKey);
-  console.log('cartFromLocalStorage:', cartFromLocalStorage);
 
   const [cartArr, setCartArr] = useState(() => {
     try {
       return cartFromLocalStorage ? JSON.parse(cartFromLocalStorage) : [];
     } catch (error) {
       console.error('Error parsing cart from localStorage:', error);
+
       return [];
     }
   });
@@ -45,26 +45,27 @@ function ShoppingCartProvider({ children }) {
     return totalQuantity;
   }
 
-  function increaseCartQuantity(id, inStock, message) {
+  function increaseCartQuantity(id, inStock, message, availableQty) {
     setCartArr((currentItems) => {
-      if (currentItems.find((item) => item.id === id) == null && inStock) {
+      const existingItem = currentItems.find((item) => item.id === id);
+      const currentQuantity = existingItem ? existingItem.quantity : 0;
+
+      if (existingItem == null && inStock) {
         message && toast.success(message);
-        return [...currentItems, { id, quantity: 1 }];
-      } else if (
-        currentItems.find((item) => item.id === id) == null &&
-        !inStock
-      ) {
+        return [...currentItems, { id, quantity: currentQuantity + 1 }];
+      } else if (existingItem == null && !inStock) {
         message && toast.error(message);
         return currentItems;
       } else {
-        return currentItems.map((item) => {
-          if (item.id === id) {
-            message && toast.success(message);
-            return { ...item, quantity: item.quantity + 1 };
-          } else {
-            return item;
-          }
-        });
+        if (currentQuantity < availableQty) {
+          message && toast.success(message);
+          return currentItems.map((item) =>
+            item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
+          );
+        } else {
+          message && toast.error('Maximum available quantity reached');
+          return currentItems;
+        }
       }
     });
   }
