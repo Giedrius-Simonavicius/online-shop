@@ -5,13 +5,12 @@ import { useGeneralCtx } from '../context/GeneralProvider';
 import { Link, useLocation } from 'react-router-dom';
 import { filterProducts } from '../components/AllProdComponents/filterUtils';
 import Brands from '../components/homePageProducts/Brands';
-import { formatCurrency } from '../helperFns';
+import { capitalizeFirstLetter, formatCurrency } from '../helperFns';
 
 function AllProducts({ products }) {
   const [categoryNameDisplay, setCategoryNameDisplay] =
     useState('all-products');
-  const { filterArr, setFilterArr, capitalizeFirstLetter, renderStars } =
-    useGeneralCtx();
+  const { filterArr, setFilterArr, renderStars } = useGeneralCtx();
   const location = useLocation();
 
   useEffect(() => {

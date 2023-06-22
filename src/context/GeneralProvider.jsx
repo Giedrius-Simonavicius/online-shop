@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const GeneralContext = createContext({
   filterArr: [],
-  capitalizeFirstLetter() {},
+
   setFilterArr() {},
 });
 GeneralContext.displayName = 'General context';
@@ -28,14 +28,10 @@ function GeneralContextProvider({ children }) {
     return renderedStars;
   };
 
-  function capitalizeFirstLetter(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
   const generalCtx = {
     filterArr,
     setFilterArr,
-    capitalizeFirstLetter,
+
     renderStars,
   };
 

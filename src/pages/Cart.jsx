@@ -4,6 +4,7 @@ import { formatCurrency } from '../helperFns';
 import SingleCartComponent from '../components/shoppingCartComponents/singleCartComponent';
 import { allPrd } from '../data/data';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
 function Cart() {
   const navigate = useNavigate();
@@ -34,7 +35,11 @@ function Cart() {
           </button>
           <button
             className="rounded-full border bg-black px-4 py-1 text-sm text-white duration-200 hover:bg-white hover:text-black "
-            onClick={() => setCartArr([])}
+            onClick={() => {
+              setCartArr([]);
+              navigateToAllProducts();
+              toast.success('Shopping cart cleared');
+            }}
           >
             Clear shopping cart
           </button>

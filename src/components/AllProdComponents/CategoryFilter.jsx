@@ -3,9 +3,10 @@ import { allPrd } from '../../data/data';
 import { Disclosure, Transition } from '@headlessui/react';
 import { useGeneralCtx } from '../../context/GeneralProvider';
 import ArrowUpDown from '../openClose/ArrowUpDown';
+import { capitalizeFirstLetter } from '../../helperFns';
 
 function CategoryFilter() {
-  const { filterArr, setFilterArr, capitalizeFirstLetter } = useGeneralCtx();
+  const { filterArr, setFilterArr } = useGeneralCtx();
 
   function newFilter(event) {
     const category = event.currentTarget.dataset.category;
