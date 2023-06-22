@@ -5,8 +5,8 @@ import { useShoppingCartCtx } from '../../context/ShoppingCartContext';
 import { formatCurrency } from '../../helperFns';
 import { allPrd } from '../../data/data';
 
-function Summary({ deliveryFee }) {
-  const { cartArr } = useShoppingCartCtx();
+function Summary() {
+  const { cartArr, deliveryFee } = useShoppingCartCtx();
   const itemsPrice = cartArr.reduce((total, currentCartItem) => {
     const item = allPrd.find((i) => currentCartItem.id === i.id);
     return total + currentCartItem.quantity * (item?.discountedPrice || 0);

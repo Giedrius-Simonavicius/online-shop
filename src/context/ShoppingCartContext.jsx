@@ -4,12 +4,16 @@ import { toast } from 'react-hot-toast';
 
 const ShoppingCartContext = createContext({
   cartArr: [],
+  shippingInfo: {},
   setCartArr() {},
+  setShippingInfo() {},
   getItemQuantity() {},
   increaseCartQuantity() {},
   decreaseCartQuantity() {},
   removeFromCart() {},
   getCartQuantity() {},
+  setDeliveryFee() {},
+  deliveryFee: [],
 });
 const localShoppingCartKey = 'LOCAL_CART';
 
@@ -33,6 +37,9 @@ function ShoppingCartProvider({ children }) {
       console.error('Error storing cart in localStorage:', error);
     }
   }, [cartArr]);
+
+  const [shippingInfo, setShippingInfo] = useState({});
+  const [deliveryFee, setDeliveryFee] = useState(0);
 
   function getItemQuantity(id) {
     return cartArr.find((item) => item.id === id)?.quantity || 0;
@@ -100,6 +107,10 @@ function ShoppingCartProvider({ children }) {
     decreaseCartQuantity,
     removeFromCart,
     getCartQuantity,
+    shippingInfo,
+    setShippingInfo,
+    setDeliveryFee,
+    deliveryFee,
   };
   return (
     <ShoppingCartContext.Provider value={ShoppingCartCtx}>

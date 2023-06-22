@@ -3,10 +3,12 @@ import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { useShoppingCartCtx } from '../../context/ShoppingCartContext';
 import { countryList } from '../../data/data';
+import { toast } from 'react-hot-toast';
 
-function DeliveryForm({ setDeliveryFee }) {
+function DeliveryForm() {
   const navigate = useNavigate();
-  const { setShippingInfo, shippingInfo } = useShoppingCartCtx();
+  const { setShippingInfo, shippingInfo, setDeliveryFee } =
+    useShoppingCartCtx();
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -20,8 +22,15 @@ function DeliveryForm({ setDeliveryFee }) {
       deliveryMethod: 'standard',
     },
     onSubmit: (values, { resetForm, setSubmitting }) => {
-      saveShippingInfo(values, setSubmitting);
-      resetForm();
+      const isFormEmpty = Object.values(values).some((value) => !value.trim());
+
+      if (isFormEmpty) {
+        toast.error('Please fill in all fields');
+      } else {
+        saveShippingInfo(values, setSubmitting);
+        resetForm();
+        navigate('/cart/review');
+      }
     },
     validate: (values) => {
       const errors = {};
@@ -64,6 +73,7 @@ function DeliveryForm({ setDeliveryFee }) {
       name: ShippingInfoValuesObj.name,
       lastName: ShippingInfoValuesObj.lastName,
       city: ShippingInfoValuesObj.city,
+      streetAddress: ShippingInfoValuesObj.streetAddress,
       postalCode: ShippingInfoValuesObj.postalCode,
       country: ShippingInfoValuesObj.country,
       phoneNo: ShippingInfoValuesObj.phoneNo,
@@ -99,7 +109,9 @@ function DeliveryForm({ setDeliveryFee }) {
             />
           </div>
           {formik.touched.email && formik.errors.email ? (
-            <div>{formik.errors.email}</div>
+            <div className="mt-1 text-xs text-color8">
+              {formik.errors.email}
+            </div>
           ) : null}
         </div>
 
@@ -122,7 +134,7 @@ function DeliveryForm({ setDeliveryFee }) {
             />
           </div>
           {formik.touched.name && formik.errors.name ? (
-            <div>{formik.errors.name}</div>
+            <div className="mt-1 text-xs text-color8">{formik.errors.name}</div>
           ) : null}
         </div>
 
@@ -145,14 +157,17 @@ function DeliveryForm({ setDeliveryFee }) {
             />
           </div>
           {formik.touched.lastName && formik.errors.lastName ? (
-            <div>{formik.errors.lastName}</div>
+            <div className="mt-1 text-xs text-color8">
+              {formik.errors.lastName}
+            </div>
           ) : null}
         </div>
 
         <div className="mt-4">
           <div>
             <label htmlFor="streetAddress">
-              Street Address <span className="text-color8">*</span>
+              Street address and house number{' '}
+              <span className="text-color8">*</span>
             </label>
           </div>
           <div>
@@ -168,7 +183,9 @@ function DeliveryForm({ setDeliveryFee }) {
             />
           </div>
           {formik.touched.streetAddress && formik.errors.streetAddress ? (
-            <div>{formik.errors.streetAddress}</div>
+            <div className="mt-1 text-xs text-color8">
+              {formik.errors.streetAddress}
+            </div>
           ) : null}
         </div>
 
@@ -191,7 +208,7 @@ function DeliveryForm({ setDeliveryFee }) {
             />
           </div>
           {formik.touched.city && formik.errors.city ? (
-            <div>{formik.errors.city}</div>
+            <div className="mt-1 text-xs text-color8">{formik.errors.city}</div>
           ) : null}
         </div>
 
@@ -214,7 +231,9 @@ function DeliveryForm({ setDeliveryFee }) {
             />
           </div>
           {formik.touched.postalCode && formik.errors.postalCode ? (
-            <div>{formik.errors.postalCode}</div>
+            <div className="mt-1 text-xs text-color8">
+              {formik.errors.postalCode}
+            </div>
           ) : null}
         </div>
 
@@ -246,7 +265,9 @@ function DeliveryForm({ setDeliveryFee }) {
             </select>
           </div>
           {formik.touched.country && formik.errors.country ? (
-            <div>{formik.errors.country}</div>
+            <div className="mt-1 text-xs text-color8">
+              {formik.errors.country}
+            </div>
           ) : null}
         </div>
 
@@ -269,7 +290,9 @@ function DeliveryForm({ setDeliveryFee }) {
             />
           </div>
           {formik.touched.phoneNo && formik.errors.phoneNo ? (
-            <div>{formik.errors.phoneNo}</div>
+            <div className="mt-1 text-xs text-color8">
+              {formik.errors.phoneNo}
+            </div>
           ) : null}
         </div>
 
@@ -305,7 +328,9 @@ function DeliveryForm({ setDeliveryFee }) {
             </label>
           </div>
           {formik.touched.deliveryMethod && formik.errors.deliveryMethod ? (
-            <div>{formik.errors.deliveryMethod}</div>
+            <div className="mt-1 text-xs text-color8">
+              {formik.errors.deliveryMethod}
+            </div>
           ) : null}
         </div>
 
@@ -313,9 +338,6 @@ function DeliveryForm({ setDeliveryFee }) {
           className="mt-4 rounded-full
              border-2 border-color3 bg-color3 px-12 py-2 font-normal text-white duration-200 hover:border-2 hover:bg-color1 hover:text-color3"
           type="submit"
-          onClick={() => {
-            navigate('/cart/review');
-          }}
         >
           Proceed to Review & Payment
         </button>
