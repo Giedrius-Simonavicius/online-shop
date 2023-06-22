@@ -51,11 +51,11 @@ function Products({ products }) {
                   className="mx-auto mb-3 mt-3 flex"
                   key={index}
                   src={product.thumbnail}
-                  alt={product.description}
+                  alt={product.name}
                 />
                 <div className="mb-3 flex">{renderStars(product.stars)}</div>
                 <h3 className="mb-3 w-36 max-w-prose overflow-hidden text-sm font-normal">
-                  {product.description}
+                  {`${product.aboutProduct.slice(0, 44)}...`}
                 </h3>
                 {product.discount !== 0 && (
                   <div className="flex gap-3">

@@ -57,21 +57,19 @@ function SingleCartComponent({ id, quantity }) {
               </button>
             </div>
 
-            <td>
-              <div className="flex gap-2">
-                <p>
-                  {formatCurrency((item.discountedPrice * quantity).toFixed(2))}
-                </p>{' '}
-                <button
-                  onClick={() => {
-                    removeFromCart(item.id);
-                  }}
-                  className="ml-3 rounded-md border border-color8 px-2 text-color8 duration-200 hover:bg-color8 hover:text-white"
-                >
-                  &times;
-                </button>
-              </div>
-            </td>
+            <div className="flex gap-2">
+              <p>
+                {formatCurrency((item.discountedPrice * quantity).toFixed(2))}
+              </p>{' '}
+              <button
+                onClick={() => {
+                  removeFromCart(item.id);
+                }}
+                className="ml-3 rounded-md border border-color8 px-2 text-color8 duration-200 hover:bg-color8 hover:text-white"
+              >
+                &times;
+              </button>
+            </div>
           </div>
         </div>
       </div>

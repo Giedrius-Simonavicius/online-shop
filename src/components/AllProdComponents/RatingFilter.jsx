@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { allPrd } from '../../data/data';
 import { Disclosure, Transition } from '@headlessui/react';
 import { useGeneralCtx } from '../../context/GeneralProvider';
+import ArrowUpDown from '../openClose/ArrowUpDown';
 
 function RatingFilter() {
   const { filterArr, setFilterArr } = useGeneralCtx();
@@ -17,18 +18,6 @@ function RatingFilter() {
     } else {
       setFilterArr((prevFilterArr) => [...prevFilterArr, starsWithWord]);
     }
-  }
-
-  function ArrowUpDown({ open }) {
-    return (
-      <div className="pb-2">
-        {open ? (
-          <img loading="lazy" src="/icons/ui/arrowUp.svg" alt="arrowUp" />
-        ) : (
-          <img loading="lazy" src="/icons/ui/arrowDownBc.svg" alt="arrowDown" />
-        )}
-      </div>
-    );
   }
 
   const [starCount, setStarCount] = useState([]);

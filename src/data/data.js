@@ -8,8 +8,6 @@ export const customPcs = [
   },
 
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5512AI',
     price: 359.0,
@@ -48,8 +46,6 @@ export const customPcs = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5513AI',
     price: 1499.0,
@@ -87,8 +83,6 @@ export const customPcs = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5514AI',
     price: 1499.0,
@@ -126,8 +120,6 @@ export const customPcs = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5516AI',
     price: 899.0,
@@ -165,8 +157,6 @@ export const customPcs = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5517AI',
     price: 699.0,
@@ -204,8 +194,6 @@ export const customPcs = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5518AI',
     price: 799.0,
@@ -243,8 +231,6 @@ export const customPcs = [
     },
   },
   {
-    description:
-      'Custom-Built Performance Beast - Unleash the Power of MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-One PC...',
     name: 'MSI Pro 20 Custom',
     specs: {
       cpu: 'N/A',
@@ -282,8 +268,6 @@ export const customPcs = [
     ],
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5519AI',
     price: 299.0,
@@ -321,8 +305,6 @@ export const customPcs = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5510AI',
     price: 499.0,
@@ -360,8 +342,6 @@ export const customPcs = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5525AI',
     price: 499.0,
@@ -399,8 +379,6 @@ export const customPcs = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5535AI',
     price: 1499.0,
@@ -438,8 +416,6 @@ export const customPcs = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5545AI',
     price: 499.0,
@@ -477,8 +453,6 @@ export const customPcs = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5555AI',
     price: 499.0,
@@ -516,8 +490,6 @@ export const customPcs = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5565AI',
     price: 499.0,
@@ -555,8 +527,6 @@ export const customPcs = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'CBPC D5575AI',
     price: 899.0,
@@ -602,8 +572,6 @@ export const laptops = [
   },
 
   {
-    description:
-      '222EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'LPT D5585AI',
     price: 499.0,
@@ -641,8 +609,6 @@ export const laptops = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'LPT D5595AI',
     price: 499.0,
@@ -680,8 +646,6 @@ export const laptops = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'LPT D5115AI',
     price: 499.0,
@@ -719,8 +683,6 @@ export const laptops = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'LPT D5215AI',
     price: 499.0,
@@ -758,8 +720,6 @@ export const laptops = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'LPT D5315AI',
     price: 499.0,
@@ -797,8 +757,6 @@ export const laptops = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'LPT D5415AI',
     price: 499.0,
@@ -836,8 +794,6 @@ export const laptops = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'LPT D5615AI',
     price: 499.0,
@@ -883,8 +839,6 @@ export const desktops = [
   },
 
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'DSK D5715AI',
     price: 499.0,
@@ -922,8 +876,6 @@ export const desktops = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'DSK D5815AI',
     price: 499.0,
@@ -961,8 +913,6 @@ export const desktops = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'DSK D5915AI',
     price: 499.0,
@@ -1000,8 +950,6 @@ export const desktops = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'DSK D5515BI',
     price: 499.0,
@@ -1039,8 +987,6 @@ export const desktops = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'DSK D5515AB',
     price: 499.0,
@@ -1078,8 +1024,6 @@ export const desktops = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'DSK D5515CI',
     price: 499.0,
@@ -1125,8 +1069,6 @@ export const monitors = [
   },
 
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'MON D5515HI',
     price: 499.0,
@@ -1164,8 +1106,6 @@ export const monitors = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'MON D5545JI',
     price: 499.0,
@@ -1203,8 +1143,6 @@ export const monitors = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'MON D5535AP',
     price: 499.0,
@@ -1242,8 +1180,6 @@ export const monitors = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'MON D5510AV',
     price: 499.0,
@@ -1281,8 +1217,6 @@ export const monitors = [
     },
   },
   {
-    description:
-      'EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...',
     name: 'MSI Pro 16 Flex-036AU',
     productId: 'MON D5565AE',
     price: 499.0,
@@ -1320,8 +1254,6 @@ export const monitors = [
     },
   },
   {
-    description: 'EX DISPLAY : MSI Pro 16 Business Panel VA 1920x1080 16:9...',
-    name: 'LCD Monitor LG 22MP410-B',
     productId: 'MON D5575UI',
     price: 1499.0,
     discount: 40,
@@ -1358,7 +1290,6 @@ export const monitors = [
     },
   },
   {
-    description: 'DISPLAY : GIGABYTE G27FC A 27" All-In-On...',
     name: 'GIGABYTE G27FC A 27"',
     productId: 'MON D5225AQ',
     price: 1699.0,

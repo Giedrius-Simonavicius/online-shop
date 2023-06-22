@@ -1,6 +1,7 @@
 import React from 'react';
 import { Disclosure, Transition } from '@headlessui/react';
 import { useGeneralCtx } from '../../context/GeneralProvider';
+import ArrowUpDown from '../openClose/ArrowUpDown';
 
 function CategoryFilter() {
   const { filterArr, setFilterArr } = useGeneralCtx();
@@ -14,18 +15,6 @@ function CategoryFilter() {
     } else {
       setFilterArr((prevFilterArr) => [...prevFilterArr, priceRange]);
     }
-  }
-
-  function ArrowUpDown({ open }) {
-    return (
-      <div className="pb-2">
-        {open ? (
-          <img loading="lazy" src="/icons/ui/arrowUp.svg" alt="arrowUp" />
-        ) : (
-          <img loading="lazy" src="/icons/ui/arrowDownBc.svg" alt="arrowDown" />
-        )}
-      </div>
-    );
   }
 
   return (
