@@ -1,261 +1,12 @@
 import React from 'react';
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
+import { useShoppingCartCtx } from '../../context/ShoppingCartContext';
+import { countryList } from '../../data/data';
 
-function DeliveryForm() {
-  const countryList = [
-    'Afghanistan',
-    'Aland Islands',
-    'Albania',
-    'Algeria',
-    'American Samoa',
-    'Andorra',
-    'Angola',
-    'Anguilla',
-    'Antarctica',
-    'Antigua and Barbuda',
-    'Argentina',
-    'Armenia',
-    'Aruba',
-    'Australia',
-    'Austria',
-    'Azerbaijan',
-    'Bahamas',
-    'Bahrain',
-    'Bangladesh',
-    'Barbados',
-    'Belarus',
-    'Belgium',
-    'Belize',
-    'Benin',
-    'Bermuda',
-    'Bhutan',
-    'Bolivia',
-    'Bonaire, Sint Eustatius and Saba',
-    'Bosnia and Herzegovina',
-    'Botswana',
-    'Bouvet Island',
-    'Brazil',
-    'British Indian Ocean Territory',
-    'Brunei Darussalam',
-    'Bulgaria',
-    'Burkina Faso',
-    'Burundi',
-    'Cambodia',
-    'Cameroon',
-    'Canada',
-    'Cape Verde',
-    'Cayman Islands',
-    'Central African Republic',
-    'Chad',
-    'Chile',
-    'China',
-    'Christmas Island',
-    'Cocos (Keeling) Islands',
-    'Colombia',
-    'Comoros',
-    'Congo',
-    'Congo, Democratic Republic of the Congo',
-    'Cook Islands',
-    'Costa Rica',
-    "Cote D'Ivoire",
-    'Croatia',
-    'Cuba',
-    'Curacao',
-    'Cyprus',
-    'Czech Republic',
-    'Denmark',
-    'Djibouti',
-    'Dominica',
-    'Dominican Republic',
-    'Ecuador',
-    'Egypt',
-    'El Salvador',
-    'Equatorial Guinea',
-    'Eritrea',
-    'Estonia',
-    'Ethiopia',
-    'Falkland Islands (Malvinas)',
-    'Faroe Islands',
-    'Fiji',
-    'Finland',
-    'France',
-    'French Guiana',
-    'French Polynesia',
-    'French Southern Territories',
-    'Gabon',
-    'Gambia',
-    'Georgia',
-    'Germany',
-    'Ghana',
-    'Gibraltar',
-    'Greece',
-    'Greenland',
-    'Grenada',
-    'Guadeloupe',
-    'Guam',
-    'Guatemala',
-    'Guernsey',
-    'Guinea',
-    'Guinea-Bissau',
-    'Guyana',
-    'Haiti',
-    'Heard Island and McDonald Islands',
-    'Holy See (Vatican City State)',
-    'Honduras',
-    'Hong Kong',
-    'Hungary',
-    'Iceland',
-    'India',
-    'Indonesia',
-    'Iran, Islamic Republic of',
-    'Iraq',
-    'Ireland',
-    'Isle of Man',
-    'Israel',
-    'Italy',
-    'Jamaica',
-    'Japan',
-    'Jersey',
-    'Jordan',
-    'Kazakhstan',
-    'Kenya',
-    'Kiribati',
-    "Korea, Democratic People's Republic of",
-    'Korea, Republic of',
-    'Kosovo',
-    'Kuwait',
-    'Kyrgyzstan',
-    "Lao People's Democratic Republic",
-    'Latvia',
-    'Lebanon',
-    'Lesotho',
-    'Liberia',
-    'Libyan Arab Jamahiriya',
-    'Liechtenstein',
-    'Lithuania',
-    'Luxembourg',
-    'Macao',
-    'Macedonia, the Former Yugoslav Republic of',
-    'Madagascar',
-    'Malawi',
-    'Malaysia',
-    'Maldives',
-    'Mali',
-    'Malta',
-    'Marshall Islands',
-    'Martinique',
-    'Mauritania',
-    'Mauritius',
-    'Mayotte',
-    'Mexico',
-    'Micronesia, Federated States of',
-    'Moldova, Republic of',
-    'Monaco',
-    'Mongolia',
-    'Montenegro',
-    'Montserrat',
-    'Morocco',
-    'Mozambique',
-    'Myanmar',
-    'Namibia',
-    'Nauru',
-    'Nepal',
-    'Netherlands',
-    'Netherlands Antilles',
-    'New Caledonia',
-    'New Zealand',
-    'Nicaragua',
-    'Niger',
-    'Nigeria',
-    'Niue',
-    'Norfolk Island',
-    'Northern Mariana Islands',
-    'Norway',
-    'Oman',
-    'Pakistan',
-    'Palau',
-    'Palestinian Territory, Occupied',
-    'Panama',
-    'Papua New Guinea',
-    'Paraguay',
-    'Peru',
-    'Philippines',
-    'Pitcairn',
-    'Poland',
-    'Portugal',
-    'Puerto Rico',
-    'Qatar',
-    'Reunion',
-    'Romania',
-    'Russian Federation',
-    'Rwanda',
-    'Saint Barthelemy',
-    'Saint Helena',
-    'Saint Kitts and Nevis',
-    'Saint Lucia',
-    'Saint Martin',
-    'Saint Pierre and Miquelon',
-    'Saint Vincent and the Grenadines',
-    'Samoa',
-    'San Marino',
-    'Sao Tome and Principe',
-    'Saudi Arabia',
-    'Senegal',
-    'Serbia',
-    'Serbia and Montenegro',
-    'Seychelles',
-    'Sierra Leone',
-    'Singapore',
-    'St Martin',
-    'Slovakia',
-    'Slovenia',
-    'Solomon Islands',
-    'Somalia',
-    'South Africa',
-    'South Georgia and the South Sandwich Islands',
-    'South Sudan',
-    'Spain',
-    'Sri Lanka',
-    'Sudan',
-    'Suriname',
-    'Svalbard and Jan Mayen',
-    'Swaziland',
-    'Sweden',
-    'Switzerland',
-    'Syrian Arab Republic',
-    'Taiwan, Province of China',
-    'Tajikistan',
-    'Tanzania, United Republic of',
-    'Thailand',
-    'Timor-Leste',
-    'Togo',
-    'Tokelau',
-    'Tonga',
-    'Trinidad and Tobago',
-    'Tunisia',
-    'Turkey',
-    'Turkmenistan',
-    'Turks and Caicos Islands',
-    'Tuvalu',
-    'Uganda',
-    'Ukraine',
-    'United Arab Emirates',
-    'United Kingdom',
-    'United States',
-    'United States Minor Outlying Islands',
-    'Uruguay',
-    'Uzbekistan',
-    'Vanuatu',
-    'Venezuela',
-    'Viet Nam',
-    'Virgin Islands, British',
-    'Virgin Islands, U.s.',
-    'Wallis and Futuna',
-    'Western Sahara',
-    'Yemen',
-    'Zambia',
-    'Zimbabwe',
-  ];
+function DeliveryForm({ setDeliveryFee }) {
+  const navigate = useNavigate();
+  const { setShippingInfo, shippingInfo } = useShoppingCartCtx();
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -266,7 +17,7 @@ function DeliveryForm() {
       postalCode: '',
       country: '',
       phoneNo: '',
-      deliveryMethod: '',
+      deliveryMethod: 'standard',
     },
     onSubmit: (values, { resetForm, setSubmitting }) => {
       saveShippingInfo(values, setSubmitting);
@@ -308,7 +59,7 @@ function DeliveryForm() {
   });
 
   function saveShippingInfo(ShippingInfoValuesObj) {
-    const newShippingInfo = {
+    setShippingInfo({
       email: ShippingInfoValuesObj.email,
       name: ShippingInfoValuesObj.name,
       lastName: ShippingInfoValuesObj.lastName,
@@ -317,12 +68,17 @@ function DeliveryForm() {
       country: ShippingInfoValuesObj.country,
       phoneNo: ShippingInfoValuesObj.phoneNo,
       deliveryMethod: ShippingInfoValuesObj.deliveryMethod,
-    };
-    console.log('newShippingInfo ===', newShippingInfo);
+    });
+    console.log('newShippingInfo ===', shippingInfo);
   }
+  const handleDeliveryMethodChange = (event) => {
+    const { value } = event.target;
+    setDeliveryFee(value === 'standard' ? 0 : 21);
+    formik.handleChange(event);
+  };
   return (
-    <div className="w-[66%]">
-      <h2 className="mt-10 border-b pb-4">Shipping Address</h2>
+    <div className="mt-10 w-[66%] pt-3">
+      <h2 className=" border-b pb-4">Shipping Address</h2>
       <form className="my-7 w-3/4 text-sm" onSubmit={formik.handleSubmit}>
         <div>
           <div>
@@ -517,50 +273,36 @@ function DeliveryForm() {
           ) : null}
         </div>
 
-        <div className="mt-6 border-t pt-3">
-          <div className="items-center">
-            <h3 className="mb-2 font-bold">Standard Rate</h3>
-            <div className="flex items-center justify-between">
-              <div>
-                <input
-                  className="mr-2 mt-2"
-                  type="radio"
-                  id="standardRate"
-                  name="deliveryMethod"
-                  value="standardRate"
-                  checked={formik.values.deliveryMethod === 'standardRate'}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                />
-              </div>
-              <label htmlFor="standardRate" className="flex items-center">
-                Price may vary depending on the item/destination. Shop Staff
-                will contact you.
-              </label>
-              <span className="ml-auto font-bold">$21.00</span>
-            </div>
+        <div className="mt-4">
+          <div>
+            <label>
+              Delivery Method <span className="text-color8">*</span>
+            </label>
           </div>
-
-          <div className="mt-4 items-center">
-            <h3 className="mb-2 font-bold">Pickup from store</h3>
-            <div className="flex items-center justify-between">
-              <div>
-                <input
-                  className="mr-2 mt-2"
-                  type="radio"
-                  id="pickupFromStore"
-                  name="deliveryMethod"
-                  value="pickupFromStore"
-                  checked={formik.values.deliveryMethod === 'pickupFromStore'}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                />
-              </div>
-              <label htmlFor="pickupFromStore" className="flex items-center">
-                1234 Street Address City Address, 1234
-              </label>
-              <span className="ml-auto font-bold">$0.00</span>
-            </div>
+          <div className="mt-4 flex flex-col">
+            <label className="mb-2">
+              <input
+                className="mr-2"
+                type="radio"
+                name="deliveryMethod"
+                value="standard"
+                checked={formik.values.deliveryMethod === 'standard'}
+                onChange={handleDeliveryMethodChange}
+              />
+              (Free) Pickup from store
+            </label>
+            <label>
+              <input
+                className="mr-2"
+                type="radio"
+                name="deliveryMethod"
+                value="express"
+                checked={formik.values.deliveryMethod === 'express'}
+                onChange={handleDeliveryMethodChange}
+              />
+              $21.00 Price may vary depending on the item/destination. Shop
+              Staff will contact you.
+            </label>
           </div>
           {formik.touched.deliveryMethod && formik.errors.deliveryMethod ? (
             <div>{formik.errors.deliveryMethod}</div>
@@ -568,13 +310,25 @@ function DeliveryForm() {
         </div>
 
         <button
-          className="mt-4 rounded-full 
-           border-2 border-color3 bg-color3 px-12 py-2 font-normal text-white duration-200 hover:border-2 hover:bg-color1 hover:text-color3"
+          className="mt-4 rounded-full
+             border-2 border-color3 bg-color3 px-12 py-2 font-normal text-white duration-200 hover:border-2 hover:bg-color1 hover:text-color3"
           type="submit"
+          onClick={() => {
+            navigate('/cart/review');
+          }}
         >
-          Proceed to payment
+          Proceed to Review & Payment
         </button>
-      </form>
+      </form>{' '}
+      <button
+        onClick={() => {
+          navigate(-1);
+        }}
+        className="mt-4 rounded-full
+             border-2 border-color3 bg-color3 px-8 font-normal text-white duration-200 hover:border-2 hover:bg-color1 hover:text-color3"
+      >
+        Go back
+      </button>
     </div>
   );
 }
