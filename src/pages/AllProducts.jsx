@@ -7,8 +7,6 @@ import { filterProducts } from '../components/AllProdComponents/filterUtils';
 import Brands from '../components/homePageProducts/Brands';
 import { capitalizeFirstLetter, formatCurrency } from '../helperFns';
 import Pagination from '../components/Pagination';
-import ArrowUpDown from '../components/openClose/ArrowUpDown';
-import { Disclosure, Transition } from '@headlessui/react';
 
 function AllProducts({ products }) {
   const [categoryNameDisplay, setCategoryNameDisplay] =
@@ -54,13 +52,30 @@ function AllProducts({ products }) {
     indexOfLastItem,
   );
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const howManyToDisplay = [5, 10, 20, 30, 50];
 
   return (
-    <div>
+    <div className="container mx-auto flex flex-col">
       <h1 className="mx-auto mb-3 text-center text-2xl font-bold uppercase tracking-widest">
         {categoryNameDisplay}
       </h1>
 
+      <div className="ml-auto">
+        <p className="flex text-sm text-color5">
+          Display:
+          <select
+            className="mx-2 rounded-md border border-color5 text-xs focus:outline-none"
+            value={itemsPerPage}
+            onChange={(event) => {
+              setItemsPerPage(event.target.value);
+            }}
+          >
+            {howManyToDisplay.map((number) => (
+              <option value={number}>{number}</option>
+            ))}
+          </select>
+        </p>
+      </div>
       <div className="container mx-auto mb-12 mt-12 flex">
         <div>
           <div className="bg-color1 p-4">
@@ -80,25 +95,6 @@ function AllProducts({ products }) {
           <img loading="lazy" src="/images/ads/chairAd.jpg" alt="chair" />
         </div>
         <div className="ml-4 flex flex-col ">
-          <div className="ml-auto">
-            <p className="flex text-sm text-color5">
-              Display:
-              <select
-                className="mx-2 rounded-md border border-color5 text-xs focus:outline-none"
-                value={itemsPerPage}
-                onChange={(event) => {
-                  setItemsPerPage(event.target.value);
-                }}
-              >
-                <option value={5}>5</option>
-                <option value={10}>10</option>
-                <option value={20}>20</option>
-                <option value={30}>30</option>
-                <option value={50}>50</option>
-              </select>
-            </p>
-          </div>
-
           <div className="mb-3 flex gap-2 text-sm">
             {filterArr.length !== 0 && (
               <button
