@@ -54,27 +54,80 @@ function AllProducts({ products }) {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const howManyToDisplay = [5, 10, 20, 30, 50];
 
+  const [sortCategory, setSortCategory] = useState('');
+  const sortCategories = [
+    'Price',
+    'Rating',
+    'Discount',
+    'Category',
+    'Availability',
+  ];
+
+  function sortItems(category, products) {
+    switch (category) {
+      case 'Price':
+        return products.sort((a, b) => a.discountedPrice - b.discountedPrice);
+      case 'Rating':
+        return products.sort((a, b) => b.stars - a.stars);
+      case 'Discount':
+        return products.sort((a, b) => b.discount - a.discount);
+      case 'Category':
+        return products.sort((a, b) => a.category.localeCompare(b.category));
+      case 'Availability':
+        return products.sort((a, b) => {
+          if (a.inStock && !b.inStock) return -1;
+          if (!a.inStock && b.inStock) return 1;
+          return 0;
+        });
+      default:
+        return products;
+    }
+  }
+
+  const sortedProducts = sortItems(sortCategory, filteredProducts);
+
   return (
     <div className="container mx-auto flex flex-col">
       <h1 className="mx-auto mb-3 text-center text-2xl font-bold uppercase tracking-widest">
         {categoryNameDisplay}
       </h1>
-
-      <div className="ml-auto">
-        <p className="flex text-sm text-color5">
-          Display:
-          <select
-            className="mx-2 rounded-md border border-color5 text-xs focus:outline-none"
-            value={itemsPerPage}
-            onChange={(event) => {
-              setItemsPerPage(event.target.value);
-            }}
-          >
-            {howManyToDisplay.map((number) => (
-              <option value={number}>{number}</option>
-            ))}
-          </select>
-        </p>
+      <div className="ml-auto flex gap-3">
+        <div>
+          <p className="flex text-sm text-color5">
+            Sort By:
+            <select
+              className="mx-2 rounded-md border border-color5 text-xs focus:outline-none"
+              value={sortCategory}
+              onChange={(event) => {
+                setSortCategory(event.target.value);
+              }}
+            >
+              {sortCategories.map((category) => (
+                <option value={category} key={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+          </p>
+        </div>
+        <div className="ml-auto">
+          <p className="flex text-sm text-color5">
+            Display:
+            <select
+              className="mx-2 rounded-md border border-color5 text-xs focus:outline-none"
+              value={itemsPerPage}
+              onChange={(event) => {
+                setItemsPerPage(event.target.value);
+              }}
+            >
+              {howManyToDisplay.map((number) => (
+                <option value={number} key={number}>
+                  {number}
+                </option>
+              ))}
+            </select>
+          </p>
+        </div>
       </div>
       <div className="container mx-auto mb-12 mt-12 flex">
         <div>
