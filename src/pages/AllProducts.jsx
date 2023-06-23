@@ -6,6 +6,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { filterProducts } from '../components/AllProdComponents/filterUtils';
 import Brands from '../components/homePageProducts/Brands';
 import { capitalizeFirstLetter, formatCurrency } from '../helperFns';
+import Pagination from '../components/Pagination';
 
 function AllProducts({ products }) {
   const [categoryNameDisplay, setCategoryNameDisplay] =
@@ -41,6 +42,16 @@ function AllProducts({ products }) {
   };
 
   const filteredProducts = filterProducts(products, filterArr);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentFilteredAndPaginatedItems = filteredProducts.slice(
+    indexOfFirstItem,
+    indexOfLastItem,
+  );
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div>
@@ -78,7 +89,7 @@ function AllProducts({ products }) {
                 </button>
               )}
               {filterArr.map((fObj, index) => (
-                <div className=" flex gap-1 border py-1 pl-5 pr-2" key={index}>
+                <div className="flex gap-1 border py-1 pl-5 pr-2" key={index}>
                   <p>{capitalizeFirstLetter(fObj)}</p>
 
                   <button
@@ -97,10 +108,10 @@ function AllProducts({ products }) {
             </div>
           </div>
           <div className="mx-auto flex flex-wrap">
-            {filteredProducts.length === 0 && (
+            {currentFilteredAndPaginatedItems.length === 0 && (
               <p>No availbale items with current filters</p>
             )}
-            {filteredProducts.map((product, index) => {
+            {currentFilteredAndPaginatedItems.map((product, index) => {
               if (!product.thumbnail) {
                 return null;
               }
@@ -153,6 +164,13 @@ function AllProducts({ products }) {
               );
             })}
           </div>
+          <Pagination
+            itemsPerPage={itemsPerPage}
+            totalItems={filteredProducts.length}
+            filteredProducts={filteredProducts}
+            paginate={paginate}
+            currentPage={currentPage}
+          />
         </div>
       </div>
     </div>
