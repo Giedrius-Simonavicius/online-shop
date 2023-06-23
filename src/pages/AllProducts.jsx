@@ -7,6 +7,8 @@ import { filterProducts } from '../components/AllProdComponents/filterUtils';
 import Brands from '../components/homePageProducts/Brands';
 import { capitalizeFirstLetter, formatCurrency } from '../helperFns';
 import Pagination from '../components/Pagination';
+import ArrowUpDown from '../components/openClose/ArrowUpDown';
+import { Disclosure, Transition } from '@headlessui/react';
 
 function AllProducts({ products }) {
   const [categoryNameDisplay, setCategoryNameDisplay] =
@@ -44,7 +46,7 @@ function AllProducts({ products }) {
   const filteredProducts = filterProducts(products, filterArr);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
-
+  console.log('itemsPerPage ===', itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentFilteredAndPaginatedItems = filteredProducts.slice(
@@ -77,36 +79,54 @@ function AllProducts({ products }) {
           </div>
           <img loading="lazy" src="/images/ads/chairAd.jpg" alt="chair" />
         </div>
-        <div className="ml-4 ">
-          <div className="flex-col ">
-            <div className="mb-3 flex gap-2 text-sm">
-              {filterArr.length !== 0 && (
-                <button
-                  onClick={() => setFilterArr([])}
-                  className="mr-3  duration-200 hover:text-color8"
-                >
-                  Clear All
-                </button>
-              )}
-              {filterArr.map((fObj, index) => (
-                <div className="flex gap-1 border py-1 pl-5 pr-2" key={index}>
-                  <p>{capitalizeFirstLetter(fObj)}</p>
-
-                  <button
-                    className="ml-3"
-                    onClick={() => handleDeleteFilter(index)}
-                  >
-                    {' '}
-                    <img
-                      loading="lazy"
-                      src="/icons/ui/deleteBtn.svg"
-                      alt="deleteBtn"
-                    />
-                  </button>
-                </div>
-              ))}
-            </div>
+        <div className="ml-4 flex flex-col ">
+          <div className="ml-auto">
+            <p className="flex text-sm text-color5">
+              Display:
+              <select
+                className="mx-2 rounded-md border border-color5 text-xs focus:outline-none"
+                value={itemsPerPage}
+                onChange={(event) => {
+                  setItemsPerPage(event.target.value);
+                }}
+              >
+                <option value={5}>5</option>
+                <option value={10}>10</option>
+                <option value={20}>20</option>
+                <option value={30}>30</option>
+                <option value={50}>50</option>
+              </select>
+            </p>
           </div>
+
+          <div className="mb-3 flex gap-2 text-sm">
+            {filterArr.length !== 0 && (
+              <button
+                onClick={() => setFilterArr([])}
+                className="mr-3  duration-200 hover:text-color8"
+              >
+                Clear All
+              </button>
+            )}
+            {filterArr.map((fObj, index) => (
+              <div className="flex gap-1 border py-1 pl-5 pr-2" key={index}>
+                <p>{capitalizeFirstLetter(fObj)}</p>
+
+                <button
+                  className="ml-3"
+                  onClick={() => handleDeleteFilter(index)}
+                >
+                  {' '}
+                  <img
+                    loading="lazy"
+                    src="/icons/ui/deleteBtn.svg"
+                    alt="deleteBtn"
+                  />
+                </button>
+              </div>
+            ))}
+          </div>
+
           <div className="mx-auto flex flex-wrap">
             {currentFilteredAndPaginatedItems.length === 0 && (
               <p>No availbale items with current filters</p>
