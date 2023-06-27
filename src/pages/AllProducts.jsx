@@ -40,7 +40,10 @@ function AllProducts({ products }) {
     updatedFilters.splice(index, 1);
     setFilterArr(updatedFilters);
   };
-  const [sortCategory, setSortCategory] = useState('');
+
+  const [sortCategory, setSortCategory] = useState('Unsorted');
+  const [sortDirection, setSortDirection] = useState(true);
+
   const sortCategories = [
     'Unsorted',
     'Price',
@@ -49,10 +52,15 @@ function AllProducts({ products }) {
     'Category',
     'Availability',
   ];
+
   const filteredProducts = filterProducts(products, filterArr);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
-  const sortedProducts = sortItems(sortCategory, filteredProducts);
+  const sortedProducts = sortItems(
+    sortCategory,
+    filteredProducts,
+    sortDirection,
+  );
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -64,28 +72,38 @@ function AllProducts({ products }) {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const howManyToDisplay = [5, 10, 20, 30, 50];
 
-  function sortItems(category, products) {
+  function sortItems(category, products, sortDirection) {
     switch (category) {
       case 'Unsorted':
         return products;
       case 'Price':
-        return [...products].sort(
-          (a, b) => a.discountedPrice - b.discountedPrice,
-        );
+        return sortDirection
+          ? [...products].sort((a, b) => a.discountedPrice - b.discountedPrice)
+          : [...products].sort((a, b) => b.discountedPrice - a.discountedPrice);
       case 'Rating':
-        return [...products].sort((a, b) => b.stars - a.stars);
+        return sortDirection
+          ? [...products].sort((a, b) => b.stars - a.stars)
+          : [...products].sort((a, b) => a.stars - b.stars);
       case 'Discount':
-        return [...products].sort((a, b) => b.discount - a.discount);
+        return sortDirection
+          ? [...products].sort((a, b) => b.discount - a.discount)
+          : [...products].sort((a, b) => a.discount - b.discount);
       case 'Category':
-        return [...products].sort((a, b) =>
-          a.category.localeCompare(b.category),
-        );
+        return sortDirection
+          ? [...products].sort((a, b) => a.category.localeCompare(b.category))
+          : [...products].sort((a, b) => b.category.localeCompare(a.category));
       case 'Availability':
-        return [...products].sort((a, b) => {
-          if (a.inStock && !b.inStock) return -1;
-          if (!a.inStock && b.inStock) return 1;
-          return 0;
-        });
+        return sortDirection
+          ? [...products].sort((a, b) => {
+              if (a.inStock && !b.inStock) return -1;
+              if (!a.inStock && b.inStock) return 1;
+              return 0;
+            })
+          : [...products].sort((a, b) => {
+              if (!a.inStock && b.inStock) return -1;
+              if (a.inStock && !b.inStock) return 1;
+              return 0;
+            });
       default:
         return products;
     }
@@ -96,42 +114,46 @@ function AllProducts({ products }) {
       <h1 className="mx-auto mb-3 text-center text-2xl font-bold uppercase tracking-widest">
         {categoryNameDisplay}
       </h1>
-      <div className="ml-auto flex gap-3">
-        <div>
-          <p className="flex text-sm text-color5">
-            Sort By:
-            <select
-              className="mx-2 rounded-md border border-color5 text-xs focus:outline-none"
-              value={sortCategory}
-              onChange={(event) => {
-                setSortCategory(event.target.value);
-              }}
-            >
-              {sortCategories.map((category) => (
-                <option value={category} key={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
-          </p>
+      <div className="ml-auto flex gap-5">
+        <div className="flex text-sm text-color5">
+          <p>Sort By:</p>
+          <select
+            className="mx-2 rounded-md border border-color5 text-xs text-color5 focus:outline-none"
+            value={sortCategory}
+            onChange={(event) => {
+              setSortCategory(event.target.value);
+            }}
+          >
+            {sortCategories.map((category) => (
+              <option value={category} key={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+          <button
+            className=" text-xs text-color5"
+            onClick={() => {
+              setSortDirection(!sortDirection);
+            }}
+          >
+            {sortDirection ? '\u25B2' : '\u25BC'}
+          </button>
         </div>
-        <div className="ml-auto">
-          <p className="flex text-sm text-color5">
-            Display:
-            <select
-              className="mx-2 rounded-md border border-color5 text-xs focus:outline-none"
-              value={itemsPerPage}
-              onChange={(event) => {
-                setItemsPerPage(event.target.value);
-              }}
-            >
-              {howManyToDisplay.map((number) => (
-                <option value={number} key={number}>
-                  {number}
-                </option>
-              ))}
-            </select>
-          </p>
+        <div className="ml-auto flex text-sm text-color5">
+          <p>Display:</p>
+          <select
+            className="mx-2 rounded-md border border-color5 text-xs focus:outline-none"
+            value={itemsPerPage}
+            onChange={(event) => {
+              setItemsPerPage(event.target.value);
+            }}
+          >
+            {howManyToDisplay.map((number) => (
+              <option value={number} key={number}>
+                {number}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
       <div className="container mx-auto mb-12 mt-12 flex">
