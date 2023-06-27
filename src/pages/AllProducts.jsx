@@ -40,41 +40,48 @@ function AllProducts({ products }) {
     updatedFilters.splice(index, 1);
     setFilterArr(updatedFilters);
   };
-
-  const filteredProducts = filterProducts(products, filterArr);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
-  console.log('itemsPerPage ===', itemsPerPage);
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentFilteredAndPaginatedItems = filteredProducts.slice(
-    indexOfFirstItem,
-    indexOfLastItem,
-  );
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const howManyToDisplay = [5, 10, 20, 30, 50];
-
   const [sortCategory, setSortCategory] = useState('');
   const sortCategories = [
+    'Unsorted',
     'Price',
     'Rating',
     'Discount',
     'Category',
     'Availability',
   ];
+  const filteredProducts = filterProducts(products, filterArr);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const sortedProducts = sortItems(sortCategory, filteredProducts);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const paginatedProducts = sortedProducts.slice(
+    indexOfFirstItem,
+    indexOfLastItem,
+  );
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const howManyToDisplay = [5, 10, 20, 30, 50];
 
   function sortItems(category, products) {
     switch (category) {
+      case 'Unsorted':
+        return products;
       case 'Price':
-        return products.sort((a, b) => a.discountedPrice - b.discountedPrice);
+        return [...products].sort(
+          (a, b) => a.discountedPrice - b.discountedPrice,
+        );
       case 'Rating':
-        return products.sort((a, b) => b.stars - a.stars);
+        return [...products].sort((a, b) => b.stars - a.stars);
       case 'Discount':
-        return products.sort((a, b) => b.discount - a.discount);
+        return [...products].sort((a, b) => b.discount - a.discount);
       case 'Category':
-        return products.sort((a, b) => a.category.localeCompare(b.category));
+        return [...products].sort((a, b) =>
+          a.category.localeCompare(b.category),
+        );
       case 'Availability':
-        return products.sort((a, b) => {
+        return [...products].sort((a, b) => {
           if (a.inStock && !b.inStock) return -1;
           if (!a.inStock && b.inStock) return 1;
           return 0;
@@ -83,8 +90,6 @@ function AllProducts({ products }) {
         return products;
     }
   }
-
-  const sortedProducts = sortItems(sortCategory, filteredProducts);
 
   return (
     <div className="container mx-auto flex flex-col">
@@ -177,10 +182,10 @@ function AllProducts({ products }) {
           </div>
 
           <div className="mx-auto flex flex-wrap">
-            {currentFilteredAndPaginatedItems.length === 0 && (
+            {paginatedProducts.length === 0 && (
               <p>No availbale items with current filters</p>
             )}
-            {currentFilteredAndPaginatedItems.map((product, index) => {
+            {paginatedProducts.map((product, index) => {
               if (!product.thumbnail) {
                 return null;
               }
