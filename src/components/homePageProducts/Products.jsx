@@ -11,7 +11,7 @@ function Products({ products }) {
 
   return (
     <div className="container  mx-auto mb-12 mt-12 flex">
-      <div className=" flex flex-wrap ">
+      <div className="flex flex-wrap">
         <div
           className="mr-10 flex-col rounded bg-cover bg-center bg-no-repeat pl-2  "
           style={{ backgroundImage: `url(${products[0].mainImg})` }}
