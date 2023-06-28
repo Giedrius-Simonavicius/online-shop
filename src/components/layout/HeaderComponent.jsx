@@ -7,8 +7,8 @@ import { useShoppingCartCtx } from '../../context/ShoppingCartContext';
 import { Popover, Transition } from '@headlessui/react';
 import SearchBar from '../openClose/SearchBar';
 
-function HeaderComponent() {
-  const { setFilterArr } = useGeneralCtx();
+function HeaderComponent({ products }) {
+  const { setFilterArr, setSearchResults } = useGeneralCtx();
   const { cartArr, getCartQuantity } = useShoppingCartCtx();
   const [isSearchBar, setIsSearchBar] = useState(false);
 
@@ -165,35 +165,42 @@ function HeaderComponent() {
         </NavLink>
 
         {isSearchBar ? (
-          <SearchBar />
+          <SearchBar products={products} />
         ) : (
           <div className="flex items-center gap-3">
             <NavLink
+              onClick={() => setSearchResults([])}
               className={'duration-300 hover:scale-110 hover:text-color3'}
               to={'all-products/laptops'}
             >
               Laptops
             </NavLink>
             <NavLink
+              onClick={() => setSearchResults([])}
               className={'duration-300 hover:scale-110 hover:text-color3'}
               to={'all-products/desktops'}
             >
               Desktop PC's
             </NavLink>
             <NavLink
+              onClick={() => setSearchResults([])}
               className={'duration-300 hover:scale-110 hover:text-color3'}
               to={'all-products/custom-pcs'}
             >
               Custom builds
             </NavLink>
             <NavLink
+              onClick={() => setSearchResults([])}
               className={'duration-300 hover:scale-110 hover:text-color3'}
               to={'all-products/monitors'}
             >
               Monitors
             </NavLink>
             <NavLink
-              onClick={resetFiltArr}
+              onClick={() => {
+                setSearchResults([]);
+                resetFiltArr();
+              }}
               to={'/all-products'}
               className="rounded-full border-2 border-color3 p-1 pl-5 pr-5 text-color3 duration-300 hover:bg-color3 hover:text-white"
             >

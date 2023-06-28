@@ -1254,6 +1254,7 @@ export const monitors = [
     },
   },
   {
+    name: 'MSI Pro 16 Flex-036AU',
     productId: 'MON D5575UI',
     price: 1499.0,
     discount: 40,

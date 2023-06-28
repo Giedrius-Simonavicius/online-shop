@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { useGeneralCtx } from '../../context/GeneralProvider';
 
 function FooterComponent() {
+  const { setSearchResults } = useGeneralCtx();
+
   return (
     <footer className="bg-[#020202] font-normal text-white ">
       <div className="container mx-auto grid gap-8 pb-4  pt-8">
@@ -82,6 +85,7 @@ function FooterComponent() {
           </div>
           <div>
             <NavLink
+              onClick={() => setSearchResults([])}
               className="font-bold tracking-wide text-[#ffffff82] duration-200 hover:text-color4"
               to="/all-products/desktops"
             >
@@ -89,7 +93,12 @@ function FooterComponent() {
             </NavLink>
             <ul className="mt-3">
               <li className="duration-200 hover:text-color4">
-                <NavLink to="/all-products/custom-pcs">Custom PCs</NavLink>
+                <NavLink
+                  onClick={() => setSearchResults([])}
+                  to="/all-products/custom-pcs"
+                >
+                  Custom PCs
+                </NavLink>
               </li>
               <li>Servers</li>
               <li>MSI All-In-One PCs</li>
@@ -100,6 +109,7 @@ function FooterComponent() {
           </div>
           <div>
             <NavLink
+              onClick={() => setSearchResults([])}
               className="font-bold tracking-wide text-[#ffffff82] duration-200 hover:text-color4"
               to="/all-products/laptops"
             >

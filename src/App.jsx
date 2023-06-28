@@ -25,7 +25,7 @@ function App() {
       <ScrollToTop />
 
       <Toaster />
-      <HeaderComponent />
+      <HeaderComponent products={allPrd} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="home" element={<HomePage />} />

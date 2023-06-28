@@ -1,15 +1,43 @@
 import React, { useState } from 'react';
+import { useGeneralCtx } from '../../context/GeneralProvider';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
-function SearchBar() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filteredResults, setFilteredResults] = useState([]);
+function SearchBar({ products }) {
+  const [inputValue, setInputValue] = useState('');
+  const { setSearchResults } = useGeneralCtx();
+  const navigate = useNavigate();
 
   const [onHoverColorSearch, setOnHoverColorSearch] = useState('black');
 
   function changeOnHoverColor(setColorFunction, newColor) {
     setColorFunction(newColor);
   }
-  function handleSearch() {}
+  function handleButtonClick() {
+    const itemFound = products.filter(
+      (product) =>
+        product.name.toLowerCase().includes(inputValue.toLowerCase()) ||
+        product.productId.toLowerCase().includes(inputValue.toLowerCase()) ||
+        product.aboutProduct.toLowerCase().includes(inputValue.toLowerCase()) ||
+        product.category.toLowerCase().includes(inputValue.toLowerCase()),
+    );
+    setSearchResults(itemFound);
+
+    if (itemFound.length === 0) {
+      toast.error('No items found');
+    }
+    navigate('/all-products');
+    setInputValue('');
+  }
+  function handleKeyDown(event) {
+    if (event.key === 'Enter') {
+      handleButtonClick();
+    }
+  }
+
+  function handleInputChange(event) {
+    setInputValue(event.target.value);
+  }
 
   return (
     <div className="relative flex w-[70%] items-center justify-end">
@@ -17,8 +45,11 @@ function SearchBar() {
         className="w-full appearance-none rounded-3xl bg-color1 px-10 py-4 outline-white placeholder:font-normal"
         type="search"
         placeholder="Search entire store here..."
+        value={inputValue}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
       />
-      <button onClick={handleSearch} className="absolute right-5 h-full">
+      <button onClick={handleButtonClick} className="absolute right-5 h-full">
         <svg
           className="duration-200 hover:scale-110"
           onMouseEnter={() =>
