@@ -15,6 +15,9 @@ function HeaderComponent({ products }) {
   function openCloseSearchBar() {
     setIsSearchBar(!isSearchBar);
   }
+  function closeSearchBar() {
+    setIsSearchBar(false);
+  }
   function resetFiltArr() {
     setFilterArr([]);
   }
@@ -45,7 +48,10 @@ function HeaderComponent({ products }) {
           <>
             <div className=" bg-[#020202] ">
               <div className="container  mx-auto flex justify-between pb-3 pt-3">
-                <Popover.Button className="focus:outline-none">
+                <Popover.Button
+                  onClick={closeSearchBar}
+                  className="focus:outline-none"
+                >
                   <div className="flex text-white ">
                     <p>
                       <span
@@ -138,7 +144,7 @@ function HeaderComponent({ products }) {
               className="relative"
             >
               <Popover.Panel className="absolute z-10">
-                <WorkingHours />
+                {!isSearchBar && <WorkingHours />}
               </Popover.Panel>
             </Transition>
           </>
