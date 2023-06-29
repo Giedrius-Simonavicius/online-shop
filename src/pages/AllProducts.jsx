@@ -118,7 +118,7 @@ function AllProducts({ products }) {
     <div className="container mx-auto flex flex-col">
       {searchResults.length !== 0 ? (
         <div>
-          <h2 className="mb-4 text-center text-xl font-bold">
+          <h2 className="my-4 text-center text-xl font-bold">
             {searchResults.length}{' '}
             {searchResults.length === 1 ||
             (searchResults.length % 10 === 1 && searchResults.length !== 11)

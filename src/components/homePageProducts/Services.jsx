@@ -3,8 +3,8 @@ import Card from '../card/Card';
 
 function Services() {
   return (
-    <div className="container mx-auto my-12">
-      <div className="flex justify-between">
+    <div className="container my-12">
+      <div className="flex justify-around">
         <Card>
           <img
             loading="lazy"

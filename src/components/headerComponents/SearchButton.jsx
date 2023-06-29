@@ -1,61 +1,41 @@
 import React, { useState } from 'react';
-import { useGeneralCtx } from '../../context/GeneralProvider';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-hot-toast';
 
-function SearchBar({ products, mdScreen }) {
-  const [inputValue, setInputValue] = useState('');
-  const { setSearchResults } = useGeneralCtx();
-  const navigate = useNavigate();
-
+function SearchButton({ openCloseSearchBar, isSearchBar }) {
   const [onHoverColorSearch, setOnHoverColorSearch] = useState('black');
-  const placeholderText = mdScreen
-    ? 'Search here'
-    : 'Search entire store here...';
   function changeOnHoverColor(setColorFunction, newColor) {
     setColorFunction(newColor);
   }
-  function handleButtonClick() {
-    const itemFound = products.filter(
-      (product) =>
-        product.name.toLowerCase().includes(inputValue.toLowerCase()) ||
-        product.productId.toLowerCase().includes(inputValue.toLowerCase()) ||
-        product.aboutProduct.toLowerCase().includes(inputValue.toLowerCase()) ||
-        product.category.toLowerCase().includes(inputValue.toLowerCase()),
-    );
-    setSearchResults(itemFound);
-
-    if (itemFound.length === 0) {
-      toast.error('No items found');
-    }
-    navigate('/all-products');
-    setInputValue('');
-  }
-  function handleKeyDown(event) {
-    if (event.key === 'Enter') {
-      handleButtonClick();
-    }
-  }
-
-  function handleInputChange(event) {
-    setInputValue(event.target.value);
-  }
-
   return (
-    <div
-      className={`${
-        mdScreen === 'hidden' ? 'hidden' : ''
-      }justify-end relative  flex items-center`}
-    >
-      <input
-        className="w-full appearance-none rounded-3xl bg-color1 px-10 py-4 outline-white placeholder:font-normal"
-        type="search"
-        placeholder={placeholderText}
-        value={inputValue}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-      />
-      <button onClick={handleButtonClick} className="absolute right-5 h-full">
+    <button className="md:hidden" onClick={openCloseSearchBar}>
+      {isSearchBar ? (
+        <svg
+          className="duration-200 hover:scale-110"
+          onMouseEnter={() =>
+            changeOnHoverColor(setOnHoverColorSearch, '#0156FF')
+          }
+          onMouseLeave={() =>
+            changeOnHoverColor(setOnHoverColorSearch, 'black')
+          }
+          width="19"
+          height="19"
+          viewBox="0 0 19 19"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.8457 3.84613L15.1535 15.1539"
+            stroke={onHoverColorSearch}
+            strokeWidth="2.4"
+            strokeLinecap="round"
+          />
+          <path
+            d="M15.1543 3.84613L3.84653 15.1539"
+            stroke={onHoverColorSearch}
+            strokeWidth="2.4"
+            strokeLinecap="round"
+          />
+        </svg>
+      ) : (
         <svg
           className="duration-200 hover:scale-110"
           onMouseEnter={() =>
@@ -77,8 +57,9 @@ function SearchBar({ products, mdScreen }) {
             strokeWidth="0.2"
           />
         </svg>
-      </button>
-    </div>
+      )}
+    </button>
   );
 }
-export default SearchBar;
+
+export default SearchButton;
