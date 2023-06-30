@@ -1,4 +1,9 @@
+import React from 'react';
+import { useGeneralCtx } from '../context/GeneralProvider';
+
 function Terms() {
+  const { mdScreen, smScreen } = useGeneralCtx();
+
   const definitions = [
     '"Shop" means Shop Pty Ltd ABN 11 222 333 444;',
     '"Customer" means the person or corporation placing an order for the purchase of goods or services from Shop;',
@@ -37,7 +42,9 @@ function Terms() {
       const topicId = generateTopicId(tObj);
       return (
         <li
-          className="min-w-[306px] duration-200 hover:cursor-pointer hover:font-bold"
+          className={`${
+            mdScreen ? 'text-xs' : 'min-w-[306px]'
+          } duration-200 hover:cursor-pointer hover:font-bold md:text-xs`}
           key={index}
           onClick={() => scrollToTopic(topicId)}
         >
@@ -48,23 +55,23 @@ function Terms() {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto px-5 ">
       <h1 className="my-6 text-3xl font-bold">Shop Terms & Conditions</h1>
-      <div className="flex">
+      <div className="flex gap-5">
         <div>
-          <h2 className="text-2xl ">
+          <h2 className="text-2xl md:text-base ">
             GENERAL TERMS AND CONDITIONS FOR SALE OF PRODUCTS AND SERVICES
           </h2>
           <h3 id="definitions-interpretation" className="mt-12 font-bold  ">
             Definitions & Interpretation
           </h3>
-          <h4 className="my-6 font-normal">
+          <h4 className="my-6 font-normal md:text-sm">
             In the following Terms and Conditions of sale, unless the context
             requires otherwise
           </h4>
           <ol>
             {definitions.map((dObj, index) => (
-              <li key={index} className="text-sm font-normal">
+              <li key={index} className="text-sm font-normal md:text-xs">
                 ({String.fromCharCode(97 + index)}) {dObj}
               </li>
             ))}
@@ -72,7 +79,7 @@ function Terms() {
           <h3 id="general" className="my-6 font-bold">
             General
           </h3>
-          <p className="font-normal">
+          <p className="font-normal md:text-sm">
             By ordering the Products and/or accepting delivery of the Products
             from Shop, the Customer agrees that it is bound by these Terms and
             Conditions of sale. Customer orders, including orders placed via the
@@ -90,7 +97,7 @@ function Terms() {
           <h3 id="quotations" className="my-6 font-bold">
             Quotations
           </h3>
-          <p className="font-normal">
+          <p className="font-normal md:text-sm">
             Any quotation by Shop to the Customer will be open for acceptance by
             the Customer within the period stated in the quotation or, where no
             period is stated, within seven (7) days from the date of the
@@ -100,7 +107,7 @@ function Terms() {
           <h3 id="prices-taxes" className="my-6 font-bold">
             Prices / Taxes
           </h3>
-          <p className="font-normal">
+          <p className="font-normal md:text-sm">
             The prices charged by and payable to Shop will be the ruling prices
             applicable at the time of order placement, provided that the
             Products are accepted for delivery within a reasonable time. Prices
@@ -118,30 +125,30 @@ function Terms() {
           <h3 id="terms-payment" className="my-6 font-bold">
             Terms of Payment
           </h3>
-          <p className="font-normal">
+          <p className="font-normal md:text-sm">
             Credit Card Payments may attract a surcharge, and Shop will inform
             the Customer if this is to be the case before processing the
             transaction.
           </p>
-          <p className="my-6 font-normal">
+          <p className="my-6 font-normal md:text-sm">
             Unless otherwise agreed in writing by Shop, where Shop has not
             agreed in writing to provide commercial credit to the Customer, the
             total purchase price for Products supplied will be due for payment
             in cash prior to delivery.
           </p>
-          <p className="my-6 font-normal">
+          <p className="my-6 font-normal md:text-sm">
             Where Shop has agreed in writing to provide commercial credit to the
             Customer, the Customer must make payments in accordance with the
             payment terms provided by Shop.
           </p>
-          <p className="my-6 font-normal">
+          <p className="my-6 font-normal md:text-sm">
             Where Shop has approved the provision of a commercial credit
             arrangement with the Customer but has not provided notice of the
             payment terms to the Customer, the Customer must pay the total
             purchase price for Products supplied within seven days of the
             statement date.
           </p>
-          <p className="font-normal">
+          <p className="font-normal md:text-sm">
             Credit Card Payment at an Invoice or transaction level may also be
             offered to the Customer as a stand-alone payment method, or in
             conjunction with Credit Card Direct Debit Authorisation.
@@ -149,7 +156,7 @@ function Terms() {
           <h3 id="credit-accounts" className="my-6 font-bold">
             Credit Accounts
           </h3>
-          <p className="font-normal">
+          <p className="font-normal md:text-sm">
             Any commercial credit arrangements that are provided to the Customer
             by Shop will continue until terminated by Shop at it sole
             discretion. In the event that Shop terminates the Customer's
@@ -160,7 +167,7 @@ function Terms() {
           <h3 id="change-ownership" className="my-6 font-bold">
             Change of Ownership
           </h3>
-          <p className="font-normal">
+          <p className="font-normal md:text-sm">
             Trading accounts are approved by Shop based on the information
             supplied and the representations made by the Customer. In the event
             that there is a change in ownership of the Customer, whether total
@@ -177,7 +184,7 @@ function Terms() {
             business or any of the shares in the Customer and used the
             Customer's previously approved account for trading.
           </p>{' '}
-          <p className="mt-6 font-normal">
+          <p className="mt-6 font-normal md:text-sm">
             Where a Customer has been authorised by Shop to make payments
             through Credit Card Direct Debit, the Customer must provide notice
             in writing at least five (5) days prior to any change in ownership
@@ -188,7 +195,7 @@ function Terms() {
           <h3 id="information-products" className="my-6 font-bold">
             Information on the Products supplied
           </h3>
-          <p className="font-normal">
+          <p className="font-normal md:text-sm">
             All descriptive specifications, illustrations, drawings, data,
             dimensions and weights furnished by Shop or otherwise contained in
             catalogues or other advertising material are approximate only and
@@ -201,7 +208,7 @@ function Terms() {
           <h3 id="delivery" className="my-6 font-bold">
             Delivery
           </h3>
-          <p className="font-normal">
+          <p className="font-normal md:text-sm">
             The means of delivering the Products to the Customer will be at
             Shop' discretion. Shop reserves the right to deliver Products in
             part deliveries. In the event that Shop incurs additional costs for
@@ -212,16 +219,18 @@ function Terms() {
             delivery of the Products sold at any time during normal business
             hours.
           </p>
-          <p className="mt-6 font-normal">
+          <p className="mt-6 font-normal md:text-sm">
             Shop will not be liable for any loss or damage resulting from any
             late delivery of the Products and late delivery will not entitle the
             Customer to rescind or repudiate the Customer's order for the
             Products.
           </p>
         </div>
-        <ul className="h-fit min-w-fit  bg-color1 p-7 font-normal">
-          {renderListItems()}
-        </ul>
+        {!smScreen && (
+          <ul className="h-fit min-w-fit bg-color1 p-7 font-normal  md:text-sm">
+            {renderListItems()}
+          </ul>
+        )}
       </div>
     </div>
   );

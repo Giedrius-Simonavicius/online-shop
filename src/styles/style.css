@@ -362,7 +362,12 @@ menu {
   margin: 0;
   padding: 0;
 }
-
+@layer utilities {
+  /* Hide clear button in search input */
+  input[type='search']::-webkit-search-cancel-button {
+    display: none;
+  }
+}
 /*
 Prevent resizing textareas horizontally by default.
 */

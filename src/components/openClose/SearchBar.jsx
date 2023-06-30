@@ -48,7 +48,7 @@ function SearchBar({ products, mdScreen }) {
       }justify-end relative  flex items-center`}
     >
       <input
-        className="w-full appearance-none rounded-3xl bg-color1 px-10 py-4 outline-white placeholder:font-normal"
+        className="w-full appearance-none rounded-3xl bg-color1 px-10 py-4 outline-white ring-transparent placeholder:font-normal"
         type="search"
         placeholder={placeholderText}
         value={inputValue}

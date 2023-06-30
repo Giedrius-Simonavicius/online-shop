@@ -3,10 +3,10 @@ import Card from '../card/Card';
 import { useGeneralCtx } from '../../context/GeneralProvider';
 
 function Services() {
-  const { mdScreen } = useGeneralCtx();
+  const { smScreen } = useGeneralCtx();
   return (
     <div className="container my-12">
-      <div className="flex justify-around">
+      <div className={`${smScreen ? 'flex-col' : ''}flex justify-around`}>
         <Card>
           <img
             loading="lazy"

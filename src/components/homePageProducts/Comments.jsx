@@ -6,7 +6,7 @@ import { useGeneralCtx } from '../../context/GeneralProvider';
 
 function Comments() {
   const [showReviewForm, setShowReviewForm] = useState(false);
-  const { mdScreen } = useGeneralCtx();
+  const { mdScreen, smScreen } = useGeneralCtx();
 
   const toggleReviewForm = () => {
     setShowReviewForm(!showReviewForm);
@@ -15,8 +15,7 @@ function Comments() {
     <div
       className={`${
         mdScreen ? 'w-[90%]' : 'w-[60%]'
-      } container mx-auto w-[60%] bg-color1 p-10 px-12`}
-      style={{ marginTop: '50px' }}
+      } container mx-auto mt-12 w-[60%] bg-color1 p-10 px-12 `}
     >
       <Carousel
         renderBottomRightControls={({ currentSlide, slideCount }) => (
@@ -60,16 +59,22 @@ function Comments() {
       >
         {comments.map((comment) => (
           <div key={comment.id}>
-            <div className="flex">
-              <p className="mr-3 align-top text-7xl font-normal italic">"</p>
-              <p className="align-bottom text-xs">{comment.comment}</p>
+            <div className="flex ">
+              <p className="mr-3 align-top text-7xl  font-normal  italic sm:text-5xl">
+                "
+              </p>
+              <p className="align-bottom text-xs sm:text-xxs">
+                {comment.comment}
+              </p>
             </div>
-            <p className="text-right text-xs">- {comment.author}</p>
+            <p className="text-right  text-xs sm:text-xxs">
+              - {comment.author}
+            </p>
           </div>
         ))}
       </Carousel>
       <button
-        className="rounded-full border-2 border-color3 p-1 pl-5 pr-5 text-xs text-color3 duration-300 hover:border-color3 hover:bg-color3 hover:text-white"
+        className="rounded-full  border-2 border-color3 p-1 pl-5 pr-5 text-xs text-color3 duration-300 hover:border-color3 hover:bg-color3 hover:text-white sm:text-xxs"
         onClick={toggleReviewForm}
       >
         Leave Us A Review

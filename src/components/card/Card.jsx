@@ -3,7 +3,9 @@ function Card({ children, flex, width, hover }) {
   const hoverClass = hover !== '' ? hover : '';
 
   return (
-    <div className={`ml-3 mr-3 ${flexClass} ${hoverClass} `}>{children}</div>
+    <div className={`ml-3 mr-3 ${width} ${flexClass} ${hoverClass} `}>
+      {children}
+    </div>
   );
 }
 

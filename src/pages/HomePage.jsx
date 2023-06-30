@@ -10,10 +10,10 @@ import Comments from '../components/homePageProducts/Comments';
 import { useGeneralCtx } from '../context/GeneralProvider';
 
 function HomePage() {
-  const { mdScreen } = useGeneralCtx();
+  const { mdScreen, smScreen } = useGeneralCtx();
   return (
     <div className="">
-      <Featuring />
+      {!smScreen && <Featuring />}
       <Products products={customPcs} />
       <Products products={laptops} />
       <Products products={desktops} />

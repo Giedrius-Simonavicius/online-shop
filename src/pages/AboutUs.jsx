@@ -5,7 +5,9 @@ import AboutUsSingleComponent from '../components/aboutUsComponents/AboutUsSingl
 function AboutUs() {
   return (
     <div>
-      <h1 className="container mx-auto my-5 text-4xl font-bold">About Us</h1>
+      <h1 className="container mx-auto my-5 px-5 text-4xl font-bold">
+        About Us
+      </h1>
       <AboutUsSingleComponent
         theme="bg-black text-white"
         title="A Family That Keeps On Growing"
@@ -13,9 +15,10 @@ function AboutUs() {
         text2="
         Shop management approach fosters a strong customer service focus in our staff. We prefer to cultivate long-term client relationships rather than achieve quick sales, demonstrated in the measure of our long-term success."
         imgSrc="/images/aboutUs/office.jpg"
+        imgSrcSm="/images/aboutUs/officeSmall.png"
       />
       <AboutUsSingleComponent
-        theme="bg-white text-black flex-row-reverse"
+        theme={`bg-white text-black flex-row-reverse `}
         title="Shop.com"
         text1="Shop.com is a proudly Australian owned, Melbourne based supplier of I.T. goods and services, operating since 1991. Our client base encompasses individuals, small business, corporate and government organisations. We provide complete business IT solutions, centred on high quality hardware and exceptional customer service."
         imgSrc="/images/aboutUs/keyboard.jpg"
