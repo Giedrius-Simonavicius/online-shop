@@ -6,10 +6,10 @@ function Brands({ small, container }) {
     <div
       className={`${
         small
-          ? 'nd mx-auto my-3 flex w-[140px] flex-wrap gap-4 bg-white'
+          ? ' mx-auto my-3 flex w-[140px] flex-wrap gap-4 bg-white '
           : `${
               container ? 'container' : ''
-            }  mx-auto my-10 flex flex-wrap justify-around align-middle`
+            }  container mx-auto my-10 flex flex-wrap justify-around px-2 align-middle`
       } `}
     >
       <h3 className={`${!small ? 'hidden' : 'mx-auto text-sm font-bold'}`}>

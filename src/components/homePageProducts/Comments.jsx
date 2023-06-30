@@ -2,16 +2,20 @@ import React, { useState } from 'react';
 import Carousel from 'nuka-carousel';
 import LeaveReviewForm from '../forms/LeaveReviewForm';
 import { comments } from '../../data/data';
+import { useGeneralCtx } from '../../context/GeneralProvider';
 
 function Comments() {
   const [showReviewForm, setShowReviewForm] = useState(false);
+  const { mdScreen } = useGeneralCtx();
 
   const toggleReviewForm = () => {
     setShowReviewForm(!showReviewForm);
   };
   return (
     <div
-      className="container mx-auto w-[60%] bg-color1 p-10 px-12"
+      className={`${
+        mdScreen ? 'w-[90%]' : 'w-[60%]'
+      } container mx-auto w-[60%] bg-color1 p-10 px-12`}
       style={{ marginTop: '50px' }}
     >
       <Carousel
@@ -33,19 +37,26 @@ function Comments() {
         )}
         renderBottomCenterControls={false}
         wrapAround={true}
-        renderCenterLeftControls={({ previousSlide }) => (
-          <button
-            className="carousel-control-button mt-8"
-            onClick={previousSlide}
-          >
-            {'<'}
-          </button>
-        )}
-        renderCenterRightControls={({ nextSlide }) => (
-          <button className="carousel-control-button mt-8" onClick={nextSlide}>
-            {'>'}
-          </button>
-        )}
+        renderCenterLeftControls={({ previousSlide }) =>
+          !mdScreen && (
+            <button
+              className="carousel-control-button mt-8"
+              onClick={previousSlide}
+            >
+              {'<'}
+            </button>
+          )
+        }
+        renderCenterRightControls={({ nextSlide }) =>
+          !mdScreen && (
+            <button
+              className="carousel-control-button mt-8"
+              onClick={nextSlide}
+            >
+              {'>'}
+            </button>
+          )
+        }
       >
         {comments.map((comment) => (
           <div key={comment.id}>

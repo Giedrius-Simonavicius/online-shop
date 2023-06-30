@@ -7,8 +7,10 @@ import { customPcs, desktops, laptops, monitors, posts } from '../data/data';
 import Brands from '../components/homePageProducts/Brands';
 import Posts from '../components/homePageProducts/Posts';
 import Comments from '../components/homePageProducts/Comments';
+import { useGeneralCtx } from '../context/GeneralProvider';
 
 function HomePage() {
+  const { mdScreen } = useGeneralCtx();
   return (
     <div className="">
       <Featuring />
@@ -17,7 +19,7 @@ function HomePage() {
       <Products products={desktops} />
       <Products products={monitors} />
       <Brands container="container" />
-      <Posts posts={posts} />
+      {!mdScreen && <Posts posts={posts} />}
       <Comments />
     </div>
   );

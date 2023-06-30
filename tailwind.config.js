@@ -11,6 +11,8 @@ export default {
         md: { max: '787px' },
 
         sm: { max: '639px' },
+
+        xs: { max: '375px' },
       },
       colors: {
         color1: '#F5F7FF',

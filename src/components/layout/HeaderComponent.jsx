@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../../styles/style.css';
 import WorkingHours from '../openClose/WorkingHours';
@@ -10,27 +10,16 @@ import HomeButton from '../headerComponents/HomeButton';
 import SearchButton from '../headerComponents/SearchButton';
 import CartButton from '../headerComponents/CartButton';
 import SocialMedia from '../headerComponents/SocialMedia';
+import ArrowUpDown from '../openClose/ArrowUpDown';
 
 function HeaderComponent({ products }) {
-  const { setFilterArr, setSearchResults } = useGeneralCtx();
+  const { setFilterArr, setSearchResults, mdScreen } = useGeneralCtx();
   const [isSearchBarVisible, setIsSearchBarVisible] = useState(false);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
-  const [isNavOpen, setIsNavOpen] = useState(true);
-  const [mdScreen, setMdScreen] = useState(window.innerWidth <= 787);
   function handleCloseNav() {
     setIsPopoverOpen(false);
   }
-  useEffect(() => {
-    const handleResize = () => {
-      setMdScreen(window.innerWidth <= 787);
-    };
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   function openSearchBar() {
     setIsSearchBarVisible(true);
@@ -42,18 +31,6 @@ function HeaderComponent({ products }) {
 
   function resetFilterArr() {
     setFilterArr([]);
-  }
-
-  function ArrowUpDown({ open }) {
-    return (
-      <div className="pb-2 ">
-        {open ? (
-          <img loading="lazy" src="/icons/ui/arrowDownWh.svg" alt="arrowDown" />
-        ) : (
-          <img loading="lazy" src="/icons/ui/arrowUpWh.svg" alt="arrowUp" />
-        )}
-      </div>
-    );
   }
 
   return (
@@ -82,7 +59,7 @@ function HeaderComponent({ products }) {
                         AM - 5:30 PM
                       </p>
                       <div className="ml-2 pt-1 align-bottom">
-                        <ArrowUpDown open={open} />
+                        <ArrowUpDown open={open} wh />
                       </div>
                     </div>
                   </Popover.Button>
@@ -96,8 +73,8 @@ function HeaderComponent({ products }) {
                     to={'contact-us'}
                     className={`${
                       mdScreen
-                        ? 'mr-10 mt-[2%] align-baseline text-xl text-white underline'
-                        : 'ml-1 text-white underline duration-200 hover:text-color3'
+                        ? 'mr-10 mt-[2%] align-baseline text-xl text-white underline underline-offset-4'
+                        : 'ml-1 text-white underline underline-offset-4 duration-200 hover:text-color3'
                     }`}
                   >
                     {' '}

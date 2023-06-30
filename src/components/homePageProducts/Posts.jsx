@@ -3,12 +3,12 @@ import Card from '../card/Card';
 
 function Posts({ posts }) {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto px-4">
       <h2 className="mb-4 text-lg font-bold">
         Follow us on Instagram for News, Offers & More
       </h2>
 
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap  justify-around">
         {posts.map((post) => (
           <Card key={post.id}>
             <img loading="lazy" src={post.thumbnail} alt={post.id} />

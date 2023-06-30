@@ -1,7 +1,9 @@
 import React from 'react';
 import Card from '../card/Card';
+import { useGeneralCtx } from '../../context/GeneralProvider';
 
 function Services() {
+  const { mdScreen } = useGeneralCtx();
   return (
     <div className="container my-12">
       <div className="flex justify-around">
@@ -13,7 +15,7 @@ function Services() {
             alt="Support"
           />
           <h3 className="text-center font-bold ">Product Support</h3>
-          <p className="mt-4 w-64 text-center text-xs font-light">
+          <p className="mt-4 w-full text-center text-xs font-light">
             Up to 3 years on-site warranty available for your peace of mind.
           </p>
         </Card>
@@ -25,7 +27,7 @@ function Services() {
             alt="Support"
           />
           <h3 className="text-center font-bold ">Product Support</h3>
-          <p className="mt-4 w-64 text-center text-xs font-light">
+          <p className="mt-4 w-full text-center text-xs font-light">
             Up to 3 years on-site warranty available for your peace of mind.
           </p>
         </Card>
@@ -37,7 +39,7 @@ function Services() {
             alt="Support"
           />
           <h3 className="text-center font-bold ">Product Support</h3>
-          <p className="mt-4 w-64 text-center text-xs font-light">
+          <p className="mt-4 w-full text-center text-xs font-light">
             Up to 3 years on-site warranty available for your peace of mind.
           </p>
         </Card>

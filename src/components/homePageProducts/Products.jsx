@@ -5,15 +5,23 @@ import { useGeneralCtx } from '../../context/GeneralProvider';
 import { formatCurrency } from '../../helperFns';
 
 function Products({ products }) {
-  const { renderStars } = useGeneralCtx();
+  const { renderStars, mdScreen } = useGeneralCtx();
 
   const slicedProducts = products.slice(0, 7);
 
   return (
-    <div className="container  mx-auto mb-12 mt-12 flex">
-      <div className="flex flex-wrap">
+    <div
+      className={`container mx-auto mb-12 mt-12 ${
+        mdScreen ? 'overflow-x-auto' : 'px-3'
+      }`}
+    >
+      <div
+        className={`${mdScreen ? '' : 'flex'} ${
+          mdScreen ? 'flex' : 'flex-wrap'
+        }`}
+      >
         <div
-          className="mr-10 flex-col rounded bg-cover bg-center bg-no-repeat pl-2  "
+          className="mr-10 flex-col rounded bg-cover bg-center bg-no-repeat pl-2"
           style={{ backgroundImage: `url(${products[0].mainImg})` }}
         >
           <h3 className="flex h-full w-40 items-center justify-center text-center text-white">
@@ -31,11 +39,11 @@ function Products({ products }) {
             <Link to={`/all-products/${product.id}`} key={index}>
               <Card
                 key={index}
-                hover={'hover:scale-110  duration-200 hover:px-3'}
+                hover={'hover:scale-110 duration-200 hover:px-3'}
                 width="max-w-48"
               >
                 {product.inStock ? (
-                  <div className=" mt-4 flex gap-2 ">
+                  <div className="mt-4 flex gap-2">
                     <img
                       loading="lazy"
                       src="/icons/instock.svg"

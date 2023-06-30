@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const GeneralContext = createContext({
@@ -8,6 +8,7 @@ const GeneralContext = createContext({
   setSearchQuery() {},
   searchResults: [],
   setSearchResults() {},
+  mdScreen: [],
 });
 GeneralContext.displayName = 'General context';
 
@@ -15,6 +16,17 @@ function GeneralContextProvider({ children }) {
   const [filterArr, setFilterArr] = useState([]);
 
   const [searchResults, setSearchResults] = useState([]);
+  const [mdScreen, setMdScreen] = useState(window.innerWidth <= 787);
+  useEffect(() => {
+    const handleResize = () => {
+      setMdScreen(window.innerWidth <= 787);
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const renderStars = (starCount) => {
     const starsArray = Array(5).fill('/icons/StarGray.svg');
@@ -39,6 +51,7 @@ function GeneralContextProvider({ children }) {
     renderStars,
     searchResults,
     setSearchResults,
+    mdScreen,
   };
 
   return (
