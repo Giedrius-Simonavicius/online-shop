@@ -2,6 +2,7 @@ import React from 'react';
 import { useGeneralCtx } from '../../context/GeneralProvider';
 import AddToCart from '../singleProductComponents/AddToCart';
 import { formatCurrency } from '../../helperFns';
+import { Link } from 'react-router-dom';
 
 function ListView({ product, key }) {
   const { mdScreen, smScreen, renderStars } = useGeneralCtx();
@@ -35,8 +36,8 @@ function ListView({ product, key }) {
       </div>
     </div>
   ) : (
-    <div className="mb-8 p-2 duration-100 hover:shadow-top-bottom">
-      <div className="flex justify-end">
+    <div className="mb-8  p-2 duration-100 hover:shadow-top-bottom">
+      <div className="flex  justify-end">
         {product.inStock ? (
           <div className="flex gap-2">
             <img loading="lazy" src="../icons/instock.svg" alt="instock" />
@@ -47,8 +48,8 @@ function ListView({ product, key }) {
         )}
       </div>
       <div className="container mx-auto">
-        <div className="flex gap-6">
-          <div>
+        <div className="grid grid-cols-5 gap-6">
+          <div className="lg:col-span-2">
             <img
               loading="lazy"
               className="h-36 w-36 hover:cursor-pointer"
@@ -57,11 +58,11 @@ function ListView({ product, key }) {
             />
           </div>
 
-          <div className="ml-2 w-1/2">
-            <p className="my-4 text-sm font-normal lg:text-xxs">
+          <div className="col-span-3 lg:col-span-2">
+            <p className="my-4 text-sm font-normal lg:text-xs">
               {product.productId}
             </p>
-            <p className="text-sm font-normal lg:text-xxs">
+            <p className="text-sm font-normal lg:text-xs">
               {product.aboutProduct}
             </p>
             {product.discount !== 0 ? (
@@ -79,7 +80,7 @@ function ListView({ product, key }) {
               </p>
             )}
           </div>
-          <ul className="my-auto w-1/3 text-sm capitalize lg:text-xs">
+          <ul className="my-auto text-sm capitalize lg:text-xs">
             {Object.entries(product.specs).map(([key, value]) => (
               <li key={key}>{`${key}: ${value}`}</li>
             ))}
@@ -87,7 +88,13 @@ function ListView({ product, key }) {
         </div>
         <div className="mb-3 flex justify-between">
           <div className="flex">{renderStars(product.stars)}</div>
-          <div className="text-xs sm:text-xxs md:my-4">
+          <div
+            className="text-xs sm:text-xxs"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+          >
             <AddToCart list product={product} />
           </div>
         </div>

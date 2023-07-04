@@ -425,7 +425,10 @@ function AllProducts({ products }) {
                           />
                         </Link>
                       ) : (
-                        <Link to={`/all-products/${product.id}`} key={index}>
+                        <Link
+                          to={`/all-products/${product.id}`}
+                          key={product.index}
+                        >
                           <ListView product={product} />
                         </Link>
                       )}

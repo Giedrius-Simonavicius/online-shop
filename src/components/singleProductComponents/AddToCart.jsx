@@ -19,7 +19,7 @@ function AddToCart({ product, list }) {
           }}
           className={` ${
             list
-              ? 'color1 mr-6 rounded-full border border-color3 bg-white px-5 py-1 text-color3 duration-200  hover:bg-color3 hover:text-white'
+              ? ' color1 mr-6 rounded-full border border-color3 bg-white px-5 py-1 text-color3 duration-200 hover:bg-color3  hover:text-white lg:mr-0'
               : 'color1 mr-6 rounded-full border border-color3 bg-color3 px-7 py-3 text-white duration-200 hover:bg-white hover:text-color3'
           }`}
         >
