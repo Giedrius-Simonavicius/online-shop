@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Filter from '../components/AllProdComponents/Filter';
 import { useGeneralCtx } from '../context/GeneralProvider';
 import { Link, useLocation } from 'react-router-dom';
@@ -7,10 +7,26 @@ import Brands from '../components/homePageProducts/Brands';
 import { capitalizeFirstLetter } from '../helperFns';
 import Pagination from '../components/Pagination';
 import SingleItemCard from '../components/card/SingleItemCard';
+import ListView from '../components/AllProdComponents/ListView';
 
 function AllProducts({ products }) {
   const [categoryNameDisplay, setCategoryNameDisplay] =
     useState('all-products');
+
+  const [activeViewColor, setActiveViewColor] = useState('black');
+  const [activeViewColor1, setActiveViewColor1] = useState('#A2A6B0');
+  const [activeButton, setActiveButton] = useState(2);
+  function changeViewColor() {
+    setActiveViewColor('#A2A6B0');
+    setActiveViewColor1('black');
+    setActiveButton(1);
+  }
+  function changeViewColor1() {
+    setActiveViewColor('black');
+    setActiveViewColor1('#A2A6B0');
+    setActiveButton(2);
+  }
+
   const { filterArr, setFilterArr, searchResults, setSearchResults } =
     useGeneralCtx();
   const location = useLocation();
@@ -115,7 +131,7 @@ function AllProducts({ products }) {
   }
 
   return (
-    <div className="container mx-auto flex flex-col">
+    <div className="container mx-auto flex flex-col px-6">
       {searchResults.length !== 0 ? (
         <div>
           <h2 className="my-4 text-center text-xl font-bold">
@@ -142,6 +158,7 @@ function AllProducts({ products }) {
               ))}
             </select>
           </div>
+
           <div className="mx-auto flex flex-wrap">
             {paginatedSearchProducts.map((product, index) => (
               <Link
@@ -172,7 +189,7 @@ function AllProducts({ products }) {
             {categoryNameDisplay}
           </h1>
           <div className="ml-auto flex gap-5">
-            <div className="flex text-sm text-color5">
+            <div className="flex items-center text-sm text-color5">
               <p>Sort By:</p>
               <select
                 className="mx-2 rounded-md border border-color5 text-xs text-color5 focus:outline-none"
@@ -196,7 +213,7 @@ function AllProducts({ products }) {
                 {sortDirection ? '\u25B2' : '\u25BC'}
               </button>
             </div>
-            <div className="ml-auto flex text-sm text-color5">
+            <div className="ml-auto flex items-center text-sm text-color5">
               <p>Display:</p>
               <select
                 className="mx-2 rounded-md border border-color5 text-xs focus:outline-none"
@@ -211,6 +228,128 @@ function AllProducts({ products }) {
                   </option>
                 ))}
               </select>
+            </div>
+            <div className="flex gap-2">
+              <button
+                className={`px-2 ${activeButton === 1 ? ' ' : 'shadow-md'}`}
+                onClick={changeViewColor1}
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    x="0.900391"
+                    y="0.900024"
+                    width="3.57143"
+                    height="3.57143"
+                    fill={activeViewColor}
+                    stroke={activeViewColor}
+                  />
+                  <rect
+                    x="0.900391"
+                    y="8.21429"
+                    width="3.57143"
+                    height="3.57143"
+                    fill={activeViewColor}
+                    stroke={activeViewColor}
+                  />
+                  <rect
+                    x="0.900391"
+                    y="15.5286"
+                    width="3.57143"
+                    height="3.57143"
+                    fill={activeViewColor}
+                    stroke={activeViewColor}
+                  />
+                  <rect
+                    x="8.21387"
+                    y="8.21429"
+                    width="3.57143"
+                    height="3.57143"
+                    fill={activeViewColor}
+                    stroke={activeViewColor}
+                  />
+                  <rect
+                    x="8.21387"
+                    y="15.5286"
+                    width="3.57143"
+                    height="3.57143"
+                    fill={activeViewColor}
+                    stroke={activeViewColor}
+                  />
+                  <rect
+                    x="8.21387"
+                    y="0.900024"
+                    width="3.57143"
+                    height="3.57143"
+                    fill={activeViewColor}
+                    stroke={activeViewColor}
+                  />
+                  <rect
+                    x="15.5283"
+                    y="8.21429"
+                    width="3.57143"
+                    height="3.57143"
+                    fill={activeViewColor}
+                    stroke={activeViewColor}
+                  />
+                  <rect
+                    x="15.5283"
+                    y="15.5286"
+                    width="3.57143"
+                    height="3.57143"
+                    fill={activeViewColor}
+                    stroke={activeViewColor}
+                  />
+                  <rect
+                    x="15.5283"
+                    y="0.900024"
+                    width="3.57143"
+                    height="3.57143"
+                    fill={activeViewColor}
+                    stroke={activeViewColor}
+                  />
+                </svg>
+              </button>
+              <button
+                className={` ${activeButton === 1 ? 'shadow-md' : ''}`}
+                onClick={changeViewColor}
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="32" height="32" fill="white" />
+                  <rect
+                    x="4.57129"
+                    y="21.0286"
+                    width="9.14286"
+                    height="2.74286"
+                    fill={activeViewColor1}
+                  />
+                  <rect
+                    x="4.57129"
+                    y="8.22858"
+                    width="21.9429"
+                    height="2.74286"
+                    fill={activeViewColor1}
+                  />
+                  <rect
+                    x="4.57129"
+                    y="14.6286"
+                    width="16.4571"
+                    height="2.74286"
+                    fill={activeViewColor1}
+                  />
+                </svg>
+              </button>
             </div>
           </div>
           <div className="container mx-auto mb-12 mt-12 flex">
@@ -231,7 +370,11 @@ function AllProducts({ products }) {
               </div>
               <img loading="lazy" src="/images/ads/chairAd.jpg" alt="chair" />
             </div>
-            <div className="ml-4 flex flex-col ">
+            <div
+              className={` ${
+                activeButton !== 2 ? 'flex flex-col' : 'ml-4 flex flex-col'
+              }`}
+            >
               <div className="mb-3 flex gap-2 text-sm">
                 {filterArr.length !== 0 && (
                   <button
@@ -269,14 +412,24 @@ function AllProducts({ products }) {
                     return null;
                   }
                   return (
-                    <Link to={`/all-products/${product.id}`} key={index}>
-                      <SingleItemCard
-                        hover={'my-4 hover:scale-110  duration-200 hover:px-3'}
-                        key={index}
-                        width="max-w-48"
-                        product={product}
-                      />
-                    </Link>
+                    <>
+                      {activeButton === 2 ? (
+                        <Link to={`/all-products/${product.id}`} key={index}>
+                          <SingleItemCard
+                            hover={
+                              'my-4 hover:scale-110 duration-200 hover:px-3'
+                            }
+                            key={index}
+                            width="max-w-48"
+                            product={product}
+                          />
+                        </Link>
+                      ) : (
+                        <Link to={`/all-products/${product.id}`} key={index}>
+                          <ListView product={product} />
+                        </Link>
+                      )}
+                    </>
                   );
                 })}
               </div>

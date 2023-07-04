@@ -1,7 +1,7 @@
 import { useGeneralCtx } from '../../context/GeneralProvider';
 import { formatCurrency } from '../../helperFns';
 
-function SingleItemCard({ children, flex, width, hover, product }) {
+function SingleItemCard({ flex, hover, product }) {
   const flexClass = flex === 'flex' ? 'flex' : 'flex-col';
   const hoverClass = hover !== '' ? hover : '';
 

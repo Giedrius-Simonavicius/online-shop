@@ -1,7 +1,7 @@
 import React from 'react';
 import { useShoppingCartCtx } from '../../context/ShoppingCartContext';
 
-function AddToCart({ product }) {
+function AddToCart({ product, list }) {
   const {
     getItemQuantity,
     increaseCartQuantity,
@@ -17,12 +17,16 @@ function AddToCart({ product }) {
           onClick={() => {
             increaseCartQuantity(product.id, product.inStock, 'Out of stock');
           }}
-          className="color1 mr-6 rounded-full border border-color3 bg-color3 px-7 py-3 text-white duration-200 hover:bg-white hover:text-color3"
+          className={` ${
+            list
+              ? 'color1 mr-6 rounded-full border border-color3 bg-white px-5 py-1 text-color3 duration-200  hover:bg-color3 hover:text-white'
+              : 'color1 mr-6 rounded-full border border-color3 bg-color3 px-7 py-3 text-white duration-200 hover:bg-white hover:text-color3'
+          }`}
         >
           + Add to Cart
         </button>
       ) : (
-        <div className="flex  gap-2">
+        <div className="flex gap-2">
           <div className="flex items-center justify-center gap-2">
             <button
               className="mx-1 rounded-md border bg-color3 px-1.5 text-white duration-200 hover:border-color3 hover:bg-white hover:text-color3"
