@@ -10,12 +10,12 @@ function CartReview() {
   const navigate = useNavigate();
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto px-6">
       <h2 className="my-4 text-2xl font-bold">Review</h2>
-      <div className="flex justify-between">
+      <div className="flex justify-between sm:flex-col">
         <div className="mt-10 text-sm">
           <div>
-            <h3 className="mb-2 ">Buyer info:</h3>
+            <h3 className="mb-2">Buyer info:</h3>
             <p className="font-normal">
               Name: {capitalizeFirstLetter(shippingInfo.name)}{' '}
               {capitalizeFirstLetter(shippingInfo.lastName)}
@@ -32,14 +32,14 @@ function CartReview() {
             </p>
           </div>
           <button
-            className="mt-4 rounded-full
-             border-2 border-color9 bg-color9 px-8 font-normal text-white duration-200 hover:border-2 hover:bg-color1 hover:text-color7"
+            className="mt-8 rounded-full
+             border-2 border-color9 bg-color9 px-8 py-1 font-normal text-white duration-200 hover:border-2 hover:bg-color1 hover:text-color7"
             onClick={() => toast.success('Thank you for your purchase')}
           >
             Confirm & purchase
           </button>
         </div>
-        <Summary deliveryFee={deliveryFee} />
+        <Summary review deliveryFee={deliveryFee} />
       </div>
       <button
         onClick={() => {

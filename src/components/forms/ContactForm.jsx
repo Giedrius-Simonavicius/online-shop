@@ -2,8 +2,13 @@ import React from 'react';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useGeneralCtx } from '../../context/GeneralProvider';
 
 function ContactForm() {
+  const { mdScreen } = useGeneralCtx();
+  const placeholderMsg = mdScreen
+    ? 'Your message'
+    : "Just us a note and we'll get back to you as quickly as possible";
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -56,11 +61,11 @@ function ContactForm() {
 
   return (
     <form
-      className="my-10 mr-6 min-w-[55vw] text-sm"
+      className="my-10 mr-6 min-w-[55vw] text-sm sm:mr-0"
       onSubmit={formik.handleSubmit}
     >
-      <div className="flex w-full gap-4">
-        <div className="w-1/2">
+      <div className="flex w-full gap-4 md:flex-col">
+        <div className="w-1/2 md:w-full">
           <div>
             <label htmlFor="name">
               Your Name <span className="text-color8">*</span>
@@ -82,7 +87,7 @@ function ContactForm() {
             <div>{formik.errors.name}</div>
           ) : null}
         </div>
-        <div className="w-1/2">
+        <div className="w-1/2 md:w-full">
           <div>
             <label htmlFor="email">
               Your Email <span className="text-color8">*</span>
@@ -111,7 +116,7 @@ function ContactForm() {
         </div>
         <div>
           <input
-            className="mt-2 w-1/2 rounded border-2 py-4 pl-4 font-normal placeholder:font-light"
+            className="mt-2 w-1/2 rounded border-2 py-4 pl-4 font-normal placeholder:font-light md:w-full"
             type="phone"
             id="phone"
             name="phone"
@@ -135,7 +140,7 @@ function ContactForm() {
             className="mt-2 w-full resize-none rounded border-2 pl-4 pt-4 font-normal  placeholder:font-light"
             id="message"
             name="message"
-            placeholder="Just us a note and we'll get back to you as quickly as possible"
+            placeholder={placeholderMsg}
             value={formik.values.message}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}

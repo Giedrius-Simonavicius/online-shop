@@ -1,8 +1,8 @@
 import React from 'react';
 
-function DetailsAddCart({ activeTab, onTabClick }) {
+function DetailsSpecs({ activeTab, onTabClick }) {
   return (
-    <div className="mb-3 px-3 py-3 text-xs sm:flex sm:justify-center">
+    <div className="items-center px-3 py-3 text-xs sm:flex sm:justify-center">
       <div className="flex gap-9 px-10">
         <button
           className={`mr-2 ${
@@ -35,4 +35,4 @@ function DetailsAddCart({ activeTab, onTabClick }) {
   );
 }
 
-export default DetailsAddCart;
+export default DetailsSpecs;

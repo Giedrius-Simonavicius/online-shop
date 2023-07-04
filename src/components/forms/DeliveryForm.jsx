@@ -87,9 +87,12 @@ function DeliveryForm() {
     formik.handleChange(event);
   };
   return (
-    <div className="mt-10 w-[66%] pt-3">
+    <div className="mt-10 w-[66%] pt-3 sm:w-full">
       <h2 className=" border-b pb-4">Shipping Address</h2>
-      <form className="my-7 w-3/4 text-sm" onSubmit={formik.handleSubmit}>
+      <form
+        className="my-7 w-3/4 text-sm md:w-full"
+        onSubmit={formik.handleSubmit}
+      >
         <div>
           <div>
             <label htmlFor="email">
@@ -98,8 +101,8 @@ function DeliveryForm() {
           </div>
           <div>
             <input
-              className=" mt-2 w-full rounded border-2 py-2 pl-4 font-normal  placeholder:font-light"
-              type="text"
+              className=" mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs"
+              type="email"
               id="email"
               name="email"
               placeholder="Your email"
@@ -123,7 +126,7 @@ function DeliveryForm() {
           </div>
           <div>
             <input
-              className=" mt-2 w-full rounded border-2 py-2 pl-4 font-normal  placeholder:font-light"
+              className=" mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs"
               type="text"
               id="name"
               name="name"
@@ -146,7 +149,7 @@ function DeliveryForm() {
           </div>
           <div>
             <input
-              className=" mt-2 w-full rounded border-2 py-2 pl-4 font-normal  placeholder:font-light"
+              className=" mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs"
               type="text"
               id="lastName"
               name="lastName"
@@ -172,7 +175,7 @@ function DeliveryForm() {
           </div>
           <div>
             <input
-              className=" mt-2 w-full rounded border-2 py-2 pl-4 font-normal  placeholder:font-light"
+              className=" mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs"
               type="text"
               id="streetAddress"
               name="streetAddress"
@@ -197,7 +200,7 @@ function DeliveryForm() {
           </div>
           <div>
             <input
-              className=" mt-2 w-full rounded border-2 py-2 pl-4 font-normal  placeholder:font-light"
+              className=" mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs"
               type="text"
               id="city"
               name="city"
@@ -220,7 +223,7 @@ function DeliveryForm() {
           </div>
           <div>
             <input
-              className=" mt-2 w-full rounded border-2 py-2 pl-4 font-normal  placeholder:font-light"
+              className=" mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs"
               type="text"
               id="postalCode"
               name="postalCode"
@@ -245,7 +248,7 @@ function DeliveryForm() {
           </div>
           <div>
             <select
-              className="mt-2 w-full rounded border-2 py-2 pl-4 pr-8 font-normal"
+              className="mt-2 w-full rounded border-2 py-2 pl-4 pr-8 font-normal sm:text-xs"
               type="text"
               id="country"
               name="country"
@@ -279,7 +282,7 @@ function DeliveryForm() {
           </div>
           <div>
             <input
-              className=" mt-2 w-full rounded border-2 py-2 pl-4 font-normal placeholder:font-light"
+              className="mt-2 w-full rounded border-2 py-2 pl-4 font-normal placeholder:font-light sm:placeholder:text-xs"
               type="text"
               id="phoneNo"
               name="phoneNo"
@@ -302,7 +305,7 @@ function DeliveryForm() {
               Delivery Method <span className="text-color8">*</span>
             </label>
           </div>
-          <div className="mt-4 flex flex-col">
+          <div className="mt-4 flex flex-col sm:text-xs">
             <label className="mb-2">
               <input
                 className="mr-2"
@@ -335,8 +338,8 @@ function DeliveryForm() {
         </div>
 
         <button
-          className="mt-4 rounded-full
-             border-2 border-color3 bg-color3 px-12 py-2 font-normal text-white duration-200 hover:border-2 hover:bg-color1 hover:text-color3"
+          className="mt-4 rounded-full border-2 border-color3 bg-color3
+             px-12 py-2 font-normal text-white duration-200 hover:border-2 hover:bg-color1 hover:text-color3 sm:min-w-full sm:px-2 sm:text-xs"
           type="submit"
         >
           Proceed to Review & Payment
@@ -346,8 +349,8 @@ function DeliveryForm() {
         onClick={() => {
           navigate(-1);
         }}
-        className="mt-4 rounded-full
-             border-2 border-color3 bg-color3 px-8 font-normal text-white duration-200 hover:border-2 hover:bg-color1 hover:text-color3"
+        className="mt-4 rounded-full border-2
+             border-color3 bg-color3 px-8 font-normal text-white duration-200 hover:border-2 hover:bg-color1 hover:text-color3 sm:mt-1 sm:min-w-full sm:py-1 sm:text-xs"
       >
         Go back
       </button>

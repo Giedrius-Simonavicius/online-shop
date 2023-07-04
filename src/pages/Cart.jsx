@@ -5,8 +5,10 @@ import SingleCartComponent from '../components/shoppingCartComponents/singleCart
 import { allPrd } from '../data/data';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import { useGeneralCtx } from '../context/GeneralProvider';
 
 function Cart() {
+  const { mdScreen, smScreen } = useGeneralCtx();
   const navigate = useNavigate();
   const { cartArr, setCartArr } = useShoppingCartCtx();
 
@@ -18,52 +20,153 @@ function Cart() {
   }
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto px-8">
       <h2 className="my-4 text-2xl font-bold">Shopping Cart</h2>
       <div>
         {cartArr.map((item) => (
           <SingleCartComponent key={item.id} {...item} />
         ))}
       </div>
-      <div className="mt-5 flex justify-between text-right text-lg">
-        <div className="flex gap-4">
-          <button
-            onClick={navigateToAllProducts}
-            className="rounded-full border border-color10 px-4 py-1 text-sm text-color10 duration-200 hover:bg-color10 hover:text-white"
-          >
-            Continue shopping
-          </button>
-          <button
-            className="rounded-full border bg-black px-4 py-1 text-sm text-white duration-200 hover:bg-white hover:text-black "
-            onClick={() => {
-              setCartArr([]);
-              navigateToAllProducts();
-              toast.success('Shopping cart cleared');
-            }}
-          >
-            Clear shopping cart
-          </button>
-        </div>
-
-        <button
-          onClick={handleProceedToCheckout}
-          className="rounded-full border border-color3 bg-color3 px-4 py-1 text-sm text-white duration-200 hover:bg-white hover:text-color3"
-        >
-          Proceed to Checkout{' '}
-        </button>
-      </div>
-      <div className="mt-4 flex justify-end">
-        <p className="text-2xl">
-          Total:{' '}
-          {formatCurrency(
-            cartArr.reduce((total, currentCartItem) => {
-              const item = allPrd.find((i) => currentCartItem.id === i.id);
-              return (
-                total + currentCartItem.quantity * (item?.discountedPrice || 0)
-              );
-            }, 0),
-          )}
-        </p>
+      <div
+        className={` ${
+          smScreen
+            ? 'mt-5 text-lg'
+            : 'mt-5 flex justify-between text-right text-lg'
+        } `}
+      >
+        {smScreen && (
+          <div>
+            <div className="">
+              <div className="text-center">
+                <p className="mb-5 text-2xl">
+                  Total:{' '}
+                  {formatCurrency(
+                    cartArr.reduce((total, currentCartItem) => {
+                      const item = allPrd.find(
+                        (i) => currentCartItem.id === i.id,
+                      );
+                      return (
+                        total +
+                        currentCartItem.quantity * (item?.discountedPrice || 0)
+                      );
+                    }, 0),
+                  )}
+                </p>
+              </div>
+              <div className="flex justify-center">
+                <button
+                  onClick={handleProceedToCheckout}
+                  className="min-w-full rounded-full border border-color3 bg-color3  px-10 py-4 text-sm text-white duration-200 hover:bg-white hover:text-color3"
+                >
+                  Proceed to Checkout{' '}
+                </button>
+              </div>
+            </div>
+            <div className="mt-6 flex items-center justify-between gap-4">
+              <div className="flex">
+                <button
+                  onClick={navigateToAllProducts}
+                  className="rounded-full border border-color10 px-10 py-2 text-sm text-color10 duration-200 hover:bg-color10 hover:text-white sm:px-4 sm:text-xs"
+                >
+                  Continue shopping
+                </button>
+              </div>
+              <div>
+                <button
+                  className="rounded-full border bg-black px-10  py-2 text-sm text-white duration-200 hover:bg-white hover:text-black sm:px-4 sm:text-xs "
+                  onClick={() => {
+                    setCartArr([]);
+                    navigateToAllProducts();
+                    toast.success('Shopping cart cleared');
+                  }}
+                >
+                  Clear shopping cart
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+        {smScreen ? null : (
+          <div className="flex justify-between gap-4 md:flex-col">
+            <div>
+              <button
+                onClick={navigateToAllProducts}
+                className="rounded-full border border-color10 px-4 py-1 text-sm text-color10 duration-200 hover:bg-color10 hover:text-white md:px-10 md:py-2"
+              >
+                Continue shopping
+              </button>
+            </div>
+            <div>
+              <button
+                className="rounded-full border bg-black px-4 py-1 text-sm text-white duration-200 hover:bg-white hover:text-black md:px-10 md:py-2 "
+                onClick={() => {
+                  setCartArr([]);
+                  navigateToAllProducts();
+                  toast.success('Shopping cart cleared');
+                }}
+              >
+                Clear shopping cart
+              </button>
+            </div>
+          </div>
+        )}
+        {mdScreen && !smScreen ? (
+          <div className="flex flex-col justify-between">
+            <div className="flex items-start justify-center">
+              <p className="mb-5 text-2xl">
+                Total:{' '}
+                {formatCurrency(
+                  cartArr.reduce((total, currentCartItem) => {
+                    const item = allPrd.find(
+                      (i) => currentCartItem.id === i.id,
+                    );
+                    return (
+                      total +
+                      currentCartItem.quantity * (item?.discountedPrice || 0)
+                    );
+                  }, 0),
+                )}
+              </p>
+            </div>
+            <div>
+              <button
+                onClick={handleProceedToCheckout}
+                className="rounded-full border border-color3 bg-color3 px-4 py-1 text-sm text-white duration-200 hover:bg-white hover:text-color3 md:px-10 md:py-4"
+              >
+                Proceed to Checkout{' '}
+              </button>
+            </div>
+          </div>
+        ) : (
+          !mdScreen && (
+            <div>
+              <div>
+                <button
+                  onClick={handleProceedToCheckout}
+                  className="rounded-full border border-color3 bg-color3 px-4 py-1 text-sm text-white duration-200 hover:bg-white hover:text-color3 md:px-10 md:py-4"
+                >
+                  Proceed to Checkout{' '}
+                </button>
+              </div>{' '}
+              <div className="mt-4 flex justify-end">
+                <p className="text-2xl">
+                  Total:{' '}
+                  {formatCurrency(
+                    cartArr.reduce((total, currentCartItem) => {
+                      const item = allPrd.find(
+                        (i) => currentCartItem.id === i.id,
+                      );
+                      return (
+                        total +
+                        currentCartItem.quantity * (item?.discountedPrice || 0)
+                      );
+                    }, 0),
+                  )}
+                </p>
+              </div>
+            </div>
+          )
+        )}
       </div>
     </div>
   );

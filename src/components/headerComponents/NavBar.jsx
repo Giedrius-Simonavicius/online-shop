@@ -11,12 +11,14 @@ function NavBar({ setSearchResults, resetFiltArr, mdScreen, tablet }) {
     <div
       id="myNav"
       className={`${
-        tablet ? 'flex  flex-col bg-white px-6 py-3' : 'flex items-center gap-3'
+        tablet
+          ? 'flex flex-col border-y-2 bg-white px-6 py-3'
+          : 'flex items-center gap-3'
       } ${isOpen ? '' : 'hidden'}`}
     >
       {tablet && (
         <button
-          className="-mr-3 -mt-2 text-right text-xl text-red-500"
+          className="-mr-3 -mt-2 text-right text-3xl text-red-500"
           onClick={closeNav}
         >
           &times;

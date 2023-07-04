@@ -5,7 +5,7 @@ import { useShoppingCartCtx } from '../../context/ShoppingCartContext';
 import { formatCurrency } from '../../helperFns';
 import { allPrd } from '../../data/data';
 
-function Summary() {
+function Summary({ review }) {
   const { cartArr, deliveryFee } = useShoppingCartCtx();
   const itemsPrice = cartArr.reduce((total, currentCartItem) => {
     const item = allPrd.find((i) => currentCartItem.id === i.id);
@@ -14,14 +14,20 @@ function Summary() {
   const totalPrice = itemsPrice + deliveryFee;
 
   return (
-    <div className="container mx-auto mt-10 h-fit w-[33%] bg-color1 px-6 py-3">
+    <div
+      className={`${
+        review
+          ? 'container mt-10 h-fit w-1/2 bg-color1 px-6 py-3 sm:min-w-full'
+          : 'container mt-10 h-fit w-[33%] bg-color1 px-6 py-3 sm:min-w-full md:w-1/2'
+      }`}
+    >
       <h2 className="border-b pb-4">Order Summary</h2>
 
       <Disclosure defaultOpen>
         {({ open }) => (
           <>
-            <Disclosure.Button className="mb-3 flex items-end gap-[15.5rem] font-bold">
-              <p className="mt-3 text-sm font-bold">
+            <Disclosure.Button className="mb-3 flex items-end gap-[3rem] font-bold">
+              <p className="mt-3 min-w-fit text-sm font-bold sm:font-normal">
                 {cartArr.reduce((total, item) => total + item.quantity, 0)}{' '}
                 Items in Cart
               </p>

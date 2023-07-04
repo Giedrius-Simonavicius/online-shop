@@ -5,7 +5,7 @@ import { useGeneralCtx } from '../../context/GeneralProvider';
 function Services() {
   const { smScreen } = useGeneralCtx();
   return (
-    <div className="container mx-auto my-12">
+    <div className="container mx-auto my-12 sm:mb-0 sm:bg-color1 sm:py-6">
       <div className={`${smScreen ? 'flex-col' : ''} flex justify-around`}>
         <Card>
           <img

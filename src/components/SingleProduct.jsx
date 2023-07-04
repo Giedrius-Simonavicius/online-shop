@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import DetailsAddCart from './singleProductComponents/DetailsAddCart';
+import DetailsSpecs from './singleProductComponents/DetailsSpecs';
 import { NavLink } from 'react-router-dom';
 import { useGeneralCtx } from '../context/GeneralProvider';
 import AddToCart from './singleProductComponents/AddToCart';
@@ -73,7 +73,7 @@ function SingleProduct({ product }) {
         </div>
       </div>
       <div className="my-6">
-        <DetailsAddCart
+        <DetailsSpecs
           activeTab={activeTab}
           onTabClick={handleTabClick}
           product={product}
@@ -125,8 +125,8 @@ function SingleProduct({ product }) {
     </div>
   ) : (
     <div>
-      <div className="flex justify-between border-y-2 px-3 py-3 text-xs sm:text-xxs md:my-4">
-        <DetailsAddCart
+      <div className="flex items-center justify-between border-y-2 px-3 py-3 text-xs sm:text-xxs md:my-4">
+        <DetailsSpecs
           activeTab={activeTab}
           onTabClick={handleTabClick}
           product={product}
@@ -163,7 +163,7 @@ function SingleProduct({ product }) {
                 </ul>
               )}
             </div>
-            <div className="mt-4 flex justify-around gap-2 text-xs lg:text-xxs">
+            <div className="mt-4 flex justify-between gap-2 text-xs lg:text-xxs">
               <div className="flex">
                 <p>Have a Question? </p>
                 <NavLink
