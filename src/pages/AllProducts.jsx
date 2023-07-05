@@ -27,7 +27,7 @@ function AllProducts({ products }) {
     setActiveButton(2);
   }
 
-  const { filterArr, setFilterArr, searchResults, setSearchResults } =
+  const { filterArr, setFilterArr, searchResults, smScreen, setSearchResults } =
     useGeneralCtx();
   const location = useLocation();
 
@@ -129,9 +129,19 @@ function AllProducts({ products }) {
         return products;
     }
   }
+  function openPanel() {
+    document.getElementById('filters').style.width = '100%';
+    document.getElementById('filters').style.height = '100%';
+    document.getElementById('filters').style.zIndex = '1';
+    document.getElementById('filters').style.padding = '24px';
+  }
 
   return (
-    <div className="container mx-auto flex flex-col px-6">
+    <div
+      className={`${
+        smScreen ? 'px-3' : 'px-6'
+      } container mx-auto flex flex-col `}
+    >
       {searchResults.length !== 0 ? (
         <div>
           <h2 className="my-4 text-center text-xl font-bold">
@@ -188,8 +198,22 @@ function AllProducts({ products }) {
           <h1 className="mx-auto mb-3 text-center text-2xl font-bold uppercase tracking-widest">
             {categoryNameDisplay}
           </h1>
-          <div className="ml-auto flex gap-5">
-            <div className="flex items-center text-sm text-color5">
+          <div
+            className={` ${smScreen ? 'mx-auto gap-3' : 'ml-auto gap-5'} flex `}
+          >
+            {smScreen && (
+              <div>
+                <button
+                  onClick={openPanel}
+                  className="rounded-md border border-color5 px-3 text-base text-color5 focus:outline-none xs:px-1 xs:text-sm"
+                >
+                  Filter
+                </button>
+                <Filter />
+              </div>
+            )}
+
+            <div className="flex items-center text-sm text-color5 sm:text-xs">
               <p>Sort By:</p>
               <select
                 className="mx-2 rounded-md border border-color5 text-xs text-color5 focus:outline-none"
@@ -205,7 +229,7 @@ function AllProducts({ products }) {
                 ))}
               </select>
               <button
-                className=" text-xs text-color5"
+                className="text-xs text-color5"
                 onClick={() => {
                   setSortDirection(!sortDirection);
                 }}
@@ -213,7 +237,7 @@ function AllProducts({ products }) {
                 {sortDirection ? '\u25B2' : '\u25BC'}
               </button>
             </div>
-            <div className="ml-auto flex items-center text-sm text-color5">
+            <div className="ml-auto flex items-center text-sm text-color5 sm:text-xs">
               <p>Display:</p>
               <select
                 className="mx-2 rounded-md border border-color5 text-xs focus:outline-none"
@@ -229,213 +253,250 @@ function AllProducts({ products }) {
                 ))}
               </select>
             </div>
-            <div className="flex gap-2">
-              <button
-                className={`px-2 ${activeButton === 1 ? ' ' : 'shadow-md'}`}
-                onClick={changeViewColor1}
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+            {!smScreen && (
+              <div className="flex gap-2">
+                <button
+                  className={`px-2 ${activeButton === 1 ? ' ' : 'shadow-md'}`}
+                  onClick={changeViewColor1}
                 >
-                  <rect
-                    x="0.900391"
-                    y="0.900024"
-                    width="3.57143"
-                    height="3.57143"
-                    fill={activeViewColor}
-                    stroke={activeViewColor}
-                  />
-                  <rect
-                    x="0.900391"
-                    y="8.21429"
-                    width="3.57143"
-                    height="3.57143"
-                    fill={activeViewColor}
-                    stroke={activeViewColor}
-                  />
-                  <rect
-                    x="0.900391"
-                    y="15.5286"
-                    width="3.57143"
-                    height="3.57143"
-                    fill={activeViewColor}
-                    stroke={activeViewColor}
-                  />
-                  <rect
-                    x="8.21387"
-                    y="8.21429"
-                    width="3.57143"
-                    height="3.57143"
-                    fill={activeViewColor}
-                    stroke={activeViewColor}
-                  />
-                  <rect
-                    x="8.21387"
-                    y="15.5286"
-                    width="3.57143"
-                    height="3.57143"
-                    fill={activeViewColor}
-                    stroke={activeViewColor}
-                  />
-                  <rect
-                    x="8.21387"
-                    y="0.900024"
-                    width="3.57143"
-                    height="3.57143"
-                    fill={activeViewColor}
-                    stroke={activeViewColor}
-                  />
-                  <rect
-                    x="15.5283"
-                    y="8.21429"
-                    width="3.57143"
-                    height="3.57143"
-                    fill={activeViewColor}
-                    stroke={activeViewColor}
-                  />
-                  <rect
-                    x="15.5283"
-                    y="15.5286"
-                    width="3.57143"
-                    height="3.57143"
-                    fill={activeViewColor}
-                    stroke={activeViewColor}
-                  />
-                  <rect
-                    x="15.5283"
-                    y="0.900024"
-                    width="3.57143"
-                    height="3.57143"
-                    fill={activeViewColor}
-                    stroke={activeViewColor}
-                  />
-                </svg>
-              </button>
-              <button
-                className={` ${activeButton === 1 ? 'shadow-md' : ''}`}
-                onClick={changeViewColor}
-              >
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      x="0.900391"
+                      y="0.900024"
+                      width="3.57143"
+                      height="3.57143"
+                      fill={activeViewColor}
+                      stroke={activeViewColor}
+                    />
+                    <rect
+                      x="0.900391"
+                      y="8.21429"
+                      width="3.57143"
+                      height="3.57143"
+                      fill={activeViewColor}
+                      stroke={activeViewColor}
+                    />
+                    <rect
+                      x="0.900391"
+                      y="15.5286"
+                      width="3.57143"
+                      height="3.57143"
+                      fill={activeViewColor}
+                      stroke={activeViewColor}
+                    />
+                    <rect
+                      x="8.21387"
+                      y="8.21429"
+                      width="3.57143"
+                      height="3.57143"
+                      fill={activeViewColor}
+                      stroke={activeViewColor}
+                    />
+                    <rect
+                      x="8.21387"
+                      y="15.5286"
+                      width="3.57143"
+                      height="3.57143"
+                      fill={activeViewColor}
+                      stroke={activeViewColor}
+                    />
+                    <rect
+                      x="8.21387"
+                      y="0.900024"
+                      width="3.57143"
+                      height="3.57143"
+                      fill={activeViewColor}
+                      stroke={activeViewColor}
+                    />
+                    <rect
+                      x="15.5283"
+                      y="8.21429"
+                      width="3.57143"
+                      height="3.57143"
+                      fill={activeViewColor}
+                      stroke={activeViewColor}
+                    />
+                    <rect
+                      x="15.5283"
+                      y="15.5286"
+                      width="3.57143"
+                      height="3.57143"
+                      fill={activeViewColor}
+                      stroke={activeViewColor}
+                    />
+                    <rect
+                      x="15.5283"
+                      y="0.900024"
+                      width="3.57143"
+                      height="3.57143"
+                      fill={activeViewColor}
+                      stroke={activeViewColor}
+                    />
+                  </svg>
+                </button>
+                <button
+                  className={` ${activeButton === 1 ? 'shadow-md' : ''}`}
+                  onClick={changeViewColor}
                 >
-                  <rect width="32" height="32" fill="white" />
-                  <rect
-                    x="4.57129"
-                    y="21.0286"
-                    width="9.14286"
-                    height="2.74286"
-                    fill={activeViewColor1}
-                  />
-                  <rect
-                    x="4.57129"
-                    y="8.22858"
-                    width="21.9429"
-                    height="2.74286"
-                    fill={activeViewColor1}
-                  />
-                  <rect
-                    x="4.57129"
-                    y="14.6286"
-                    width="16.4571"
-                    height="2.74286"
-                    fill={activeViewColor1}
-                  />
-                </svg>
-              </button>
-            </div>
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect width="32" height="32" fill="white" />
+                    <rect
+                      x="4.57129"
+                      y="21.0286"
+                      width="9.14286"
+                      height="2.74286"
+                      fill={activeViewColor1}
+                    />
+                    <rect
+                      x="4.57129"
+                      y="8.22858"
+                      width="21.9429"
+                      height="2.74286"
+                      fill={activeViewColor1}
+                    />
+                    <rect
+                      x="4.57129"
+                      y="14.6286"
+                      width="16.4571"
+                      height="2.74286"
+                      fill={activeViewColor1}
+                    />
+                  </svg>
+                </button>
+              </div>
+            )}
           </div>
-          <div className="container mx-auto mb-12 mt-12 flex">
+          <div
+            className={`${
+              smScreen
+                ? 'container mx-auto flex flex-col-reverse'
+                : 'container mx-auto mb-12 mt-12 flex'
+            }`}
+          >
             <div>
-              <div className="bg-color1 p-4">
-                <Filter />
+              {!smScreen && (
+                <div className="bg-color1 p-4">
+                  {' '}
+                  <Filter />
+                </div>
+              )}
+              {!smScreen && <Brands small />}
+              <div className="mt-3 w-fit bg-color1 p-4 text-center sm:w-full">
+                <h3 className="text-xs font-bold sm:text-base">
+                  Compare Products
+                </h3>
+                <p className="my-2 text-xxs sm:text-sm">
+                  You have no items to compare.
+                </p>
               </div>
-              <Brands small />
-              <div className="mt-3 w-fit bg-color1 p-4 text-center">
-                <h3 className="text-xs font-bold">Compare Products</h3>
-                <p className="my-2 text-xxs">You have no items to compare.</p>
-              </div>
-              <div className="my-2 w-fit bg-color1 p-4 text-center">
-                <h3 className="text-xs font-bold">My Wish List</h3>
-                <p className="my-2 text-xxs">
+              <div className="my-2 w-fit bg-color1 p-4 text-center sm:w-full">
+                <h3 className="text-xs font-bold sm:text-base">My Wish List</h3>
+                <p className="my-2 text-xxs sm:text-sm">
                   You have no items in your wish list.
                 </p>
               </div>
-              <img loading="lazy" src="/images/ads/chairAd.jpg" alt="chair" />
+              <img
+                className="sm:mx-auto"
+                loading="lazy"
+                src="/images/ads/chairAd.jpg"
+                alt="chair"
+              />
             </div>
             <div
               className={` ${
                 activeButton !== 2 ? 'flex flex-col' : 'ml-4 flex flex-col'
               }`}
             >
-              <div className="mb-3 flex gap-2 text-sm">
+              <div
+                className={`${
+                  smScreen
+                    ? 'my-6 flex gap-2 overflow-x-auto text-xs'
+                    : 'mb-3 flex gap-2 text-sm md:overflow-x-auto'
+                }`}
+              >
                 {filterArr.length !== 0 && (
                   <button
                     onClick={() => setFilterArr([])}
-                    className="mr-3  duration-200 hover:text-color8"
+                    className="mr-3 duration-200 hover:text-color8"
                   >
-                    Clear All
+                    {smScreen ? 'Clear All filters' : 'Clear All'}
                   </button>
                 )}
                 {filterArr.map((fObj, index) => (
-                  <div className="flex gap-1 border py-1 pl-5 pr-2" key={index}>
+                  <div
+                    className="flex min-w-fit items-center gap-1 border py-1 pl-5 pr-2  sm:pl-0 sm:pr-2"
+                    key={index}
+                  >
+                    {' '}
+                    {smScreen && (
+                      <button
+                        className="ml-1 min-w-fit"
+                        onClick={() => handleDeleteFilter(index)}
+                      >
+                        <img src="/icons/ui/deleteBtn.svg" alt="deleteBtn" />
+                      </button>
+                    )}
                     <p>{capitalizeFirstLetter(fObj)}</p>
-
-                    <button
-                      className="ml-3"
-                      onClick={() => handleDeleteFilter(index)}
-                    >
-                      {' '}
-                      <img
-                        loading="lazy"
-                        src="/icons/ui/deleteBtn.svg"
-                        alt="deleteBtn"
-                      />
-                    </button>
+                    {!smScreen && (
+                      <button
+                        className="ml-3"
+                        onClick={() => handleDeleteFilter(index)}
+                      >
+                        <img src="/icons/ui/deleteBtn.svg" alt="deleteBtn" />
+                      </button>
+                    )}
                   </div>
                 ))}
               </div>
 
-              <div className="mx-auto flex flex-wrap">
-                {paginatedProducts.length === 0 && (
-                  <p>No availbale items with current filters</p>
+              <div
+                className={`${
+                  smScreen ? 'grid grid-cols-2' : 'mx-auto flex flex-wrap'
+                }`}
+              >
+                {paginatedProducts.length === 0 ? (
+                  <p>No available items with current filters</p>
+                ) : (
+                  paginatedProducts.map((product, index) => {
+                    if (!product.thumbnail) {
+                      return null;
+                    }
+                    return (
+                      <React.Fragment key={index}>
+                        {activeButton === 2 ? (
+                          <Link to={`/all-products/${product.id}`}>
+                            <SingleItemCard
+                              hover="my-4 hover:scale-110 duration-200 hover:px-3"
+                              width="max-w-48"
+                              product={product}
+                            />
+                          </Link>
+                        ) : (
+                          <Link
+                            to={`/all-products/${product.id}`}
+                            key={product.index}
+                          >
+                            <ListView product={product} />
+                          </Link>
+                        )}
+                      </React.Fragment>
+                    );
+                  })
                 )}
-                {paginatedProducts.map((product, index) => {
-                  if (!product.thumbnail) {
-                    return null;
-                  }
-                  return (
-                    <>
-                      {activeButton === 2 ? (
-                        <Link to={`/all-products/${product.id}`} key={index}>
-                          <SingleItemCard
-                            hover={
-                              'my-4 hover:scale-110 duration-200 hover:px-3'
-                            }
-                            key={index}
-                            width="max-w-48"
-                            product={product}
-                          />
-                        </Link>
-                      ) : (
-                        <Link
-                          to={`/all-products/${product.id}`}
-                          key={product.index}
-                        >
-                          <ListView product={product} />
-                        </Link>
-                      )}
-                    </>
-                  );
-                })}
               </div>
+
               <Pagination
                 itemsPerPage={itemsPerPage}
                 totalItems={filteredProducts.length}

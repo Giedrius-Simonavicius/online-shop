@@ -555,6 +555,17 @@ html {
   --tw-backdrop-saturate: ;
   --tw-backdrop-sepia: ;
 }
+.onTop {
+  height: 0;
+  width: 0;
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  transition: 0.3s;
+}
 
 .mt-72 {
   margin-top: 18rem;

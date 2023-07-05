@@ -4,13 +4,16 @@ import { formatCurrency } from '../../helperFns';
 function SingleItemCard({ flex, hover, product }) {
   const flexClass = flex === 'flex' ? 'flex' : 'flex-col';
   const hoverClass = hover !== '' ? hover : '';
+  const { mdScreen } = useGeneralCtx();
 
   const { renderStars } = useGeneralCtx();
   return (
-    <div className={`ml-3 mr-3 ${flexClass} ${hoverClass} `}>
+    <div
+      className={`mb-6 ml-3 mr-3 ${flexClass} ${!mdScreen ? hoverClass : ''} `}
+    >
       {product.inStock ? (
         <div className="flex gap-2">
-          <img loading="lazy" src="..//icons/instock.svg" alt="instock" />
+          <img loading="lazy" src="../icons/instock.svg" alt="instock" />
           <p className="text-sm text-color9">In stock</p>
         </div>
       ) : (
@@ -18,7 +21,7 @@ function SingleItemCard({ flex, hover, product }) {
       )}
       <img
         loading="lazy"
-        className="mx-auto mb-3 mt-3 flex"
+        className="mx-auto mb-3 mt-3 flex sm:mx-0"
         key={product.index}
         src={product.thumbnail}
         alt={product.name}

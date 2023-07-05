@@ -1,5 +1,4 @@
 import React from 'react';
-
 function Pagination({
   itemsPerPage,
   totalItems,
@@ -27,7 +26,7 @@ function Pagination({
   };
 
   return (
-    <div>
+    <div className="sm:text-xs">
       {itemsPerPage <= filteredProducts.length && (
         <ul className="mt-6 flex justify-center gap-2">
           <li

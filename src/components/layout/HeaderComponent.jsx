@@ -32,9 +32,15 @@ function HeaderComponent({ products }) {
   function resetFilterArr() {
     setFilterArr([]);
   }
+  function openPanel() {
+    document.getElementById('myNav').style.width = '100%';
+    document.getElementById('myNav').style.height = '100%';
+    document.getElementById('myNav').style.zIndex = '1';
+    document.getElementById('myNav').style.padding = '24px';
+  }
 
   return (
-    <header className="text-xs lg:text-xxs">
+    <header className=" text-xs lg:text-xxs">
       <Popover>
         {({ open }) => (
           <>
@@ -42,8 +48,8 @@ function HeaderComponent({ products }) {
               <div
                 className={`${
                   mdScreen
-                    ? 'container flex justify-between pb-3 pt-3'
-                    : 'container flex justify-around pb-3 pt-3'
+                    ? 'container mx-auto flex justify-between pb-3 pt-3'
+                    : 'container mx-auto flex justify-around pb-3 pt-3'
                 }`}
               >
                 {mdScreen ? (
@@ -101,63 +107,45 @@ function HeaderComponent({ products }) {
           </>
         )}
       </Popover>
-      <nav>
-        <Popover className="container flex justify-around px-2 md:bg-color3 md:py-2">
-          {({ open }) => (
-            <>
-              {mdScreen ? (
-                <Popover.Button
-                  onClick={() => setIsPopoverOpen(!isPopoverOpen)}
-                  className="focus:outline-none"
-                >
-                  <img width="30px" src="/icons/ui/burger.svg" alt="burger" />
-                </Popover.Button>
-              ) : (
-                <HomeButton mdScreen={mdScreen} />
-              )}
+      <nav className="container mx-auto flex justify-around px-2 md:bg-color3 md:py-2">
+        {mdScreen ? (
+          <img
+            width="30px"
+            onClick={() => {
+              setIsPopoverOpen(!isPopoverOpen);
+              openPanel();
+            }}
+            className="focus:outline-none"
+            src="/icons/ui/burger.svg"
+            alt="burger"
+          />
+        ) : (
+          <HomeButton mdScreen={mdScreen} />
+        )}
 
-              {mdScreen || isSearchBarVisible ? (
-                <div className={`my-auto w-[70%] `}>
-                  <SearchBar products={products} mdScreen={mdScreen} />
-                </div>
-              ) : (
-                <NavBar
-                  setSearchResults={setSearchResults}
-                  resetFilterArr={resetFilterArr}
-                />
-              )}
+        {mdScreen || isSearchBarVisible ? (
+          <div className={`my-auto w-[70%] `}>
+            <SearchBar products={products} mdScreen={mdScreen} />
+          </div>
+        ) : (
+          <NavBar
+            setSearchResults={setSearchResults}
+            resetFilterArr={resetFilterArr}
+          />
+        )}
 
-              <div className="flex gap-6">
-                <SearchButton
-                  openCloseSearchBar={
-                    isSearchBarVisible ? closeSearchBar : openSearchBar
-                  }
-                  isSearchBar={isSearchBarVisible}
-                />
+        <div className="flex gap-6">
+          <SearchButton
+            openCloseSearchBar={
+              isSearchBarVisible ? closeSearchBar : openSearchBar
+            }
+            isSearchBar={isSearchBarVisible}
+          />
 
-                <CartButton mdScreen={mdScreen} />
-              </div>
-              <Transition
-                show={open}
-                enter="transition duration-300 transform origin-left"
-                enterFrom="opacity-0 scale-x-0"
-                enterTo="opacity-100 scale-x-100"
-                leave="transition duration-300 transform origin-left"
-                leaveFrom="opacity-100 scale-y-100"
-                leaveTo="opacity-0 scale-x-0"
-                className="fixed inset-0"
-              >
-                <Popover.Panel className="absolute inset-x-0 inset-y-[123px] ">
-                  {mdScreen && (
-                    <div className=" w-full bg-white">
-                      <NavBar tablet handleCloseNav={handleCloseNav} />
-                    </div>
-                  )}
-                </Popover.Panel>
-              </Transition>
-            </>
-          )}
-        </Popover>
+          <CartButton mdScreen={mdScreen} />
+        </div>
+
+        {mdScreen && <NavBar tablet handleCloseNav={handleCloseNav} />}
       </nav>
     </header>
   );
