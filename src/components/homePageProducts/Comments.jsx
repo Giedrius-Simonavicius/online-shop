@@ -1,16 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Carousel from 'nuka-carousel';
 import LeaveReviewForm from '../forms/LeaveReviewForm';
-import { comments } from '../../data/data';
 import { useGeneralCtx } from '../../context/GeneralProvider';
+import { fetchItems } from '../../helperFns';
+import { orderBy } from 'firebase/firestore';
 
 function Comments() {
   const [showReviewForm, setShowReviewForm] = useState(false);
-  const { mdScreen, smScreen } = useGeneralCtx();
+  const { mdScreen } = useGeneralCtx();
+  const [firebaseComments, setFirebaseComments] = useState([]);
 
   const toggleReviewForm = () => {
     setShowReviewForm(!showReviewForm);
   };
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const items = await fetchItems(
+          'comments',
+          orderBy('timestamp', 'desc'),
+        );
+        setFirebaseComments(items);
+      } catch (error) {
+        console.warn('Something went wrong');
+      }
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <div
       className={`${
@@ -57,8 +76,8 @@ function Comments() {
           )
         }
       >
-        {comments.map((comment) => (
-          <div key={comment.id}>
+        {firebaseComments.map((comment) => (
+          <div key={comment.uid}>
             <div className="flex ">
               <p className="mr-3 align-top text-7xl  font-normal  italic sm:text-5xl">
                 "
@@ -70,6 +89,7 @@ function Comments() {
             <p className="text-right  text-xs sm:text-xxs">
               - {comment.author}
             </p>
+            <p>{comment.timestamp}</p>
           </div>
         ))}
       </Carousel>
