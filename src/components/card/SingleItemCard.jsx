@@ -1,5 +1,5 @@
 import { useGeneralCtx } from '../../context/GeneralProvider';
-import { formatCurrency } from '../../helperFns';
+import { calculateDiscountedPrice, formatCurrency } from '../../helperFns';
 
 function SingleItemCard({ flex, hover, product }) {
   const flexClass = flex === 'flex' ? 'flex' : 'flex-col';
@@ -40,7 +40,9 @@ function SingleItemCard({ flex, hover, product }) {
       )}
 
       <p className="text-sm font-medium">
-        {formatCurrency(product.discountedPrice)}
+        {formatCurrency(
+          calculateDiscountedPrice(product.price, product.discount),
+        )}
       </p>
     </div>
   );

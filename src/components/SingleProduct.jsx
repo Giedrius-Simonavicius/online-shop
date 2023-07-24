@@ -12,7 +12,7 @@ function SingleProduct({ product }) {
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
-  console.log('mdscreen ===', mdScreen);
+
   const handleImageClick = (image) => {
     setSelectedImage(image);
   };

@@ -75,7 +75,7 @@ function NavBar({ setSearchResults, resetFiltArr, tablet }) {
           setSearchResults([]);
           resetFiltArr();
         }}
-        to={'/all-products'}
+        to={'all-products'}
         className={`${
           tablet
             ? 'mb-1 mt-2 w-fit rounded-full border-2 border-color3 px-2 py-1 text-xl'

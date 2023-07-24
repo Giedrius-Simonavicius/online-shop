@@ -1,10 +1,10 @@
 import React from 'react';
 import { useShoppingCartCtx } from '../../context/ShoppingCartContext';
 import { useGeneralCtx } from '../../context/GeneralProvider';
-import { formatCurrency } from '../../helperFns';
+import { calculateDiscountedPrice, formatCurrency } from '../../helperFns';
 import { allPrd } from '../../data/data';
 
-function SingleCartComponent({ id, quantity }) {
+function SingleCartComponent({ uid, quantity }) {
   const { mdScreen } = useGeneralCtx();
 
   const {
@@ -15,10 +15,11 @@ function SingleCartComponent({ id, quantity }) {
     removeFromCart,
   } = useShoppingCartCtx();
 
-  const item = allPrd.find((i) => id === i.id);
+  const item = allPrd.find((i) => uid === i.uid);
   if (item == null) return null;
   console.log('cartArr ===', cartArr);
-
+  const discountedPrice = calculateDiscountedPrice(item.price, item.discount);
+  const subtotal = (discountedPrice * quantity).toFixed(2);
   return (
     cartArr !== [] && (
       <div>
@@ -50,7 +51,9 @@ function SingleCartComponent({ id, quantity }) {
             <div>
               {mdScreen && <p className="text-xs sm:font-normal">Item price</p>}
               <p className="sm:text-sm">
-                {formatCurrency(item.discountedPrice)}
+                {formatCurrency(
+                  calculateDiscountedPrice(item.price, item.discount),
+                )}
               </p>
             </div>
 
@@ -58,19 +61,19 @@ function SingleCartComponent({ id, quantity }) {
               <button
                 className="mx-1 rounded-md border bg-color3 px-1.5 text-white duration-200 hover:border-color3 hover:bg-white hover:text-color3"
                 onClick={() => {
-                  decreaseCartQuantity(item.id, 'removed from cart');
+                  decreaseCartQuantity(item.uid, 'removed from cart');
                 }}
               >
                 -
               </button>
 
-              <p>{getItemQuantity(item.id)}</p>
+              <p>{getItemQuantity(item.uid)}</p>
 
               <button
                 className="mx-1 rounded-md border bg-color3 px-1.5 text-white duration-200 hover:border-color3 hover:bg-white hover:text-color3"
                 onClick={() => {
                   increaseCartQuantity(
-                    item.id,
+                    item.uid,
                     '',
                     'added to cart',
                     item.availableQty,
@@ -84,14 +87,12 @@ function SingleCartComponent({ id, quantity }) {
             <div className="flex gap-2">
               <div>
                 {mdScreen && <p className="text-xs sm:font-normal">Subtotal</p>}
-                <p className="sm:text-sm">
-                  {formatCurrency((item.discountedPrice * quantity).toFixed(2))}
-                </p>{' '}
+                <p className="sm:text-sm">{subtotal}</p>{' '}
               </div>
             </div>
             <button
               onClick={() => {
-                removeFromCart(item.id);
+                removeFromCart(item.uid);
               }}
               className="ml-3 rounded-md border border-color8 px-2 text-color8 duration-200 hover:bg-color8 hover:text-white"
             >

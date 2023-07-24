@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
-// import { v4 as uuidv4 } from 'uuid';
-// import { comments } from '../../data/data';
 import toast from 'react-hot-toast';
 import { db } from '../../firebase/firebase';
 import {
   addDoc,
   collection,
-  getDocs,
   onSnapshot,
   orderBy,
   query,
@@ -42,14 +39,12 @@ function LeaveReviewForm({ onClose }) {
         const newComment = {
           author: values.author,
           comment: values.comment,
-          timestamp: new Date().getTime(), // Add a timestamp to the comment
+          timestamp: new Date().getTime(),
         };
 
-        // Save the comment to Firebase Firestore
         const docRef = await addDoc(collection(db, 'comments'), newComment);
         console.log('Comment added to Firebase Firestore');
 
-        // Add the new comment to the local state
         setComments((prevComments) => [
           { id: docRef.id, ...newComment },
           ...prevComments,

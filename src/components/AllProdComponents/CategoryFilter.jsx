@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { allPrd } from '../../data/data';
+import React, { useEffect, useState } from 'react';
 import { Disclosure, Transition } from '@headlessui/react';
 import { useGeneralCtx } from '../../context/GeneralProvider';
 import ArrowUpDown from '../openClose/ArrowUpDown';
 import { capitalizeFirstLetter } from '../../helperFns';
+import { useDataCtx } from '../../context/DataProvider';
 
 function CategoryFilter() {
   const { filterArr, setFilterArr, smScreen } = useGeneralCtx();
-
+  const { allPrd } = useDataCtx();
   function newFilter(event) {
     const category = event.currentTarget.dataset.category;
     if (filterArr.includes(category)) {
@@ -21,7 +21,7 @@ function CategoryFilter() {
 
   const [uniqueCategories, setUniqueCategories] = useState([]);
 
-  useState(() => {
+  useEffect(() => {
     const categories = [];
     allPrd.forEach((product) => {
       if (!categories.includes(product.category)) {
@@ -29,7 +29,8 @@ function CategoryFilter() {
       }
     });
     setUniqueCategories(categories);
-  }, []);
+    console.log('uniqueCategories ===', uniqueCategories);
+  }, [allPrd]);
 
   return smScreen ? (
     <div>

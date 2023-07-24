@@ -4,7 +4,7 @@ import { useGeneralCtx } from '../context/GeneralProvider';
 import { Link, useLocation } from 'react-router-dom';
 import { filterProducts } from '../components/AllProdComponents/filterUtils';
 import Brands from '../components/homePageProducts/Brands';
-import { capitalizeFirstLetter } from '../helperFns';
+import { calculateDiscountedPrice, capitalizeFirstLetter } from '../helperFns';
 import Pagination from '../components/Pagination';
 import SingleItemCard from '../components/card/SingleItemCard';
 import ListView from '../components/AllProdComponents/ListView';
@@ -50,7 +50,7 @@ function AllProducts({ products }) {
       filterArr.length = 0;
       filterArr.push(...filteredArr);
     }
-  }, [location]);
+  }, [location, filterArr]);
 
   const handleDeleteFilter = (index) => {
     const updatedFilters = [...filterArr];
@@ -99,8 +99,16 @@ function AllProducts({ products }) {
         return products;
       case 'Price':
         return sortDirection
-          ? [...products].sort((a, b) => a.discountedPrice - b.discountedPrice)
-          : [...products].sort((a, b) => b.discountedPrice - a.discountedPrice);
+          ? [...products].sort(
+              (a, b) =>
+                calculateDiscountedPrice(a.price, a.discount) -
+                calculateDiscountedPrice(b.price, b.discount),
+            )
+          : [...products].sort(
+              (a, b) =>
+                calculateDiscountedPrice(b.price, b.discount) -
+                calculateDiscountedPrice(a.price, a.discount),
+            );
       case 'Rating':
         return sortDirection
           ? [...products].sort((a, b) => b.stars - a.stars)
@@ -172,7 +180,7 @@ function AllProducts({ products }) {
           <div className="mx-auto flex flex-wrap">
             {paginatedSearchProducts.map((product, index) => (
               <Link
-                to={`/all-products/${product.id}`}
+                to={`/all-products/${product.uid}`}
                 onClick={() => setSearchResults([])}
                 key={index}
               >
@@ -423,13 +431,13 @@ function AllProducts({ products }) {
                 className={`${
                   smScreen
                     ? 'my-6 flex gap-2 overflow-x-auto text-xs'
-                    : 'mb-3 flex gap-2 text-sm md:overflow-x-auto'
-                }`}
+                    : 'mb-3 flex flex-wrap gap-2 text-sm md:overflow-x-auto '
+                } `}
               >
                 {filterArr.length !== 0 && (
                   <button
                     onClick={() => setFilterArr([])}
-                    className="mr-3 duration-200 hover:text-color8"
+                    className="mx-3 duration-200 hover:text-color8"
                   >
                     {smScreen ? 'Clear All filters' : 'Clear All'}
                   </button>
@@ -476,7 +484,7 @@ function AllProducts({ products }) {
                     return (
                       <React.Fragment key={index}>
                         {activeButton === 2 ? (
-                          <Link to={`/all-products/${product.id}`}>
+                          <Link to={`/all-products/${product.uid}`}>
                             <SingleItemCard
                               hover="my-4 hover:scale-110 duration-200 hover:px-3"
                               width="max-w-48"
@@ -485,7 +493,7 @@ function AllProducts({ products }) {
                           </Link>
                         ) : (
                           <Link
-                            to={`/all-products/${product.id}`}
+                            to={`/all-products/${product.uid}`}
                             key={product.index}
                           >
                             <ListView product={product} />

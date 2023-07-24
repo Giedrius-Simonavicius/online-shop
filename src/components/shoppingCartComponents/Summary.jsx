@@ -2,14 +2,23 @@ import React from 'react';
 import { Disclosure, Transition } from '@headlessui/react';
 import ArrowUpDown from '../openClose/ArrowUpDown';
 import { useShoppingCartCtx } from '../../context/ShoppingCartContext';
-import { formatCurrency } from '../../helperFns';
-import { allPrd } from '../../data/data';
+import { calculateDiscountedPrice, formatCurrency } from '../../helperFns';
+import { useDataCtx } from '../../context/DataProvider';
 
 function Summary({ review }) {
   const { cartArr, deliveryFee } = useShoppingCartCtx();
+  const { allPrd } = useDataCtx();
   const itemsPrice = cartArr.reduce((total, currentCartItem) => {
-    const item = allPrd.find((i) => currentCartItem.id === i.id);
-    return total + currentCartItem.quantity * (item?.discountedPrice || 0);
+    const item = allPrd.find((i) => currentCartItem.uid === i.uid);
+
+    if (item) {
+      return (
+        total +
+        calculateDiscountedPrice(item.price, item.discount) *
+          currentCartItem.quantity
+      );
+    }
+    return total;
   }, 0);
   const totalPrice = itemsPrice + deliveryFee;
 
@@ -46,12 +55,12 @@ function Summary({ review }) {
               <Disclosure.Panel className="text-xs">
                 {cartArr.map((cartItem) => {
                   const item = allPrd.find(
-                    (product) => product.id === cartItem.id,
+                    (product) => product.uid === cartItem.uid,
                   );
 
                   if (item) {
                     return (
-                      <div className="mb-6 flex gap-2" key={item.id}>
+                      <div className="mb-6 flex gap-2" key={item.uid}>
                         <div className="h-16 w-16">
                           <img src={item.thumbnail} alt={item.name} />
                         </div>
@@ -66,7 +75,10 @@ function Summary({ review }) {
                             <p>
                               {formatCurrency(
                                 (
-                                  item.discountedPrice * cartItem.quantity
+                                  calculateDiscountedPrice(
+                                    item.price,
+                                    item.discount,
+                                  ) * cartItem.quantity
                                 ).toFixed(2),
                               )}
                             </p>

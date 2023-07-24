@@ -1,64 +1,56 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import '../styles/style.css';
 import '../styles/App.css';
 import Featuring from '../components/layout/Featuring';
 import Products from '../components/homePageProducts/Products';
-import { customPcs, desktops, laptops, monitors, posts } from '../data/data';
+import { posts } from '../data/data';
 import Brands from '../components/homePageProducts/Brands';
 import Posts from '../components/homePageProducts/Posts';
 import Comments from '../components/homePageProducts/Comments';
 import { useGeneralCtx } from '../context/GeneralProvider';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../firebase/firebase';
+import { useDataCtx } from '../context/DataProvider';
 
 function HomePage() {
-  const [firebaseTest, setFirebaseTest] = useState([]);
-
-  // useEffect(() => {
-  //   async function getItems() {
-  //     try {
-  //       const querySnapshot = await getDocs(collection(db, 'customPcs'));
-  //       const tempItems = [];
-  //       querySnapshot.forEach((doc) => {
-  //         tempItems.push({
-  //           uid: doc.id,
-  //           ...doc.data(),
-  //         });
-  //       });
-  //       setFirebaseTest(tempItems);
-  //       console.log('firebaseTest ===', firebaseTest);
-  //     } catch (error) {
-  //       console.warn('Something went wrong');
-  //       console.error('Error fetching Firestore data:', error);
-  //     }
-  //   }
-  //   getItems();
-  // }, []);
-
   const { mdScreen, smScreen } = useGeneralCtx();
-  return (
-    <div className="">
-      {!smScreen && <Featuring />}
-      {/* {firebaseTest.map((item) => {
-        console.log(item.uid);
-        return (
-          <div key={item.uid}>
-            <h3>{item.inStock}</h3>
-            <div>
-              <p>{item.description}</p>
-              <p>{item.price}</p>
-            </div>
-          </div>
-        );
-      })} */}
+  const {
+    fetchedLaptops,
+    loadingLaptops,
+    fetchedDesktops,
+    loadingDesktops,
+    loadingMonitors,
+    fetchedMonitors,
+    fetchedCustomPcs,
+    loadingCustomPcs,
+  } = useDataCtx();
 
-      <Products products={customPcs} />
-      <Products products={laptops} />
-      <Products products={desktops} />
-      <Products products={monitors} />
+  return (
+    <div>
+      {!smScreen && <Featuring />}
+
+      {!loadingCustomPcs ? (
+        <Products products={fetchedCustomPcs} />
+      ) : (
+        <div>Loading...</div>
+      )}
+      {!loadingLaptops ? (
+        <Products products={fetchedLaptops} />
+      ) : (
+        <div>Loading...</div>
+      )}
+      {!loadingDesktops ? (
+        <Products products={fetchedDesktops} />
+      ) : (
+        <div>Loading...</div>
+      )}
+      {!loadingMonitors ? (
+        <Products products={fetchedMonitors} />
+      ) : (
+        <div>Loading...</div>
+      )}
+
       <Brands container="container" />
       {!mdScreen && <Posts posts={posts} />}
-      {/* <Comments /> pasileidau infinate loopa ir sudroziau firebase reads */}
+      <Comments />
     </div>
   );
 }

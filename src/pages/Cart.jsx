@@ -1,16 +1,17 @@
 import React from 'react';
 import { useShoppingCartCtx } from '../context/ShoppingCartContext';
-import { formatCurrency } from '../helperFns';
+import { calculateDiscountedPrice, formatCurrency } from '../helperFns';
 import SingleCartComponent from '../components/shoppingCartComponents/singleCartComponent';
-import { allPrd } from '../data/data';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { useGeneralCtx } from '../context/GeneralProvider';
+import { useDataCtx } from '../context/DataProvider';
 
 function Cart() {
   const { mdScreen, smScreen } = useGeneralCtx();
   const navigate = useNavigate();
   const { cartArr, setCartArr } = useShoppingCartCtx();
+  const { allPrd } = useDataCtx();
 
   function navigateToAllProducts() {
     navigate('/all-products');
@@ -19,12 +20,21 @@ function Cart() {
     navigate('/cart/delivery');
   }
 
+  const itemsPrice = cartArr.reduce((total, currentCartItem) => {
+    const item = allPrd.find((i) => currentCartItem.uid === i.uid);
+    return (
+      total +
+        currentCartItem.quantity *
+          calculateDiscountedPrice(item?.price, item?.discount) || 0
+    );
+  }, 0);
+  console.log('itemsPrice ===', itemsPrice);
   return (
     <div className="container mx-auto px-8">
       <h2 className="my-4 text-2xl font-bold">Shopping Cart</h2>
       <div>
         {cartArr.map((item) => (
-          <SingleCartComponent key={item.id} {...item} />
+          <SingleCartComponent key={item.uid} {...item} />
         ))}
       </div>
       <div
@@ -39,18 +49,7 @@ function Cart() {
             <div className="">
               <div className="text-center">
                 <p className="mb-5 text-2xl">
-                  Total:{' '}
-                  {formatCurrency(
-                    cartArr.reduce((total, currentCartItem) => {
-                      const item = allPrd.find(
-                        (i) => currentCartItem.id === i.id,
-                      );
-                      return (
-                        total +
-                        currentCartItem.quantity * (item?.discountedPrice || 0)
-                      );
-                    }, 0),
-                  )}
+                  Total: {formatCurrency(itemsPrice)}
                 </p>
               </div>
               <div className="flex justify-center">
@@ -114,18 +113,7 @@ function Cart() {
           <div className="flex flex-col justify-between">
             <div className="flex items-start justify-center">
               <p className="mb-5 text-2xl">
-                Total:{' '}
-                {formatCurrency(
-                  cartArr.reduce((total, currentCartItem) => {
-                    const item = allPrd.find(
-                      (i) => currentCartItem.id === i.id,
-                    );
-                    return (
-                      total +
-                      currentCartItem.quantity * (item?.discountedPrice || 0)
-                    );
-                  }, 0),
-                )}
+                Total: {formatCurrency(itemsPrice)}
               </p>
             </div>
             <div>
@@ -149,20 +137,7 @@ function Cart() {
                 </button>
               </div>{' '}
               <div className="mt-4 flex justify-end">
-                <p className="text-2xl">
-                  Total:{' '}
-                  {formatCurrency(
-                    cartArr.reduce((total, currentCartItem) => {
-                      const item = allPrd.find(
-                        (i) => currentCartItem.id === i.id,
-                      );
-                      return (
-                        total +
-                        currentCartItem.quantity * (item?.discountedPrice || 0)
-                      );
-                    }, 0),
-                  )}
-                </p>
+                <p className="text-2xl">Total: {formatCurrency(itemsPrice)}</p>
               </div>
             </div>
           )

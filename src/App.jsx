@@ -6,7 +6,6 @@ import HeaderComponent from './components/layout/HeaderComponent';
 import HomePage from './pages/HomePage';
 import FooterComponent from './components/layout/FooterComponent';
 import AllProducts from './pages/AllProducts';
-import { laptops, customPcs, monitors, desktops, allPrd } from './data/data';
 import SingleProductPage from './pages/SingleProductPage';
 import ContactUs from './pages/ContactUs';
 import ScrollToTop from './components/ScrollToTop';
@@ -14,12 +13,60 @@ import AboutUs from './pages/AboutUs';
 import Terms from './pages/Terms';
 import Services from './components/homePageProducts/Services';
 import NotFound from './pages/NotFound';
-
 import { Toaster } from 'react-hot-toast';
 import Cart from './pages/Cart';
 import CartDelivery from './pages/CartDelivery';
 import CartReview from './pages/CartReview';
+import { collection, addDoc, getDocs } from 'firebase/firestore';
+import { db } from './firebase/firebase';
+import { useDataCtx } from './context/DataProvider';
+
 function App() {
+  const {
+    fetchedLaptops,
+    fetchedDesktops,
+    fetchedMonitors,
+    fetchedCustomPcs,
+    allPrd,
+  } = useDataCtx();
+  console.log('fetchedMonitors ===', fetchedMonitors);
+
+  // async function checkCollectionExists(collectionName) {
+  //   const querySnapshot = await getDocs(collection(db, collectionName));
+  //   return !querySnapshot.empty;
+  // }
+
+  // async function uploadcustomPcsToFirestore() {
+  //   console.log('Function uploadcustomPcsToFirestore() is called');
+
+  //   try {
+  //     const collectionName = 'customPcs';
+  //     const customPcsCollection = collection(db, collectionName);
+
+  //     console.log('Checking if the "customPcs" collection exists...');
+  //     const collectionExists = await checkCollectionExists(collectionName);
+
+  //     if (!collectionExists) {
+  //       console.log(
+  //         'The "customPcs" collection does not exist. Creating it...',
+  //       );
+  //       await addDoc(collection(db, 'collections'), {
+  //         name: 'customPcs',
+  //       });
+  //     }
+
+  //     for (const laptop of customPcs) {
+  //       console.log('Uploading laptop to Firestore:', laptop);
+  //       await addDoc(customPcsCollection, laptop);
+  //     }
+
+  //     console.log('All customPcs uploaded to Firestore successfully!');
+  //   } catch (error) {
+  //     console.error('Error uploading customPcs:', error);
+  //   }
+  // }
+
+  // uploadcustomPcsToFirestore();
   return (
     <div>
       <ScrollToTop />
@@ -38,19 +85,19 @@ function App() {
         <Route path="*" element={<NotFound />} />
         <Route
           path="all-products/laptops"
-          element={<AllProducts products={laptops} />}
+          element={<AllProducts products={fetchedLaptops} />}
         />
         <Route
           path="all-products/custom-pcs"
-          element={<AllProducts products={customPcs} />}
+          element={<AllProducts products={fetchedCustomPcs} />}
         />
         <Route
           path="all-products/monitors"
-          element={<AllProducts products={monitors} />}
+          element={<AllProducts products={fetchedMonitors} />}
         />
         <Route
           path="all-products/desktops"
-          element={<AllProducts products={desktops} />}
+          element={<AllProducts products={fetchedDesktops} />}
         />
         <Route
           path="all-products"

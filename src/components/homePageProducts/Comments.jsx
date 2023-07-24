@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Carousel from 'nuka-carousel';
 import LeaveReviewForm from '../forms/LeaveReviewForm';
 import { useGeneralCtx } from '../../context/GeneralProvider';
-import { fetchItems } from '../../helperFns';
-import { orderBy } from 'firebase/firestore';
+import { fetchItems, formatTimestamp } from '../../helperFns';
 
 function Comments() {
   const [showReviewForm, setShowReviewForm] = useState(false);
@@ -17,11 +16,9 @@ function Comments() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const items = await fetchItems(
-          'comments',
-          orderBy('timestamp', 'desc'),
-        );
-        setFirebaseComments(items);
+        const items = await fetchItems('comments');
+        const orderedItems = items.sort((a, b) => b.timestamp - a.timestamp);
+        setFirebaseComments(orderedItems);
       } catch (error) {
         console.warn('Something went wrong');
       }
@@ -86,10 +83,10 @@ function Comments() {
                 {comment.comment}
               </p>
             </div>
-            <p className="text-right  text-xs sm:text-xxs">
-              - {comment.author}
-            </p>
-            <p>{comment.timestamp}</p>
+            <div className="my-3 flex justify-between text-xs sm:text-xxs">
+              <span className="">{formatTimestamp(comment.timestamp)}</span>
+              <p className="text-xs sm:text-xxs">- {comment.author}</p>
+            </div>
           </div>
         ))}
       </Carousel>
