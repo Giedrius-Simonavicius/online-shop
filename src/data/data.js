@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from 'uuid';
-import { fetchItems } from '../helperFns';
 
 // export const customPcs = [
 //   {
@@ -1330,14 +1329,6 @@ export const posts = [
 //   },
 // ];
 
-export const allPrd = [
-  // ...customPcs.slice(1),
-  // ...desktops.slice(1),
-  // ...laptops.slice(1),
-  // ...monitors.slice(1),
-];
-// console.log('allPrd ===', allPrd);
-
 export const countryList = [
   'Afghanistan',
   'Aland Islands',
@@ -1592,8 +1583,3 @@ export const countryList = [
   'Zambia',
   'Zimbabwe',
 ];
-
-// export const customPcsData = customPcs.slice(1);
-// export const laptopsData = laptops.slice(1);
-// export const desktopsData = desktops.slice(1);
-// export const monitorsData = monitors.slice(1);

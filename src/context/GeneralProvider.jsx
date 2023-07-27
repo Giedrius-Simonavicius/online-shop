@@ -10,6 +10,7 @@ const GeneralContext = createContext({
   setSearchResults() {},
   mdScreen: [],
   smScreen: [],
+  xlScreen: [],
 });
 GeneralContext.displayName = 'General context';
 
@@ -19,11 +20,13 @@ function GeneralContextProvider({ children }) {
   const [searchResults, setSearchResults] = useState([]);
   const [mdScreen, setMdScreen] = useState(window.innerWidth <= 787);
   const [smScreen, setSmScreen] = useState(window.innerWidth <= 570);
+  const [xlScreen, setXlScreen] = useState(window.innerWidth >= 1440);
 
   useEffect(() => {
     const handleResize = () => {
       setMdScreen(window.innerWidth <= 787);
       setSmScreen(window.innerWidth <= 570);
+      setXlScreen(window.innerWidth >= 1440);
     };
     window.addEventListener('resize', handleResize);
 
@@ -57,6 +60,7 @@ function GeneralContextProvider({ children }) {
     setSearchResults,
     mdScreen,
     smScreen,
+    xlScreen,
   };
 
   return (

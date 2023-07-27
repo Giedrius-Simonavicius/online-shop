@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function HomeButton({ mdScreen }) {
   return (
@@ -27,5 +28,7 @@ function HomeButton({ mdScreen }) {
     </NavLink>
   );
 }
-
+HomeButton.propTypes = {
+  mdScreen: PropTypes.bool.isRequired,
+};
 export default HomeButton;

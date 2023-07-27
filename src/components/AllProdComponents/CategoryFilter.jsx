@@ -29,7 +29,6 @@ function CategoryFilter() {
       }
     });
     setUniqueCategories(categories);
-    console.log('uniqueCategories ===', uniqueCategories);
   }, [allPrd]);
 
   return smScreen ? (

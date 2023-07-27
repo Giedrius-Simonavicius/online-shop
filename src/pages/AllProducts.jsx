@@ -8,6 +8,7 @@ import { calculateDiscountedPrice, capitalizeFirstLetter } from '../helperFns';
 import Pagination from '../components/Pagination';
 import SingleItemCard from '../components/card/SingleItemCard';
 import ListView from '../components/AllProdComponents/ListView';
+import PropTypes from 'prop-types';
 
 function AllProducts({ products }) {
   const [categoryNameDisplay, setCategoryNameDisplay] =
@@ -16,6 +17,7 @@ function AllProducts({ products }) {
   const [activeViewColor, setActiveViewColor] = useState('black');
   const [activeViewColor1, setActiveViewColor1] = useState('#A2A6B0');
   const [activeButton, setActiveButton] = useState(2);
+
   function changeViewColor() {
     setActiveViewColor('#A2A6B0');
     setActiveViewColor1('black');
@@ -29,7 +31,20 @@ function AllProducts({ products }) {
 
   const { filterArr, setFilterArr, searchResults, smScreen, setSearchResults } =
     useGeneralCtx();
+
   const location = useLocation();
+
+  useEffect(() => {
+    if (smScreen) {
+      setActiveButton(2);
+      setActiveViewColor('black');
+      setActiveViewColor1('#A2A6B0');
+    } else {
+      setActiveButton(2);
+      setActiveViewColor('black');
+      setActiveViewColor1('#A2A6B0');
+    }
+  }, [smScreen]);
 
   useEffect(() => {
     if (location.pathname === '/all-products') {
@@ -185,7 +200,7 @@ function AllProducts({ products }) {
                 key={index}
               >
                 <SingleItemCard
-                  hover={'my-4 hover:scale-110  duration-200 hover:px-3'}
+                  hover={'my-4 hover:scale-110  duration-200'}
                   key={index}
                   width="max-w-48"
                   product={product}
@@ -349,7 +364,7 @@ function AllProducts({ products }) {
                   </svg>
                 </button>
                 <button
-                  className={` ${activeButton === 1 ? 'shadow-md' : ''}`}
+                  className={`${activeButton === 1 ? 'shadow-md' : ''}`}
                   onClick={changeViewColor}
                 >
                   <svg
@@ -475,7 +490,7 @@ function AllProducts({ products }) {
                 }`}
               >
                 {paginatedProducts.length === 0 ? (
-                  <p>No available items with current filters</p>
+                  <p>No items with current filters</p>
                 ) : (
                   paginatedProducts.map((product, index) => {
                     if (!product.thumbnail) {
@@ -486,7 +501,7 @@ function AllProducts({ products }) {
                         {activeButton === 2 ? (
                           <Link to={`/all-products/${product.uid}`}>
                             <SingleItemCard
-                              hover="my-4 hover:scale-110 duration-200 hover:px-3"
+                              hover="my-4 hover:scale-110 duration-200"
                               width="max-w-48"
                               product={product}
                             />
@@ -494,7 +509,7 @@ function AllProducts({ products }) {
                         ) : (
                           <Link
                             to={`/all-products/${product.uid}`}
-                            key={product.index}
+                            key={product.uid}
                           >
                             <ListView product={product} />
                           </Link>
@@ -519,5 +534,18 @@ function AllProducts({ products }) {
     </div>
   );
 }
+AllProducts.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      uid: PropTypes.string,
+      thumbnail: PropTypes.string,
+      name: PropTypes.string,
+      price: PropTypes.number,
+      discount: PropTypes.number,
+      stars: PropTypes.number,
+      inStock: PropTypes.bool,
+    }),
+  ).isRequired,
+};
 
 export default AllProducts;

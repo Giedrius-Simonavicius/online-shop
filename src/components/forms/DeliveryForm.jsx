@@ -7,8 +7,7 @@ import { toast } from 'react-hot-toast';
 
 function DeliveryForm() {
   const navigate = useNavigate();
-  const { setShippingInfo, shippingInfo, setDeliveryFee } =
-    useShoppingCartCtx();
+  const { setShippingInfo, setDeliveryFee } = useShoppingCartCtx();
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -79,7 +78,6 @@ function DeliveryForm() {
       phoneNo: ShippingInfoValuesObj.phoneNo,
       deliveryMethod: ShippingInfoValuesObj.deliveryMethod,
     });
-    console.log('newShippingInfo ===', shippingInfo);
   }
   const handleDeliveryMethodChange = (event) => {
     const { value } = event.target;

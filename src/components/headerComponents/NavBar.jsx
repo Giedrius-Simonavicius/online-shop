@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-function NavBar({ setSearchResults, resetFiltArr, tablet }) {
+function NavBar({ setSearchResults, resetFilterArr, tablet }) {
   function closeFn() {
     document.getElementById('myNav').style.width = '0%';
     document.getElementById('myNav').style.height = '0%';
@@ -73,7 +74,7 @@ function NavBar({ setSearchResults, resetFiltArr, tablet }) {
       <NavLink
         onClick={() => {
           setSearchResults([]);
-          resetFiltArr();
+          resetFilterArr();
         }}
         to={'all-products'}
         className={`${
@@ -87,5 +88,10 @@ function NavBar({ setSearchResults, resetFiltArr, tablet }) {
     </div>
   );
 }
-
+NavBar.propTypes = {
+  setSearchResults: PropTypes.func,
+  resetFilterArr: PropTypes.func,
+  tablet: PropTypes.bool,
+  handleCloseNav: PropTypes.func,
+};
 export default NavBar;

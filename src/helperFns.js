@@ -34,7 +34,6 @@ export async function fetchItems(collectionName) {
     const querySnapshot = await getDocs(collection(db, collectionName));
     const tempItems = [];
     querySnapshot.forEach((doc) => {
-      // console.log('mainprddata ===', tempItems);
       tempItems.push({
         uid: doc.id,
         ...doc.data(),

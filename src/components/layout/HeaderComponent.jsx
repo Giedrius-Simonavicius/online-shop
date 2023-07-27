@@ -145,7 +145,14 @@ function HeaderComponent({ products }) {
           <CartButton mdScreen={mdScreen} />
         </div>
 
-        {mdScreen && <NavBar tablet handleCloseNav={handleCloseNav} />}
+        {mdScreen && (
+          <NavBar
+            tablet
+            handleCloseNav={handleCloseNav}
+            setSearchResults={setSearchResults}
+            resetFilterArr={resetFilterArr}
+          />
+        )}
       </nav>
     </header>
   );

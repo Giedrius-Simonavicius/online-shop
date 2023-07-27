@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 function SearchButton({ openCloseSearchBar, isSearchBar }) {
   const [onHoverColorSearch, setOnHoverColorSearch] = useState('black');
@@ -61,5 +62,8 @@ function SearchButton({ openCloseSearchBar, isSearchBar }) {
     </button>
   );
 }
-
+SearchButton.propTypes = {
+  openCloseSearchBar: PropTypes.func.isRequired,
+  isSearchBar: PropTypes.bool.isRequired,
+};
 export default SearchButton;

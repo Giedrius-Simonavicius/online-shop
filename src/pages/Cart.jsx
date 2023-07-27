@@ -28,7 +28,7 @@ function Cart() {
           calculateDiscountedPrice(item?.price, item?.discount) || 0
     );
   }, 0);
-  console.log('itemsPrice ===', itemsPrice);
+
   return (
     <div className="container mx-auto px-8">
       <h2 className="my-4 text-2xl font-bold">Shopping Cart</h2>
@@ -46,7 +46,7 @@ function Cart() {
       >
         {smScreen && (
           <div>
-            <div className="">
+            <div>
               <div className="text-center">
                 <p className="mb-5 text-2xl">
                   Total: {formatCurrency(itemsPrice)}

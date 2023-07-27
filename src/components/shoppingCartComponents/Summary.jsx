@@ -4,7 +4,7 @@ import ArrowUpDown from '../openClose/ArrowUpDown';
 import { useShoppingCartCtx } from '../../context/ShoppingCartContext';
 import { calculateDiscountedPrice, formatCurrency } from '../../helperFns';
 import { useDataCtx } from '../../context/DataProvider';
-
+import PropTypes from 'prop-types';
 function Summary({ review }) {
   const { cartArr, deliveryFee } = useShoppingCartCtx();
   const { allPrd } = useDataCtx();
@@ -65,7 +65,7 @@ function Summary({ review }) {
                           <img src={item.thumbnail} alt={item.name} />
                         </div>
                         <div className="flex flex-col justify-around">
-                          <p className="w-1/2 w-fit text-xs font-normal">
+                          <p className="w-fit text-xs font-normal">
                             {item.aboutProduct.slice(0, 40)}...
                           </p>
                           <div className="flex gap-2">
@@ -102,5 +102,7 @@ function Summary({ review }) {
     </div>
   );
 }
-
+Summary.propTypes = {
+  review: PropTypes.bool,
+};
 export default Summary;

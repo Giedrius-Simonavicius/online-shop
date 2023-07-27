@@ -2,6 +2,7 @@ import React from 'react';
 import { useGeneralCtx } from '../../context/GeneralProvider';
 import AddToCart from '../singleProductComponents/AddToCart';
 import { calculateDiscountedPrice, formatCurrency } from '../../helperFns';
+import PropTypes from 'prop-types';
 
 function ListView({ product }) {
   const { renderStars } = useGeneralCtx();
@@ -79,4 +80,16 @@ function ListView({ product }) {
   );
 }
 
+ListView.propTypes = {
+  product: PropTypes.shape({
+    productId: PropTypes.string.isRequired,
+    aboutProduct: PropTypes.string.isRequired,
+    thumbnail: PropTypes.string.isRequired,
+    inStock: PropTypes.bool.isRequired,
+    discount: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    stars: PropTypes.number.isRequired,
+    specs: PropTypes.objectOf(PropTypes.string).isRequired,
+  }).isRequired,
+};
 export default ListView;

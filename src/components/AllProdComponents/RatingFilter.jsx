@@ -34,13 +34,8 @@ function RatingFilter() {
 
     stars.sort((a, b) => a - b);
     setStarCount(stars);
-  }, [allPrd]);
-
-  useEffect(() => {
-    if (allPrd.length !== 0) {
-      setLoadingAllPrd(false);
-    }
-  }, [allPrd]);
+    setLoadingAllPrd(false);
+  }, [allPrd, setLoadingAllPrd]);
 
   return (
     <div>

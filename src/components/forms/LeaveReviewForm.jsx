@@ -9,8 +9,10 @@ import {
   orderBy,
   query,
 } from 'firebase/firestore';
+import PropTypes from 'prop-types';
 
 function LeaveReviewForm({ onClose }) {
+  // eslint-disable-next-line no-unused-vars
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
@@ -146,5 +148,7 @@ function LeaveReviewForm({ onClose }) {
     </form>
   );
 }
-
+LeaveReviewForm.propTypes = {
+  onClose: PropTypes.bool.isRequired,
+};
 export default LeaveReviewForm;

@@ -18,8 +18,9 @@ import Cart from './pages/Cart';
 import CartDelivery from './pages/CartDelivery';
 import CartReview from './pages/CartReview';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
-import { db } from './firebase/firebase';
+import { db, storage } from './firebase/firebase';
 import { useDataCtx } from './context/DataProvider';
+import ConfirmedPurchase from './pages/ConfirmedPurchase';
 
 function App() {
   const {
@@ -29,7 +30,9 @@ function App() {
     fetchedCustomPcs,
     allPrd,
   } = useDataCtx();
-  console.log('fetchedMonitors ===', fetchedMonitors);
+
+  // const imageRef = storage.ref().child('postsImages/post1.jpg');
+  // console.log('imageRef ===', imageRef);
 
   // async function checkCollectionExists(collectionName) {
   //   const querySnapshot = await getDocs(collection(db, collectionName));
@@ -83,6 +86,7 @@ function App() {
         <Route path="about-us" element={<AboutUs />} />
         <Route path="terms-conditions" element={<Terms />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/confirmed" element={<ConfirmedPurchase />} />
         <Route
           path="all-products/laptops"
           element={<AllProducts products={fetchedLaptops} />}

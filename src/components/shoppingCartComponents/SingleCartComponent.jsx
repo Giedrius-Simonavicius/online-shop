@@ -2,10 +2,12 @@ import React from 'react';
 import { useShoppingCartCtx } from '../../context/ShoppingCartContext';
 import { useGeneralCtx } from '../../context/GeneralProvider';
 import { calculateDiscountedPrice, formatCurrency } from '../../helperFns';
-import { allPrd } from '../../data/data';
+import { useDataCtx } from '../../context/DataProvider';
+import PropTypes from 'prop-types';
 
 function SingleCartComponent({ uid, quantity }) {
   const { mdScreen } = useGeneralCtx();
+  const { allPrd } = useDataCtx();
 
   const {
     cartArr,
@@ -17,7 +19,7 @@ function SingleCartComponent({ uid, quantity }) {
 
   const item = allPrd.find((i) => uid === i.uid);
   if (item == null) return null;
-  console.log('cartArr ===', cartArr);
+
   const discountedPrice = calculateDiscountedPrice(item.price, item.discount);
   const subtotal = (discountedPrice * quantity).toFixed(2);
   return (
@@ -104,5 +106,8 @@ function SingleCartComponent({ uid, quantity }) {
     )
   );
 }
-
+SingleCartComponent.propTypes = {
+  uid: PropTypes.string.isRequired,
+  quantity: PropTypes.number.isRequired,
+};
 export default SingleCartComponent;

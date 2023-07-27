@@ -1,5 +1,6 @@
 import React from 'react';
 import { useShoppingCartCtx } from '../../context/ShoppingCartContext';
+import PropTypes from 'prop-types';
 
 function AddToCart({ product, list }) {
   const {
@@ -15,7 +16,7 @@ function AddToCart({ product, list }) {
       {quantity === 0 ? (
         <button
           onClick={() => {
-            increaseCartQuantity(product.uid, product.inStock, 'Out of stock');
+            increaseCartQuantity(product.uid, product.inStock, 'Added to cart');
           }}
           className={` ${
             list
@@ -66,5 +67,13 @@ function AddToCart({ product, list }) {
     </div>
   );
 }
+AddToCart.propTypes = {
+  product: PropTypes.shape({
+    uid: PropTypes.string.isRequired,
+    inStock: PropTypes.bool.isRequired,
+    availableQty: PropTypes.number.isRequired,
+  }).isRequired,
+  list: PropTypes.any,
+};
 
 export default AddToCart;

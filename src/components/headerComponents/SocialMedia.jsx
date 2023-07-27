@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function SocialMedia({ footer }) {
   return (
@@ -56,5 +57,9 @@ function SocialMedia({ footer }) {
     </div>
   );
 }
+
+SocialMedia.propTypes = {
+  footer: PropTypes.bool,
+};
 
 export default SocialMedia;

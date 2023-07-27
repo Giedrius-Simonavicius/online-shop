@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 function Pagination({
   itemsPerPage,
   totalItems,
@@ -88,5 +89,12 @@ function Pagination({
     </div>
   );
 }
-
+Pagination.propTypes = {
+  itemsPerPage: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
+  totalItems: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  paginate: PropTypes.func.isRequired,
+  filteredProducts: PropTypes.array.isRequired,
+};
 export default Pagination;

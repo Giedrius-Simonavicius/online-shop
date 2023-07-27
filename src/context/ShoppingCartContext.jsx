@@ -61,7 +61,7 @@ function ShoppingCartProvider({ children }) {
         message && toast.success(message);
         return [...currentItems, { uid, quantity: currentQuantity + 1 }];
       } else if (existingItem == null && !inStock) {
-        message && toast.error(message);
+        message && toast.error('Out of stock');
         return currentItems;
       } else {
         if (currentQuantity < availableQty) {

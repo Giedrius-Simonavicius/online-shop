@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../card/Card';
+import PropTypes from 'prop-types';
 
 function Posts({ posts }) {
   return (
@@ -24,5 +25,14 @@ function Posts({ posts }) {
     </div>
   );
 }
-
+Posts.propTypes = {
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      thumbnail: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
 export default Posts;
