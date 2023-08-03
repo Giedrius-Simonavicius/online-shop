@@ -41,9 +41,10 @@ function ShoppingCartProvider({ children }) {
   const [shippingInfo, setShippingInfo] = useState({});
   const [deliveryFee, setDeliveryFee] = useState(0);
 
-  function getItemQuantity(id) {
-    return cartArr.find((item) => item.id === id)?.quantity || 0;
+  function getItemQuantity(uid) {
+    return cartArr.find((item) => item.uid === uid)?.quantity || 0;
   }
+
   function getCartQuantity() {
     let totalQuantity = 0;
     cartArr.forEach((item) => {
@@ -52,22 +53,22 @@ function ShoppingCartProvider({ children }) {
     return totalQuantity;
   }
 
-  function increaseCartQuantity(id, inStock, message, availableQty) {
+  function increaseCartQuantity(uid, inStock, message, availableQty) {
     setCartArr((currentItems) => {
-      const existingItem = currentItems.find((item) => item.id === id);
+      const existingItem = currentItems.find((item) => item.uid === uid);
       const currentQuantity = existingItem ? existingItem.quantity : 0;
 
       if (existingItem == null && inStock) {
         message && toast.success(message);
-        return [...currentItems, { id, quantity: currentQuantity + 1 }];
+        return [...currentItems, { uid, quantity: currentQuantity + 1 }];
       } else if (existingItem == null && !inStock) {
-        message && toast.error(message);
+        message && toast.error('Out of stock');
         return currentItems;
       } else {
         if (currentQuantity < availableQty) {
           message && toast.success(message);
           return currentItems.map((item) =>
-            item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
+            item.uid === uid ? { ...item, quantity: item.quantity + 1 } : item,
           );
         } else {
           message && toast.error('Maximum available quantity reached');
@@ -77,14 +78,15 @@ function ShoppingCartProvider({ children }) {
     });
   }
 
-  function decreaseCartQuantity(id, message) {
+  function decreaseCartQuantity(uid, message) {
     setCartArr((currentItems) => {
-      if (currentItems.find((item) => item.id === id)?.quantity === 1) {
-        return currentItems.filter((item) => item.id !== id);
+      if (currentItems.find((item) => item.uid === uid)?.quantity === 1) {
+        message && toast.error(message);
+        return currentItems.filter((item) => item.uid !== uid);
       } else {
         message && toast.error(message);
         return currentItems.map((item) => {
-          if (item.id === id) {
+          if (item.uid === uid) {
             return { ...item, quantity: item.quantity - 1 };
           } else {
             return item;
@@ -94,9 +96,9 @@ function ShoppingCartProvider({ children }) {
     });
   }
 
-  function removeFromCart(id) {
+  function removeFromCart(uid) {
     setCartArr((currentItems) => {
-      return currentItems.filter((item) => item.id !== id);
+      return currentItems.filter((item) => item.uid !== uid);
     });
   }
   const ShoppingCartCtx = {

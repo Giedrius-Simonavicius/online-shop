@@ -1,3 +1,5 @@
+import { calculateDiscountedPrice } from '../../helperFns';
+
 export const filterProducts = (products, filterArr) => {
   if (!products) {
     return [];
@@ -13,7 +15,7 @@ export const filterProducts = (products, filterArr) => {
   const inStockFilter = filterArr.includes('in stock');
 
   return products.filter((product) => {
-    const price = product.discountedPrice;
+    const price = calculateDiscountedPrice(product.price, product.discount);
     const isInStock = product.inStock;
 
     const categoryMatch =

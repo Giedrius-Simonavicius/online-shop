@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Filter from '../components/AllProdComponents/Filter';
 import { useGeneralCtx } from '../context/GeneralProvider';
 import { Link, useLocation } from 'react-router-dom';
 import { filterProducts } from '../components/AllProdComponents/filterUtils';
 import Brands from '../components/homePageProducts/Brands';
-import { capitalizeFirstLetter } from '../helperFns';
+import { calculateDiscountedPrice, capitalizeFirstLetter } from '../helperFns';
 import Pagination from '../components/Pagination';
 import SingleItemCard from '../components/card/SingleItemCard';
 import ListView from '../components/AllProdComponents/ListView';
+import PropTypes from 'prop-types';
 
 function AllProducts({ products }) {
   const [categoryNameDisplay, setCategoryNameDisplay] =
@@ -16,6 +17,7 @@ function AllProducts({ products }) {
   const [activeViewColor, setActiveViewColor] = useState('black');
   const [activeViewColor1, setActiveViewColor1] = useState('#A2A6B0');
   const [activeButton, setActiveButton] = useState(2);
+
   function changeViewColor() {
     setActiveViewColor('#A2A6B0');
     setActiveViewColor1('black');
@@ -29,7 +31,20 @@ function AllProducts({ products }) {
 
   const { filterArr, setFilterArr, searchResults, smScreen, setSearchResults } =
     useGeneralCtx();
+
   const location = useLocation();
+
+  useEffect(() => {
+    if (smScreen) {
+      setActiveButton(2);
+      setActiveViewColor('black');
+      setActiveViewColor1('#A2A6B0');
+    } else {
+      setActiveButton(2);
+      setActiveViewColor('black');
+      setActiveViewColor1('#A2A6B0');
+    }
+  }, [smScreen]);
 
   useEffect(() => {
     if (location.pathname === '/all-products') {
@@ -50,7 +65,7 @@ function AllProducts({ products }) {
       filterArr.length = 0;
       filterArr.push(...filteredArr);
     }
-  }, [location]);
+  }, [location, filterArr]);
 
   const handleDeleteFilter = (index) => {
     const updatedFilters = [...filterArr];
@@ -90,7 +105,19 @@ function AllProducts({ products }) {
     indexOfLastItem,
   );
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = useCallback(
+    (pageNumber) => {
+      const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+      const validPageNumber = Math.max(1, Math.min(pageNumber, totalPages));
+      setCurrentPage(validPageNumber);
+    },
+    [filteredProducts, itemsPerPage],
+  );
+
+  useEffect(() => {
+    setCurrentPage(1);
+    paginate(1);
+  }, [filteredProducts, itemsPerPage, paginate]);
   const howManyToDisplay = [5, 10, 20, 30, 50];
 
   function sortItems(category, products, sortDirection) {
@@ -99,8 +126,16 @@ function AllProducts({ products }) {
         return products;
       case 'Price':
         return sortDirection
-          ? [...products].sort((a, b) => a.discountedPrice - b.discountedPrice)
-          : [...products].sort((a, b) => b.discountedPrice - a.discountedPrice);
+          ? [...products].sort(
+              (a, b) =>
+                calculateDiscountedPrice(a.price, a.discount) -
+                calculateDiscountedPrice(b.price, b.discount),
+            )
+          : [...products].sort(
+              (a, b) =>
+                calculateDiscountedPrice(b.price, b.discount) -
+                calculateDiscountedPrice(a.price, a.discount),
+            );
       case 'Rating':
         return sortDirection
           ? [...products].sort((a, b) => b.stars - a.stars)
@@ -172,12 +207,12 @@ function AllProducts({ products }) {
           <div className="mx-auto flex flex-wrap">
             {paginatedSearchProducts.map((product, index) => (
               <Link
-                to={`/all-products/${product.id}`}
+                to={`/all-products/${product.uid}`}
                 onClick={() => setSearchResults([])}
                 key={index}
               >
                 <SingleItemCard
-                  hover={'my-4 hover:scale-110  duration-200 hover:px-3'}
+                  hover={'my-4 hover:scale-110  duration-200'}
                   key={index}
                   width="max-w-48"
                   product={product}
@@ -341,7 +376,7 @@ function AllProducts({ products }) {
                   </svg>
                 </button>
                 <button
-                  className={` ${activeButton === 1 ? 'shadow-md' : ''}`}
+                  className={`${activeButton === 1 ? 'shadow-md' : ''}`}
                   onClick={changeViewColor}
                 >
                   <svg
@@ -423,13 +458,13 @@ function AllProducts({ products }) {
                 className={`${
                   smScreen
                     ? 'my-6 flex gap-2 overflow-x-auto text-xs'
-                    : 'mb-3 flex gap-2 text-sm md:overflow-x-auto'
-                }`}
+                    : 'mb-3 flex flex-wrap gap-2 text-sm md:overflow-x-auto '
+                } `}
               >
                 {filterArr.length !== 0 && (
                   <button
                     onClick={() => setFilterArr([])}
-                    className="mr-3 duration-200 hover:text-color8"
+                    className="mx-3 duration-200 hover:text-color8"
                   >
                     {smScreen ? 'Clear All filters' : 'Clear All'}
                   </button>
@@ -467,7 +502,7 @@ function AllProducts({ products }) {
                 }`}
               >
                 {paginatedProducts.length === 0 ? (
-                  <p>No available items with current filters</p>
+                  <p>No items with current filters</p>
                 ) : (
                   paginatedProducts.map((product, index) => {
                     if (!product.thumbnail) {
@@ -476,17 +511,17 @@ function AllProducts({ products }) {
                     return (
                       <React.Fragment key={index}>
                         {activeButton === 2 ? (
-                          <Link to={`/all-products/${product.id}`}>
+                          <Link to={`/all-products/${product.uid}`}>
                             <SingleItemCard
-                              hover="my-4 hover:scale-110 duration-200 hover:px-3"
+                              hover="my-4 hover:scale-110 duration-200"
                               width="max-w-48"
                               product={product}
                             />
                           </Link>
                         ) : (
                           <Link
-                            to={`/all-products/${product.id}`}
-                            key={product.index}
+                            to={`/all-products/${product.uid}`}
+                            key={product.uid}
                           >
                             <ListView product={product} />
                           </Link>
@@ -511,5 +546,18 @@ function AllProducts({ products }) {
     </div>
   );
 }
+AllProducts.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      uid: PropTypes.string,
+      thumbnail: PropTypes.string,
+      name: PropTypes.string,
+      price: PropTypes.number,
+      discount: PropTypes.number,
+      stars: PropTypes.number,
+      inStock: PropTypes.bool,
+    }),
+  ).isRequired,
+};
 
 export default AllProducts;

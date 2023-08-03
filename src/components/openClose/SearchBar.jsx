@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useGeneralCtx } from '../../context/GeneralProvider';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import PropTypes from 'prop-types';
 
 function SearchBar({ products, mdScreen }) {
   const [inputValue, setInputValue] = useState('');
@@ -81,4 +82,16 @@ function SearchBar({ products, mdScreen }) {
     </div>
   );
 }
+
+SearchBar.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      productId: PropTypes.string.isRequired,
+      aboutProduct: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+  mdScreen: PropTypes.bool.isRequired,
+};
 export default SearchBar;

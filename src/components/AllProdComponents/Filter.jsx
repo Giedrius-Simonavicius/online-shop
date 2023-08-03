@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CategoryFilter from './CategoryFilter';
 import PriceFilter from './PriceFilter';
 import { useLocation } from 'react-router-dom';
@@ -42,41 +42,42 @@ function Filter() {
       <PriceFilter />
       <InStockFilter />
       <RatingFilter />
-      {filterArr.length !== 0 && (
-        <button
-          onClick={() => setFilterArr([])}
-          className="mt-7 text-base duration-200 hover:text-color8"
-        >
-          {smScreen ? 'Clear All filters' : 'Clear All'}
-        </button>
-      )}
-      <div className="my-6 flex flex-wrap gap-2 text-base">
-        {filterArr.map((fObj, index) => (
-          <div
-            className="flex min-w-fit  items-center gap-1 border py-1 pl-5 pr-2  sm:pl-0 sm:pr-2"
-            key={index}
+      {smScreen && filterArr.length !== 0 && (
+        <>
+          <button
+            onClick={() => setFilterArr([])}
+            className="mt-7 text-base duration-200 hover:text-color8"
           >
-            {' '}
-            {smScreen && (
-              <button
-                className="ml-1 min-w-fit"
-                onClick={() => handleDeleteFilter(index)}
+            {smScreen ? 'Clear All filters' : 'Clear All'}
+          </button>
+          <div className="my-6 flex flex-wrap gap-2 text-base">
+            {filterArr.map((fObj, index) => (
+              <div
+                className="flex min-w-fit items-center gap-1 border py-1 pl-5 pr-2 sm:pl-0 sm:pr-2"
+                key={index}
               >
-                <img src="/icons/ui/deleteBtn.svg" alt="deleteBtn" />
-              </button>
-            )}
-            <p>{capitalizeFirstLetter(fObj)}</p>
-            {!smScreen && (
-              <button
-                className="ml-3"
-                onClick={() => handleDeleteFilter(index)}
-              >
-                <img src="/icons/ui/deleteBtn.svg" alt="deleteBtn" />
-              </button>
-            )}
+                {smScreen && (
+                  <button
+                    className="ml-1 min-w-fit"
+                    onClick={() => handleDeleteFilter(index)}
+                  >
+                    <img src="/icons/ui/deleteBtn.svg" alt="deleteBtn" />
+                  </button>
+                )}
+                <p>{capitalizeFirstLetter(fObj)}</p>
+                {!smScreen && (
+                  <button
+                    className="ml-3"
+                    onClick={() => handleDeleteFilter(index)}
+                  >
+                    <img src="/icons/ui/deleteBtn.svg" alt="deleteBtn" />
+                  </button>
+                )}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      )}
     </div>
   );
 }

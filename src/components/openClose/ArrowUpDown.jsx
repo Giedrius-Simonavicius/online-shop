@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 function ArrowUpDown({ open, wh }) {
   return (
     <div className="pb-2">
@@ -17,5 +17,8 @@ function ArrowUpDown({ open, wh }) {
     </div>
   );
 }
-
+ArrowUpDown.propTypes = {
+  open: PropTypes.bool,
+  wh: PropTypes.bool,
+};
 export default ArrowUpDown;

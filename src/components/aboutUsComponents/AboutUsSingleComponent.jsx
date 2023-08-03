@@ -1,5 +1,6 @@
 import React from 'react';
 import { useGeneralCtx } from '../../context/GeneralProvider';
+import PropTypes from 'prop-types';
 
 function AboutUsSingleComponent({
   theme,
@@ -54,4 +55,13 @@ function AboutUsSingleComponent({
   );
 }
 
+AboutUsSingleComponent.propTypes = {
+  theme: PropTypes.string.isRequired,
+  icon: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  text1: PropTypes.string.isRequired,
+  text2: PropTypes.string,
+  imgSrc: PropTypes.string.isRequired,
+  imgSrcSm: PropTypes.string,
+};
 export default AboutUsSingleComponent;

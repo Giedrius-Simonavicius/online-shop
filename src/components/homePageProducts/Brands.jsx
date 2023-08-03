@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function Brands({ small, container }) {
   return (
@@ -92,5 +93,8 @@ function Brands({ small, container }) {
     </div>
   );
 }
-
+Brands.propTypes = {
+  small: PropTypes.bool,
+  container: PropTypes.string,
+};
 export default Brands;

@@ -1,21 +1,64 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
-import { v4 as uuidv4 } from 'uuid';
-import { comments } from '../../data/data';
 import toast from 'react-hot-toast';
+import { db } from '../../firebase/firebase';
+import {
+  addDoc,
+  collection,
+  onSnapshot,
+  orderBy,
+  query,
+} from 'firebase/firestore';
+import PropTypes from 'prop-types';
 
 function LeaveReviewForm({ onClose }) {
+  // eslint-disable-next-line no-unused-vars
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    const q = query(collection(db, 'comments'), orderBy('timestamp', 'desc'));
+
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const fetchedComments = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setComments(fetchedComments);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       author: '',
       comment: '',
-      id: uuidv4(),
     },
-    onSubmit: (values, { resetForm, setSubmitting }) => {
-      postComment(values, setSubmitting);
-      resetForm();
-      handleClose();
-      toast.success('Comment added. Thank you!');
+    onSubmit: async (values, { resetForm, setSubmitting }) => {
+      try {
+        const newComment = {
+          author: values.author,
+          comment: values.comment,
+          timestamp: new Date().getTime(),
+        };
+
+        const docRef = await addDoc(collection(db, 'comments'), newComment);
+        console.log('Comment added to Firebase Firestore');
+
+        setComments((prevComments) => [
+          { id: docRef.id, ...newComment },
+          ...prevComments,
+        ]);
+
+        resetForm();
+        handleClose();
+        toast.success('Comment added. Thank you!');
+      } catch (error) {
+        console.error('Error adding comment to Firebase Firestore:', error);
+        throw new Error('Something went wrong');
+      }
     },
     validate: (values) => {
       const errors = {};
@@ -32,18 +75,10 @@ function LeaveReviewForm({ onClose }) {
     },
   });
 
-  function postComment(commentValuesObj) {
-    const newComment = {
-      author: commentValuesObj.author,
-      comment: commentValuesObj.comment,
-      id: commentValuesObj.id,
-    };
-    comments.unshift(newComment);
-    console.log('comments ===', comments);
-  }
   const handleClose = () => {
     onClose();
   };
+
   return (
     <form
       className="my-10 mr-6 min-w-[40vw] rounded-2xl bg-color1 p-10 text-sm"
@@ -113,5 +148,7 @@ function LeaveReviewForm({ onClose }) {
     </form>
   );
 }
-
+LeaveReviewForm.propTypes = {
+  onClose: PropTypes.bool.isRequired,
+};
 export default LeaveReviewForm;

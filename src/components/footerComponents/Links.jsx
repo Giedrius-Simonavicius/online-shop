@@ -151,7 +151,14 @@ function Links() {
                 <Disclosure.Panel>
                   <ul className="mb-4 ml-3 opacity-75">
                     {pcPartsLinks.map((link, index) => (
-                      <li key={index}>{link.label}</li>
+                      <li key={index}>
+                        <NavLink
+                          className="duration-200 hover:text-color4"
+                          to={link.to}
+                        >
+                          {link.label}
+                        </NavLink>
+                      </li>
                     ))}
                   </ul>
                 </Disclosure.Panel>
@@ -168,9 +175,12 @@ function Links() {
                 onClick={() => handleDisclosureChange('desktopPcs')}
                 className="flex w-full items-center text-left"
               >
-                <h3 className="mb-3 font-bold tracking-wide text-white">
+                <NavLink
+                  to="all-products/desktops"
+                  className="mb-3 font-bold tracking-wide text-white duration-200 hover:text-color4"
+                >
                   Desktop PCs
-                </h3>
+                </NavLink>
                 <ChevronDownIcon
                   className={`${
                     open ? 'rotate-180 transform' : ''
@@ -216,9 +226,12 @@ function Links() {
                 onClick={() => handleDisclosureChange('laptops')}
                 className="flex w-full items-center text-left"
               >
-                <h3 className="mb-3 font-bold tracking-wide text-white">
+                <NavLink
+                  to="all-products/laptops"
+                  className="mb-3 font-bold tracking-wide text-white duration-200 hover:text-color4"
+                >
                   Laptops
-                </h3>
+                </NavLink>
                 <ChevronDownIcon
                   className={`${
                     open ? 'rotate-180 transform' : ''
@@ -237,7 +250,14 @@ function Links() {
                 <Disclosure.Panel>
                   <ul className="mb-4 ml-3 opacity-75">
                     {laptopLinks.map((link, index) => (
-                      <li key={index}>{link.label}</li>
+                      <li key={index}>
+                        <NavLink
+                          className="duration-200 hover:text-color4"
+                          to={link.to}
+                        >
+                          {link.label}
+                        </NavLink>
+                      </li>
                     ))}
                   </ul>
                 </Disclosure.Panel>
@@ -329,14 +349,18 @@ function Links() {
 
         <ul>
           {pcPartsLinks.map((link, index) => (
-            <li key={index}>{link.label}</li>
+            <li key={index}>
+              <NavLink className="duration-200 hover:text-color4" to={link.to}>
+                {link.label}
+              </NavLink>
+            </li>
           ))}
         </ul>
       </div>
       <div className="my-3">
         <NavLink
-          onClick={() => setSearchResults([])}
-          className="mb-3 font-bold tracking-wide text-[#ffffff82]"
+          to="all-products/desktops"
+          className="mb-3 font-bold tracking-wide  text-[#ffffff82] duration-200 hover:text-color4"
         >
           Desktop PCs
         </NavLink>
@@ -352,14 +376,18 @@ function Links() {
       </div>
       <div className="my-3">
         <NavLink
-          onClick={() => setSearchResults([])}
-          className="mb-3 font-bold tracking-wide text-[#ffffff82]"
+          to="all-products/laptops"
+          className="mb-3 font-bold tracking-wide  text-[#ffffff82] duration-200 hover:text-color4"
         >
           Laptops
         </NavLink>
         <ul className="mt-3">
           {laptopLinks.map((link, index) => (
-            <li key={index}>{link.label}</li>
+            <li key={index}>
+              <NavLink className="duration-200 hover:text-color4" to={link.to}>
+                {link.label}
+              </NavLink>
+            </li>
           ))}
         </ul>
       </div>

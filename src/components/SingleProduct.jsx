@@ -3,7 +3,7 @@ import DetailsSpecs from './singleProductComponents/DetailsSpecs';
 import { NavLink } from 'react-router-dom';
 import { useGeneralCtx } from '../context/GeneralProvider';
 import AddToCart from './singleProductComponents/AddToCart';
-
+import PropTypes from 'prop-types';
 function SingleProduct({ product }) {
   const { mdScreen, smScreen } = useGeneralCtx();
   const [activeTab, setActiveTab] = useState('about');
@@ -12,7 +12,7 @@ function SingleProduct({ product }) {
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
-  console.log('mdscreen ===', mdScreen);
+
   const handleImageClick = (image) => {
     setSelectedImage(image);
   };
@@ -245,5 +245,16 @@ function SingleProduct({ product }) {
     </div>
   );
 }
-
+SingleProduct.propTypes = {
+  product: PropTypes.shape({
+    thumbnail: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    aboutProduct: PropTypes.string.isRequired,
+    details: PropTypes.arrayOf(PropTypes.string).isRequired,
+    specs: PropTypes.object.isRequired,
+    productId: PropTypes.string.isRequired,
+    inStock: PropTypes.bool.isRequired,
+  }).isRequired,
+};
 export default SingleProduct;

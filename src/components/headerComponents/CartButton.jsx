@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useShoppingCartCtx } from '../../context/ShoppingCartContext';
+import PropTypes from 'prop-types';
 
 function CartButton({ mdScreen }) {
   const { cartArr, getCartQuantity } = useShoppingCartCtx();
@@ -45,5 +46,7 @@ function CartButton({ mdScreen }) {
     </div>
   );
 }
-
+CartButton.propTypes = {
+  mdScreen: PropTypes.bool.isRequired,
+};
 export default CartButton;

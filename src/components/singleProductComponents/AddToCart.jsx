@@ -1,5 +1,6 @@
 import React from 'react';
 import { useShoppingCartCtx } from '../../context/ShoppingCartContext';
+import PropTypes from 'prop-types';
 
 function AddToCart({ product, list }) {
   const {
@@ -8,14 +9,14 @@ function AddToCart({ product, list }) {
     decreaseCartQuantity,
     removeFromCart,
   } = useShoppingCartCtx();
-  const quantity = getItemQuantity(product.id);
+  const quantity = getItemQuantity(product.uid);
 
   return (
     <div className="items-center justify-center sm:flex">
       {quantity === 0 ? (
         <button
           onClick={() => {
-            increaseCartQuantity(product.id, product.inStock, 'Out of stock');
+            increaseCartQuantity(product.uid, product.inStock, 'Added to cart');
           }}
           className={` ${
             list
@@ -31,7 +32,7 @@ function AddToCart({ product, list }) {
             <button
               className="mx-1 rounded-md border bg-color3 px-1.5 text-white duration-200 hover:border-color3 hover:bg-white hover:text-color3"
               onClick={() => {
-                decreaseCartQuantity(product.id, 'removed from cart');
+                decreaseCartQuantity(product.uid, 'removed from cart');
               }}
             >
               -
@@ -43,7 +44,7 @@ function AddToCart({ product, list }) {
               className="mx-1 rounded-md border bg-color3 px-1.5 text-white duration-200 hover:border-color3 hover:bg-white hover:text-color3"
               onClick={() => {
                 increaseCartQuantity(
-                  product.id,
+                  product.uid,
                   '',
                   'added to cart',
                   product.availableQty,
@@ -55,7 +56,7 @@ function AddToCart({ product, list }) {
           </div>
           <button
             onClick={() => {
-              removeFromCart(product.id);
+              removeFromCart(product.uid);
             }}
             className="rounded-md border border-color8 px-2 py-1 text-color8 duration-200 hover:bg-color8 hover:text-white"
           >
@@ -66,5 +67,13 @@ function AddToCart({ product, list }) {
     </div>
   );
 }
+AddToCart.propTypes = {
+  product: PropTypes.shape({
+    uid: PropTypes.string.isRequired,
+    inStock: PropTypes.bool.isRequired,
+    availableQty: PropTypes.number.isRequired,
+  }).isRequired,
+  list: PropTypes.any,
+};
 
 export default AddToCart;

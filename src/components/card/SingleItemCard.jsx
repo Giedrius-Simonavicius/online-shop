@@ -1,12 +1,13 @@
 import { useGeneralCtx } from '../../context/GeneralProvider';
-import { formatCurrency } from '../../helperFns';
+import { calculateDiscountedPrice, formatCurrency } from '../../helperFns';
+import PropTypes from 'prop-types';
 
 function SingleItemCard({ flex, hover, product }) {
   const flexClass = flex === 'flex' ? 'flex' : 'flex-col';
   const hoverClass = hover !== '' ? hover : '';
   const { mdScreen } = useGeneralCtx();
-
   const { renderStars } = useGeneralCtx();
+
   return (
     <div
       className={`mb-6 ml-3 mr-3 ${flexClass} ${!mdScreen ? hoverClass : ''} `}
@@ -22,7 +23,7 @@ function SingleItemCard({ flex, hover, product }) {
       <img
         loading="lazy"
         className="mx-auto mb-3 mt-3 flex sm:mx-0"
-        key={product.index}
+        key={product.uid}
         src={product.thumbnail}
         alt={product.name}
       />
@@ -40,10 +41,25 @@ function SingleItemCard({ flex, hover, product }) {
       )}
 
       <p className="text-sm font-medium">
-        {formatCurrency(product.discountedPrice)}
+        {formatCurrency(
+          calculateDiscountedPrice(product.price, product.discount),
+        )}
       </p>
     </div>
   );
 }
-
+SingleItemCard.propTypes = {
+  flex: PropTypes.oneOf(['flex', 'flex-col']),
+  hover: PropTypes.string,
+  product: PropTypes.shape({
+    inStock: PropTypes.bool,
+    thumbnail: PropTypes.string,
+    stars: PropTypes.number,
+    uid: PropTypes.string,
+    aboutProduct: PropTypes.string,
+    discount: PropTypes.number,
+    price: PropTypes.number,
+    name: PropTypes.string,
+  }).isRequired,
+};
 export default SingleItemCard;

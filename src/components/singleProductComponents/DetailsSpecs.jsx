@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 function DetailsSpecs({ activeTab, onTabClick }) {
   return (
     <div className="items-center px-3 py-3 text-xs sm:flex sm:justify-center">
@@ -34,5 +34,8 @@ function DetailsSpecs({ activeTab, onTabClick }) {
     </div>
   );
 }
-
+DetailsSpecs.propTypes = {
+  activeTab: PropTypes.string,
+  onTabClick: PropTypes.func,
+};
 export default DetailsSpecs;

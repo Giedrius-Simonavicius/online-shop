@@ -3,11 +3,15 @@ import { useShoppingCartCtx } from '../context/ShoppingCartContext';
 import { capitalizeFirstLetter } from '../helperFns';
 import Summary from '../components/shoppingCartComponents/Summary';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-hot-toast';
 
 function CartReview() {
-  const { shippingInfo, deliveryFee } = useShoppingCartCtx();
+  const { shippingInfo, deliveryFee, setCartArr } = useShoppingCartCtx();
   const navigate = useNavigate();
+
+  function purchase() {
+    setCartArr([]);
+    navigate('/confirmed');
+  }
 
   return (
     <div className="container mx-auto px-6">
@@ -34,7 +38,7 @@ function CartReview() {
           <button
             className="mt-8 rounded-full
              border-2 border-color9 bg-color9 px-8 py-1 font-normal text-white duration-200 hover:border-2 hover:bg-color1 hover:text-color7"
-            onClick={() => toast.success('Thank you for your purchase')}
+            onClick={purchase}
           >
             Confirm & purchase
           </button>

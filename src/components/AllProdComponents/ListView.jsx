@@ -1,7 +1,8 @@
 import React from 'react';
 import { useGeneralCtx } from '../../context/GeneralProvider';
 import AddToCart from '../singleProductComponents/AddToCart';
-import { formatCurrency } from '../../helperFns';
+import { calculateDiscountedPrice, formatCurrency } from '../../helperFns';
+import PropTypes from 'prop-types';
 
 function ListView({ product }) {
   const { renderStars } = useGeneralCtx();
@@ -41,13 +42,18 @@ function ListView({ product }) {
                 <p className="text-sm font-normal text-color10 line-through">
                   {formatCurrency(product.price.toFixed(2))}
                 </p>
+                <span className="text-sm text-color8">{`-${product.discount}%`}</span>
                 <p className="text-sm font-medium">
-                  {formatCurrency(product.discountedPrice)}
+                  {formatCurrency(
+                    calculateDiscountedPrice(product.price, product.discount),
+                  )}
                 </p>
               </div>
             ) : (
               <p className="mt-3 text-sm font-medium">
-                {formatCurrency(product.discountedPrice)}
+                {formatCurrency(
+                  calculateDiscountedPrice(product.price, product.discount),
+                )}
               </p>
             )}
           </div>
@@ -74,4 +80,16 @@ function ListView({ product }) {
   );
 }
 
+ListView.propTypes = {
+  product: PropTypes.shape({
+    productId: PropTypes.string.isRequired,
+    aboutProduct: PropTypes.string.isRequired,
+    thumbnail: PropTypes.string.isRequired,
+    inStock: PropTypes.bool.isRequired,
+    discount: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    stars: PropTypes.number.isRequired,
+    specs: PropTypes.objectOf(PropTypes.string).isRequired,
+  }).isRequired,
+};
 export default ListView;
