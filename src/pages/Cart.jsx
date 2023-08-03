@@ -1,11 +1,11 @@
 import React from 'react';
 import { useShoppingCartCtx } from '../context/ShoppingCartContext';
 import { calculateDiscountedPrice, formatCurrency } from '../helperFns';
-import SingleCartComponent from '../components/shoppingCartComponents/singleCartComponent';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { useGeneralCtx } from '../context/GeneralProvider';
 import { useDataCtx } from '../context/DataProvider';
+import SingleCartComponent from '../components/shoppingCartComponents/SingleCartComponent';
 
 function Cart() {
   const { mdScreen, smScreen } = useGeneralCtx();
@@ -32,11 +32,17 @@ function Cart() {
   return (
     <div className="container mx-auto px-8">
       <h2 className="my-4 text-2xl font-bold">Shopping Cart</h2>
-      <div>
-        {cartArr.map((item) => (
-          <SingleCartComponent key={item.uid} {...item} />
-        ))}
-      </div>
+
+      {cartArr.length === 0 ? (
+        <p className="my-16 text-center text-5xl">No items in cart</p>
+      ) : (
+        <div>
+          {cartArr.map((item) => (
+            <SingleCartComponent key={item.uid} {...item} />
+          ))}
+        </div>
+      )}
+
       <div
         className={` ${
           smScreen

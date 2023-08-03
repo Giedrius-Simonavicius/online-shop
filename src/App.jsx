@@ -39,37 +39,35 @@ function App() {
   //   return !querySnapshot.empty;
   // }
 
-  // async function uploadcustomPcsToFirestore() {
-  //   console.log('Function uploadcustomPcsToFirestore() is called');
+  // async function uploadpostsFirestore() {
+  //   console.log('Function uploadpostsFirestore() is called');
 
   //   try {
-  //     const collectionName = 'customPcs';
-  //     const customPcsCollection = collection(db, collectionName);
+  //     const collectionName = 'posts';
+  //     const postsCollection = collection(db, collectionName);
 
-  //     console.log('Checking if the "customPcs" collection exists...');
+  //     console.log('Checking if the "posts" collection exists...');
   //     const collectionExists = await checkCollectionExists(collectionName);
 
   //     if (!collectionExists) {
-  //       console.log(
-  //         'The "customPcs" collection does not exist. Creating it...',
-  //       );
-  //       await addDoc(collection(db, 'collections'), {
-  //         name: 'customPcs',
+  //       console.log('The "posts" collection does not exist. Creating it...');
+  //       await addDoc(collection(db, 'posts'), {
+  //         name: 'posts',
   //       });
   //     }
 
-  //     for (const laptop of customPcs) {
-  //       console.log('Uploading laptop to Firestore:', laptop);
-  //       await addDoc(customPcsCollection, laptop);
+  //     for (const post of posts) {
+  //       console.log('Uploading post to Firestore:', post);
+  //       await addDoc(postsCollection, post);
   //     }
 
-  //     console.log('All customPcs uploaded to Firestore successfully!');
+  //     console.log('All posts uploaded to Firestore successfully!');
   //   } catch (error) {
-  //     console.error('Error uploading customPcs:', error);
+  //     console.error('Error uploading posts:', error);
   //   }
   // }
 
-  // uploadcustomPcsToFirestore();
+  // uploadpostsFirestore();
   return (
     <div>
       <ScrollToTop />

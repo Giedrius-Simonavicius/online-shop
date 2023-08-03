@@ -11,6 +11,7 @@ import SearchButton from '../headerComponents/SearchButton';
 import CartButton from '../headerComponents/CartButton';
 import SocialMedia from '../headerComponents/SocialMedia';
 import ArrowUpDown from '../openClose/ArrowUpDown';
+import PropTypes from 'prop-types';
 
 function HeaderComponent({ products }) {
   const { setFilterArr, setSearchResults, mdScreen } = useGeneralCtx();
@@ -40,7 +41,7 @@ function HeaderComponent({ products }) {
   }
 
   return (
-    <header className=" text-xs lg:text-xxs">
+    <header className="text-xs lg:text-xxs">
       <Popover>
         {({ open }) => (
           <>
@@ -157,5 +158,14 @@ function HeaderComponent({ products }) {
     </header>
   );
 }
-
+HeaderComponent.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      productId: PropTypes.string.isRequired,
+      aboutProduct: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
 export default HeaderComponent;

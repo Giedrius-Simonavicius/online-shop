@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Filter from '../components/AllProdComponents/Filter';
 import { useGeneralCtx } from '../context/GeneralProvider';
 import { Link, useLocation } from 'react-router-dom';
@@ -105,7 +105,19 @@ function AllProducts({ products }) {
     indexOfLastItem,
   );
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = useCallback(
+    (pageNumber) => {
+      const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+      const validPageNumber = Math.max(1, Math.min(pageNumber, totalPages));
+      setCurrentPage(validPageNumber);
+    },
+    [filteredProducts, itemsPerPage],
+  );
+
+  useEffect(() => {
+    setCurrentPage(1);
+    paginate(1);
+  }, [filteredProducts, itemsPerPage, paginate]);
   const howManyToDisplay = [5, 10, 20, 30, 50];
 
   function sortItems(category, products, sortDirection) {

@@ -49,7 +49,7 @@ function HomePage() {
       )}
 
       <Brands container="container" />
-      {!mdScreen && <Posts posts={posts} />}
+      {!mdScreen && <Posts />}
       <Comments />
     </div>
   );

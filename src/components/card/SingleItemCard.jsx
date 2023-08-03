@@ -6,8 +6,8 @@ function SingleItemCard({ flex, hover, product }) {
   const flexClass = flex === 'flex' ? 'flex' : 'flex-col';
   const hoverClass = hover !== '' ? hover : '';
   const { mdScreen } = useGeneralCtx();
-
   const { renderStars } = useGeneralCtx();
+
   return (
     <div
       className={`mb-6 ml-3 mr-3 ${flexClass} ${!mdScreen ? hoverClass : ''} `}

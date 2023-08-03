@@ -44,6 +44,7 @@ function ShoppingCartProvider({ children }) {
   function getItemQuantity(uid) {
     return cartArr.find((item) => item.uid === uid)?.quantity || 0;
   }
+
   function getCartQuantity() {
     let totalQuantity = 0;
     cartArr.forEach((item) => {
@@ -80,6 +81,7 @@ function ShoppingCartProvider({ children }) {
   function decreaseCartQuantity(uid, message) {
     setCartArr((currentItems) => {
       if (currentItems.find((item) => item.uid === uid)?.quantity === 1) {
+        message && toast.error(message);
         return currentItems.filter((item) => item.uid !== uid);
       } else {
         message && toast.error(message);

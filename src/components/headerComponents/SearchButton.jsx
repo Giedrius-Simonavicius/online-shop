@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 
 function SearchButton({ openCloseSearchBar, isSearchBar }) {
   const [onHoverColorSearch, setOnHoverColorSearch] = useState('black');
+
   function changeOnHoverColor(setColorFunction, newColor) {
     setColorFunction(newColor);
   }
+
   return (
     <button className="md:hidden" onClick={openCloseSearchBar}>
       {isSearchBar ? (
