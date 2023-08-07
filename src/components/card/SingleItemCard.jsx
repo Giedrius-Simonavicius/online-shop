@@ -24,7 +24,7 @@ function SingleItemCard({ flex, hover, product }) {
         loading="lazy"
         className="mx-auto mb-3 mt-3 flex sm:mx-0"
         key={product.uid}
-        src={product.thumbnail}
+        src={product.thumbnailURL}
         alt={product.name}
       />
       <div className="mb-3 flex">{renderStars(product.stars)}</div>
@@ -53,7 +53,7 @@ SingleItemCard.propTypes = {
   hover: PropTypes.string,
   product: PropTypes.shape({
     inStock: PropTypes.bool,
-    thumbnail: PropTypes.string,
+    thumbnailURL: PropTypes.string,
     stars: PropTypes.number,
     uid: PropTypes.string,
     aboutProduct: PropTypes.string,

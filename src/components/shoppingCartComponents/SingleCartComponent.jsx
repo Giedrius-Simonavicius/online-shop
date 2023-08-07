@@ -27,7 +27,7 @@ function SingleCartComponent({ uid, quantity }) {
       <div>
         <div className="flex justify-between border-y md:flex-col">
           <div className="flex w-3/4 gap-6 py-6 md:w-full">
-            <img src={item.thumbnail} alt={item.name} />
+            <img src={item.thumbnailURL} alt={item.name} />
             <div className="flex flex-col justify-between md:justify-around">
               <p
                 className={`${

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 function SingleProduct({ product }) {
   const { mdScreen, smScreen } = useGeneralCtx();
   const [activeTab, setActiveTab] = useState('about');
-  const [selectedImage, setSelectedImage] = useState(product.thumbnail);
+  const [selectedImage, setSelectedImage] = useState(product.thumbnailURL);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -30,9 +30,9 @@ function SingleProduct({ product }) {
           <img
             loading="lazy"
             className="h-36 w-36 hover:cursor-pointer"
-            src={product.thumbnail}
-            alt="thumbnail"
-            onClick={() => handleImageClick(product.thumbnail)}
+            src={product.thumbnailURL}
+            alt="thumbnailURL"
+            onClick={() => handleImageClick(product.thumbnailURL)}
           />
           <img
             loading="lazy"
@@ -198,9 +198,9 @@ function SingleProduct({ product }) {
               <img
                 loading="lazy"
                 className="hover:cursor-pointer"
-                src={product.thumbnail}
-                alt="thumbnail"
-                onClick={() => handleImageClick(product.thumbnail)}
+                src={product.thumbnailURL}
+                alt="thumbnailURL"
+                onClick={() => handleImageClick(product.thumbnailURL)}
               />
               <img
                 loading="lazy"
@@ -248,6 +248,7 @@ function SingleProduct({ product }) {
 SingleProduct.propTypes = {
   product: PropTypes.shape({
     thumbnail: PropTypes.string.isRequired,
+    thumbnailURL: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     aboutProduct: PropTypes.string.isRequired,

@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { fetchItems } from '../helperFns';
+import { fetchItems, fetchItemsAndImages } from '../helperFns';
 
 const DataContext = createContext({
   fetchedLaptops: [],
@@ -44,8 +44,9 @@ function DataContextProvider({ children }) {
       ...fetchedMonitors.slice(1),
     ]);
   }, [fetchedCustomPcs, fetchedDesktops, fetchedLaptops, fetchedMonitors]);
+
   useEffect(() => {
-    fetchItems('laptops')
+    fetchItemsAndImages('laptops')
       .then((data) => {
         const laptopData = Object.values(data);
         laptopData.unshift({
@@ -63,7 +64,7 @@ function DataContextProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    fetchItems('desktops')
+    fetchItemsAndImages('desktops')
       .then((data) => {
         const desktopData = Object.values(data);
         desktopData.unshift({
@@ -81,7 +82,7 @@ function DataContextProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    fetchItems('monitors')
+    fetchItemsAndImages('monitors')
       .then((data) => {
         const monitorsData = Object.values(data);
         monitorsData.unshift({
@@ -97,8 +98,9 @@ function DataContextProvider({ children }) {
         setLoadingMonitors(false);
       });
   }, []);
+
   useEffect(() => {
-    fetchItems('customPcs')
+    fetchItemsAndImages('customPcs')
       .then((data) => {
         const customPcsData = Object.values(data);
         customPcsData.unshift({

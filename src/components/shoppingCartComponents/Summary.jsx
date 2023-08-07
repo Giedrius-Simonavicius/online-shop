@@ -62,7 +62,7 @@ function Summary({ review }) {
                     return (
                       <div className="mb-6 flex gap-2" key={item.uid}>
                         <div className="h-16 w-16">
-                          <img src={item.thumbnail} alt={item.name} />
+                          <img src={item.thumbnailURL} alt={item.name} />
                         </div>
                         <div className="flex flex-col justify-around">
                           <p className="w-fit text-xs font-normal">

@@ -51,6 +51,15 @@ function AboutUs() {
         icon="/icons/aboutUs/aboutDeliver.svg"
       />
       <Comments />
+      <h4 className="mt-10 text-center text-xl">Where to find us?</h4>
+      <iframe
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title="Google Maps Embedded"
+        className=" mx-auto mb-8 mt-8 h-[30rem] w-3/4"
+        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d4605.968809874129!2d25.294992289052875!3d54.74507693972719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1snusistu%20plazas!5e0!3m2!1slt!2slt!4v1691401205293!5m2!1slt!2slt"
+      />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function WorkingHours() {
   return (
@@ -28,7 +28,17 @@ function WorkingHours() {
         <div className="mr-2">
           <img loading="lazy" src="/icons/location.svg" alt="location" />
         </div>
-        <p className="mt-1">Address: 1234 Street Adress, City Address, 1234</p>
+        <div className="flex flex-col">
+          <p className="mt-1">
+            Address: 1234 Street Adress, City Address, 1234
+          </p>
+          <NavLink
+            className="mt-1 text-color3 duration-200 hover:text-color4"
+            to="https://goo.gl/maps/7iSgYiTbVuwcvsw48"
+          >
+            Google maps
+          </NavLink>
+        </div>
       </div>
       <div className="ml-2 mt-2">
         <p>

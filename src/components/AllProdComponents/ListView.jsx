@@ -25,8 +25,8 @@ function ListView({ product }) {
             <img
               loading="lazy"
               className="h-36 w-36 hover:cursor-pointer"
-              src={product.thumbnail}
-              alt="thumbnail"
+              src={product.thumbnailURL}
+              alt="thumbnailURL"
             />
           </div>
 
@@ -84,7 +84,7 @@ ListView.propTypes = {
   product: PropTypes.shape({
     productId: PropTypes.string.isRequired,
     aboutProduct: PropTypes.string.isRequired,
-    thumbnail: PropTypes.string.isRequired,
+    thumbnailURL: PropTypes.string.isRequired,
     inStock: PropTypes.bool.isRequired,
     discount: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,

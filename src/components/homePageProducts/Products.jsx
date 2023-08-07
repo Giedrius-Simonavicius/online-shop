@@ -47,14 +47,16 @@ function Products({ products }) {
                   ) : (
                     <p className="mt-4 text-xxs text-color5">Out of stock</p>
                   )}
+
                   <img
                     loading="lazy"
-                    className="mb-3 mt-3 flex"
-                    key={index}
-                    src={product.thumbnail}
+                    src={product.thumbnailURL}
                     alt={product.name}
                   />
-                  <div className="mb-3 flex">{renderStars(product.stars)}</div>
+
+                  <div className="mb-3 mt-1 flex">
+                    {renderStars(product.stars)}
+                  </div>
                   <h3 className="mb-3 w-36 max-w-prose overflow-hidden text-sm font-normal">
                     {product.aboutProduct &&
                       `${product.aboutProduct.slice(0, 44)}...`}
@@ -123,14 +125,14 @@ function Products({ products }) {
                     ) : (
                       <p className="mt-4 text-sm text-color5">Out of stock</p>
                     )}
+
                     <img
                       loading="lazy"
-                      className="mx-auto mb-3 mt-3 flex"
-                      key={index}
-                      src={product.thumbnail}
+                      src={product.thumbnailURL}
                       alt={product.name}
                     />
-                    <div className="mb-3 flex">
+
+                    <div className="mb-3 mt-1 flex">
                       {renderStars(product.stars)}
                     </div>
                     <h3 className="mb-3 w-36 max-w-prose overflow-hidden text-sm font-normal">
@@ -177,14 +179,14 @@ function Products({ products }) {
                     ) : (
                       <p className="mt-4 text-sm text-color5">Out of stock</p>
                     )}
+
                     <img
                       loading="lazy"
-                      className="mx-auto mb-3 mt-3 flex"
-                      key={index}
-                      src={product.thumbnail}
+                      src={product.thumbnailURL}
                       alt={product.name}
                     />
-                    <div className="mb-3 flex">
+
+                    <div className="mb-3 mt-1 flex">
                       {renderStars(product.stars)}
                     </div>
                     <h3 className="mb-3 w-36 max-w-prose overflow-hidden text-sm font-normal">
@@ -229,6 +231,7 @@ Products.propTypes = {
       name: PropTypes.string,
       uid: PropTypes.string,
       thumbnail: PropTypes.string,
+      thumbnailURL: PropTypes.string,
     }),
   ).isRequired,
 };
