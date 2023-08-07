@@ -291,6 +291,7 @@ function AllProducts({ products }) {
             {!smScreen && (
               <div className="flex gap-2">
                 <button
+                  aria-label="tile view"
                   className={`px-2 ${activeButton === 1 ? ' ' : 'shadow-md'}`}
                   onClick={changeViewColor1}
                 >
@@ -376,6 +377,7 @@ function AllProducts({ products }) {
                   </svg>
                 </button>
                 <button
+                  aria-label="list view"
                   className={`${activeButton === 1 ? 'shadow-md' : ''}`}
                   onClick={changeViewColor}
                 >
@@ -428,7 +430,7 @@ function AllProducts({ products }) {
                 </div>
               )}
               {!smScreen && <Brands small />}
-              <div className="mt-3 w-fit bg-color1 p-4 text-center sm:w-full">
+              <div className="mt-3 w-full bg-color1 p-4 text-center sm:w-full">
                 <h3 className="text-xs font-bold sm:text-base">
                   Compare Products
                 </h3>
@@ -436,7 +438,7 @@ function AllProducts({ products }) {
                   You have no items to compare.
                 </p>
               </div>
-              <div className="my-2 w-fit bg-color1 p-4 text-center sm:w-full">
+              <div className="my-2 w-full bg-color1 p-4 text-center sm:w-full">
                 <h3 className="text-xs font-bold sm:text-base">My Wish List</h3>
                 <p className="my-2 text-xxs sm:text-sm">
                   You have no items in your wish list.

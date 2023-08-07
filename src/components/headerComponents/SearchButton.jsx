@@ -9,7 +9,11 @@ function SearchButton({ openCloseSearchBar, isSearchBar }) {
   }
 
   return (
-    <button className="md:hidden" onClick={openCloseSearchBar}>
+    <button
+      className="md:hidden"
+      aria-label="Search"
+      onClick={openCloseSearchBar}
+    >
       {isSearchBar ? (
         <svg
           className="duration-200 hover:scale-110"

@@ -34,7 +34,7 @@ export default {
         feat1: "url('./src/img/featuring/featuring1.jpg')",
         feat2: "url('./src/img/featuring/featuring2.jpeg')",
         feat3: "url('./src/img/featuring/featuring3.jpeg')",
-        customBuilds: 'url(./src/img/pcs/customBuildsimg.png)',
+        customBuilds: 'url(./src/img/pcs/customBuildsimg.jpg)',
       },
       maxWidth: {
         readable: '30cw',

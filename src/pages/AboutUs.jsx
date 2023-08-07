@@ -31,7 +31,7 @@ function AboutUs() {
         text1="Experience a 40% boost in computing from last generation. MSI Desktop equips the 10th Gen. Intel® Core™ i7 processor with the upmost computing power to bring you an unparalleled gaming experience.
         "
         text2="Now You're In Safe Hands"
-        imgSrc="/images/aboutUs/aboutPC00.png"
+        imgSrc="/images/aboutUs/aboutPC00.jpg"
         icon="/icons/aboutUs/aboutHeart.svg"
       />
       <AboutUsSingleComponent
@@ -47,7 +47,7 @@ function AboutUs() {
         title="We Deliver to Any Regions"
         text1="We deliver our goods all across Australia. No matter where you live, your order will be shipped in time and delivered right to your door or to any other location you have stated. The packages are handled with utmost care, so the ordered products will be handed to you safe and sound, just like you expect them to be.
         "
-        imgSrc="/images/aboutUs/aboutPC03.png"
+        imgSrc="/images/aboutUs/aboutPC03.jpg"
         icon="/icons/aboutUs/aboutDeliver.svg"
       />
       <Comments />

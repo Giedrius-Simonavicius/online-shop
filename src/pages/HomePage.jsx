@@ -3,7 +3,6 @@ import '../styles/style.css';
 import '../styles/App.css';
 import Featuring from '../components/layout/Featuring';
 import Products from '../components/homePageProducts/Products';
-import { posts } from '../data/data';
 import Brands from '../components/homePageProducts/Brands';
 import Posts from '../components/homePageProducts/Posts';
 import Comments from '../components/homePageProducts/Comments';

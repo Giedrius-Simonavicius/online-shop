@@ -102,7 +102,7 @@ function DataContextProvider({ children }) {
       .then((data) => {
         const customPcsData = Object.values(data);
         customPcsData.unshift({
-          mainImg: '/images/pcs/customBuildsimg.png',
+          mainImg: '/images/pcs/customBuildsimg.jpg',
           title: 'Custom Builds',
           link: 'all-products/custom-pcs',
         });
