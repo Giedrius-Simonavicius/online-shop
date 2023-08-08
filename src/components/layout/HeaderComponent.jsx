@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import '../../styles/style.css';
 import WorkingHours from '../openClose/WorkingHours';
 import { useGeneralCtx } from '../../context/GeneralProvider';
@@ -12,11 +12,27 @@ import CartButton from '../headerComponents/CartButton';
 import SocialMedia from '../headerComponents/SocialMedia';
 import ArrowUpDown from '../openClose/ArrowUpDown';
 import PropTypes from 'prop-types';
+import UserButton from '../headerComponents/UserButton';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase/firebase';
+import { toast } from 'react-hot-toast';
 
 function HeaderComponent({ products }) {
-  const { setFilterArr, setSearchResults, mdScreen } = useGeneralCtx();
+  const {
+    setFilterArr,
+    setSearchResults,
+    mdScreen,
+    smScreen,
+    user,
+    isLoggedIn,
+  } = useGeneralCtx();
+
   const [isSearchBarVisible, setIsSearchBarVisible] = useState(false);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const shouldRenderUserButton =
+    location.pathname !== '/user' && location.pathname !== '/user/register';
 
   function handleCloseNav() {
     setIsPopoverOpen(false);
@@ -40,6 +56,16 @@ function HeaderComponent({ products }) {
     document.getElementById('myNav').style.padding = '24px';
   }
 
+  function logoutUserFire() {
+    signOut(auth)
+      .then(() => {
+        isLoggedIn(false);
+        toast.success('Logged out');
+        navigate('/');
+      })
+      .catch((error) => {});
+    toast.success('Logged out');
+  }
   return (
     <header className="text-xs lg:text-xxs">
       <Popover>
@@ -135,7 +161,7 @@ function HeaderComponent({ products }) {
           />
         )}
 
-        <div className="flex gap-6">
+        <div className={`flex ${smScreen ? 'gap-2' : 'gap-6'} `}>
           <SearchButton
             openCloseSearchBar={
               isSearchBarVisible ? closeSearchBar : openSearchBar
@@ -144,6 +170,19 @@ function HeaderComponent({ products }) {
           />
 
           <CartButton mdScreen={mdScreen} />
+          {isLoggedIn ? (
+            <div className="ml-2 flex flex-col items-center justify-center">
+              <p className={`${smScreen ? 'hidden' : ''}`}>{user.email}</p>
+              <button
+                className="mt-1 w-fit rounded-full border border-color3 bg-color3 px-2 font-normal text-white duration-200 hover:bg-color1 hover:text-color3"
+                onClick={logoutUserFire}
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            shouldRenderUserButton && <UserButton mdScreen={mdScreen} />
+          )}
         </div>
 
         {mdScreen && (

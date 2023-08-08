@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../firebase/firebase';
 
 const GeneralContext = createContext({
   filterArr: [],
@@ -11,16 +13,26 @@ const GeneralContext = createContext({
   mdScreen: [],
   smScreen: [],
   xlScreen: [],
+  user: {},
 });
 GeneralContext.displayName = 'General context';
 
 function GeneralContextProvider({ children }) {
   const [filterArr, setFilterArr] = useState([]);
-
   const [searchResults, setSearchResults] = useState([]);
   const [mdScreen, setMdScreen] = useState(window.innerWidth <= 787);
   const [smScreen, setSmScreen] = useState(window.innerWidth <= 570);
   const [xlScreen, setXlScreen] = useState(window.innerWidth >= 1440);
+
+  const [user, setUser] = useState(null);
+  const isLoggedIn = !!user;
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      setUser(user);
+      console.log('user ===', user);
+    });
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -61,6 +73,8 @@ function GeneralContextProvider({ children }) {
     mdScreen,
     smScreen,
     xlScreen,
+    user,
+    isLoggedIn,
   };
 
   return (

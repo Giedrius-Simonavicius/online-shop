@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { fetchItems, fetchItemsAndImages } from '../helperFns';
+import { fetchItemsAndImages } from '../helperFns';
 
 const DataContext = createContext({
   fetchedLaptops: [],

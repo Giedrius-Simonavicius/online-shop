@@ -3,9 +3,11 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useGeneralCtx } from '../../context/GeneralProvider';
+import { useNavigate } from 'react-router-dom';
 
 function ContactForm() {
   const { mdScreen } = useGeneralCtx();
+  const navigate = useNavigate();
   const placeholderMsg = mdScreen
     ? 'Your message'
     : "Just us a note and we'll get back to you as quickly as possible";
@@ -17,8 +19,7 @@ function ContactForm() {
       phone: '',
     },
     onSubmit: (values, { resetForm, setSubmitting }) => {
-      sendEmail(values, setSubmitting);
-      resetForm();
+      sendEmail(values, setSubmitting, resetForm);
     },
     validate: (values) => {
       const errors = {};
@@ -41,7 +42,7 @@ function ContactForm() {
     },
   });
 
-  function sendEmail(emailValuesObj, setSubmitting) {
+  function sendEmail(emailValuesObj, setSubmitting, resetForm) {
     const emaiTo = 'giedrius.simonavicius123@gmail.com';
     axios.defaults.headers.post['Content-Type'] = 'application/json';
     axios
@@ -50,12 +51,13 @@ function ContactForm() {
         ...emailValuesObj,
       })
       .then((response) => {
-        console.log('response.data ===', response.data);
-      })
-      .catch((error) => console.log(error))
-      .finally(() => {
         setSubmitting(false);
         toast.success('Message sent');
+        resetForm();
+      })
+      .catch((error) => {
+        console.log(error);
+        setSubmitting(false);
       });
   }
 
@@ -150,15 +152,26 @@ function ContactForm() {
       {formik.touched.message && formik.errors.message ? (
         <div>{formik.errors.message}</div>
       ) : null}{' '}
-      <button
-        className={`rounded-full ${
-          formik.isSubmitting ? 'bg-[#666]' : 'bg-color3'
-        } px-12  py-2 font-normal text-white`}
-        type="submit"
-        disabled={formik.isSubmitting}
-      >
-        {formik.isSubmitting ? 'Submitting...' : 'Submit'}
-      </button>
+      <div className={`${mdScreen ? 'flex flex-col gap-4' : ''}`}>
+        <button
+          className={`rounded-full duration-200 hover:bg-color4 ${
+            formik.isSubmitting ? 'bg-[#666]' : 'bg-color3'
+          } px-12  py-2 font-normal text-white`}
+          type="submit"
+          disabled={formik.isSubmitting}
+        >
+          {formik.isSubmitting ? 'Submitting...' : 'Submit'}
+        </button>
+        <button
+          type="button"
+          className={`ml-4 ${formik.isSubmitting ? 'hidden' : ''} ${
+            mdScreen ? 'ml-0' : ''
+          } rounded-full bg-[#666] px-12 py-2 font-normal text-white duration-200 hover:bg-color5`}
+          onClick={() => navigate('/')}
+        >
+          Go back
+        </button>
+      </div>
     </form>
   );
 }

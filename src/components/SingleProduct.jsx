@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import DetailsSpecs from './singleProductComponents/DetailsSpecs';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useGeneralCtx } from '../context/GeneralProvider';
 import AddToCart from './singleProductComponents/AddToCart';
 import PropTypes from 'prop-types';
@@ -16,6 +16,8 @@ function SingleProduct({ product }) {
   const handleImageClick = (image) => {
     setSelectedImage(image);
   };
+
+  const navigate = useNavigate();
 
   return smScreen ? (
     <div>
@@ -118,6 +120,13 @@ function SingleProduct({ product }) {
             ) : (
               <p className="mt-6 text-color8 lg:text-sm">Out of stock</p>
             )}
+            <button
+              className="mt-6 rounded-full
+              border-2 border-color3 bg-color3 px-8 font-normal text-white duration-200 hover:border-2 hover:bg-color1 hover:text-color3"
+              onClick={() => navigate(-1)}
+            >
+              Go back
+            </button>
           </div>
         </div>
         <AddToCart product={product} />
@@ -180,6 +189,13 @@ function SingleProduct({ product }) {
             ) : (
               <p className="mt-6 text-color8 lg:text-sm">Out of stock</p>
             )}
+            <button
+              className="mt-6 rounded-full
+              border-2 border-color3 bg-color3 px-8 font-normal text-white duration-200 hover:border-2 hover:bg-color1 hover:text-color3"
+              onClick={() => navigate(-1)}
+            >
+              Go back
+            </button>
           </div>
           <div className="mb-5 ml-10 px-3">
             <img

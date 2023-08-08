@@ -1,6 +1,5 @@
 import './styles/App.css';
 import './styles/style.css';
-
 import { Route, Routes } from 'react-router-dom';
 import HeaderComponent from './components/layout/HeaderComponent';
 import HomePage from './pages/HomePage';
@@ -21,6 +20,8 @@ import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { db, storage } from './firebase/firebase';
 import { useDataCtx } from './context/DataProvider';
 import ConfirmedPurchase from './pages/ConfirmedPurchase';
+import UserLogin from './pages/UserLogin';
+import UserRegister from './pages/UserRegister';
 
 function App() {
   const {
@@ -78,6 +79,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="home" element={<HomePage />} />
         <Route path="cart" element={<Cart />} />
+        <Route path="user" element={<UserLogin />} />
+        <Route path="user/register" element={<UserRegister />} />
         <Route path="cart/delivery" element={<CartDelivery />} />
         <Route path="cart/review" element={<CartReview />} />
         <Route path="contact-us" element={<ContactUs />} />
