@@ -45,7 +45,6 @@ function LeaveReviewForm({ onClose }) {
         };
 
         const docRef = await addDoc(collection(db, 'comments'), newComment);
-        console.log('Comment added to Firebase Firestore');
 
         setComments((prevComments) => [
           { id: docRef.id, ...newComment },
@@ -149,6 +148,6 @@ function LeaveReviewForm({ onClose }) {
   );
 }
 LeaveReviewForm.propTypes = {
-  onClose: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 export default LeaveReviewForm;

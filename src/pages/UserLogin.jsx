@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { signInWithEmailAndPassword, signInWithPopup } from '@firebase/auth';
 import { auth, googleProvider } from '../firebase/firebase';
 import { toast } from 'react-hot-toast';
@@ -46,7 +45,7 @@ function UserLogin() {
       <h1 className="text-3xl font-bold lg:mt-4 lg:text-2xl">User login</h1>
       <div
         className={`mx-20 mt-8 lg:mx-5 ${
-          smScreen ? 'flex-col lg:mx-1' : ''
+          smScreen ? 'flex-col lg:-mx-2' : ''
         } flex justify-center gap-6`}
       >
         <div
@@ -86,7 +85,7 @@ function UserLogin() {
             Create an account
           </button>
 
-          <div className="mt-8 flex flex-col gap-2">
+          <div className="mt-8 flex flex-col items-center gap-2">
             <button
               className="flex w-fit items-center gap-1 rounded-full px-4 py-1 duration-100  hover:outline"
               onClick={loginWithGoogle}

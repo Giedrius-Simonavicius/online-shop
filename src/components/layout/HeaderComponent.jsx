@@ -172,7 +172,7 @@ function HeaderComponent({ products }) {
           <CartButton mdScreen={mdScreen} />
           {isLoggedIn ? (
             <div className="ml-2 flex flex-col items-center justify-center">
-              <p className={`${smScreen ? 'hidden' : ''}`}>{user.email}</p>
+              <p className={`${smScreen ? 'text-xs' : ''}`}>{user.email}</p>
               <button
                 className="mt-1 w-fit rounded-full border border-color3 bg-color3 px-2 font-normal text-white duration-200 hover:bg-color1 hover:text-color3"
                 onClick={logoutUserFire}

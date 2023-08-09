@@ -28,7 +28,10 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
         </button>
       )}
       <NavLink
-        onClick={() => setSearchResults([])}
+        onClick={() => {
+          setSearchResults([]);
+          closeFn();
+        }}
         className={`${
           tablet
             ? 'mb-1 w-fit px-2 text-xl'
@@ -39,7 +42,10 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
         Laptops
       </NavLink>
       <NavLink
-        onClick={() => setSearchResults([])}
+        onClick={() => {
+          setSearchResults([]);
+          closeFn();
+        }}
         className={`${
           tablet
             ? 'mb-1 w-fit px-2 text-xl'
@@ -50,7 +56,10 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
         Desktop PC's
       </NavLink>
       <NavLink
-        onClick={() => setSearchResults([])}
+        onClick={() => {
+          setSearchResults([]);
+          closeFn();
+        }}
         className={`${
           tablet
             ? 'mb-1 w-fit px-2 text-xl'
@@ -61,7 +70,10 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
         Custom builds
       </NavLink>
       <NavLink
-        onClick={() => setSearchResults([])}
+        onClick={() => {
+          setSearchResults([]);
+          closeFn();
+        }}
         className={`${
           tablet
             ? 'mb-1 w-fit px-2 text-xl'
@@ -75,6 +87,7 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
         onClick={() => {
           setSearchResults([]);
           resetFilterArr();
+          closeFn();
         }}
         to={'all-products'}
         className={`${

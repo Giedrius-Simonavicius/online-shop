@@ -72,7 +72,7 @@ function RegistrationForm({ onUserRegistration }) {
       <button
         className={`mt-6 rounded-full duration-200 hover:bg-color4 ${
           formik.isSubmitting ? 'bg-[#666] hover:bg-[#666]' : 'bg-color3'
-        } px-12 py-2 font-normal text-white`}
+        } px-12 py-2 font-normal text-white sm:w-full`}
         type="submit"
         disabled={formik.isSubmitting}
       >

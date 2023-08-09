@@ -36,6 +36,7 @@ function DataContextProvider({ children }) {
   const [loadingCustomPcs, setLoadingCustomPcs] = useState(true);
   const [loadingAllPrd, setLoadingAllPrd] = useState(true);
   const [allPrd, setAllPrd] = useState([]);
+
   useEffect(() => {
     setAllPrd([
       ...fetchedCustomPcs.slice(1),

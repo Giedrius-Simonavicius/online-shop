@@ -56,7 +56,7 @@ function ContactForm() {
         resetForm();
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         setSubmitting(false);
       });
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import PropTypes from 'prop-types';
+
 function LoginForm({ onUserLogin }) {
   const formik = useFormik({
     initialValues: {
@@ -22,7 +23,6 @@ function LoginForm({ onUserLogin }) {
       try {
         await onUserLogin(values);
       } catch (error) {
-        console.error('Login error:', error);
       } finally {
         setSubmitting(false);
       }
@@ -70,7 +70,7 @@ function LoginForm({ onUserLogin }) {
         ) : null}
       </div>
       <button
-        className={`mt-6 rounded-full duration-200 hover:bg-color4 ${
+        className={`mt-6 rounded-full duration-200 hover:bg-color4 sm:w-full ${
           formik.isSubmitting ? 'bg-[#666] hover:bg-[#666]' : 'bg-color3'
         } px-12 py-2 font-normal text-white`}
         type="submit"
