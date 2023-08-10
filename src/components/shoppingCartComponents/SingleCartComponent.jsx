@@ -23,7 +23,7 @@ function SingleCartComponent({ uid, quantity }) {
   const discountedPrice = calculateDiscountedPrice(item.price, item.discount);
   const subtotal = (discountedPrice * quantity).toFixed(2);
   return (
-    cartArr !== [] && (
+    cartArr.length !== 0 && (
       <div>
         <div className="flex justify-between border-y md:flex-col">
           <div className="flex w-3/4 gap-6 py-6 md:w-full">

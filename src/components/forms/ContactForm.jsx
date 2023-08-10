@@ -23,6 +23,7 @@ function ContactForm() {
 
     fetchData();
   }, []);
+
   const placeholderMsg = mdScreen
     ? 'Your message'
     : "Just us a note and we'll get back to you as quickly as possible";
