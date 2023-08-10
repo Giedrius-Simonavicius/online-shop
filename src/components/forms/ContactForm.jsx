@@ -180,8 +180,8 @@ function ContactForm() {
         </button>
         <button
           type="button"
-          className={`ml-4 ${formik.isSubmitting ? 'hidden' : ''} ${
-            mdScreen ? 'ml-0' : ''
+          className={` ${
+            formik.isSubmitting ? 'hidden' : ''
           } rounded-full bg-[#666] px-12 py-2 font-normal text-white duration-200 hover:bg-color5`}
           onClick={() => navigate('/')}
         >
