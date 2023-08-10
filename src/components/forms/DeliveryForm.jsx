@@ -86,7 +86,7 @@ function DeliveryForm() {
   };
   return (
     <div className="mt-10 w-[66%] pt-3 sm:w-full">
-      <h2 className=" border-b pb-4">Shipping Address</h2>
+      <h2 className="border-b pb-4">Shipping Address</h2>
       <form
         className="my-7 w-3/4 text-sm md:w-full"
         onSubmit={formik.handleSubmit}
