@@ -103,6 +103,7 @@ function Cart() {
             </div>
             <div>
               <button
+                title="Click to remove all items"
                 className="rounded-full border bg-black px-4 py-1 text-sm text-white duration-200 hover:bg-white hover:text-black md:px-10 md:py-2 "
                 onClick={() => {
                   setCartArr([]);

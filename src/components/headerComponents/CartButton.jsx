@@ -11,7 +11,10 @@ function CartButton({ mdScreen }) {
     setColorFunction(newColor);
   }
   return (
-    <div className="relative flex items-center duration-200 hover:scale-110">
+    <div
+      title="Click to open shopping cart"
+      className="relative flex items-center duration-200 hover:scale-110"
+    >
       <span
         className={`${cartArr.length === 0 ? 'hidden' : ''} ${
           mdScreen

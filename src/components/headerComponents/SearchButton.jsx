@@ -10,6 +10,7 @@ function SearchButton({ openCloseSearchBar, isSearchBar }) {
 
   return (
     <button
+      title="Click to open search bar"
       className="md:hidden"
       aria-label="Search"
       onClick={openCloseSearchBar}

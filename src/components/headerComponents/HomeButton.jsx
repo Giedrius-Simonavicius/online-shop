@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 function HomeButton({ mdScreen }) {
   return (
     <NavLink
+      title="Click to go to home page"
       to={'/'}
       className={`${
         mdScreen
