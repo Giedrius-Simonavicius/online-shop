@@ -28,6 +28,7 @@ function LeaveReviewForm({ onClose }) {
 
     return () => {
       unsubscribe();
+      window.location.reload();
     };
   }, []);
 

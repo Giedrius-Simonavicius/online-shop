@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useGeneralCtx } from '../../context/GeneralProvider';
 import { useNavigate } from 'react-router-dom';
+import { fetchItems } from '../../helperFns';
 
 function ContactForm() {
   const { mdScreen } = useGeneralCtx();
   const navigate = useNavigate();
+  const [emailTo, setEmailTo] = useState('');
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const email = await fetchItems('contacts');
+        setEmailTo(email[0].primaryEmail);
+      } catch (error) {
+        console.warn('Something went wrong');
+      }
+    }
+
+    fetchData();
+  }, []);
   const placeholderMsg = mdScreen
     ? 'Your message'
     : "Just us a note and we'll get back to you as quickly as possible";
@@ -43,10 +58,10 @@ function ContactForm() {
   });
 
   function sendEmail(emailValuesObj, setSubmitting, resetForm) {
-    const emaiTo = 'giedrius.simonavicius123@gmail.com';
     axios.defaults.headers.post['Content-Type'] = 'application/json';
+
     axios
-      .post(`https://formsubmit.co/ajax/${emaiTo}`, {
+      .post(`https://formsubmit.co/ajax/${emailTo}`, {
         formTitle: 'FormSubmit form my form',
         ...emailValuesObj,
       })
@@ -56,7 +71,7 @@ function ContactForm() {
         resetForm();
       })
       .catch((error) => {
-        // console.log(error);
+        // console.error('Error sending email:', error);
         setSubmitting(false);
       });
   }
