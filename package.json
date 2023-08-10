@@ -15,7 +15,7 @@
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.18",
     "axios": "^1.4.0",
-    "firebase": "^9.21.0",
+    "firebase": "^10.1.0",
     "formik": "^2.2.9",
     "nuka-carousel": "^6.0.3",
     "prop-types": "^15.8.1",
