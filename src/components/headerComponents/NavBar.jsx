@@ -30,7 +30,9 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
       <NavLink
         onClick={() => {
           setSearchResults([]);
-          closeFn();
+          if (tablet) {
+            closeFn();
+          }
         }}
         className={`${
           tablet
@@ -44,7 +46,9 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
       <NavLink
         onClick={() => {
           setSearchResults([]);
-          closeFn();
+          if (tablet) {
+            closeFn();
+          }
         }}
         className={`${
           tablet
@@ -58,7 +62,9 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
       <NavLink
         onClick={() => {
           setSearchResults([]);
-          closeFn();
+          if (tablet) {
+            closeFn();
+          }
         }}
         className={`${
           tablet
@@ -72,7 +78,9 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
       <NavLink
         onClick={() => {
           setSearchResults([]);
-          closeFn();
+          if (tablet) {
+            closeFn();
+          }
         }}
         className={`${
           tablet
@@ -87,7 +95,9 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
         onClick={() => {
           setSearchResults([]);
           resetFilterArr();
-          closeFn();
+          if (tablet) {
+            closeFn();
+          }
         }}
         to={'all-products'}
         className={`${
