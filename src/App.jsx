@@ -1,48 +1,77 @@
 import './styles/App.css';
 import './styles/style.css';
-
 import { Route, Routes } from 'react-router-dom';
 import HeaderComponent from './components/layout/HeaderComponent';
 import HomePage from './pages/HomePage';
 import FooterComponent from './components/layout/FooterComponent';
 import AllProducts from './pages/AllProducts';
-import { laptops, customPcs, monitors, desktops } from './data/data';
-
-const allPrd = [
-  ...laptops.slice(1),
-  ...customPcs.slice(1),
-  ...monitors.slice(1),
-  ...desktops.slice(1),
-];
+import SingleProductPage from './pages/SingleProductPage';
+import ContactUs from './pages/ContactUs';
+import ScrollToTop from './components/ScrollToTop';
+import AboutUs from './pages/AboutUs';
+import Terms from './pages/Terms';
+import Services from './components/homePageProducts/Services';
+import NotFound from './pages/NotFound';
+import { Toaster } from 'react-hot-toast';
+import Cart from './pages/Cart';
+import CartDelivery from './pages/CartDelivery';
+import CartReview from './pages/CartReview';
+import { useDataCtx } from './context/DataProvider';
+import ConfirmedPurchase from './pages/ConfirmedPurchase';
+import UserLogin from './pages/UserLogin';
+import UserRegister from './pages/UserRegister';
 
 function App() {
+  const {
+    fetchedLaptops,
+    fetchedDesktops,
+    fetchedMonitors,
+    fetchedCustomPcs,
+    allPrd,
+  } = useDataCtx();
+
   return (
     <div>
-      <HeaderComponent />
+      <ScrollToTop />
+
+      <Toaster />
+      <HeaderComponent products={allPrd} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="home" element={<HomePage />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="user" element={<UserLogin />} />
+        <Route path="user/register" element={<UserRegister />} />
+        <Route path="cart/delivery" element={<CartDelivery />} />
+        <Route path="cart/review" element={<CartReview />} />
+        <Route path="contact-us" element={<ContactUs />} />
+        <Route path="about-us" element={<AboutUs />} />
+        <Route path="terms-conditions" element={<Terms />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/confirmed" element={<ConfirmedPurchase />} />
         <Route
           path="all-products/laptops"
-          element={<AllProducts products={laptops} />}
+          element={<AllProducts products={fetchedLaptops} />}
         />
         <Route
           path="all-products/custom-pcs"
-          element={<AllProducts products={customPcs} />}
+          element={<AllProducts products={fetchedCustomPcs} />}
         />
         <Route
           path="all-products/monitors"
-          element={<AllProducts products={monitors} />}
+          element={<AllProducts products={fetchedMonitors} />}
         />
         <Route
           path="all-products/desktops"
-          element={<AllProducts products={desktops} />}
+          element={<AllProducts products={fetchedDesktops} />}
         />
         <Route
           path="all-products"
           element={<AllProducts products={allPrd} />}
         />
+        <Route path="all-products/:itemId" element={<SingleProductPage />} />
       </Routes>
+      <Services />
       <FooterComponent />
     </div>
   );

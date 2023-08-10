@@ -1,40 +1,45 @@
 import React from 'react';
 import Card from '../card/Card';
+import { useGeneralCtx } from '../../context/GeneralProvider';
 
 function Services() {
+  const { smScreen } = useGeneralCtx();
   return (
-    <div className="container my-12">
-      <div className="flex justify-between">
+    <div className="container mx-auto my-12 sm:mb-0 sm:bg-color1 sm:py-6">
+      <div className={`${smScreen ? 'flex-col' : ''} flex justify-around`}>
         <Card>
           <img
+            loading="lazy"
             className="mx-auto my-4"
-            src="../../../public/icons/ourServices/Account.svg"
+            src="/icons/ourServices/Account.svg"
             alt="Support"
           />
           <h3 className="text-center font-bold ">Product Support</h3>
-          <p className="text-center text-xs w-64 font-light mt-4">
+          <p className="mt-4 w-full text-center text-xs font-light">
             Up to 3 years on-site warranty available for your peace of mind.
           </p>
         </Card>
         <Card>
           <img
+            loading="lazy"
             className="mx-auto my-4"
-            src="../../../public/icons/ourServices/Saving.svg"
+            src="/icons/ourServices/Saving.svg"
             alt="Support"
           />
           <h3 className="text-center font-bold ">Product Support</h3>
-          <p className="text-center text-xs w-64 font-light mt-4">
+          <p className="mt-4 w-full text-center text-xs font-light">
             Up to 3 years on-site warranty available for your peace of mind.
           </p>
         </Card>
         <Card>
           <img
+            loading="lazy"
             className="mx-auto my-4"
-            src="../../../public/icons/ourServices/Support.svg"
+            src="/icons/ourServices/Support.svg"
             alt="Support"
           />
           <h3 className="text-center font-bold ">Product Support</h3>
-          <p className="text-center text-xs w-64 font-light mt-4">
+          <p className="mt-4 w-full text-center text-xs font-light">
             Up to 3 years on-site warranty available for your peace of mind.
           </p>
         </Card>
