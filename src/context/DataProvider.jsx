@@ -39,10 +39,10 @@ function DataContextProvider({ children }) {
 
   useEffect(() => {
     setAllPrd([
-      ...fetchedCustomPcs.slice(1),
-      ...fetchedDesktops.slice(1),
-      ...fetchedLaptops.slice(1),
-      ...fetchedMonitors.slice(1),
+      ...fetchedCustomPcs.slice(0, -1),
+      ...fetchedDesktops.slice(0, -1),
+      ...fetchedLaptops.slice(0, -1),
+      ...fetchedMonitors.slice(0, -1),
     ]);
   }, [fetchedCustomPcs, fetchedDesktops, fetchedLaptops, fetchedMonitors]);
 
@@ -50,7 +50,7 @@ function DataContextProvider({ children }) {
     fetchItemsAndImages('laptops')
       .then((data) => {
         const laptopData = Object.values(data);
-        laptopData.unshift({
+        laptopData.push({
           mainImg: '/images/laptops/laptopMain.jpg',
           title: 'MSI Laptops',
           link: 'all-products/laptops',
@@ -68,7 +68,7 @@ function DataContextProvider({ children }) {
     fetchItemsAndImages('desktops')
       .then((data) => {
         const desktopData = Object.values(data);
-        desktopData.unshift({
+        desktopData.push({
           mainImg: '/images/desktops/desktops.jpg',
           title: 'Desktops',
           link: 'all-products/desktops',
@@ -86,7 +86,7 @@ function DataContextProvider({ children }) {
     fetchItemsAndImages('monitors')
       .then((data) => {
         const monitorsData = Object.values(data);
-        monitorsData.unshift({
+        monitorsData.push({
           mainImg: '/images/monitors/monitors.jpg',
           title: 'Gaming Monitors',
           link: 'all-products/monitors',
@@ -104,7 +104,7 @@ function DataContextProvider({ children }) {
     fetchItemsAndImages('customPcs')
       .then((data) => {
         const customPcsData = Object.values(data);
-        customPcsData.unshift({
+        customPcsData.push({
           mainImg: '/images/pcs/customBuildsimg.jpg',
           title: 'Custom Builds',
           link: 'all-products/custom-pcs',

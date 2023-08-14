@@ -1,35 +1,27 @@
 import React from 'react';
 import Card from '../card/Card';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useGeneralCtx } from '../../context/GeneralProvider';
 import { calculateDiscountedPrice, formatCurrency } from '../../helperFns';
 import PropTypes from 'prop-types';
+import ImageRenderer from '../AllProdComponents/ImageRenderer';
 
-function Products({ products }) {
+function Products({ products, title }) {
   const { renderStars, mdScreen, smScreen, xlScreen } = useGeneralCtx();
 
   const slicedProducts = products.slice(0, 7);
   const slicedProductsForXl = products.slice(0, 8);
+  console.log('products ===', products);
 
   return smScreen ? (
     <div className="container mx-auto mb-4">
       <div>
-        {products && products.length > 0 && products[0] ? (
-          <div
-            className="mr-10 flex h-[95px] w-full flex-col items-center justify-between  bg-cover bg-center bg-no-repeat pl-2"
-            style={{ backgroundImage: `url(${products[0].mainImg})` }}
-          >
-            <h3 className="flex h-full w-full justify-center pt-4 text-xl text-white">
-              {products[0].title}
-            </h3>
-            <NavLink
-              to={products[0].link}
-              className="mb-3 flex text-sm font-normal text-white underline duration-200 hover:scale-110 hover:text-color8"
-            >
-              See All Products
-            </NavLink>
-          </div>
-        ) : null}
+        <ImageRenderer
+          mainImg={products[products.length - 1]?.mainImg}
+          link={products[products.length - 1]?.link}
+          title={title}
+          smScreen={smScreen}
+        />
         <div className="flex overflow-x-auto">
           {slicedProducts.map((product, index) =>
             index !== 0 ? (
@@ -61,18 +53,29 @@ function Products({ products }) {
                     {product.aboutProduct &&
                       `${product.aboutProduct.slice(0, 44)}...`}
                   </h3>
-                  {product.discount !== 0 && (
+                  {product.discount !== 0 &&
+                  typeof product.price === 'number' ? (
                     <div className="flex gap-3">
                       <p className="text-sm font-normal text-color10 line-through">
-                        {formatCurrency(product.price.toFixed(2))}
+                        {product.price !== undefined
+                          ? formatCurrency(product.price.toFixed(2))
+                          : ''}
                       </p>
                       <span className="text-color8">{`-${product.discount}%`}</span>
                     </div>
-                  )}
+                  ) : null}
                   <p className="text-sm font-medium">
-                    {formatCurrency(
-                      calculateDiscountedPrice(product.price, product.discount),
-                    )}
+                    {product.price !== undefined &&
+                    typeof product.price === 'number' &&
+                    product.discount !== undefined &&
+                    typeof product.discount === 'number'
+                      ? formatCurrency(
+                          calculateDiscountedPrice(
+                            product.price,
+                            product.discount,
+                          ),
+                        )
+                      : ''}
                   </p>
                 </Card>
               </Link>
@@ -88,22 +91,12 @@ function Products({ products }) {
       }`}
     >
       <div className={`${mdScreen ? '' : 'flex-wrap'} flex`}>
-        {products && products.length > 0 && products[0] ? (
-          <div
-            className="mr-10 flex-col rounded bg-cover bg-center bg-no-repeat pl-2"
-            style={{ backgroundImage: `url(${products[0].mainImg})` }}
-          >
-            <h3 className="flex h-full w-40 items-center justify-center text-center text-white">
-              {products[0].title}
-            </h3>
-            <NavLink
-              to={products[0].link}
-              className="-mt-12 flex items-end justify-center text-center text-sm text-white underline duration-200 hover:scale-110 hover:text-color8"
-            >
-              See All Products
-            </NavLink>
-          </div>
-        ) : null}
+        <ImageRenderer
+          mainImg={products[products.length - 1]?.mainImg}
+          link={products[products.length - 1]?.link}
+          title={title}
+          smScreen={smScreen}
+        />
         {xlScreen
           ? slicedProductsForXl.map((product, index) =>
               index !== 0 ? (
@@ -148,12 +141,17 @@ function Products({ products }) {
                       </div>
                     )}
                     <p className="text-sm font-medium">
-                      {formatCurrency(
-                        calculateDiscountedPrice(
-                          product.price,
-                          product.discount,
-                        ),
-                      )}
+                      {product.price !== undefined &&
+                      typeof product.price === 'number' &&
+                      product.discount !== undefined &&
+                      typeof product.discount === 'number'
+                        ? formatCurrency(
+                            calculateDiscountedPrice(
+                              product.price,
+                              product.discount,
+                            ),
+                          )
+                        : ''}
                     </p>
                   </Card>
                 </Link>
@@ -193,21 +191,27 @@ function Products({ products }) {
                       {product.aboutProduct &&
                         `${product.aboutProduct.slice(0, 44)}...`}
                     </h3>
-                    {product.discount !== 0 && (
+                    {product.discount !== 0 &&
+                    typeof product.price === 'number' ? (
                       <div className="flex gap-3">
                         <p className="text-sm font-normal text-color10 line-through">
                           {formatCurrency(product.price.toFixed(2))}
                         </p>
                         <span className="text-color8">{`-${product.discount}%`}</span>
                       </div>
-                    )}
+                    ) : null}
                     <p className="text-sm font-medium">
-                      {formatCurrency(
-                        calculateDiscountedPrice(
-                          product.price,
-                          product.discount,
-                        ),
-                      )}
+                      {product.price !== undefined &&
+                      typeof product.price === 'number' &&
+                      product.discount !== undefined &&
+                      typeof product.discount === 'number'
+                        ? formatCurrency(
+                            calculateDiscountedPrice(
+                              product.price,
+                              product.discount,
+                            ),
+                          )
+                        : ''}
                     </p>
                   </Card>
                 </Link>
@@ -234,5 +238,6 @@ Products.propTypes = {
       thumbnailURL: PropTypes.string,
     }),
   ).isRequired,
+  title: PropTypes.string,
 };
 export default Products;
