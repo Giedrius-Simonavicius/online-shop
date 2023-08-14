@@ -92,7 +92,11 @@ function LeaveReviewForm({ onClose }) {
         </div>
         <div>
           <input
-            className=" mt-2 w-full rounded border-2 py-2 pl-4 font-normal  placeholder:font-light"
+            className={`${
+              formik.touched.author && formik.errors.author
+                ? 'border-color8 focus-visible:outline-color8'
+                : ''
+            } mt-2 w-full rounded border-2 py-2 pl-4 font-normal  placeholder:font-light`}
             type="text"
             id="author"
             name="author"
@@ -103,7 +107,7 @@ function LeaveReviewForm({ onClose }) {
           />
         </div>
         {formik.touched.author && formik.errors.author ? (
-          <div>{formik.errors.author}</div>
+          <div className="text-color8">{formik.errors.author}</div>
         ) : null}
       </div>
       <div className="mt-6">
@@ -116,7 +120,11 @@ function LeaveReviewForm({ onClose }) {
           <textarea
             cols="30"
             rows="10"
-            className="mt-2 w-full resize-none rounded border-2 pl-4 pt-4 font-normal  placeholder:font-light"
+            className={`${
+              formik.touched.comment && formik.errors.comment
+                ? 'border-color8 focus-visible:outline-color8'
+                : ''
+            } mt-2 w-full resize-none rounded border-2 pl-4 pt-4 font-normal  placeholder:font-light`}
             id="comment"
             name="comment"
             placeholder="Your comment"
@@ -127,7 +135,7 @@ function LeaveReviewForm({ onClose }) {
         </div>
       </div>
       {formik.touched.comment && formik.errors.comment ? (
-        <div>{formik.errors.comment}</div>
+        <div className="text-color8">{formik.errors.comment}</div>
       ) : null}
       <div className="flex justify-between">
         <button

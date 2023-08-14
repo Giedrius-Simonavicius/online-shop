@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 function NavBar({ setSearchResults, resetFilterArr, tablet }) {
   function closeFn() {
     document.getElementById('myNav').style.width = '0%';
-    document.getElementById('myNav').style.height = '0%';
     document.getElementById('myNav').style.zIndex = '-1';
     document.getElementById('myNav').style.padding = '0';
   }
@@ -36,7 +35,7 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
         }}
         className={`${
           tablet
-            ? 'mb-3 w-fit px-2 text-3xl'
+            ? 'mb-7 w-fit px-2 text-3xl'
             : 'duration-300 hover:scale-110 hover:text-color3'
         } `}
         to={'all-products/laptops'}
@@ -52,7 +51,7 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
         }}
         className={`${
           tablet
-            ? 'mb-3 w-fit px-2 text-3xl'
+            ? 'mb-7 w-fit px-2 text-3xl'
             : 'duration-300 hover:scale-110 hover:text-color3'
         } `}
         to={'all-products/desktops'}
@@ -68,7 +67,7 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
         }}
         className={`${
           tablet
-            ? 'mb-3 w-fit px-2 text-3xl'
+            ? 'mb-7 w-fit px-2 text-3xl'
             : 'duration-300 hover:scale-110 hover:text-color3'
         } `}
         to={'all-products/custom-pcs'}
@@ -84,7 +83,7 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
         }}
         className={`${
           tablet
-            ? 'mb-3 w-fit px-2 text-3xl'
+            ? 'mb-7 w-fit px-2 text-3xl'
             : 'duration-300 hover:scale-110 hover:text-color3'
         } `}
         to={'all-products/monitors'}

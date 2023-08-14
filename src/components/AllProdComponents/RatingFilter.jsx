@@ -48,7 +48,7 @@ function RatingFilter() {
               {({ open }) => (
                 <>
                   <Disclosure.Button className="mb-3 flex items-end font-bold">
-                    <h2 className="text-xl font-bold">Star Rating</h2>
+                    <h2 className="text-3xl font-bold">Star Rating</h2>
                   </Disclosure.Button>
 
                   <Transition

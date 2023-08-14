@@ -91,7 +91,11 @@ function ContactForm() {
           </div>
           <div>
             <input
-              className="mt-2 w-full rounded border-2 py-4 pl-4 font-normal placeholder:font-light"
+              className={`${
+                formik.touched.name && formik.errors.name
+                  ? 'border-color8 focus-visible:outline-color8'
+                  : ''
+              } mt-2 w-full rounded border-2 py-4 pl-4 font-normal placeholder:font-light`}
               type="text"
               id="name"
               name="name"
@@ -113,7 +117,11 @@ function ContactForm() {
           </div>
           <div>
             <input
-              className="mt-2 w-full rounded border-2 py-4 pl-4 font-normal placeholder:font-light"
+              className={`${
+                formik.touched.email && formik.errors.email
+                  ? 'border-color8 focus-visible:outline-color8'
+                  : ''
+              } mt-2 w-full rounded border-2 py-4 pl-4 font-normal placeholder:font-light`}
               type="email"
               id="email"
               name="email"
@@ -155,7 +163,11 @@ function ContactForm() {
           <textarea
             cols="30"
             rows="10"
-            className="mt-2 w-full resize-none rounded border-2 pl-4 pt-4 font-normal  placeholder:font-light"
+            className={` ${
+              formik.touched.message && formik.errors.message
+                ? 'border-color8 focus-visible:outline-color8'
+                : ''
+            } mt-2 w-full resize-none rounded border-2 pl-4 pt-4 font-normal  placeholder:font-light`}
             id="message"
             name="message"
             placeholder={placeholderMsg}
@@ -168,11 +180,14 @@ function ContactForm() {
       {formik.touched.message && formik.errors.message ? (
         <div className="mb-6 text-color8">{formik.errors.message}</div>
       ) : null}{' '}
+      {formik.errors.name || formik.errors.email || formik.errors.message ? (
+        <p className="mb-4 text-color8">Please fill all required fields *</p>
+      ) : null}
       <div className={`${mdScreen ? 'flex flex-col gap-4' : ''}`}>
         <button
           className={`rounded-full duration-200 hover:bg-color4 ${
             formik.isSubmitting ? 'bg-[#666]' : 'bg-color3'
-          } px-12  py-2 font-normal text-white`}
+          } px-12 py-2 font-normal text-white`}
           type="submit"
           disabled={formik.isSubmitting}
         >
@@ -180,9 +195,9 @@ function ContactForm() {
         </button>
         <button
           type="button"
-          className={`ml-4 ${formik.isSubmitting ? 'hidden' : ''} ${
+          className={` ${formik.isSubmitting ? 'hidden' : ''} ${
             mdScreen ? 'ml-0' : ''
-          } rounded-full bg-[#666] px-12 py-2 font-normal text-white duration-200 hover:bg-color5`}
+          } ml-4 rounded-full bg-[#666] px-12 py-2 font-normal text-white duration-200 hover:bg-color5 md:ml-0`}
           onClick={() => navigate('/')}
         >
           Go back

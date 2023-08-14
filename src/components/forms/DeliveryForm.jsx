@@ -99,7 +99,11 @@ function DeliveryForm() {
           </div>
           <div>
             <input
-              className=" mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs"
+              className={`${
+                formik.touched.email && formik.errors.email
+                  ? 'border-color8 focus-visible:outline-color8'
+                  : ''
+              } mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs`}
               type="email"
               id="email"
               name="email"
@@ -124,7 +128,11 @@ function DeliveryForm() {
           </div>
           <div>
             <input
-              className=" mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs"
+              className={`${
+                formik.touched.name && formik.errors.name
+                  ? 'border-color8 focus-visible:outline-color8'
+                  : ''
+              } mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs`}
               type="text"
               id="name"
               name="name"
@@ -147,7 +155,11 @@ function DeliveryForm() {
           </div>
           <div>
             <input
-              className=" mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs"
+              className={`${
+                formik.touched.lastName && formik.errors.lastName
+                  ? 'border-color8 focus-visible:outline-color8'
+                  : ''
+              } mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs`}
               type="text"
               id="lastName"
               name="lastName"
@@ -173,7 +185,11 @@ function DeliveryForm() {
           </div>
           <div>
             <input
-              className=" mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs"
+              className={`${
+                formik.touched.streetAddress && formik.errors.streetAddress
+                  ? 'border-color8 focus-visible:outline-color8'
+                  : ''
+              } mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs`}
               type="text"
               id="streetAddress"
               name="streetAddress"
@@ -198,7 +214,11 @@ function DeliveryForm() {
           </div>
           <div>
             <input
-              className=" mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs"
+              className={`${
+                formik.touched.city && formik.errors.city
+                  ? 'border-color8 focus-visible:outline-color8'
+                  : ''
+              } mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs`}
               type="text"
               id="city"
               name="city"
@@ -221,7 +241,11 @@ function DeliveryForm() {
           </div>
           <div>
             <input
-              className=" mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs"
+              className={`${
+                formik.touched.postalCode && formik.errors.postalCode
+                  ? 'border-color8 focus-visible:outline-color8'
+                  : ''
+              } mt-2 w-full  rounded border-2 py-2 pl-4 font-normal placeholder:font-light  sm:placeholder:text-xs`}
               type="text"
               id="postalCode"
               name="postalCode"
@@ -246,7 +270,11 @@ function DeliveryForm() {
           </div>
           <div>
             <select
-              className="mt-2 w-full rounded border-2 py-2 pl-4 pr-8 font-normal sm:text-xs"
+              className={`${
+                formik.touched.country && formik.errors.country
+                  ? 'border-color8 focus-visible:outline-color8'
+                  : ''
+              } mt-2 w-full rounded border-2 py-2 pl-4 pr-8 font-normal sm:text-xs`}
               type="text"
               id="country"
               name="country"
@@ -280,7 +308,11 @@ function DeliveryForm() {
           </div>
           <div>
             <input
-              className="mt-2 w-full rounded border-2 py-2 pl-4 font-normal placeholder:font-light sm:placeholder:text-xs"
+              className={`${
+                formik.touched.phoneNo && formik.errors.phoneNo
+                  ? 'border-color8 focus-visible:outline-color8'
+                  : ''
+              } mt-2 w-full rounded border-2 py-2 pl-4 font-normal placeholder:font-light sm:placeholder:text-xs`}
               type="text"
               id="phoneNo"
               name="phoneNo"
@@ -296,6 +328,19 @@ function DeliveryForm() {
             </div>
           ) : null}
         </div>
+
+        {formik.errors.email ||
+        formik.errors.name ||
+        formik.errors.lastName ||
+        formik.errors.streetAddress ||
+        formik.errors.city ||
+        formik.errors.postalCode ||
+        formik.errors.country ||
+        formik.errors.phoneNo ? (
+          <p className="mb-6 mt-4  text-color8">
+            Please fill all required fields *
+          </p>
+        ) : null}
 
         <div className="mt-4">
           <div>

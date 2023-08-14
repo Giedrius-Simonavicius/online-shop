@@ -34,8 +34,8 @@ function UserRegister() {
         <RegistrationForm onUserRegistration={registerToFirebase} />
       </div>
       <button
-        className="mt-6 rounded-full
-              border-2 border-color3 bg-color3 px-8 font-normal text-white duration-200 hover:border-2 hover:bg-color1 hover:text-color3"
+        className="mt-6 rounded-full border-2
+              border-color3 bg-color3 px-8 font-normal text-white duration-200 hover:border-2 hover:bg-color1 hover:text-color3 md:w-full"
         onClick={() => navigate(-1)}
       >
         Go back

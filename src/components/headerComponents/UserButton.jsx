@@ -9,7 +9,7 @@ function UserButton({ mdScreen }) {
     setColorFunction(newColor);
   }
   return (
-    <div className="relative flex items-center duration-200 hover:scale-110">
+    <div className="relative ml-1 flex items-center duration-200 hover:scale-110">
       <NavLink to={'/user'}>
         <svg
           onMouseEnter={() => {
