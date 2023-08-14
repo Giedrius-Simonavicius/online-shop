@@ -18,8 +18,8 @@ function CartButton({ mdScreen }) {
       <span
         className={`${cartArr.length === 0 ? 'hidden' : ''} ${
           mdScreen
-            ? 'absolute left-5 top-2 flex h-4 w-4 items-center justify-center rounded-full bg-white text-xxs text-color3'
-            : 'absolute left-5 top-4 flex h-4 w-4 items-center justify-center rounded-full bg-color3 text-xxs text-white '
+            ? 'absolute left-[80%] top-[10%] flex h-[1rem] w-[1rem] items-center justify-center rounded-full bg-white text-[0.65rem]  text-color3'
+            : 'absolute left-[80%] top-[20%] flex h-[1rem] w-[1rem] items-center justify-center rounded-full bg-color3 text-[0.65rem]  text-white '
         }`}
       >
         {getCartQuantity()}
