@@ -21,7 +21,7 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
     >
       {tablet && (
         <button
-          className="-mr-3 -mt-2 text-right text-3xl text-red-500"
+          className="-mr-3 -mt-2 text-right text-5xl text-red-500"
           onClick={closeFn}
         >
           &times;
@@ -36,7 +36,7 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
         }}
         className={`${
           tablet
-            ? 'mb-1 w-fit px-2 text-xl'
+            ? 'mb-3 w-fit px-2 text-3xl'
             : 'duration-300 hover:scale-110 hover:text-color3'
         } `}
         to={'all-products/laptops'}
@@ -52,7 +52,7 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
         }}
         className={`${
           tablet
-            ? 'mb-1 w-fit px-2 text-xl'
+            ? 'mb-3 w-fit px-2 text-3xl'
             : 'duration-300 hover:scale-110 hover:text-color3'
         } `}
         to={'all-products/desktops'}
@@ -68,7 +68,7 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
         }}
         className={`${
           tablet
-            ? 'mb-1 w-fit px-2 text-xl'
+            ? 'mb-3 w-fit px-2 text-3xl'
             : 'duration-300 hover:scale-110 hover:text-color3'
         } `}
         to={'all-products/custom-pcs'}
@@ -84,7 +84,7 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
         }}
         className={`${
           tablet
-            ? 'mb-1 w-fit px-2 text-xl'
+            ? 'mb-3 w-fit px-2 text-3xl'
             : 'duration-300 hover:scale-110 hover:text-color3'
         } `}
         to={'all-products/monitors'}
@@ -102,7 +102,7 @@ function NavBar({ setSearchResults, resetFilterArr, tablet }) {
         to={'all-products'}
         className={`${
           tablet
-            ? 'mb-1 mt-2 w-fit rounded-full border-2 border-color3 px-2 py-1 text-xl'
+            ? 'mb-1 mt-2 w-fit rounded-full border-2 border-color3 px-2 py-1 text-5xl'
             : 'rounded-full border-2 border-color3 p-1 pl-5 pr-5 text-color3 duration-300 hover:bg-color3 hover:text-white '
         }`}
       >
