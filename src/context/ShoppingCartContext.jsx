@@ -81,10 +81,10 @@ function ShoppingCartProvider({ children }) {
   function decreaseCartQuantity(uid, message) {
     setCartArr((currentItems) => {
       if (currentItems.find((item) => item.uid === uid)?.quantity === 1) {
-        message && toast.error(message);
+        message && toast.success(message);
         return currentItems.filter((item) => item.uid !== uid);
       } else {
-        message && toast.error(message);
+        message && toast.success(message);
         return currentItems.map((item) => {
           if (item.uid === uid) {
             return { ...item, quantity: item.quantity - 1 };
