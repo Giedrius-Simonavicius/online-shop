@@ -21,7 +21,7 @@ function HomePage() {
     fetchedCustomPcs,
     loadingCustomPcs,
   } = useDataCtx();
-  console.log('fetchedMonitors ===', fetchedMonitors);
+
   return (
     <div>
       {!smScreen && <Featuring />}
