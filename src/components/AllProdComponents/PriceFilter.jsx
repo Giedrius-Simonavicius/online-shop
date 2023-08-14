@@ -18,12 +18,12 @@ function CategoryFilter() {
   }
 
   return smScreen ? (
-    <div className="mb-3">
+    <div className="mb-8">
       <Disclosure>
         {({ open }) => (
           <>
             <Disclosure.Button className=" mb-3 flex items-end font-bold">
-              <h2 className="text-xl font-bold">Price</h2>
+              <h2 className="text-3xl font-bold">Price</h2>
             </Disclosure.Button>
 
             <Transition

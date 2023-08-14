@@ -558,7 +558,6 @@ html {
   --tw-backdrop-sepia: ;
 }
 .onTop {
-  height: 0;
   width: 0;
   position: fixed;
   z-index: -1;
@@ -566,7 +565,7 @@ html {
   top: 0;
   background-color: #ffffff;
   overflow-x: hidden;
-  transition: 0.3s;
+  transition: 0.15s;
 }
 
 .mt-72 {

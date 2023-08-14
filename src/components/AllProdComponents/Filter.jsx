@@ -14,7 +14,6 @@ function Filter() {
   const { smScreen, filterArr, setFilterArr } = useGeneralCtx();
   function closeFn() {
     document.getElementById('filters').style.width = '0%';
-    document.getElementById('filters').style.height = '0%';
     document.getElementById('filters').style.zIndex = '-1';
     document.getElementById('filters').style.padding = '0';
   }
@@ -26,12 +25,12 @@ function Filter() {
   return (
     <div id="filters" className={` ${smScreen ? 'onTop' : ''} mr-3 w-36`}>
       {smScreen && (
-        <div className="mb-3 flex items-center justify-between border-b-2 pb-4">
-          <h3 className="text-3xl font-bold">Filter By</h3>
+        <div className="mb-6 flex items-center justify-between border-b-2 pb-4">
+          <h3 className="text-5xl font-bold">Filter By</h3>
           <button
             className={`${
               filterArr.length !== 0 ? 'text-color9' : 'text-color8'
-            } text-4xl `}
+            } text-5xl `}
             onClick={closeFn}
           >
             {filterArr.length !== 0 ? '\u2713' : '\u00D7'}

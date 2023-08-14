@@ -36,7 +36,11 @@ function LoginForm({ onUserLogin }) {
           Email <span className="text-color8">*</span>
         </label>
         <input
-          className="mt-2 w-full rounded border-2 border-color6 py-4 pl-4 font-normal placeholder:font-light"
+          className={`${
+            formik.touched.email && formik.errors.email
+              ? 'border-color8 focus-visible:outline-color8'
+              : ''
+          } mt-2 w-full rounded border-2 border-color6 py-4 pl-4 font-normal placeholder:font-light`}
           id="email"
           type="text"
           name="email"
@@ -54,7 +58,11 @@ function LoginForm({ onUserLogin }) {
           Password <span className="text-color8">*</span>
         </label>
         <input
-          className="mt-2 w-full rounded border-2 border-color6 py-4 pl-4 font-normal placeholder:font-light"
+          className={`${
+            formik.touched.password && formik.errors.password
+              ? 'border-color8 focus-visible:outline-color8'
+              : ''
+          } mt-2 w-full rounded border-2 border-color6 py-4 pl-4 font-normal placeholder:font-light`}
           id="password"
           type="password"
           name="password"

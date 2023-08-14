@@ -85,7 +85,7 @@ function AllProducts({ products }) {
     'Availability',
   ];
 
-  const filteredProducts = filterProducts(products, filterArr);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const sortedProducts = sortItems(
@@ -93,7 +93,10 @@ function AllProducts({ products }) {
     filteredProducts,
     sortDirection,
   );
-
+  useEffect(() => {
+    const updatedFilteredProducts = filterProducts(products, filterArr);
+    setFilteredProducts(updatedFilteredProducts);
+  }, [products, filterArr]);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const paginatedProducts = sortedProducts.slice(
@@ -117,7 +120,8 @@ function AllProducts({ products }) {
   useEffect(() => {
     setCurrentPage(1);
     paginate(1);
-  }, [filteredProducts, itemsPerPage, paginate]);
+  }, [filteredProducts, filterArr, itemsPerPage, paginate]);
+
   const howManyToDisplay = [5, 10, 20, 30, 50];
 
   function sortItems(category, products, sortDirection) {
@@ -223,7 +227,6 @@ function AllProducts({ products }) {
           <Pagination
             itemsPerPage={itemsPerPage}
             totalItems={searchResults.length}
-            filteredProducts={searchResults}
             paginate={paginate}
             currentPage={currentPage}
           />
@@ -537,7 +540,6 @@ function AllProducts({ products }) {
               <Pagination
                 itemsPerPage={itemsPerPage}
                 totalItems={filteredProducts.length}
-                filteredProducts={filteredProducts}
                 paginate={paginate}
                 currentPage={currentPage}
               />

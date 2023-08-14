@@ -18,12 +18,12 @@ function InStockFilter() {
   }
 
   return smScreen ? (
-    <div>
+    <div className="mb-8">
       <Disclosure>
         {({ open }) => (
           <>
-            <Disclosure.Button className="mb-3 flex items-end  font-bold">
-              <h2 className="text-xl font-bold">In Stock</h2>
+            <Disclosure.Button className="mb-4 flex items-end  font-bold">
+              <h2 className="text-3xl font-bold">In Stock</h2>
             </Disclosure.Button>
 
             <Transition
@@ -36,7 +36,7 @@ function InStockFilter() {
               leaveTo="opacity-0 scale-y-0"
             >
               <Disclosure.Panel className="text-base">
-                <div className="mb-3">
+                <div className="mb-6">
                   <div className="flex justify-between">
                     <label className="flex items-center">
                       <input

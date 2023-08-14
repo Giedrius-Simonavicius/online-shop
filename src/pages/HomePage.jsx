@@ -21,28 +21,28 @@ function HomePage() {
     fetchedCustomPcs,
     loadingCustomPcs,
   } = useDataCtx();
-
+  console.log('fetchedMonitors ===', fetchedMonitors);
   return (
     <div>
       {!smScreen && <Featuring />}
 
       {!loadingCustomPcs ? (
-        <Products products={fetchedCustomPcs} />
+        <Products title="Custom PCs" products={fetchedCustomPcs} />
       ) : (
         <div>Loading Custom pcs...</div>
       )}
       {!loadingLaptops ? (
-        <Products products={fetchedLaptops} />
+        <Products title="Laptops" products={fetchedLaptops} />
       ) : (
         <div>Loading laptops...</div>
       )}
       {!loadingDesktops ? (
-        <Products products={fetchedDesktops} />
+        <Products title="Desktops" products={fetchedDesktops} />
       ) : (
         <div>Loading desktops...</div>
       )}
       {!loadingMonitors ? (
-        <Products products={fetchedMonitors} />
+        <Products title="Monitors" products={fetchedMonitors} />
       ) : (
         <div>Loading monitors...</div>
       )}

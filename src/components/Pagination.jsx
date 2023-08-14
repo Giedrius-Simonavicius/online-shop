@@ -28,7 +28,7 @@ function Pagination({
 
   return (
     <div className="sm:text-xs">
-      {itemsPerPage <= filteredProducts.length && (
+      {itemsPerPage <= totalItems && (
         <ul className="mt-6 flex justify-center gap-2">
           <li
             onClick={() => goToPreviousPage()}
@@ -95,6 +95,6 @@ Pagination.propTypes = {
   totalItems: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
   paginate: PropTypes.func.isRequired,
-  filteredProducts: PropTypes.array.isRequired,
+  filteredProducts: PropTypes.array,
 };
 export default Pagination;
