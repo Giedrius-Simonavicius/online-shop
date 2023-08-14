@@ -102,7 +102,7 @@ function ContactForm() {
             />
           </div>
           {formik.touched.name && formik.errors.name ? (
-            <div>{formik.errors.name}</div>
+            <div className="text-color8">{formik.errors.name}</div>
           ) : null}
         </div>
         <div className="w-1/2 md:w-full">
@@ -124,7 +124,7 @@ function ContactForm() {
             />
           </div>
           {formik.touched.email && formik.errors.email ? (
-            <div>{formik.errors.email}</div>
+            <div className="text-color8">{formik.errors.email}</div>
           ) : null}{' '}
         </div>
       </div>
@@ -166,7 +166,7 @@ function ContactForm() {
         </div>
       </div>
       {formik.touched.message && formik.errors.message ? (
-        <div>{formik.errors.message}</div>
+        <div className="mb-6 text-color8">{formik.errors.message}</div>
       ) : null}{' '}
       <div className={`${mdScreen ? 'flex flex-col gap-4' : ''}`}>
         <button
