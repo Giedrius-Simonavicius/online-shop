@@ -11,7 +11,6 @@ function Products({ products, title }) {
 
   const slicedProducts = products.slice(0, 7);
   const slicedProductsForXl = products.slice(0, 8);
-  console.log('products ===', products);
 
   return smScreen ? (
     <div className="container mx-auto mb-4">
