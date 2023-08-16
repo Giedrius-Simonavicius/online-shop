@@ -9,8 +9,10 @@ function CartReview() {
   const navigate = useNavigate();
 
   function purchase() {
-    setCartArr([]);
     navigate('/confirmed');
+    setTimeout(function () {
+      setCartArr([]);
+    }, 5200);
   }
 
   return (

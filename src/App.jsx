@@ -20,6 +20,8 @@ import { useDataCtx } from './context/DataProvider';
 import ConfirmedPurchase from './pages/ConfirmedPurchase';
 import UserLogin from './pages/UserLogin';
 import UserRegister from './pages/UserRegister';
+import { useShoppingCartCtx } from './context/ShoppingCartContext';
+import AccessDenied from './pages/AccessDenied';
 
 function App() {
   const {
@@ -29,6 +31,8 @@ function App() {
     fetchedCustomPcs,
     allPrd,
   } = useDataCtx();
+
+  const { cartArr } = useShoppingCartCtx();
 
   return (
     <div>
@@ -42,13 +46,24 @@ function App() {
         <Route path="cart" element={<Cart />} />
         <Route path="user" element={<UserLogin />} />
         <Route path="user/register" element={<UserRegister />} />
-        <Route path="cart/delivery" element={<CartDelivery />} />
-        <Route path="cart/review" element={<CartReview />} />
+        <Route
+          path="cart/delivery"
+          element={cartArr.length > 0 ? <CartDelivery /> : <AccessDenied />}
+        />
+        <Route
+          path="cart/review"
+          element={cartArr.length > 0 ? <CartReview /> : <AccessDenied />}
+        />
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="about-us" element={<AboutUs />} />
         <Route path="terms-conditions" element={<Terms />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/confirmed" element={<ConfirmedPurchase />} />
+        <Route
+          path="/confirmed"
+          element={
+            cartArr.length > 0 ? <ConfirmedPurchase /> : <AccessDenied />
+          }
+        />
         <Route
           path="all-products/laptops"
           element={<AllProducts products={fetchedLaptops} />}
