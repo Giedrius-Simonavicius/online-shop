@@ -22,7 +22,12 @@ function HomePage() {
     loadingCustomPcs,
   } = useDataCtx();
 
-  return (
+  return loadingCustomPcs ||
+    loadingDesktops ||
+    loadingLaptops ||
+    loadingMonitors ? (
+    <img src="/public/images/loading .jpg" alt="loading screen" />
+  ) : (
     <div>
       {!smScreen && <Featuring />}
 
