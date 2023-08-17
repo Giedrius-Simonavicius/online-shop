@@ -43,7 +43,10 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="home" element={<HomePage />} />
-        <Route path="cart" element={<Cart />} />
+        <Route
+          path="cart"
+          element={cartArr.length > 0 ? <Cart /> : <AccessDenied cart />}
+        />
         <Route path="user" element={<UserLogin />} />
         <Route path="user/register" element={<UserRegister />} />
         <Route

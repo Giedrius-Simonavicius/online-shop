@@ -36,11 +36,11 @@ function Cart() {
       {cartArr.length === 0 ? (
         <p className="my-16 text-center text-5xl">No items in cart</p>
       ) : (
-        <div>
+        <ul>
           {cartArr.map((item) => (
             <SingleCartComponent key={item.uid} {...item} />
           ))}
-        </div>
+        </ul>
       )}
 
       <div

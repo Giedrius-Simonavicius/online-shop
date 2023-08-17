@@ -3,12 +3,13 @@ import { useGeneralCtx } from '../../context/GeneralProvider';
 import AddToCart from '../singleProductComponents/AddToCart';
 import { calculateDiscountedPrice, formatCurrency } from '../../helperFns';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function ListView({ product }) {
   const { renderStars } = useGeneralCtx();
 
   return (
-    <div className="mb-8 px-10 py-2 duration-100 hover:shadow-top-bottom">
+    <Link to={`/all-products/${product.uid}`} className="mb-8 px-10 py-2 ">
       <div className="flex  justify-end">
         {product.inStock ? (
           <div className="flex gap-2">
@@ -76,13 +77,14 @@ function ListView({ product }) {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
 ListView.propTypes = {
   product: PropTypes.shape({
     productId: PropTypes.string.isRequired,
+    uid: PropTypes.string.isRequired,
     aboutProduct: PropTypes.string.isRequired,
     thumbnailURL: PropTypes.string.isRequired,
     inStock: PropTypes.bool.isRequired,

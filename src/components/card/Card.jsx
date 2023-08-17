@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 function Card({ children, flex, width, hover }) {
   const flexClass = flex === 'flex' ? 'flex' : 'flex-col';
   const hoverClass = hover !== '' ? hover : '';
 
   return (
-    <div className={`ml-3 mr-3 ${width} ${flexClass} ${hoverClass} `}>
+    <Link className={`ml-3 mr-3 ${width} ${flexClass} ${hoverClass} `}>
       {children}
-    </div>
+    </Link>
   );
 }
 Card.propTypes = {

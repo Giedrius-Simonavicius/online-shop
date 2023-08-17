@@ -85,7 +85,7 @@ function UserLogin() {
             Create an account
           </button>
 
-          <div className="mt-8 flex flex-col items-center gap-2">
+          <div className="mt-8 flex flex-col  gap-2">
             <button
               className="flex w-fit items-center gap-1 rounded-full px-4 py-1 duration-100  hover:outline"
               onClick={loginWithGoogle}

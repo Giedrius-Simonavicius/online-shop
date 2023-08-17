@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useGeneralCtx } from '../../context/GeneralProvider';
 import { calculateDiscountedPrice, formatCurrency } from '../../helperFns';
 import PropTypes from 'prop-types';
@@ -5,12 +6,16 @@ import PropTypes from 'prop-types';
 function SingleItemCard({ flex, hover, product }) {
   const flexClass = flex === 'flex' ? 'flex' : 'flex-col';
   const hoverClass = hover !== '' ? hover : '';
-  const { mdScreen } = useGeneralCtx();
+  const { mdScreen, setSearchResults } = useGeneralCtx();
   const { renderStars } = useGeneralCtx();
 
   return (
-    <div
-      className={`mb-6 ml-3 mr-3 ${flexClass} ${!mdScreen ? hoverClass : ''} `}
+    <Link
+      to={`/all-products/${product.uid}`}
+      onClick={() => setSearchResults([])}
+      className={`mb-6 ml-3 mr-3 list-none  ${flexClass} ${
+        !mdScreen ? hoverClass : ''
+      } `}
     >
       {product.inStock ? (
         <div className="flex gap-2">
@@ -45,7 +50,7 @@ function SingleItemCard({ flex, hover, product }) {
           calculateDiscountedPrice(product.price, product.discount),
         )}
       </p>
-    </div>
+    </Link>
   );
 }
 SingleItemCard.propTypes = {

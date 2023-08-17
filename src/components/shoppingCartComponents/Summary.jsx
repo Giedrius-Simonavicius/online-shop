@@ -52,15 +52,14 @@ function Summary({ review }) {
               leaveFrom="opacity-100 scale-y-100"
               leaveTo="opacity-0 scale-y-0"
             >
-              <Disclosure.Panel className="text-xs">
+              <ul className="text-xs">
                 {cartArr.map((cartItem) => {
                   const item = allPrd.find(
                     (product) => product.uid === cartItem.uid,
                   );
-
                   if (item) {
                     return (
-                      <div className="mb-6 flex gap-2" key={item.uid}>
+                      <li className="mb-6 flex gap-2" key={item.uid}>
                         <div className="h-16 w-16">
                           <img src={item.thumbnailURL} alt={item.name} />
                         </div>
@@ -84,12 +83,12 @@ function Summary({ review }) {
                             </p>
                           </div>
                         </div>
-                      </div>
+                      </li>
                     );
                   }
                   return null;
                 })}
-              </Disclosure.Panel>
+              </ul>
             </Transition>
           </>
         )}

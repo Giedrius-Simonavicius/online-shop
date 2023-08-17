@@ -98,7 +98,9 @@ function ShoppingCartProvider({ children }) {
 
   function removeFromCart(uid) {
     setCartArr((currentItems) => {
-      return currentItems.filter((item) => item.uid !== uid);
+      const updatedCart = currentItems.filter((item) => item.uid !== uid);
+      toast.success('item removed');
+      return updatedCart;
     });
   }
   const ShoppingCartCtx = {

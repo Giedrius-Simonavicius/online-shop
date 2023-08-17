@@ -29,8 +29,7 @@ function AllProducts({ products }) {
     setActiveButton(2);
   }
 
-  const { filterArr, setFilterArr, searchResults, smScreen, setSearchResults } =
-    useGeneralCtx();
+  const { filterArr, setFilterArr, searchResults, smScreen } = useGeneralCtx();
 
   const location = useLocation();
 
@@ -208,11 +207,10 @@ function AllProducts({ products }) {
             </select>
           </div>
 
-          <div className="mx-auto flex flex-wrap">
+          <ul className="mx-auto  flex flex-wrap">
             {paginatedSearchProducts.map((product, index) => (
-              <Link
-                to={`/all-products/${product.uid}`}
-                onClick={() => setSearchResults([])}
+              <li
+                className="mx-4 my-4 duration-200 hover:scale-110"
                 key={index}
               >
                 <SingleItemCard
@@ -221,9 +219,9 @@ function AllProducts({ products }) {
                   width="max-w-48"
                   product={product}
                 />
-              </Link>
+              </li>
             ))}
-          </div>
+          </ul>
           <Pagination
             itemsPerPage={itemsPerPage}
             totalItems={searchResults.length}
@@ -501,7 +499,7 @@ function AllProducts({ products }) {
                 ))}
               </div>
 
-              <div
+              <ul
                 className={`${
                   smScreen ? 'grid grid-cols-2' : 'mx-auto flex flex-wrap'
                 }`}
@@ -516,26 +514,27 @@ function AllProducts({ products }) {
                     return (
                       <React.Fragment key={index}>
                         {activeButton === 2 ? (
-                          <Link to={`/all-products/${product.uid}`}>
+                          <li className="mx-4 my-4 duration-200 hover:scale-110">
                             <SingleItemCard
                               hover="my-4 hover:scale-110 duration-200"
                               width="max-w-48"
                               product={product}
                             />
-                          </Link>
+                          </li>
                         ) : (
-                          <Link
+                          <li
+                            className="duration-100 hover:shadow-top-bottom"
                             to={`/all-products/${product.uid}`}
                             key={product.uid}
                           >
                             <ListView product={product} />
-                          </Link>
+                          </li>
                         )}
                       </React.Fragment>
                     );
                   })
                 )}
-              </div>
+              </ul>
 
               <Pagination
                 itemsPerPage={itemsPerPage}

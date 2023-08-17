@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useShoppingCartCtx } from '../../context/ShoppingCartContext';
 import PropTypes from 'prop-types';
+import { toast } from 'react-hot-toast';
 
 function CartButton({ mdScreen }) {
   const { cartArr, getCartQuantity } = useShoppingCartCtx();
@@ -10,10 +11,18 @@ function CartButton({ mdScreen }) {
   function changeOnHoverColor(setColorFunction, newColor) {
     setColorFunction(newColor);
   }
+
+  function handleCartButtonClick() {
+    if (cartArr.length <= 0) {
+      toast.error('Add items to cart to access');
+      window.location.reload();
+    }
+  }
   return (
     <div
       title="Click to open shopping cart"
       className="relative flex items-center duration-200 hover:scale-110"
+      onClick={handleCartButtonClick}
     >
       <span
         className={`${cartArr.length === 0 ? 'hidden' : ''} ${

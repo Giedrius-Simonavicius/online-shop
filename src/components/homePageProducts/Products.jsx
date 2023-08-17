@@ -23,10 +23,14 @@ function Products({ products, title }) {
           title={title}
           smScreen={smScreen}
         />
-        <div className="flex overflow-x-auto">
+        <ul className="flex overflow-x-auto">
           {slicedProducts.map((product, index) => (
-            <Link to={`/all-products/${product.uid}`} key={index}>
-              <Card key={index} width="w-64">
+            <li key={index} className="mx-4">
+              <Link
+                to={`/all-products/${product.uid}`}
+                key={index}
+                width="w-64"
+              >
                 {product.inStock ? (
                   <div className="mt-4 flex gap-2">
                     <img
@@ -76,10 +80,10 @@ function Products({ products, title }) {
                       )
                     : ''}
                 </p>
-              </Card>
-            </Link>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   ) : (
@@ -88,7 +92,7 @@ function Products({ products, title }) {
         mdScreen ? 'overflow-x-auto' : 'px-3'
       }`}
     >
-      <div className={`${mdScreen ? '' : 'flex-wrap'} flex`}>
+      <ul className={`${mdScreen ? '' : 'flex-wrap'} flex`}>
         <ImageRenderer
           mainImg={products[products.length - 1]?.mainImg}
           link={products[products.length - 1]?.link}
@@ -97,8 +101,9 @@ function Products({ products, title }) {
         />
         {xlScreen
           ? slicedProductsForXl.map((product, index) => (
-              <Link to={`/all-products/${product.uid}`} key={index}>
-                <Card
+              <li className="mx-4" key={index}>
+                <Link
+                  to={`/all-products/${product.uid}`}
                   key={index}
                   hover={'hover:scale-110 duration-200'}
                   width="max-w-48"
@@ -150,12 +155,13 @@ function Products({ products, title }) {
                         )
                       : ''}
                   </p>
-                </Card>
-              </Link>
+                </Link>
+              </li>
             ))
           : slicedProducts.map((product, index) => (
-              <Link to={`/all-products/${product.uid}`} key={index}>
-                <Card
+              <li className="mx-4" key={index}>
+                <Link
+                  to={`/all-products/${product.uid}`}
                   key={index}
                   hover={'hover:scale-110 duration-200 '}
                   width="max-w-48"
@@ -208,10 +214,10 @@ function Products({ products, title }) {
                         )
                       : ''}
                   </p>
-                </Card>
-              </Link>
+                </Link>
+              </li>
             ))}
-      </div>
+      </ul>
     </div>
   );
 }

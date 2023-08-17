@@ -16,6 +16,7 @@ import UserButton from '../headerComponents/UserButton';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase/firebase';
 import { toast } from 'react-hot-toast';
+import { useShoppingCartCtx } from '../../context/ShoppingCartContext';
 
 function HeaderComponent({ products }) {
   const {
@@ -26,7 +27,7 @@ function HeaderComponent({ products }) {
     user,
     isLoggedIn,
   } = useGeneralCtx();
-
+  const { cartArr } = useShoppingCartCtx();
   const [isSearchBarVisible, setIsSearchBarVisible] = useState(false);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const location = useLocation();
@@ -169,7 +170,7 @@ function HeaderComponent({ products }) {
             isSearchBar={isSearchBarVisible}
           />
 
-          <CartButton mdScreen={mdScreen} />
+          {cartArr.length > 0 && <CartButton mdScreen={mdScreen} />}
           {isLoggedIn ? (
             <div className="ml-2 flex flex-col items-center justify-center">
               <p className={`${smScreen ? 'text-xs' : ''}`}>{user.email}</p>
