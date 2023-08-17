@@ -1,6 +1,6 @@
 import React from 'react';
-
-function AccessDenied(cart) {
+import PropTypes from 'prop-types';
+function AccessDenied({ cart }) {
   return (
     <div>
       <h1 className="my-16 text-center text-5xl font-bold md:text-3xl">
@@ -9,5 +9,7 @@ function AccessDenied(cart) {
     </div>
   );
 }
-
+AccessDenied.propTypes = {
+  cart: PropTypes.bool.isRequired,
+};
 export default AccessDenied;
