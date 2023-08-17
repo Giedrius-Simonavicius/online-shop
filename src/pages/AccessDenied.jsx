@@ -10,6 +10,6 @@ function AccessDenied({ cart }) {
   );
 }
 AccessDenied.propTypes = {
-  cart: PropTypes.bool.isRequired,
+  cart: PropTypes.bool,
 };
 export default AccessDenied;
