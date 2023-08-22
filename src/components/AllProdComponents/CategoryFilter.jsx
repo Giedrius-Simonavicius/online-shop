@@ -36,8 +36,8 @@ function CategoryFilter() {
       <Disclosure>
         {({ open }) => (
           <>
-            <Disclosure.Button className="mb-3 flex items-end font-bold">
-              <h2 className="text-xl font-bold">Category</h2>
+            <Disclosure.Button className="mb-8 flex items-end font-bold">
+              <h2 className="text-3xl font-bold">Category</h2>
             </Disclosure.Button>
 
             <Transition

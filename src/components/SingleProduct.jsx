@@ -5,7 +5,7 @@ import { useGeneralCtx } from '../context/GeneralProvider';
 import AddToCart from './singleProductComponents/AddToCart';
 import PropTypes from 'prop-types';
 function SingleProduct({ product }) {
-  const { mdScreen, smScreen } = useGeneralCtx();
+  const { mdScreen, smScreen, xlScreen } = useGeneralCtx();
   const [activeTab, setActiveTab] = useState('about');
   const [selectedImage, setSelectedImage] = useState(product.thumbnailURL);
 
@@ -153,7 +153,11 @@ function SingleProduct({ product }) {
             <h3 className="my-5 text-2xl lg:text-xl">{product.name}</h3>
             <div className="flex w-fit">
               {activeTab === 'about' && (
-                <p className="w-[50vw] text-sm lg:text-xs">
+                <p
+                  className={` ${
+                    xlScreen ? 'w-full' : 'w-[50vw]'
+                  } text-sm lg:text-xs`}
+                >
                   {product.aboutProduct}
                 </p>
               )}
