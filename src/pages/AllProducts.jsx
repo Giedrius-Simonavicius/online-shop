@@ -149,8 +149,18 @@ function AllProducts({ products }) {
           : [...products].sort((a, b) => a.discount - b.discount);
       case 'Category':
         return sortDirection
-          ? [...products].sort((a, b) => a.category.localeCompare(b.category))
-          : [...products].sort((a, b) => b.category.localeCompare(a.category));
+          ? [...products].sort((a, b) => {
+              if (!a.category || !b.category) {
+                return 0;
+              }
+              return a.category.localeCompare(b.category);
+            })
+          : [...products].sort((a, b) => {
+              if (!a.category || !b.category) {
+                return 0;
+              }
+              return b.category.localeCompare(a.category);
+            });
       case 'Availability':
         return sortDirection
           ? [...products].sort((a, b) => {
