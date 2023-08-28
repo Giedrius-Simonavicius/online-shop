@@ -28,7 +28,7 @@ function RegistrationForm({ onUserRegistration }) {
       }
     },
   });
-  console.log(formik.errors);
+
   return (
     <form className="container mx-auto mt-4" onSubmit={formik.handleSubmit}>
       <div className="flex flex-col">

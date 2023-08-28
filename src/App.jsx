@@ -22,6 +22,7 @@ import UserLogin from './pages/UserLogin';
 import UserRegister from './pages/UserRegister';
 import { useShoppingCartCtx } from './context/ShoppingCartContext';
 import AccessDenied from './pages/AccessDenied';
+import { useGeneralCtx } from './context/GeneralProvider';
 
 function App() {
   const {
@@ -33,6 +34,7 @@ function App() {
   } = useDataCtx();
 
   const { cartArr } = useShoppingCartCtx();
+  const { isLoggedIn } = useGeneralCtx();
 
   return (
     <div>
@@ -48,7 +50,10 @@ function App() {
           element={cartArr.length > 0 ? <Cart /> : <AccessDenied cart />}
         />
         <Route path="user" element={<UserLogin />} />
-        <Route path="user/register" element={<UserRegister />} />
+        <Route
+          path="user/register"
+          element={isLoggedIn ? <HomePage /> : <UserRegister />}
+        />
         <Route
           path="cart/delivery"
           element={cartArr.length > 0 ? <CartDelivery /> : <AccessDenied />}
