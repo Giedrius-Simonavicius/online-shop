@@ -29,22 +29,22 @@ function HomePage() {
       {!loadingCustomPcs ? (
         <Products title="Custom PCs" products={fetchedCustomPcs} />
       ) : (
-        <div>Loading Custom pcs...</div>
+        <div className="ml-10 mt-6">Loading Custom pcs...</div>
       )}
       {!loadingLaptops ? (
         <Products title="Laptops" products={fetchedLaptops} />
       ) : (
-        <div>Loading laptops...</div>
+        <div className="ml-10 mt-6">Loading laptops...</div>
       )}
       {!loadingDesktops ? (
         <Products title="Desktops" products={fetchedDesktops} />
       ) : (
-        <div>Loading desktops...</div>
+        <div className="ml-10 mt-6">Loading desktops...</div>
       )}
       {!loadingMonitors ? (
         <Products title="Monitors" products={fetchedMonitors} />
       ) : (
-        <div>Loading monitors...</div>
+        <div className="ml-10 mt-6">Loading monitors...</div>
       )}
 
       <Brands container="container" />
