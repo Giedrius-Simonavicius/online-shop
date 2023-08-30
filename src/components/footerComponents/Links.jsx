@@ -11,6 +11,7 @@ function Links() {
   const handleDisclosureChange = (panelId) => {
     setActivePanel((prevPanel) => (prevPanel === panelId ? null : panelId));
   };
+
   const informationLinks = [
     { label: 'About Us', to: '/about-us' },
     { label: 'About Zip', to: '#' },

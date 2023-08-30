@@ -101,7 +101,7 @@ function Products({ products, title }) {
         />
         {xlScreen
           ? slicedProductsForXl.map((product, index) => (
-              <li className="mx-4" key={index}>
+              <li className="mx-4 duration-200  hover:scale-110" key={index}>
                 <Link
                   to={`/all-products/${product.uid}`}
                   key={index}
@@ -159,7 +159,7 @@ function Products({ products, title }) {
               </li>
             ))
           : slicedProducts.map((product, index) => (
-              <li className="mx-4" key={index}>
+              <li className="mx-4 duration-200  hover:scale-110" key={index}>
                 <Link
                   to={`/all-products/${product.uid}`}
                   key={index}
